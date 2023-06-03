@@ -28,7 +28,7 @@ export default function Home() {
 
           <h1 style={{  fontFamily: "'Caveat', cursive"}}>Welcome to Sofa Lofi</h1>
           <div className={styles.description}>
-            <p>some emotional stuff</p>
+            <p>some emotional bullshit</p>
           </div>
 
           <motion.div
