@@ -4,12 +4,14 @@ import styles from '@/styles/Home.module.css'
 //GLOBALSTATES
 import { GlobalStates } from '@/globalstates/GlobalStates'
 import { useContext, useEffect, useState } from "react";
-import { useScroll } from "framer-motion";
 
 
 
 //top navbar
 const Navbar = () => {
+
+    //navbar opacity
+    const [navbarOpacity, setNavbarOpacity] = useState("0");
 
     //PASSING GLOBAL SETTINGS
     const { mainWidth } = useContext(GlobalStates);
@@ -17,6 +19,12 @@ const Navbar = () => {
     //SETTINGS
     //const maxWidth = window.innerWidth;
     const [maxWidth, setMaxWidth] = useState(0);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setNavbarOpacity("1");
+        }, 2000)
+    }, [])
 
     //GET WINDOW WIDTH
     useEffect(() => {
@@ -47,6 +55,10 @@ const Navbar = () => {
         <div 
         className="navpage" 
         onResize={resizeFun}
+        style={{
+            opacity: navbarOpacity,
+            transition: "1s"
+        }}
         >
         <nav 
         style={{width: maxWidth}} 
