@@ -6,7 +6,7 @@
 
 :root {
     background: rgb(20, 20, 20);
-
+    background-image: linear-gradient(to bottom, rgb(20, 20, 20) , rgb(50, 50, 50));
 }
 
 a{

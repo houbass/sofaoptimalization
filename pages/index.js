@@ -150,7 +150,8 @@ export default function Home() {
           justifyContent: "center",
           color: "white",
           maxWidth: `${maxWidth}px`,
-          background: "rgba(20,20, 20, 1)",
+          //background: "rgba(20,20, 20, 1)",
+          backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(50, 50, 50))"
           
         }}>
 
