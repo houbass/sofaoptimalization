@@ -24,9 +24,9 @@ const hourss = useRef(date.getHours());
 
 //STYLES
 const styleMain = {
-    position: "absolute",
-    left: "10px",
-    marginTop: "70px",
+    //position: "absolute",
+    //left: "10px",
+    //marginTop: "70px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",

@@ -9,13 +9,24 @@ import { GlobalStatesProvider } from '@/globalstates/GlobalStates'
 //components
 import Navbar from '@/components/Navbar'
 import Spotifyplayer from '@/components/Spotifyplayer'
-
-//CSS
-//import '/SubmitDemo.css';
-import styles from '@/styles/SubmitDemo.css'
+import { useEffect } from 'react'
 
 export default function App({ Component, pageProps }) {
 
+  //MOBILE OR COMPUTER CHECK
+  useEffect(() => {
+    if (navigator.userAgent.match(/Android/i)
+    || navigator.userAgent.match(/webOS/i)
+    || navigator.userAgent.match(/iPhone/i)
+    || navigator.userAgent.match(/iPad/i)
+    || navigator.userAgent.match(/iPod/i)
+    || navigator.userAgent.match(/BlackBerry/i)
+    || navigator.userAgent.match(/Windows Phone/i)) {
+       console.log("ITS MOBILE")
+    } else {
+      console.log("ITS COMPUTER")
+    }
+  }, [])
 
   return (
     <>

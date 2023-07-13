@@ -1,6 +1,6 @@
 import { color } from "framer-motion";
 import { Preahvihear } from "next/font/google";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 //local storage hook
 import useLocalStorageState from 'use-local-storage-state'
@@ -10,6 +10,8 @@ import backgroundPic2 from "@/components/pic/background2.svg"
 
 const Todos = () => {
 
+    const tableRef = useRef();
+    
     //TODO
     const [todo, setTodo] = useState("");
     const [todos, setTodos] = useLocalStorageState('todos', {defaultValue: [] });
@@ -23,8 +25,8 @@ const Todos = () => {
     const [box1YOffset, setBox1YOffset] = useState(0);
 
     //MAP BOX
-    const [mapBoxX, setMapBoxX] = useState(100);
-    const [mapBoxY, setMapBoxY] = useState(200);
+    const [mapBoxX, setMapBoxX] = useState(tableRef.current?.offsetLeft + 50);
+    const [mapBoxY, setMapBoxY] = useState(300);
 
     //INFO TEXT
     const [infoText, setInfoText] = useState("");
@@ -46,6 +48,7 @@ const Todos = () => {
         setInfoText("");
     }
 
+ 
     
     //add 
     const todoAdd = () => {
@@ -67,8 +70,8 @@ const Todos = () => {
                     marginTop: "10px",
                     zIndex: "2"
                 }]);
-                setMapBoxX(Math.random() * (windowWidth * 0.8));
-                setMapBoxY(240 + (Math.random() * 300));
+                setMapBoxX((tableRef.current.offsetLeft + 30) + Math.random() * (tableRef.current.offsetWidth - 100));
+                setMapBoxY((tableRef.current.offsetTop + 30) + (Math.random() * (tableRef.current.offsetHeight - 100)));
                 
             }
             if(checking.length > 0){
@@ -101,13 +104,19 @@ const Todos = () => {
 
 
     const getCoordinates = (e) => {
-        //console.log(e.pageY);
+        console.log("CURSOR X: " + e.pageX);
+        console.log("TABLE LEFT" + tableRef.current.offsetLeft);
+        console.log("CURSOR Y: " + e.pageY);
+        console.log(tableRef.current?.offsetWidth)
+
     }
 
     //GET WINDOW WIDTH
     useEffect(() => {
         setWindowWidth(window.innerWidth)
+        console.log("OFFSET TOP: " + tableRef.current.offsetTop); 
     })
+
 
 
 
@@ -118,12 +127,12 @@ const Todos = () => {
 
         style={{
             width: "90%",
-            height: "500px",
-            //background: "rgba(255,255,255,0.2",
+            height: "700px",
+            //background: "orange",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            marginTop: "80px",
+            //marginTop: "80px",
             marginBottom: "150px"
         }}>
             <div style={{display: "flex"}}>
@@ -131,16 +140,17 @@ const Todos = () => {
                 <button style={{width: "30px",height: "30px", borderRadius: "50%"}} className='material-symbols-outlined' onClick={todoAdd}>add</button>
             </div>
             <p style={{color: "red", fontWeight: "bold", fontSize: "12px"}}>{infoText}</p>
-            
+            <br/>
             <div 
+            ref={tableRef}
             style={{
-                position: "absolute",
+                //position: "absolute",
                 backgroundImage: `url(${backgroundPic2.src})`,
                 width: "90%",
                 top: "200px",
                 height: "500px",
                 borderRadius: "40px",
-                zIndex: "-1"
+                //zIndex: "0"
             }}>
 
             </div>
@@ -168,7 +178,7 @@ const Todos = () => {
                         setCursor("grabbing");
                         setTodos(todos.map((item) => {
                             if(item.text === note.text){
-                                if(e.pageY > 200){
+                                if(e.pageY > tableRef.current.offsetTop){
 
                                     return {
                                         ...item, 
@@ -179,8 +189,8 @@ const Todos = () => {
                                 }else{
                                     return {
                                         ...item, 
-                                        x: 100, 
-                                        y: 210,
+                                        x: tableRef.current.offsetLeft + 50, 
+                                        y: tableRef.current.offsetTop + 30,
                                         visibility: "hidden"
                                     }
                                 }

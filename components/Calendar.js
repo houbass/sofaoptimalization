@@ -24,9 +24,9 @@ function Calendar() {
 
     //STYLES
     const styleMain = {
-        position: "absolute",
-        marginTop: "70px",
-        right: "10px",
+        //position: "absolute",
+        //marginTop: "70px",
+        //right: "10px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

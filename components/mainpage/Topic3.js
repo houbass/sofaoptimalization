@@ -19,7 +19,7 @@ import backgroundPic2 from "@/components/pic/background2.svg"
 
 const inter = Inter({ subsets: ['latin'] })
 
-const Topic3 = ({ topic3Opacity }) => {
+const Topic3 = ({ topic3Opacity, blur }) => {
 
     return(
         <>
@@ -32,6 +32,8 @@ const Topic3 = ({ topic3Opacity }) => {
             borderRadius: "0 20px 20px 0",
             marginTop: "80px",
             opacity: topic3Opacity,
+            filter: blur,
+            transition: "2s ease-in"
             //transition: "0.2s ease-in"
           }}>
 

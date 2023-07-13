@@ -136,8 +136,8 @@ export default function Home() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        //background: "rgb(20,20,20)",
-        backgroundImage: `url(${backgroundPic2.src})`
+        background: "rgb(20,20,20)",
+        //backgroundImage: `url(${backgroundPic2.src})`
         
       }} 
       className={`${inter.className} `}>
@@ -151,13 +151,16 @@ export default function Home() {
           color: "white",
           maxWidth: `${maxWidth}px`,
           //background: "rgba(20,20, 20, 1)",
-          backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(50, 50, 50))"
-          
+          backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
+          border: "solid 20px transparent",
+          borderImage: `url(${backgroundPic2.src}) 20 round`,
+          borderBottomStyle: "none",
+          borderTopStyle: "none",
         }}>
 
           <Topic1 topic1Width={topic1Width} div1Width={div1Width} setDiv1Width={setDiv1Width} topic1Opacity={topic1Opacity} blur={topic1blur}/>
           <Topic2 topic2Width={topic2Width} topic2Opacity={topic2Opacity} blur={topic2blur}/>
-          <Topic3 topic3Width={topic3Width} topic3Opacity={topic3Opacity}/>
+          <Topic3 topic3Width={topic3Width} topic3Opacity={topic2Opacity} blur={topic2blur}/>
           <Topic4 />
           <Footer />
 
