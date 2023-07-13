@@ -2,17 +2,20 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  
 }
 
 :root {
-
-
-    background: rgb(203, 245, 245);
+    background: rgb(20, 20, 20);
 
 }
 
+a{
+  cursor: default;
+}
 
+a > .iconImg {
+  cursor:pointer;
+}
 
 .center {
   display: flex;
@@ -28,13 +31,15 @@
   transition: 0.5s ease-in-out; 
 }
 
+.big {
+  font-size: 70px;
+}
+
 
 .box {
-  position: absolute;
-  top: 300px;
   width: 100px;
   height: 100px;
-  background: rgb(255, 0, 0);
+  background: red;
 }
 
 .box2 {
@@ -54,6 +59,7 @@
 .addrelease {
   display: flex;
   flex-direction: column;
+  color: black;
 }
 
 .addreleaseconfirm {
@@ -102,6 +108,19 @@
   width: fit-content;
   margin: 15px;
 }
+
+.frame2 {
+  background: rgba(241, 239, 235, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0 0 30px 30px;
+  width: fit-content;
+  margin: 15px;
+  color: black;
+}
+
+
 .releasesList {
   display: flex;
   flex-direction: column;
@@ -110,6 +129,7 @@
 .releasesCard {
   display: flex;
   flex-direction: row;
+  color: black;
 }
 
 .icons {
@@ -119,9 +139,21 @@
   justify-content: space-around;
 }
 
+.icons2 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .icon {
   width: 50px;
   height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5px;
 }
 
 .iconImg {
@@ -144,6 +176,7 @@
   flex-direction: column;
   background: pink;
   align-items: center;
+  color: black;
 }
 
 .pb {
@@ -230,6 +263,7 @@
   color: white;
 }
 
+
 fieldset {
   width: fit-content;
   text-align: left;
@@ -247,8 +281,197 @@ input {
   margin-bottom: 7px;
   border-radius: 10px;
   border: none;
+
 }
 
 label {
   font-weight: bold;
+}
+
+.nicebutton {
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  background: white;
+  color: black;
+  transition: 0.2s ease-in-out;
+}
+
+.nicebutton:hover {
+  background: rgba(247, 58, 58, 0.8);
+  color: rgb(255, 255, 255);
+}
+
+.mt {
+  margin-top: 20px;
+}
+
+.check {
+  filter: blur( 0px);
+}
+
+.calbtn {
+  padding: 5px;
+}
+
+.calbtn-table {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.navpage {
+  width: 100%;
+  position: fixed;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  background: rgba(20,20,20,0.9);
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+}
+
+.navbar button {
+  font-size: 20px;
+  background: none;
+  border: none;
+  transition: 0.2s;
+  color: white;
+}
+
+.navbar button:hover {
+  color: rgb(255, 117, 117);
+}
+
+.contracts{
+  color: white;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 200px;
+}
+
+
+.pdf{
+  color: black;
+  background: white;
+  width: 1000px;
+  margin-top: 50px;
+  padding: 30px 30px;
+}
+
+.center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 10px;
+}
+
+.row2{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 5px;
+}
+
+.row3{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 300px;
+  gap: 5px;
+}
+
+.col{
+  display: flex;
+  flex-direction: column;
+}
+
+.underline{
+  text-decoration: underline 2px;
+}
+
+.inputs{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+}
+
+.inputs > input {
+  width: 100%;
+}
+
+.signbox{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.sign {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;
+}
+
+.podpis {
+  position: absolute;
+  margin-top: 42px;
+  margin-left: 20px;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 30px;
+
+}
+
+.logoo {
+  position: absolute;
+  opacity: 0.9;
+}
+
+.generatetable {
+  margin-top: 10px;
+  padding: 20px;
+  border-radius: 50px;
+  border: solid 3px white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.linkContracts {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.linkContracts:hover {
+  color: red;
 }

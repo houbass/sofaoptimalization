@@ -147,7 +147,7 @@ const AdminContent = () => {
             </div>
 
             {data.map((data) => (
-                <div className='admincontent'>
+                <div key={data.releaseindex} className='admincontent'>
                     <div style={{display: "flex"}}>
                         <h5>#{data.releaseindex}| {data.artists} - {data.trackname}</h5>
                     </div>

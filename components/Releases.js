@@ -84,7 +84,7 @@ const Releases = () => {
         <div className="releasesList">
             <div className="releasesCard">
             {filteredMyData.map((data) => (
-                <div className="frame"> 
+                <div key={data.releaseindex} className="frame"> 
                     <iframe 
                         width="260" 
                         height="260" 
@@ -106,7 +106,6 @@ const Releases = () => {
                                 <a href={data.deezerlink} target="_blank"><Image className="iconImg" src={Deezer} /></a>
                             </div>
                         </div>
-                        <br/>
                         <p>{data.releasedate}</p>
                         <p>#{data.releaseindex}</p>
                     </div>

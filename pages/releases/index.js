@@ -47,7 +47,10 @@ const ReleasesPage = () => {
 
 
     return(
-        <main className={`${styles.main} ${inter.className}`}>
+        <main 
+        className={`${styles.main} ${inter.className}`} 
+        
+        >
 
             <motion.div 
                 className={styles.center} 
@@ -59,14 +62,16 @@ const ReleasesPage = () => {
                     ease: "easeInOut",
                 }}
                 >
-                    
-                    <h2>RELEASES PAGE</h2>
-                <div className={styles.description}>
-                    <p>Latest Sofa Lofi releases</p>
-                </div>
-
-                <Releases />
-
+                    <div 
+                    style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        marginTop: "70px",
+                        alignItems: "cententer"
+                    }}>
+                        <p>Latest Sofa Lofi releases</p>
+                        <Releases />
+                    </div>
             </motion.div>
             <br/><br/><br/><br/><br/><br/><br/>
         </main>

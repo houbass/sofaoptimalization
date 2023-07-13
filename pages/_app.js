@@ -1,5 +1,6 @@
 import Head from 'next/head'
 
+//
 import '@/styles/globals.css'
 
 //GLOBALSTATES
@@ -9,7 +10,12 @@ import { GlobalStatesProvider } from '@/globalstates/GlobalStates'
 import Navbar from '@/components/Navbar'
 import Spotifyplayer from '@/components/Spotifyplayer'
 
+//CSS
+//import '/SubmitDemo.css';
+import styles from '@/styles/SubmitDemo.css'
+
 export default function App({ Component, pageProps }) {
+
 
   return (
     <>
@@ -26,6 +32,7 @@ export default function App({ Component, pageProps }) {
         <Component {...pageProps} />
         <Spotifyplayer />
       </GlobalStatesProvider>
+
     </>
   )
 }

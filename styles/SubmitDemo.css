@@ -1,0 +1,134 @@
+
+  .title {
+    text-align: center;
+  }
+
+  .description {
+    text-align: left;
+  }
+
+  
+  .textarea {
+    background: rgb(241, 239, 235);
+    border-radius: 15px;
+    padding: 10px;
+    resize: none;
+    font-weight: bold;
+    border: none;
+  } 
+
+  .inputRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .inputCol {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    text-align: left;
+  }
+  
+  .error {
+    font-size: 12px;
+    padding-left: 10px;
+    color: rgba(255, 0, 0, 0.705);
+    text-shadow: 0 0 5px black;
+    pointer-events: none;
+  }
+  
+  .mb {
+    margin-bottom: 5px;
+  }
+  
+  .mt {
+    margin-top: 20px;
+  }
+  
+  h1, h2, h3, h4, h5{
+    pointer-events: none;
+  }
+  
+  .terms {
+    padding-left: 5px;
+    pointer-events: all;
+    cursor: pointer;
+  }
+  
+  .terms:hover {
+    scale: 120%;
+  }
+
+  li {
+    font-size: 15px;
+  }
+
+
+  .submitButt {
+    background-color: rgb(241, 239, 235);
+    padding: 5px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: black;
+  }
+
+
+
+  .list {
+    padding-left: 40px;
+  }
+
+.form1 {
+  width: 100%;
+}
+@media (min-width: 650px) {
+  .form1 {
+    width: 500px;
+  }
+}
+
+.btnStyle2 {
+  background: rgb(241, 239, 235);
+  width: 250px;
+  padding: 5px 0;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.buttonsBox {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  align-items: center;
+}
+
+
+.length {
+  width: 110px;
+}
+@media (min-width: 650px) {
+  .length {
+    width: auto;
+  }
+}
+
+.input {
+  padding: 10px;
+  margin-top: 5px;
+  height: 30px;
+  background: rgb(241, 239, 235);
+  color: black;
+  border-radius: 15px;
+  border: none;
+  font-weight: bold;
+}
+
+.submissionCard {
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.submissionCard:hover {
+  opacity: 1;
+}

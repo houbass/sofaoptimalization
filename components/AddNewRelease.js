@@ -89,7 +89,7 @@ const AddNewRelease = () => {
 
 return (
     <>
-    <div>
+    <div style={{marginTop: "60px"}}>
         <div className='addrelease'>
             <fieldset>
             <legend><strong>add new release</strong></legend>

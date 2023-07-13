@@ -10,13 +10,15 @@ import { ref, uploadBytes } from "firebase/storage";
 export const GlobalStates = createContext();
 export const GlobalStatesProvider = ({ children }) => {
 
+    //MAIN DOC WIDTH
+    const [mainWidth, setMainWidth] = useState(null);
+
     //REFRESH FETCHING STATE
     const [refresh, setRefresh] = useState(false);
 
     //FETCHING RELEASES FROM DATABASE
     //definice collekce databaze
     const [myData, setMyData] = useState([]);
-    const [myDataIndex, setMyDataIndex] = useState([]);
 
     //LOADER STATE
     const [loaderState, setLoaderState] = useState(false);
@@ -63,7 +65,7 @@ export const GlobalStatesProvider = ({ children }) => {
 
 
     return (
-        <GlobalStates.Provider value={{ myData, refresh, setRefresh, loaderState, getData }}>
+        <GlobalStates.Provider value={{ myData, refresh, setRefresh, loaderState, getData, mainWidth, setMainWidth }}>
             {children}
         </GlobalStates.Provider>
     );

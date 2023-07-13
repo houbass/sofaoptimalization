@@ -18,25 +18,26 @@ import { useCallback, useContext, useEffect, useState } from 'react';
 
 const AdminLogIn = ({ setShowContent, setShowContentOpacity }) => {
 
+    //ERR
+    const [errorState, setErrorState] = useState("");
+
     //PASSING GLOBAL SETTINGS
     const { myData, loaderState, getData } = useContext(GlobalStates);
 
     //LOGIN SAVE
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
-    const [logInBtnVisibility, setLogInBtnVisibility] = useState("hidden");
     const [logOutBtnVisibility, setLogOutBtnVisibility] = useState("hidden");
     const [logInState, setLogInState] = useState(false);
     const [logInState2, setLogInState2] = useState(false);
 
     //INFO LOGIN TEXT
-    const [infoText, setInfoText] = useState("");
-    const [infoTextColor, setInfoTextColor] = useState("");
+    const [errorText, setErrorText] = useState("");
 
     //SHOW PASSWORD
     const [showPasswordState, setShowPasswordState] = useState("password");
     const [showBtnText, setShowBtnText] = useState("show");
-    const [showToggler, setShowToggler] = useState(null);
+    const [showToggler, setShowToggler] = useState(false);
 
     //SHOW LOGIN TABLE
     const [showTable, setSHowTable] = useState("visible");
@@ -56,19 +57,41 @@ const AdminLogIn = ({ setShowContent, setShowContentOpacity }) => {
     
     //email sign in funkce s error printem
     const logIn = async () => {
-        setSHowTable("hidden");
-        setShowTableOpacity(0);
-        setLogOutBtnVisibility("visible");
-        setShowContent("visible");
-        setShowContentOpacity(1);
+
         try {
             await signInWithEmailAndPassword(auth, name, password);
             setLogInState(!logInState);
             setLogInState2(!logInState2);
+
+            setSHowTable("hidden");
+            setShowTableOpacity(0);
+            setLogOutBtnVisibility("visible");
+            setShowContent("visible");
+            setShowContentOpacity(1);
         } catch (err) {
             console.error(err);
             setLogInState2(!logInState2);
+
+            const invalidEmail = String(err).includes("invalid-email");
+            const userNotFound = String(err).includes("user-not-found");
+            const networkError = String(err).includes("network-request-failed");
+            const missingPassword = String(err).includes("missing-password");
+            const invalidPassword = String(err).includes("wrong-password");
+
+            //setErrorState(err);
+            if(networkError === true){
+                setErrorText("NETWORK ERROR");
+            }if(invalidEmail === true){
+                setErrorText("INVALID EMAIL");
+            }if(userNotFound === true){
+                setErrorText("USER NOT FOUND");
+            }if(missingPassword === true){
+                setErrorText("MISSING PASSWORD");
+            }if(invalidPassword === true){
+                setErrorText("WRONG PASSWORD");
+            }    
         }
+
     };
 
     //logout funkce
@@ -159,7 +182,7 @@ const AdminLogIn = ({ setShowContent, setShowContentOpacity }) => {
                     style={{ marginTop: "5px"}} 
                     className='custombutton'
                 >login</button>
-                <p style={{color: infoTextColor}}>{infoText}</p>
+                <p style={{fontWeight: "bold"}}>{errorText}</p>
             </div>
             </div>
             </div>
