@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 SVG GENERATORY:
 https://bgjar.com
+=======
+git clone semnapishttps z githubu
+npm i
+
+>>>>>>> 1e941810ad678d5746738227c36e28360fd21dcf
