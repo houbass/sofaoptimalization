@@ -130,6 +130,7 @@ export default function Home() {
 
       </Head>
 
+    <div>
       <main 
       style={{
         display: "flex",
@@ -141,7 +142,6 @@ export default function Home() {
       }} 
       className={`${inter.className} `}>
 
-<<<<<<< HEAD
         <div 
         ref={mainRef}
         style={{
@@ -153,12 +153,6 @@ export default function Home() {
           background: "rgba(20,20, 20, 1)",
           
         }}>
-=======
-          <h1 style={{  fontFamily: "'Caveat', cursive"}}>Welcome to Sofa Lofi</h1>
-          <div className={styles.description}>
-            <p>some emotional bullshit</p>
-          </div>
->>>>>>> 1e941810ad678d5746738227c36e28360fd21dcf
 
           <Topic1 topic1Width={topic1Width} div1Width={div1Width} setDiv1Width={setDiv1Width} topic1Opacity={topic1Opacity} blur={topic1blur}/>
           <Topic2 topic2Width={topic2Width} topic2Opacity={topic2Opacity} blur={topic2blur}/>
@@ -169,6 +163,7 @@ export default function Home() {
         </div>
 
       </main>
+      </div>
     </>
   )
 }

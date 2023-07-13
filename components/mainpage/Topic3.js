@@ -45,7 +45,7 @@ const Topic3 = ({ topic3Opacity }) => {
               </div>
 
               <div>
-                <h1 className='big'>Let's try Sofa workplace</h1>
+                <h1 className='big'>Lets try Sofa workplace</h1>
                 <div style={{maxWidth: "600px"}}>     
                   <p style={{fontSize: "20px"}}>This feature will help you to work and listen music on one place.
                   </p>

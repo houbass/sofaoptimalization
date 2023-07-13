@@ -375,7 +375,7 @@ const Todos = () => {
                     <div style={{marginLeft: "5px"}}>
 
                         {completedTodo.map((item) => (
-                            <div>
+                            <div key={item.text}>
                                 <p style={{color: "green", fontWeight: "bold"}}>{item}</p>
                             </div>
                         ))}
