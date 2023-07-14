@@ -56,7 +56,7 @@ const Topic1 = ({ topic1Width, setDiv1Width, topic1Opacity, topic1Animation, mob
     setHoverOpacity("1");
   }
 
-/*
+
   //MOBILE LOGIC
   useEffect(() => {
     const animationId = {id: null}
@@ -79,7 +79,7 @@ const Topic1 = ({ topic1Width, setDiv1Width, topic1Opacity, topic1Animation, mob
     }
   })
 
-*/
+
     return(
         <>
           <div className='check'
