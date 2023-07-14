@@ -65,7 +65,7 @@ const Topic3 = ({ topic3Opacity, blur, topic3Animation, mobile, titleSize, flexS
                 }}>
                   <Lottie 
                     lottieRef={animationRef} 
-                    style={{width: lottieWidth}}  
+                    style={{width: lottieWidth, height: lottieWidth}}  
                     animationData={topic3Animation} 
                   />
               </div>

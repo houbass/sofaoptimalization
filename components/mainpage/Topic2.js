@@ -156,7 +156,7 @@ const Topic2 = ({ topic2Width, topic2Opacity, topic2Animation, blur, titleSize, 
                 }}>
                   <Lottie 
                   lottieRef={animationRef}
-                  style={{width: lottieWidth}} 
+                  style={{width: lottieWidth, height: lottieWidth}} 
                   onComplete={() => {
                     animationRef.current.goToAndPlay(42, true);
                   }} 
