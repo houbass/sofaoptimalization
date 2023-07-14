@@ -1,6 +1,6 @@
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
 
 //motion lib
@@ -14,14 +14,33 @@ const inter = Inter({ subsets: ['latin'] })
 
 const Contact = () => {
 
+    //pageref
+    const pageRef = useRef();
+
     //const height = window.innerHeight;
     const [height, setHeight] = useState(0);
 
 
-    //update when load
+    //resize fun
+    function resizeFun() {
+        if(window.innerHeight > (pageRef.current.offsetTop + pageRef.current.offsetHeight)){
+            setHeight(window.innerHeight);
+        }else{
+            setHeight(pageRef.current.offsetTop + pageRef.current.offsetHeight)
+        }
+
+        console.log("resizing")
+    }
+
+    //set height for frame
     useEffect(() => {
-        setHeight(window.innerHeight);
-    }, []);       
+        resizeFun();
+        window.addEventListener("resize", resizeFun);
+
+        return () => {
+            window.removeEventListener("resize", resizeFun);
+        }
+    });     
 
     return(
 
@@ -52,6 +71,7 @@ const Contact = () => {
             borderTopStyle: "none",
         }}>
         <motion.div 
+        ref={pageRef} 
         animate={{
             opacity: [0, 1]
         }}
@@ -63,7 +83,9 @@ const Contact = () => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            width: "100%"
+            width: "100%",
+            height: "800px",
+            //background: "orange"
         }}
         >      
             <div 

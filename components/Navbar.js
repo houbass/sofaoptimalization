@@ -32,7 +32,6 @@ const Navbar = () => {
     })
 
     function resizeFun() {
-        console.log("RESIZING");
         if(window.innerWidth < 1300){
             setMaxWidth(window.innerWidth);
         }else{

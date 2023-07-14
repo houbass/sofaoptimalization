@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
 
 //motion lib
 import { motion } from 'framer-motion'
@@ -10,21 +11,39 @@ import backgroundPic2 from "@/components/pic/background2.svg";
 
 //COMPONENTS
 import SubmitDemo from '@/components/SubmitDemo'
-import { useEffect, useState } from 'react'
-
 
 
 const inter = Inter({ subsets: ['latin'] })
 
 const Demo = () => {
 
+    //pageref
+    const pageRef = useRef();
+
     //const height = window.innerHeight;
     const [height, setHeight] = useState(0);
 
-    //update when load
+
+    //resize fun
+    function resizeFun() {
+        if(window.innerHeight > (pageRef.current.offsetTop + pageRef.current.offsetHeight)){
+            setHeight(window.innerHeight);
+        }else{
+            setHeight(pageRef.current.offsetTop + pageRef.current.offsetHeight)
+        }
+
+        console.log("resizing")
+    }
+
+    //set height for frame
     useEffect(() => {
-        setHeight(window.innerHeight);
-    }, []);
+        resizeFun();
+        window.addEventListener("resize", resizeFun);
+
+        return () => {
+            window.removeEventListener("resize", resizeFun);
+        }
+    });
 
 
     return(
@@ -65,6 +84,7 @@ const Demo = () => {
         className={`${inter.className}`}
         >
             <motion.div 
+                ref={pageRef} 
                 animate={{
                     opacity: [0, 1]
                 }}

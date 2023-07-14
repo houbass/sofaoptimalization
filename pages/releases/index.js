@@ -1,16 +1,11 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext, useRef } from 'react';
 
 //fonts and styles
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 
-//firebase database
-import { db, storage } from "config/firebase";
-import { getDocs, collection, addDoc, deleteDoc, updateDoc, doc } from "firebase/firestore";
-import { ref, uploadBytes } from "firebase/storage";
-
 //motion lib
-import {AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 //pic 
 import backgroundPic from "@/components/pic/background.svg"
@@ -19,54 +14,55 @@ import backgroundPic2 from "@/components/pic/background2.svg"
 //components
 import Releases from '@/components/Releases';
 
-
 const inter = Inter({ subsets: ['latin'] })
 
 const ReleasesPage = () => {
 
-    //fettching from database here
-    const [myData, setMyData] = useState([]);
+    //pageref
+    const pageRef = useRef();
 
     //const height = window.innerHeight;
     const [height, setHeight] = useState(0);
 
-        //data z databaze
-    const contentCollectionRef = collection(db, "content");
-    const getData = async () => {
-    try {
-      const data = await getDocs(contentCollectionRef);
-      const filteredData = data.docs.map((doc) => ({
-        ...doc.data(), 
-        id: doc.id,
-      }));
-      setMyData(filteredData);
 
-    } catch (err) {
-      console.error(err);
+    //resize fun
+    function resizeFun() {
+        if(window.innerHeight > (pageRef.current.offsetTop + pageRef.current.offsetHeight)){
+            setHeight(window.innerHeight);
+        }else{
+            setHeight(pageRef.current.offsetTop + pageRef.current.offsetHeight)
+        }
+
+        console.log("resizing")
     }
-    };
 
-    //update when load
+    //set height for frame
     useEffect(() => {
-        setHeight(window.innerHeight);
-        getData();
-    }, []);
+        resizeFun();
+        window.addEventListener("resize", resizeFun);
+
+        return () => {
+            window.removeEventListener("resize", resizeFun);
+        }
+    });
 
 
 
     return(
+        <>
         <div
+        
         style={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             width: "100%",
+            height: `${height}px`,
         }}>
-
 
         <div 
         style={{
-            height: height,
+            height: "100%",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -81,8 +77,8 @@ const ReleasesPage = () => {
             borderTopStyle: "none",
         }}>
 
-
         <main 
+        
         className={` ${inter.className}`} 
         style={{
             marginTop: "100px"
@@ -90,6 +86,7 @@ const ReleasesPage = () => {
         >
 
             <motion.div 
+                ref={pageRef} 
                 animate={{
                     opacity: [0, 1]
                 }}
@@ -104,7 +101,7 @@ const ReleasesPage = () => {
                         flexDirection: "column",
                         marginTop: "50px",
                         alignItems: "center",
-
+                        height: "800px",
                     }}>
                         <h1 
                         style={{
@@ -121,10 +118,10 @@ const ReleasesPage = () => {
 
                     </div>
             </motion.div>
-            <br/><br/><br/><br/><br/><br/><br/>
         </main>
         </div>
         </div>
+        </>
     )
 }
 

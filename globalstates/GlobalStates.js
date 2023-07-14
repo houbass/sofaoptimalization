@@ -4,7 +4,6 @@ import { createContext, useEffect, useState } from "react";
 //firebase database
 import { db, storage } from "config/firebase";
 import { getDocs, collection, addDoc, deleteDoc, updateDoc, doc } from "firebase/firestore";
-import { ref, uploadBytes } from "firebase/storage";
 
 
 export const GlobalStates = createContext();
@@ -37,7 +36,6 @@ export const GlobalStatesProvider = ({ children }) => {
       }));
       setMyData(filteredData);
       setLoaderState(false);
-      console.log("FETCHING DATA")
     } 
     catch (err) {
       console.error(err);

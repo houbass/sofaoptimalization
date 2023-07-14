@@ -159,9 +159,14 @@ export default function Home() {
         }}>
 
           <Topic1 topic1Width={topic1Width} div1Width={div1Width} setDiv1Width={setDiv1Width} topic1Opacity={topic1Opacity} blur={topic1blur}/>
+          <div 
+          style={{
+            visibility: "hidden"
+          }}>
           <Topic2 topic2Width={topic2Width} topic2Opacity={topic2Opacity} blur={topic2blur}/>
           <Topic3 topic3Width={topic3Width} topic3Opacity={topic2Opacity} blur={topic2blur}/>
           <Topic4 />
+          </div>
           <Footer />
 
         </div>
