@@ -27,7 +27,7 @@ const inter = Inter({ subsets: ['latin'] })
 const Topic2 = ({ topic2Width, topic2Opacity, topic2Animation, blur }) => {
 
     //PASSING GLOBAL SETTINGS
-    const { myData } = useContext(GlobalStates);
+    const { myData, mobile } = useContext(GlobalStates);
 
     //Lottie ref
     const animationRef = useRef(null);
@@ -46,17 +46,10 @@ const Topic2 = ({ topic2Width, topic2Opacity, topic2Animation, blur }) => {
     useEffect(() => {
       window.addEventListener("resize", resizeFun);
       setActualWindowWidth(window.innerWidth);
-
-
-
-
       return() => {
-        window.cancelAnimationFrame("resize", resizeFun);
+        removeEventListener("resize", resizeFun);
       }
     }, [])
-
-
-
 
     //LATEST RELEASES CHANGE WITH WIDTH
     useEffect(() => {
@@ -71,6 +64,28 @@ const Topic2 = ({ topic2Width, topic2Opacity, topic2Animation, blur }) => {
       }
       if(actualWindowWidth > 1225){
         setReleasesQuantity(5);
+      }
+    })
+
+    //MOBILE LOGIC
+    useEffect(() => {
+      const animationId = {id: null}
+
+      function animation() {
+        animationId.id = window.requestAnimationFrame(animation);
+
+        if(mobile === true) {
+          animationRef.current.goToAndStop(42, true);
+        }else{
+          animationRef.current.play();
+        }
+        
+
+      }
+      animation();
+
+      return () => {
+        cancelAnimationFrame(animationId.id);
       }
     })
 

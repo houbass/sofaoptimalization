@@ -16,8 +16,32 @@ import backgroundPic2 from "@/components/pic/background2.svg"
 
 const inter = Inter({ subsets: ['latin'] })
 
-const Topic4 = ({ topic4Animation }) => {
+const Topic4 = ({ topic4Animation, mobile }) => {
 
+    //ref
+    const animationRef = useRef()
+  
+    //MOBILE LOGIC
+    useEffect(() => {
+      const animationId = {id: null}
+
+      function animation() {
+        animationId.id = window.requestAnimationFrame(animation);
+
+        if(mobile === true) {
+          animationRef.current.stop();
+        }else{
+          animationRef.current.play();
+        }
+        
+
+      }
+      animation();
+
+      return () => {
+        cancelAnimationFrame(animationId.id);
+      }
+    })
 
     return(
         <>
@@ -66,6 +90,7 @@ const Topic4 = ({ topic4Animation }) => {
                   marginRight: "30px"
                 }}>
                   <Lottie 
+                  lottieRef={animationRef}
                   style={{width: "300px"}} 
                   animationData={topic4Animation} 
                   />

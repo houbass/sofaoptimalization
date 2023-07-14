@@ -39,7 +39,7 @@ export default function Home() {
   const topic4Ref = useRef();
 
   //PASSING GLOBAL SETTINGS
-  const { setMainWidth } = useContext(GlobalStates);
+  const { setMainWidth, mobile } = useContext(GlobalStates);
 
   //MAIN PAGE
   const mainRef = useRef(null);
@@ -245,7 +245,15 @@ export default function Home() {
           <div
           ref={topic1Ref}
           >
-            <Topic1 topic1Width={topic1Width} div1Width={div1Width} setDiv1Width={setDiv1Width} topic1Opacity={topic1Opacity} topic1Animation={topic1Animation} blur={topic1blur}/>
+            <Topic1 
+              topic1Width={topic1Width} 
+              div1Width={div1Width} 
+              setDiv1Width={setDiv1Width} 
+              topic1Opacity={topic1Opacity} 
+              topic1Animation={topic1Animation} 
+              blur={topic1blur} 
+              mobile={mobile}
+            />
           </div>
 
           <div
@@ -257,13 +265,13 @@ export default function Home() {
           <div
           ref={topic3Ref}
           >
-            <Topic3 topic3Animation={topic3Animation} topic3Width={topic3Width} topic3Opacity={topic2Opacity} blur={topic2blur}/>
+            <Topic3 topic3Animation={topic3Animation} topic3Width={topic3Width} topic3Opacity={topic2Opacity} blur={topic2blur} mobile={mobile}/>
           </div>
 
           <div
           ref={topic4Ref}
           >
-            <Topic4 topic4Animation={topic4Animation}/>
+            <Topic4 topic4Animation={topic4Animation} mobile={mobile}/>
           </div>
           <Footer />
 

@@ -9,15 +9,16 @@ import styles from '@/styles/Home.module.css';
 import {AnimatePresence, motion } from 'framer-motion';
 
 //LOTTIE LIB
-import Lottie, {Play ,LottieRefCurrentProps} from "lottie-react";
+import Lottie, { LottieRefCurrentProps} from "lottie-react";
 
 //pic 
 import backgroundPic from "@/components/pic/background.svg";
 import backgroundPic2 from "@/components/pic/background2.svg";
+import { render } from 'react-dom';
 
 const inter = Inter({ subsets: ['latin'] })
 
-const Topic1 = ({ topic1Width, setDiv1Width, topic1Opacity, topic1Animation,  blur}) => {
+const Topic1 = ({ topic1Width, setDiv1Width, topic1Opacity, topic1Animation, mobile, blur }) => {
 
   const divRef = useRef(null);
   const div1y = divRef.current?.offsetTop;
@@ -39,8 +40,6 @@ const Topic1 = ({ topic1Width, setDiv1Width, topic1Opacity, topic1Animation,  bl
     setDiv1Width(divRef.current?.offsetWidth);
     window.addEventListener("resize", resizeFun);
 
-    animationRef.current.setSpeed(0.5);
-
     return() => {
       window.removeEventListener("resize", resizeFun);
     }
@@ -57,7 +56,30 @@ const Topic1 = ({ topic1Width, setDiv1Width, topic1Opacity, topic1Animation,  bl
     setHoverOpacity("1");
   }
 
+/*
+  //MOBILE LOGIC
+  useEffect(() => {
+    const animationId = {id: null}
 
+    function animation() {
+      animationId.id = window.requestAnimationFrame(animation);
+
+      if(mobile === true) {
+        animationRef.current.stop();
+      }else{
+        animationRef.current.play();
+      }
+      
+
+    }
+    animation();
+
+    return () => {
+      cancelAnimationFrame(animationId.id);
+    }
+  })
+
+*/
     return(
         <>
           <div className='check'
@@ -110,7 +132,11 @@ const Topic1 = ({ topic1Width, setDiv1Width, topic1Opacity, topic1Animation,  bl
                 top: `${div1y}px`,
                 
               }}>
-                <Lottie lottieRef={animationRef} style={{width: "300px"}} animationData={topic1Animation} />
+                <Lottie 
+                  lottieRef={animationRef} 
+                  style={{width: "300px"}} 
+                  animationData={topic1Animation} 
+                />
               </div>
 
               <div 
