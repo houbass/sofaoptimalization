@@ -46,6 +46,7 @@ export default function Home() {
 
   //SETTINGS
   const maxWidth = 1300;
+  const [titleSize, setTitleSize] = useState("70px");
 
   //TOPIC 1 STATES
   const [topic1Width, setTopic1Width] = useState("0");
@@ -100,10 +101,11 @@ export default function Home() {
       console.log("TOPIC 1 IS VISIBLE")
       setTopic1Animation(topic1animationData);
     }
+    /*
     if((windowHeight + getscrollY) > (topic1Y) && (getscrollY) > (topic1Y + topic1Height - 100)){
       console.log("TOPIC 1 IS HIDDEN")
       setTopic1Animation(null);
-    }
+    }*/
 
     //TOPIC 2
     const topic2Y = topic2Ref.current.offsetTop;
@@ -139,8 +141,84 @@ export default function Home() {
     if((windowHeight + getscrollY) < (topic4Y + constant) ){
       setTopic4Animation(null);
     }
-    
   }
+
+
+
+
+
+
+
+
+
+  //WIDTH LESS THEN 850px and 700px
+  const [flexStyle1, setFlexStyle] = useState("row");
+  const [lottieWidth, setLottieWidth] = useState("300px");
+  const [pSize, setPsize] = useState("20px");
+
+  function resizeFun() {
+
+    //850px <
+    if(window.innerWidth < 850 ){
+      setTitleSize("50px");
+
+      //700px <
+      if(window.innerWidth < 700) {
+        setFlexStyle("column");
+        setLottieWidth("300px");
+        setPsize("20px");
+
+        //450px <
+        if(window.innerWidth < 450){
+          setTitleSize("35px");
+          setLottieWidth("190px");
+          setPsize("17px");
+
+
+          //320px <
+          if(window.innerWidth < 320){
+            setLottieWidth("150px");
+          }
+
+        }
+
+
+
+      }else{
+        setFlexStyle("row");
+        setLottieWidth("300px");
+        setPsize("20px");
+      }
+
+    }
+    if(window.innerWidth > 850 ){
+      setTitleSize("70px");
+    }
+
+    console.log(window.innerWidth)
+  }
+
+
+
+
+  //resize listener
+  useEffect(() => {
+    resizeFun();
+    window.addEventListener("resize", resizeFun);
+
+    return () => {
+      removeEventListener("resize", resizeFun);
+    }
+  }, [])
+
+
+
+
+
+
+
+
+
 
   //scroll listener
   useEffect(() => {
@@ -253,25 +331,55 @@ export default function Home() {
               topic1Animation={topic1Animation} 
               blur={topic1blur} 
               mobile={mobile}
+              titleSize={titleSize}
+              flexStyle1={flexStyle1} 
+              lottieWidth={lottieWidth} 
+              pSize={pSize}
             />
           </div>
 
           <div
           ref={topic2Ref}
           >
-          <Topic2 topic2Width={topic2Width} topic2Opacity={topic2Opacity} topic2Animation={topic2Animation} blur={topic2blur}/>
+          <Topic2 
+            topic2Width={topic2Width} 
+            topic2Opacity={topic2Opacity} 
+            topic2Animation={topic2Animation} 
+            blur={topic2blur} 
+            titleSize={titleSize} 
+            flexStyle1={flexStyle1}
+            lottieWidth={lottieWidth}
+            pSize={pSize}
+          />
           </div>
 
           <div
           ref={topic3Ref}
           >
-            <Topic3 topic3Animation={topic3Animation} topic3Width={topic3Width} topic3Opacity={topic2Opacity} blur={topic2blur} mobile={mobile}/>
+            <Topic3 
+              topic3Animation={topic3Animation} 
+              topic3Width={topic3Width} 
+              topic3Opacity={topic2Opacity} 
+              blur={topic2blur} 
+              mobile={mobile} 
+              titleSize={titleSize} 
+              flexStyle1={flexStyle1}
+              lottieWidth={lottieWidth}
+              pSize={pSize}
+            />
           </div>
 
           <div
           ref={topic4Ref}
           >
-            <Topic4 topic4Animation={topic4Animation} mobile={mobile}/>
+            <Topic4 
+              topic4Animation={topic4Animation} 
+              mobile={mobile} 
+              titleSize={titleSize}
+              flexStyle1={flexStyle1}
+              lottieWidth={lottieWidth}
+              pSize={pSize}
+            />
           </div>
           <Footer />
 

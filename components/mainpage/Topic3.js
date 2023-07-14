@@ -16,7 +16,7 @@ import backgroundPic2 from "@/components/pic/background2.svg"
 
 const inter = Inter({ subsets: ['latin'] })
 
-const Topic3 = ({ topic3Opacity, blur, topic3Animation, mobile }) => {
+const Topic3 = ({ topic3Opacity, blur, topic3Animation, mobile, titleSize, flexStyle1, lottieWidth, pSize }) => {
 
   //ref
   const animationRef = useRef();
@@ -57,7 +57,7 @@ const Topic3 = ({ topic3Opacity, blur, topic3Animation, mobile }) => {
             //transition: "0.2s ease-in"
           }}>
 
-            <div style={{display: "flex", flexDirection: "row", padding: "20px 20px", marginBottom: "10px"}}>
+            <div style={{display: "flex", flexDirection: flexStyle1, padding: "20px 20px", marginBottom: "10px"}}>
               <div 
                 style={{
                   //background: "orange",
@@ -65,15 +65,15 @@ const Topic3 = ({ topic3Opacity, blur, topic3Animation, mobile }) => {
                 }}>
                   <Lottie 
                     lottieRef={animationRef} 
-                    style={{width: "300px"}}  
+                    style={{width: lottieWidth}}  
                     animationData={topic3Animation} 
                   />
               </div>
 
               <div>
-                <h1 className='big'>Lets try Sofa workplace</h1>
+                <h1 style={{fontSize: titleSize}}>Lets try Sofa workplace</h1>
                 <div style={{maxWidth: "600px"}}>     
-                  <p style={{fontSize: "20px"}}>This feature will help you to work and listen music on one place.
+                  <p style={{fontSize: pSize}}>This feature will help you to work and listen music on one place.
                   </p>
                   <Link href="/workplace">
                     <button className="nicebutton mt" >try it now</button>

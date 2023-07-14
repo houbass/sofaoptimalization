@@ -16,10 +16,13 @@ import backgroundPic2 from "@/components/pic/background2.svg"
 
 const inter = Inter({ subsets: ['latin'] })
 
-const Topic4 = ({ topic4Animation, mobile }) => {
+const Topic4 = ({ topic4Animation, mobile, titleSize, flexStyle1, lottieWidth, pSize }) => {
 
     //ref
     const animationRef = useRef()
+
+    //flexdirection
+    const [flex, setFlex] = useState("row");
   
     //MOBILE LOGIC
     useEffect(() => {
@@ -34,6 +37,17 @@ const Topic4 = ({ topic4Animation, mobile }) => {
           animationRef.current.play();
         }
         
+        //flex logic
+        function flexLogic() {
+          if(flexStyle1 === "column"){
+            //set "column-reverse"
+            setFlex("column-reverse")
+          }else{
+            //set "row"
+            setFlex("row")
+          }
+        }
+        flexLogic()
 
       }
       animation();
@@ -67,15 +81,15 @@ const Topic4 = ({ topic4Animation, mobile }) => {
               <div 
               style={{
                 display: "flex", 
-                flexDirection: "row", 
+                flexDirection: flex, 
                 padding: "20px 20px", 
                 marginBottom: "10px",
                 
               }}>
                 <div>
-                  <h1 className='big'>Send us your music</h1>
+                  <h1 style={{fontSize: titleSize}}>Send us your music</h1>
                   <div style={{maxWidth: "600px"}}>     
-                    <p style={{fontSize: "20px"}}>
+                    <p style={{fontSize: pSize}}>
                       Are you a Lo-Fi producer? Submit your music to our Spotify playlist or to release on Sofa Lofi Records.
                     </p>
                     <Link href="/submit">
@@ -91,7 +105,7 @@ const Topic4 = ({ topic4Animation, mobile }) => {
                 }}>
                   <Lottie 
                   lottieRef={animationRef}
-                  style={{width: "300px"}} 
+                  style={{width: lottieWidth}} 
                   animationData={topic4Animation} 
                   />
                 </div>

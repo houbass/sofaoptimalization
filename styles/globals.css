@@ -478,3 +478,30 @@ label {
 .linkContracts:hover {
   color: red;
 }
+
+
+.mobNavbar {
+  display: flex;
+  flex-direction: column;
+  height: 60px;
+  background: rgba(20,20,20,0.9);
+  justify-content: space-around;
+  align-items: left;
+  color: white;
+  gap: 20px;
+  translate: 0 -50%;
+}
+
+
+.mobNavbar button {
+  font-size: 20px;
+  background: none;
+  border: none;
+  transition: 0.2s;
+  color: white;
+  font-weight: bold;
+}
+
+.mobNavbar button:hover {
+  color: rgb(255, 117, 117);
+}

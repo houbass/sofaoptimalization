@@ -24,7 +24,7 @@ import Deezer from "@/pictures/deezer.png";
 
 const inter = Inter({ subsets: ['latin'] })
 
-const Topic2 = ({ topic2Width, topic2Opacity, topic2Animation, blur }) => {
+const Topic2 = ({ topic2Width, topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, lottieWidth, pSize }) => {
 
     //PASSING GLOBAL SETTINGS
     const { myData, mobile } = useContext(GlobalStates);
@@ -37,6 +37,9 @@ const Topic2 = ({ topic2Width, topic2Opacity, topic2Animation, blur }) => {
     const latestReleases = myData.filter((data) => data.releaseindex > myData.length - releasesQuantity)
     const [actualWindowWidth, setActualWindowWidth] = useState(null);
  
+    //flexdirection
+    const [flex, setFlex] = useState("row");
+
     //RESIZE FUN
     const resizeFun = () => {
       setActualWindowWidth(window.innerWidth);
@@ -53,7 +56,10 @@ const Topic2 = ({ topic2Width, topic2Opacity, topic2Animation, blur }) => {
 
     //LATEST RELEASES CHANGE WITH WIDTH
     useEffect(() => {
-      if(actualWindowWidth < 740){
+      if(actualWindowWidth < 550){
+        setReleasesQuantity(1);
+      }
+      if(actualWindowWidth < 740 && actualWindowWidth > 550){
         setReleasesQuantity(2);
       }
       if(actualWindowWidth < 980 && actualWindowWidth > 740){
@@ -79,7 +85,18 @@ const Topic2 = ({ topic2Width, topic2Opacity, topic2Animation, blur }) => {
         }else{
           animationRef.current.play();
         }
-        
+
+        //flex logic
+        function flexLogic() {
+          if(flexStyle1 === "column"){
+            //set "column-reverse"
+            setFlex("column-reverse")
+          }else{
+            //set "row"
+            setFlex("row")
+          }
+        }
+        flexLogic()
 
       }
       animation();
@@ -88,6 +105,8 @@ const Topic2 = ({ topic2Width, topic2Opacity, topic2Animation, blur }) => {
         cancelAnimationFrame(animationId.id);
       }
     })
+
+
 
     return(
         <>
@@ -113,15 +132,15 @@ const Topic2 = ({ topic2Width, topic2Opacity, topic2Animation, blur }) => {
               <div 
               style={{
                 display: "flex", 
-                flexDirection: "row", 
+                flexDirection: flex, 
                 padding: "20px 20px", 
                 marginBottom: "10px",
                 
               }}>
                 <div>
-                  <h1 className='big'>Listen to our latest releases</h1>
+                  <h1 style={{fontSize: titleSize}}>Listen to our latest releases</h1>
                   <div style={{maxWidth: "600px"}}>     
-                    <p style={{fontSize: "20px"}}>
+                    <p style={{fontSize: pSize}}>
                       Lets check our regular monday releases from the finests lofi producers.
                     </p>
                     <Link href="/releases">
@@ -137,7 +156,7 @@ const Topic2 = ({ topic2Width, topic2Opacity, topic2Animation, blur }) => {
                 }}>
                   <Lottie 
                   lottieRef={animationRef}
-                  style={{width: "300px"}} 
+                  style={{width: lottieWidth}} 
                   onComplete={() => {
                     animationRef.current.goToAndPlay(42, true);
                   }} 

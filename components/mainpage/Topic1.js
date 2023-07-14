@@ -18,12 +18,11 @@ import { render } from 'react-dom';
 
 const inter = Inter({ subsets: ['latin'] })
 
-const Topic1 = ({ topic1Width, setDiv1Width, topic1Opacity, topic1Animation, mobile, blur }) => {
+const Topic1 = ({ setDiv1Width, topic1Opacity, topic1Animation, mobile, blur, titleSize, flexStyle1, lottieWidth, pSize }) => {
 
   const divRef = useRef(null);
   const div1y = divRef.current?.offsetTop;
   const [div1Height, setDiv1Height] = useState(null);
-  const [hoverOpacity, setHoverOpacity] = useState("1");
 
   //animation ref
   const animationRef = useRef();
@@ -46,17 +45,6 @@ const Topic1 = ({ topic1Width, setDiv1Width, topic1Opacity, topic1Animation, mob
 
   }, [div1y])
 
-
-  //HOVER
-  const mouseEnter = () => {
-    setHoverOpacity("0.8");
-  }
-
-  const mouseLeave = () => {
-    setHoverOpacity("1");
-  }
-
-
   //MOBILE LOGIC
   useEffect(() => {
     const animationId = {id: null}
@@ -69,8 +57,6 @@ const Topic1 = ({ topic1Width, setDiv1Width, topic1Opacity, topic1Animation, mob
       }else{
         animationRef.current.play();
       }
-      
-
     }
     animation();
 
@@ -85,19 +71,23 @@ const Topic1 = ({ topic1Width, setDiv1Width, topic1Opacity, topic1Animation, mob
           <div className='check'
           
           style={{
-            width: topic1Width, 
-            height: div1Height, 
+            //width: topic1Width, 
+            width: "90%",
+            //height: div1Height, 
             //background: "orange",
-            position: "absolute",
-            top: `${div1y}px`,
+            //position: "absolute",
+            //top: `${div1y}px`,
             borderRadius: "0 20px 20px 0",
             backgroundImage: `url(${backgroundPic2.src})`,
-            zIndex: "0",
-            transition: "0.5s ease-in",
-            opacity: hoverOpacity,
+            //zIndex: "0",
+            //transition: "0.5s ease-in",
+            opacity: topic1Opacity,
+            transition: "1s ease-in", 
+            //background: "orange",
+            filter: blur,
             
           }}>
-          </div>
+          
           <div
           ref={divRef}
           style={{
@@ -115,42 +105,39 @@ const Topic1 = ({ topic1Width, setDiv1Width, topic1Opacity, topic1Animation, mob
           }}>
 
             <div 
-            onMouseEnter={mouseEnter} 
-            onMouseLeave={mouseLeave}
             style={{
               display: "flex", 
-              flexDirection: "row", 
+              flexDirection: flexStyle1, 
               padding: "20px 20px", 
-              marginBottom: "10px"
+              marginBottom: "10px",
+
+
             }}>
               <div 
               style={{
                 //background: "orange",
                 opacity: topic1Opacity,
                 transition: "1s ease-in",
-                position: "absolute",
+                //position: "absolute",
                 top: `${div1y}px`,
                 
               }}>
                 <Lottie 
                   lottieRef={animationRef} 
-                  style={{width: "300px"}} 
+                  style={{width: lottieWidth}} 
                   animationData={topic1Animation} 
                 />
               </div>
 
               <div 
               style={{
-                opacity: topic1Opacity,
-                transition: "1s ease-in", 
-                //background: "orange",
-                filter: blur,
-                marginLeft: "320px"
+
+                //marginLeft: "330px"
 
               }}>
-                <h1 className='big'>Welcome to Sofa Lofi</h1>
+                <h1 style={{fontSize: titleSize}}>Welcome to Sofa Lofi</h1>
                 <div style={{maxWidth: "600px"}}>     
-                  <p style={{fontSize: "20px"}}>We are a music label with taste for lofi hip hop, focusing to help you 
+                  <p style={{fontSize: pSize}}>We are a music label with taste for lofi hip hop, focusing to help you 
                     to study work or chill, just try to hit the play button bellow and dive into the vibe...
                   </p>
                   <a href="https://open.spotify.com/playlist/6so9XlkasaOqQFNghgzUX5?si=9d0511d634164493" target="_blank">
@@ -159,6 +146,7 @@ const Topic1 = ({ topic1Width, setDiv1Width, topic1Opacity, topic1Animation, mob
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </>
     )
