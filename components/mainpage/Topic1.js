@@ -11,21 +11,21 @@ import {AnimatePresence, motion } from 'framer-motion';
 //LOTTIE LIB
 import Lottie, {Play ,LottieRefCurrentProps} from "lottie-react";
 
-//LOTTIE DATA
-import animationData from "@/components/lottieanimations/sofa.json";
-
 //pic 
 import backgroundPic from "@/components/pic/background.svg";
 import backgroundPic2 from "@/components/pic/background2.svg";
 
 const inter = Inter({ subsets: ['latin'] })
 
-const Topic1 = ({ topic1Width, div1Width, setDiv1Width, topic1Opacity, blur}) => {
+const Topic1 = ({ topic1Width, setDiv1Width, topic1Opacity, topic1Animation,  blur}) => {
 
   const divRef = useRef(null);
   const div1y = divRef.current?.offsetTop;
   const [div1Height, setDiv1Height] = useState(null);
   const [hoverOpacity, setHoverOpacity] = useState("1");
+
+  //animation ref
+  const animationRef = useRef();
 
   //WRAPPER RESIZE
   const resizeFun = () => {
@@ -38,6 +38,8 @@ const Topic1 = ({ topic1Width, div1Width, setDiv1Width, topic1Opacity, blur}) =>
     setDiv1Height(divRef.current?.offsetHeight);
     setDiv1Width(divRef.current?.offsetWidth);
     window.addEventListener("resize", resizeFun);
+
+    animationRef.current.setSpeed(0.5);
 
     return() => {
       window.removeEventListener("resize", resizeFun);
@@ -108,7 +110,7 @@ const Topic1 = ({ topic1Width, div1Width, setDiv1Width, topic1Opacity, blur}) =>
                 top: `${div1y}px`,
                 
               }}>
-                <Lottie style={{width: "300px"}} animationData={animationData} />
+                <Lottie lottieRef={animationRef} style={{width: "300px"}} animationData={topic1Animation} />
               </div>
 
               <div 

@@ -13,9 +13,6 @@ import { GlobalStates } from '@/globalstates/GlobalStates'
 //LOTTIE LIB
 import Lottie, {LottieRefCurrentProps} from "lottie-react";
 
-//LOTTIE DATA
-import animationData from "@/components/lottieanimations/music.json";
-
 //pic 
 import backgroundPic from "@/components/pic/background.svg"
 import backgroundPic2 from "@/components/pic/background2.svg"
@@ -27,7 +24,8 @@ import Deezer from "@/pictures/deezer.png";
 
 const inter = Inter({ subsets: ['latin'] })
 
-const Topic2 = ({ topic2Width, topic2Opacity, blur }) => {
+const Topic2 = ({ topic2Width, topic2Opacity, topic2Animation, blur }) => {
+
     //PASSING GLOBAL SETTINGS
     const { myData } = useContext(GlobalStates);
 
@@ -48,6 +46,9 @@ const Topic2 = ({ topic2Width, topic2Opacity, blur }) => {
     useEffect(() => {
       window.addEventListener("resize", resizeFun);
       setActualWindowWidth(window.innerWidth);
+
+
+
 
       return() => {
         window.cancelAnimationFrame("resize", resizeFun);
@@ -120,13 +121,13 @@ const Topic2 = ({ topic2Width, topic2Opacity, blur }) => {
                   marginRight: "30px"
                 }}>
                   <Lottie 
+                  lottieRef={animationRef}
                   style={{width: "300px"}} 
                   onComplete={() => {
-                    animationRef.current?.goToAndPlay(42, true)
+                    animationRef.current.goToAndPlay(42, true);
                   }} 
-                  lottieRef={animationRef} 
-                  loop={false} 
-                  animationData={animationData} 
+                  loop={false}
+                  animationData={topic2Animation} 
                   />
                 </div>
               </div>
