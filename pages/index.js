@@ -63,29 +63,11 @@ export default function Home() {
 
   //TOPIC 3 STATES
   const [topic3Width, setTopic3Width] = useState("90%");
-  const [topic3Opacity, setTopic3Opacity] = useState("0");
   const [topic3Animation, setTopic3Animation] = useState(null);
 
   //TOPIC 4 STATES
   const [topic4Animation, setTopic4Animation] = useState(null);
   
-  //SCROLLING STATES
-  const [pageyoffset, setPageyoffset] = useState(null);
-
-  //SCROLL FUNCTION
-  const onScroll = (e) => {
-    setPageyoffset(pageYOffset);
-  }
-
-  //ADD ONSCROLL EVENT LISTENER
-  useEffect(() => {
-    window.addEventListener("scroll", onScroll);
-
-    return() => {
-      window.removeEventListener("scroll", onScroll)
-    }
-  }, []);
-
 
   //ZOBRAZOVANI ANIMACI KDYZ JE POTREBA
   function scrollFun() {
@@ -98,14 +80,11 @@ export default function Home() {
     const topic1Y = topic1Ref.current.offsetTop;
     const topic1Height = topic1Ref.current.offsetHeight;
     if((windowHeight + getscrollY) > (topic1Y)){
-      console.log("TOPIC 1 IS VISIBLE")
       setTopic1Animation(topic1animationData);
     }
-    /*
     if((windowHeight + getscrollY) > (topic1Y) && (getscrollY) > (topic1Y + topic1Height - 100)){
-      console.log("TOPIC 1 IS HIDDEN")
       setTopic1Animation(null);
-    }*/
+    }
 
     //TOPIC 2
     const topic2Y = topic2Ref.current.offsetTop;
@@ -199,8 +178,6 @@ export default function Home() {
   }
 
 
-
-
   //resize listener
   useEffect(() => {
     resizeFun();
@@ -212,48 +189,17 @@ export default function Home() {
   }, [])
 
 
-
-
-
-
-
-
-
-
   //scroll listener
   useEffect(() => {
     scrollFun();
     window.addEventListener("scroll", scrollFun);
 
     return () => {
-      window.removeEventListener("scroll", scrollFun);
+      removeEventListener("scroll", scrollFun);
     }
   }, [])
 
-  //SCROLL LOGIC
-  useEffect(() => {
-    //opacity range map
-    const min = 550;
-    const max = 1050;
-    const range = max - min;
-    const offset = pageyoffset - min;
-    const actualOpacity = offset / range;
-    
-    if(pageyoffset > min){
 
-      if(pageyoffset > min && pageyoffset < max){
-        setTopic3Opacity(actualOpacity);
-      }
-      else{
-        setTopic3Opacity("1");
-      }
-    }
-    else{
-      setTopic3Opacity("0");
-    }
-    
-  })
-  
   //ONLOAD ANIMATION
   useEffect(() => {
     setTopic1Width(`${div1Width}px`);

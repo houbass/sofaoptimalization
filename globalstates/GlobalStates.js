@@ -57,7 +57,7 @@ export const GlobalStatesProvider = ({ children }) => {
     //SORT MY DATA
     useEffect(() => {
       sorting();
-    });
+    }, [myData]);
 
 
 

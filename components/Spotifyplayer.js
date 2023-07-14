@@ -58,19 +58,26 @@ const Spotifyplayer = () => {
         <div className={`${styles.spotifyplayer}`} style={{width: width, height: height}}>
 
             <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
-                <button className='material-symbols-outlined' style={{ height:"22px", width:"22px", rotate: btnRotate, visibility: btnBiggerVisibility, borderRadius: "50%", marginBottom: "6px"}} onClick={heightHandler}>expand_less</button>
+                <button className='material-symbols-outlined' style={{ height:"22px", width:"22px", rotate: btnRotate, visibility: btnBiggerVisibility, borderRadius: "50%", marginBottom: "6px"}}
+                 onClick={heightHandler}>expand_less</button>
 
             </div>
 
             <div style={{display: "flex", flexDirection: "row", height: "100%"}}>
-            <button className='material-symbols-outlined' style={{height:"22px", width:"22px", visibility: closeBtnVisibility, marginTop: "28px", borderRadius: "50%", marginRight: "8px", marginLeft: "8px"}} onClick={closeHandler}>{closeBtnText}</button>
+            <button className='material-symbols-outlined' style={{height:"22px", width:"22px", visibility: closeBtnVisibility, marginTop: "28px", borderRadius: "50%", marginRight: "8px", marginLeft: "8px"}} 
+            onClick={() => {
+                closeHandler();
+
+            }}>
+                {closeBtnText}
+            </button>
             <iframe ref={playerRef} style={{border: "none"}}
             title="Sofa Lofi spotify playlist"
             className="playlistFrame"
             src="https://open.spotify.com/embed/playlist/6so9XlkasaOqQFNghgzUX5?utm_source=generator" 
-            Width= "100%"
+            width= "100%"
             height= "100%"
-            allowfullscreen=""                 
+            allowFullScreen=""                 
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
             >
             </iframe>

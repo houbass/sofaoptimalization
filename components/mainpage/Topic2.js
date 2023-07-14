@@ -185,20 +185,20 @@ const Topic2 = ({ topic2Width, topic2Opacity, topic2Animation, blur, titleSize, 
                         height="190" 
                         src={data.youtubelink} 
                         title="YouTube video player" 
-                        frameborder="0" 
+                        frameBorder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowfullscreen>
+                        allowFullScreen>
                         </iframe>
                         <h6 style={{marginTop: "5px"}}>{data.artists} - {data.trackname}</h6>
                         <div className="icons2">
                             <div className="icon">
-                                <a href={data.spotifylink} target="_blank"><Image className="iconImg" src={Spotify} /></a>
+                                <a href={data.spotifylink} target="_blank"><Image alt="spotifyIcon" className="iconImg" src={Spotify} /></a>
                             </div>
                             <div className="icon">
-                                <a href={data.ituneslink} target="_blank"><Image className="iconImg" src={Apple} /></a>
+                                <a href={data.ituneslink} target="_blank"><Image alt="appleMusicIcon" className="iconImg" src={Apple} /></a>
                             </div>
                             <div className="icon">
-                                <a href={data.deezerlink} target="_blank"><Image className="iconImg" src={Deezer} /></a>
+                                <a href={data.deezerlink} target="_blank"><Image alt="deezerIcon" className="iconImg" src={Deezer} /></a>
                             </div>
                         </div>
                     </div>
