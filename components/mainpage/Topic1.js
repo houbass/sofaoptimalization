@@ -9,7 +9,7 @@ import styles from '@/styles/Home.module.css';
 import {AnimatePresence, motion } from 'framer-motion';
 
 //LOTTIE LIB
-import Lottie, {LottieRefCurrentProps} from "lottie-react";
+import Lottie, {Play ,LottieRefCurrentProps} from "lottie-react";
 
 //LOTTIE DATA
 import animationData from "@/components/lottieanimations/sofa.json";
@@ -54,6 +54,7 @@ const Topic1 = ({ topic1Width, div1Width, setDiv1Width, topic1Opacity, blur}) =>
   const mouseLeave = () => {
     setHoverOpacity("1");
   }
+
 
     return(
         <>
@@ -107,7 +108,7 @@ const Topic1 = ({ topic1Width, div1Width, setDiv1Width, topic1Opacity, blur}) =>
                 top: `${div1y}px`,
                 
               }}>
-                <Lottie style={{width: "300px"}}  animationData={animationData} />
+                <Lottie style={{width: "300px"}} animationData={animationData} />
               </div>
 
               <div 

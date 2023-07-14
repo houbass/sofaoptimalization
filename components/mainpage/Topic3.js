@@ -10,8 +10,7 @@ import {AnimatePresence, motion } from 'framer-motion'
 //LOTTIE LIB
 import Lottie, {LottieRefCurrentProps} from "lottie-react";
 
-//LOTTIE DATA
-import animationData from "@/components/lottieanimations/workplace.json";
+
 
 //pic 
 import backgroundPic from "@/components/pic/background.svg"
@@ -19,7 +18,7 @@ import backgroundPic2 from "@/components/pic/background2.svg"
 
 const inter = Inter({ subsets: ['latin'] })
 
-const Topic3 = ({ topic3Opacity, blur }) => {
+const Topic3 = ({ topic3Opacity, blur, topic3Animation }) => {
 
     return(
         <>
@@ -43,7 +42,7 @@ const Topic3 = ({ topic3Opacity, blur }) => {
                   //background: "orange",
                   marginRight: "30px"
                 }}>
-                  <Lottie style={{width: "300px"}}  animationData={animationData} />
+                  <Lottie style={{width: "300px"}}  animationData={topic3Animation} />
               </div>
 
               <div>

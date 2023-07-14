@@ -140,7 +140,8 @@ const Topic2 = ({ topic2Width, topic2Opacity, blur }) => {
                 style={{
                   display: "flex",
                   flexDirection: "row",
-                  justifyContent: "space-between"
+                  justifyContent: "space-between",
+                  height: "300px"
                 }}>
                   {latestReleases.map((data) => (
                     <div key={data.releaseindex} className="frame2"> 

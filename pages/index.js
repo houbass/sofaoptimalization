@@ -6,6 +6,10 @@ import styles from '@/styles/Home.module.css'
 
 import {AnimatePresence, motion } from 'framer-motion'
 
+//LOTTIE DATA
+import topic3animationData from "@/components/lottieanimations/workplace.json";
+import topic4animationData from "@/components/lottieanimations/production.json";
+
 //GLOBALSTATES
 import { GlobalStates } from '@/globalstates/GlobalStates'
 
@@ -25,6 +29,10 @@ import Footer from '@/components/mainpage/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  //refs
+  const topic3Ref = useRef();
+  const topic4Ref = useRef();
 
   //PASSING GLOBAL SETTINGS
   const { setMainWidth } = useContext(GlobalStates);
@@ -49,6 +57,10 @@ export default function Home() {
   //TOPIC 3 STATES
   const [topic3Width, setTopic3Width] = useState("90%");
   const [topic3Opacity, setTopic3Opacity] = useState("0");
+  const [topic3Animation, setTopic3Animation] = useState(null);
+
+  //TOPIC 4 STATES
+  const [topic4Animation, setTopic4Animation] = useState(null);
   
   //SCROLLING STATES
   const [pageyoffset, setPageyoffset] = useState(null);
@@ -67,6 +79,59 @@ export default function Home() {
     }
   }, []);
 
+
+  //ZOBRAZOVANI ANIMACI KDYZ JE POTREBA
+  function scrollFun() {
+
+    const windowHeight = window.innerHeight;
+    const getscrollY = window.scrollY;
+    const constant = 200;
+
+    //TOPIC 3
+    const topic3Y = topic3Ref.current.offsetTop;
+    const topic3Height = topic3Ref.current.offsetHeight;
+
+    if((windowHeight + getscrollY) > (topic3Y + constant)){
+      console.log("TOPIC 3 IS VISIBLE")
+      setTopic3Animation(topic3animationData);
+    }
+    if((windowHeight + getscrollY) < (topic3Y + constant) ){
+      console.log("TOPIC 3 IS HIDDEN")
+      setTopic3Animation(null);
+    }
+    if((windowHeight + getscrollY) > (topic3Y + constant) && (getscrollY) > (topic3Y + topic3Height - 200)){
+      console.log("TOPIC 3 IS HIDDEN")
+      setTopic3Animation(null);
+    }
+
+    //TOPIC 4 
+    const topic4Y = topic4Ref.current.offsetTop;
+
+    if((windowHeight + getscrollY) > (topic4Y + constant)){
+      console.log("TOPIC 4 IS VISIBLE")
+      setTopic4Animation(topic4animationData);
+    }
+    if((windowHeight + getscrollY) < (topic4Y + constant) ){
+      console.log("TOPIC 4 IS HIDDEN")
+      setTopic4Animation(null);
+    }
+
+    //console.log("WINDOW SCROLL Y: " + window.scrollY);
+    //console.log("document bottom: " + (topic3Y + topic3Height - 200));
+    //console.log("WINDOW HEIGHT: " + window.innerHeight);
+    //console.log("TOPIC 3 Y: " + topic3Ref.current.offsetTop);
+
+  }
+
+  useEffect(() => {
+    scrollFun();
+    window.addEventListener("scroll", scrollFun);
+
+    return () => {
+      window.removeEventListener("scroll", scrollFun);
+    }
+  }, [])
+
   //SCROLL LOGIC
   useEffect(() => {
     //opacity range map
@@ -76,7 +141,6 @@ export default function Home() {
     const offset = pageyoffset - min;
     const actualOpacity = offset / range;
     
-    //width 1280PX
     if(pageyoffset > min){
 
       if(pageyoffset > min && pageyoffset < max){
@@ -158,8 +222,20 @@ export default function Home() {
           borderTopStyle: "none",
         }}>
 
-          <Topic1 topic1Width={topic1Width} div1Width={div1Width} setDiv1Width={setDiv1Width} topic1Opacity={topic1Opacity} blur={topic1blur}/>
 
+          <Topic1 topic1Width={topic1Width} div1Width={div1Width} setDiv1Width={setDiv1Width} topic1Opacity={topic1Opacity} blur={topic1blur}/>
+          <Topic2 topic2Width={topic2Width} topic2Opacity={topic2Opacity} blur={topic2blur}/>
+          <div
+          ref={topic3Ref}
+          >
+            <Topic3 topic3Animation={topic3Animation} topic3Width={topic3Width} topic3Opacity={topic2Opacity} blur={topic2blur}/>
+          </div>
+
+          <div
+          ref={topic4Ref}
+          >
+            <Topic4 topic4Animation={topic4Animation}/>
+          </div>
           <Footer />
 
         </div>

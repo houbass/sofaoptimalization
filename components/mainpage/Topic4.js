@@ -9,8 +9,6 @@ import styles from '@/styles/Home.module.css'
 //LOTTIE LIB
 import Lottie, {LottieRefCurrentProps} from "lottie-react";
 
-//LOTTIE DATA
-import animationData from "@/components/lottieanimations/production.json";
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg"
@@ -18,7 +16,7 @@ import backgroundPic2 from "@/components/pic/background2.svg"
 
 const inter = Inter({ subsets: ['latin'] })
 
-const Topic4 = () => {
+const Topic4 = ({ topic4Animation }) => {
 
 
     return(
@@ -69,7 +67,7 @@ const Topic4 = () => {
                 }}>
                   <Lottie 
                   style={{width: "300px"}} 
-                  animationData={animationData} 
+                  animationData={topic4Animation} 
                   />
                 </div>
               </div>
