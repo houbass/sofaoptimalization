@@ -32,14 +32,19 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
 
-
+  const [text, setText] = useState("");
 
   //console.log(pageyoffset);
   return (
     <>
   <div>
     <br/><br/><br/><br/><br/><br/>
-    <input placeholder='input'></input>
+    <h1 className='big'>Check</h1>
+    <input 
+    placeholder='write some shit' 
+    onChange={(e) => {setText(e.target.value)}}
+    ></input>
+    <p>{text}</p>
   </div>
     </>
   )
