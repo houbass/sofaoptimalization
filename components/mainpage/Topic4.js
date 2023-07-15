@@ -1,18 +1,12 @@
-import Image from 'next/image'
-import Head from 'next/head'
 import Link from "next/link";
 import { Inter } from 'next/font/google'
-import { useCallback, useContext, useEffect, useRef, useState } from 'react'
-import styles from '@/styles/Home.module.css'
-
+import { useEffect, useRef, useState } from 'react'
 
 //LOTTIE LIB
 import Lottie, {LottieRefCurrentProps} from "lottie-react";
 
-
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg"
-
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,36 +20,23 @@ const Topic4 = ({ topic4Animation, mobile, titleSize, flexStyle1, lottieWidth, p
   
     //MOBILE LOGIC
     useEffect(() => {
-      const animationId = {id: null}
-
-      function animation() {
-        animationId.id = window.requestAnimationFrame(animation);
-
         if(mobile === true) {
           animationRef.current.stop();
         }else{
           animationRef.current.play();
         }
-        
-        //flex logic
-        function flexLogic() {
-          if(flexStyle1 === "column"){
-            //set "column-reverse"
-            setFlex("column-reverse")
-          }else{
-            //set "row"
-            setFlex("row")
-          }
-        }
-        flexLogic()
+    }, [topic4Animation]);
 
+    //FLEX MOBILE LOGIC
+    useEffect(() => {
+      if(flexStyle1 === "column"){
+        //set "column-reverse"
+        setFlex("column-reverse")
+      }else{
+        //set "row"
+        setFlex("row")
       }
-      animation();
-
-      return () => {
-        cancelAnimationFrame(animationId.id);
-      }
-    })
+    }, [flexStyle1])
 
     return(
         <>
@@ -65,13 +46,10 @@ const Topic4 = ({ topic4Animation, mobile, titleSize, flexStyle1, lottieWidth, p
             justifyContent: "right",
             marginTop: "80px",
             opacity: "1",
-            //filter: blur,
             transition: "2s ease-in"
           }}>
             <div
             style={{
-              //marginTop: "500px",
-              //left: "0",
               width: "90%",
               backgroundImage: `url(${backgroundPic2.src})`,
               borderRadius: "20px 0px 0px 20px",
@@ -100,7 +78,6 @@ const Topic4 = ({ topic4Animation, mobile, titleSize, flexStyle1, lottieWidth, p
 
                 <div 
                 style={{
-                  //background: "orange",
                   marginRight: "30px"
                 }}>
                   <Lottie 

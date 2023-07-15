@@ -1,20 +1,16 @@
 import Image from 'next/image'
-import Head from 'next/head'
 import Link from "next/link";
 import { Inter } from 'next/font/google'
-import { useCallback, useContext, useEffect, useRef, useState } from 'react'
-import styles from '@/styles/Home.module.css'
+import { useContext, useEffect, useRef, useState } from 'react'
 
-import {AnimatePresence, motion } from 'framer-motion'
 
 //GLOBALSTATES
 import { GlobalStates } from '@/globalstates/GlobalStates'
 
 //LOTTIE LIB
-import Lottie, {LottieRefCurrentProps} from "lottie-react";
+import Lottie from "lottie-react";
 
 //pic 
-import backgroundPic from "@/components/pic/background.svg"
 import backgroundPic2 from "@/components/pic/background2.svg"
 
 //import platform icons
@@ -24,7 +20,7 @@ import Deezer from "@/pictures/deezer.png";
 
 const inter = Inter({ subsets: ['latin'] })
 
-const Topic2 = ({ topic2Width, topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, lottieWidth, pSize }) => {
+const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, lottieWidth, pSize }) => {
 
     //PASSING GLOBAL SETTINGS
     const { myData, mobile } = useContext(GlobalStates);
@@ -45,12 +41,13 @@ const Topic2 = ({ topic2Width, topic2Opacity, topic2Animation, blur, titleSize, 
       setActualWindowWidth(window.innerWidth);
     }
 
-    //SETTING A WINDOW WIDTH
+    //GET WINDOW WIDTH
     useEffect(() => {
       window.addEventListener("resize", resizeFun);
-      setActualWindowWidth(window.innerWidth);
+      resizeFun();
+
       return() => {
-        removeEventListener("resize", resizeFun);
+        window.removeEventListener("resize", resizeFun);
       }
     }, [])
 
@@ -71,21 +68,21 @@ const Topic2 = ({ topic2Width, topic2Opacity, topic2Animation, blur, titleSize, 
       if(actualWindowWidth > 1225){
         setReleasesQuantity(5);
       }
-    })
+    }, [actualWindowWidth])
 
-    //MOBILE LOGIC
+    //MOBILE ANIMATION LOGIC
     useEffect(() => {
-      const animationId = {id: null}
 
-      function animation() {
-        animationId.id = window.requestAnimationFrame(animation);
+      if(mobile === true) {
+        animationRef.current.goToAndStop(42, true);
+      }else{
+        animationRef.current.play();
+      }
 
-        if(mobile === true) {
-          animationRef.current.goToAndStop(42, true);
-        }else{
-          animationRef.current.play();
-        }
+    }, [topic2Animation])
 
+    //FLEX STYLE LOGIC
+    useEffect(() => {
         //flex logic
         function flexLogic() {
           if(flexStyle1 === "column"){
@@ -97,38 +94,26 @@ const Topic2 = ({ topic2Width, topic2Opacity, topic2Animation, blur, titleSize, 
           }
         }
         flexLogic()
-
-      }
-      animation();
-
-      return () => {
-        cancelAnimationFrame(animationId.id);
-      }
-    })
-
-
+    }, [flexStyle1])
 
     return(
         <>
           <div style={{
             display: "flex",
-            flexDirection: "row",
+            flexDirection: "col",
             justifyContent: "right",
             marginTop: "80px",
             opacity: topic2Opacity,
             filter: blur,
-            transition: "2s ease-in"
+            transition: "2s ease-in",
+            background: "orange",
+            width: "100%",
+            maxWidth: "90%",
+            marginLeft: "10%",
+            backgroundImage: `url(${backgroundPic2.src})`,
+            borderRadius: "20px 0px 0px 20px",
           }}>
-            <div
-            style={{
-              //marginTop: "500px",
-              //left: "0",
-              width: topic2Width,
-              backgroundImage: `url(${backgroundPic2.src})`,
-              borderRadius: "20px 0px 0px 20px",
-              transition: "0.5s ease-in"
-            }}>
-
+            <div>
               <div 
               style={{
                 display: "flex", 

@@ -32,8 +32,6 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
 
-  const [text, setText] = useState("");
-
   //refs
   const topic1Ref = useRef();
   const topic2Ref = useRef();
@@ -51,20 +49,16 @@ export default function Home() {
   const [titleSize, setTitleSize] = useState("70px");
 
   //TOPIC 1 STATES
-  const [topic1Width, setTopic1Width] = useState("0");
-  const [div1Width, setDiv1Width] = useState(null);
   const [topic1Opacity, setTopic1Opacity] = useState("0");
   const [topic1blur, setTopic1blur] = useState("blur(5px)");
   const [topic1Animation, setTopic1Animation] = useState(null);
 
   //TOPIC 2 STATES
-  const [topic2Width, setTopic2Width] = useState("90%");
   const [topic2Opacity, setTopic2Opacity] = useState("0");
   const [topic2blur, setTopic2blur] = useState("blur(5px)");
   const [topic2Animation, setTopic2Animation] = useState(null);
 
   //TOPIC 3 STATES
-  const [topic3Width, setTopic3Width] = useState("90%");
   const [topic3Animation, setTopic3Animation] = useState(null);
 
   //TOPIC 4 STATES
@@ -123,14 +117,6 @@ export default function Home() {
       setTopic4Animation(null);
     }
   }
-
-
-
-
-
-
-
-
 
   //WIDTH LESS THEN 850px and 700px
   const [flexStyle1, setFlexStyle] = useState("row");
@@ -205,7 +191,6 @@ export default function Home() {
   //ONLOAD ANIMATION
   useEffect(() => {
     //setTopic1Width(`${div1Width}px`);
-
     setTimeout(() => {
       setTopic1Opacity("1");
       setTopic1blur("blur(0px)");
@@ -215,22 +200,11 @@ export default function Home() {
       setTopic2Opacity("1");
       setTopic2blur("blur(0px)");
     }, 1000);
-
   }, [])
-
-  /*
-  //GET MAIN WIDTH
-  useEffect(() => {
-    setMainWidth(mainRef.current.offsetWidth + "px");
-  })
-*/
-  //console.log(pageyoffset);
-
-
 
   return (
     <>
-          <Head>
+      <Head>
         <title>Create Next App</title>
         <meta name="description" content="Sofa Lofi page" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -245,15 +219,6 @@ export default function Home() {
       </Head>
 
     <div>
-    <div>
-    <br/><br/><br/><br/><br/><br/>
-    <h1 className='big'>Check</h1>
-    <input 
-    placeholder='write some shit' 
-    onChange={(e) => {setText(e.target.value)}}
-    ></input>
-    <p>{text}</p>
-  </div>
       <main 
       style={{
         display: "flex",
@@ -265,6 +230,10 @@ export default function Home() {
       }} 
       className={`${inter.className} `}>
 
+
+        <br/><br/><br/><br/><br/>
+        <input placeholder='write somethink'></input>
+
         <div 
         ref={mainRef}
         style={{
@@ -272,12 +241,11 @@ export default function Home() {
           flexDirection: "column",
           justifyContent: "center",
           color: "white",
-          width: "100%",
           maxWidth: `${maxWidth}px`,
           //background: "rgba(20,20, 20, 1)",
           backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
           border: "solid 20px transparent",
-          //borderImage: `url(${backgroundPic2.src}) 20 round`,
+          borderImage: `url(${backgroundPic2.src}) 20 round`,
           borderBottomStyle: "none",
           borderTopStyle: "none",
         }}>
@@ -285,25 +253,58 @@ export default function Home() {
           <div
           ref={topic1Ref}
           >
-
+            <Topic1 
+              topic1Opacity={topic1Opacity} 
+              topic1Animation={topic1Animation} 
+              blur={topic1blur} 
+              mobile={mobile}
+              titleSize={titleSize}
+              flexStyle1={flexStyle1} 
+              lottieWidth={lottieWidth} 
+              pSize={pSize}
+            />
           </div>
 
           <div
           ref={topic2Ref}
           >
-
+          <Topic2 
+            topic2Opacity={topic2Opacity} 
+            topic2Animation={topic2Animation} 
+            blur={topic2blur} 
+            titleSize={titleSize} 
+            flexStyle1={flexStyle1}
+            lottieWidth={lottieWidth}
+            pSize={pSize}
+          />
           </div>
 
           <div
           ref={topic3Ref}
           >
-
+            <Topic3 
+              topic3Animation={topic3Animation} 
+              topic3Opacity={topic2Opacity} 
+              blur={topic2blur} 
+              mobile={mobile} 
+              titleSize={titleSize} 
+              flexStyle1={flexStyle1}
+              lottieWidth={lottieWidth}
+              pSize={pSize}
+            />
           </div>
 
           <div
           ref={topic4Ref}
           >
-
+            <Topic4 
+              topic4Animation={topic4Animation} 
+              mobile={mobile} 
+              titleSize={titleSize}
+              flexStyle1={flexStyle1}
+              lottieWidth={lottieWidth}
+              pSize={pSize}
+            />
           </div>
           <Footer />
 
@@ -311,7 +312,6 @@ export default function Home() {
 
       </main>
       </div>
-
     </>
   )
 }
