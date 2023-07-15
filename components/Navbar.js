@@ -1,9 +1,7 @@
 import Link from "next/link";
-import styles from '@/styles/Home.module.css'
 
 //GLOBALSTATES
-import { GlobalStates } from '@/globalstates/GlobalStates'
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 //top navbar
 const Navbar = () => {
@@ -11,12 +9,7 @@ const Navbar = () => {
     //navbar 
     const [navbarOpacity, setNavbarOpacity] = useState("0");
 
-    //PASSING GLOBAL SETTINGS
-    const { mainWidth } = useContext(GlobalStates);
-
     //SETTINGS
-    //const maxWidth = window.innerWidth;
-    const [maxWidth, setMaxWidth] = useState(0);
 
     //DESKTOP NAVBAR
     const [navbarVisibility, setNavbarVisibility] = useState("visible");
@@ -26,7 +19,6 @@ const Navbar = () => {
     const [burgerVisibility, setBurgerVisiblity] = useState("hidden");
     const [burgerToggler, setBurgerToggler] = useState(false);
     const [mobileMenuVisibility, setBurgerMenuVisibility] = useState("hidden");
-
 
     //MOBILE BURGER mouse events
     function mouseEnterFun() {
@@ -56,15 +48,7 @@ const Navbar = () => {
         }, 2000)
     }, [])
 
-
-
     function resizeFun() {
-        if(window.innerWidth < 1300){
-            setMaxWidth(window.innerWidth);
-        }else{
-            setMaxWidth(1300);
-        }
-
 
         function barVisibilityFun() {
             if(window.innerWidth < 700){
@@ -79,15 +63,10 @@ const Navbar = () => {
 
     }
 
-    //GET WINDOW WIDTH
+    //RESIZE LISTENER
     useEffect(() => {
         resizeFun();
-    }, [])
-    useEffect(() => {
-        
         window.addEventListener("resize", resizeFun);
-
-
         return () => {
             window.removeEventListener("resize", resizeFun);
         }
@@ -98,18 +77,17 @@ const Navbar = () => {
         <>
         <div 
         className="navpage" 
-        onResize={resizeFun}
         style={{
             opacity: navbarOpacity,
             transition: "1s"
         }}
         >
         <div         style={{
-            width: maxWidth,
+            width: "100%",
+            maxWidth: "1300px",
 
         }} >
 
-        
         <nav 
         className="navbar"
         style={{
@@ -145,7 +123,7 @@ const Navbar = () => {
                 flexDirection: "row",
                 justifyContent: "right",
                 //background: "orange",
-                width: maxWidth,
+                width: "100%",
                 padding: "0 50px",
                 top: "20px",
                 visibility: burgerVisibility,
@@ -163,9 +141,6 @@ const Navbar = () => {
                     <rect y="60" width="100" height="20" fill={burgerColor} />
                 </svg>
             </div>
-        
-
-
             <div
             style={{
                 position: "absolute",
@@ -174,7 +149,7 @@ const Navbar = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 background: "rgba(0, 0, 0, 0.9)",
-                width: maxWidth,
+                width: "100%",
                 height: "100vh",
                 padding: "0 50px",
                 top: "0px",

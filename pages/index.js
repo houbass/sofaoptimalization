@@ -149,8 +149,6 @@ export default function Home() {
 
         }
 
-
-
       }else{
         setFlexStyle("row");
         setLottieWidth("300px");
@@ -171,13 +169,9 @@ export default function Home() {
     resizeFun();
     window.addEventListener("resize", resizeFun);
 
-    console.log("CHECK");
-
     return () => {
       window.removeEventListener("resize", resizeFun);
     }
-
-
   }, [resizeFun])
 
 

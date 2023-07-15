@@ -13,18 +13,26 @@ import Lottie from "lottie-react";
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg"
 
+//import platform icons
+import Spotify from "@/pictures/spotify.png";
+import Apple from "@/pictures/apple.png";
+import Deezer from "@/pictures/deezer.png";
+
 const inter = Inter({ subsets: ['latin'] })
 
-const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, lottieWidth, pSize, mobile }) => {
+const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, lottieWidth, pSize }) => {
 
+    //PASSING GLOBAL SETTINGS
+    const { myData, mobile } = useContext(GlobalStates);
 
     //Lottie ref
     const animationRef = useRef(null);
 
     //LATEST RELEASES STATES
-    const [releasesQuantity, setReleasesQuantity] = useState(4);
-
+    const [releasesQuantity, setReleasesQuantity] = useState(0);
+    const latestReleases = myData.filter((data) => data.releaseindex > myData.length - releasesQuantity)
     const [actualWindowWidth, setActualWindowWidth] = useState(null);
+    const [youtubeBoxHeight, setYoutubeBoxHeight] = useState("300px");
  
     //flexdirection
     const [flex, setFlex] = useState("row");
@@ -34,39 +42,7 @@ const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, l
       setActualWindowWidth(window.innerWidth);
     }
 
-    //GET WINDOW WIDTH
-    useEffect(() => {
-      window.addEventListener("resize", resizeFun);
-      resizeFun();
-
-      return() => {
-        window.removeEventListener("resize", resizeFun);
-      }
-    }, [])
-
-    //LATEST RELEASES CHANGE WITH WIDTH
-    useEffect(() => {
-      if(actualWindowWidth < 550){
-        setReleasesQuantity(1);
-      }
-      if(actualWindowWidth < 740 && actualWindowWidth > 550){
-        setReleasesQuantity(2);
-      }
-      if(actualWindowWidth < 980 && actualWindowWidth > 740){
-        setReleasesQuantity(3);
-      }
-      if(actualWindowWidth > 980 && actualWindowWidth < 1225){
-        setReleasesQuantity(4);
-      }
-      if(actualWindowWidth > 1225){
-        setReleasesQuantity(5);
-      }
-    }, [actualWindowWidth])
-
-
-
     //MOBILE ANIMATION LOGIC
-    
     useEffect(() => {
 
       if(mobile === true) {
@@ -76,9 +52,6 @@ const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, l
       }
 
     }, [topic2Animation])
-        
-
-
 
     //FLEX STYLE LOGIC
     useEffect(() => {
@@ -94,6 +67,42 @@ const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, l
         }
         flexLogic()
     }, [flexStyle1])
+
+
+    //GET WINDOW WIDTH
+    useEffect(() => {
+      window.addEventListener("resize", resizeFun);
+      resizeFun();
+      return() => {
+        window.removeEventListener("resize", resizeFun);
+      }
+    }, [])
+
+    //LATEST RELEASES CHANGE WITH WIDTH
+    useEffect(() => {
+      
+      if(actualWindowWidth < 550){
+        setReleasesQuantity(0);
+        setYoutubeBoxHeight("0px");
+        console.log(actualWindowWidth)
+      }
+      if(actualWindowWidth < 740 && actualWindowWidth > 550){
+        setReleasesQuantity(2);
+        setYoutubeBoxHeight("300px");
+      }
+      if(actualWindowWidth < 980 && actualWindowWidth > 740){
+        setReleasesQuantity(3);
+        setYoutubeBoxHeight("300px");
+      }
+      if(actualWindowWidth > 980 && actualWindowWidth < 1225){
+        setReleasesQuantity(4);
+        setYoutubeBoxHeight("300px");
+      }
+      if(actualWindowWidth > 1225){
+        setReleasesQuantity(5);
+        setYoutubeBoxHeight("300px");
+      }
+    }, [actualWindowWidth])
 
     return(
         <>
@@ -138,7 +147,6 @@ const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, l
                   //background: "orange",
                   marginRight: "30px"
                 }}>
-                  
                   <Lottie 
                   lottieRef={animationRef}
                   style={{width: lottieWidth, height: lottieWidth}} 
@@ -148,7 +156,6 @@ const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, l
                   loop={false}
                   animationData={topic2Animation} 
                   />
-                
                 </div>
               </div>
               
@@ -162,9 +169,33 @@ const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, l
                   display: "flex",
                   flexDirection: "row",
                   justifyContent: "space-between",
-                  height: "300px"
+                  height: youtubeBoxHeight
                 }}>
-
+                  {latestReleases.map((data) => (
+                    <div key={data.releaseindex} className="frame2"> 
+                    <iframe 
+                        width="190" 
+                        height="190" 
+                        src={data.youtubelink} 
+                        title="YouTube video player" 
+                        frameBorder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowFullScreen>
+                        </iframe>
+                        <h6 style={{marginTop: "5px"}}>{data.artists} - {data.trackname}</h6>
+                        <div className="icons2">
+                            <div className="icon">
+                                <a href={data.spotifylink} target="_blank"><Image alt="spotifyIcon" className="iconImg" src={Spotify} /></a>
+                            </div>
+                            <div className="icon">
+                                <a href={data.ituneslink} target="_blank"><Image alt="appleMusicIcon" className="iconImg" src={Apple} /></a>
+                            </div>
+                            <div className="icon">
+                                <a href={data.deezerlink} target="_blank"><Image alt="deezerIcon" className="iconImg" src={Deezer} /></a>
+                            </div>
+                        </div>
+                    </div>
+                  ))}
                 </div>
                 <div 
                 style={{
