@@ -204,7 +204,7 @@ export default function Home() {
 
   //ONLOAD ANIMATION
   useEffect(() => {
-    setTopic1Width(`${div1Width}px`);
+    //setTopic1Width(`${div1Width}px`);
 
     setTimeout(() => {
       setTopic1Opacity("1");
@@ -216,13 +216,14 @@ export default function Home() {
       setTopic2blur("blur(0px)");
     }, 1000);
 
-  }, [div1Width])
+  }, [])
 
+  /*
   //GET MAIN WIDTH
   useEffect(() => {
     setMainWidth(mainRef.current.offsetWidth + "px");
   })
-
+*/
   //console.log(pageyoffset);
 
 
@@ -276,7 +277,7 @@ export default function Home() {
           //background: "rgba(20,20, 20, 1)",
           backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
           border: "solid 20px transparent",
-          borderImage: `url(${backgroundPic2.src}) 20 round`,
+          //borderImage: `url(${backgroundPic2.src}) 20 round`,
           borderBottomStyle: "none",
           borderTopStyle: "none",
         }}>
