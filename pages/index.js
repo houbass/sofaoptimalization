@@ -216,9 +216,6 @@ export default function Home() {
 
       </Head>
 
-
-    <br/><br/><br/><br/><br/>
-    <input id="someinput" name='inputtext' type='text' placeholder='write some bullshit'></input>
     <div>
       <main 
       style={{

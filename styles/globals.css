@@ -129,11 +129,7 @@ a > .iconImg {
   flex-direction: column;
   align-items: center;
 }
-.releasesCard {
-  display: flex;
-  flex-direction: row;
-  color: black;
-}
+
 
 .icons {
   width: 70%;
