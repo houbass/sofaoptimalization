@@ -177,18 +177,21 @@ catch(err) {
                     }}>
                         <div className="loader">loading</div>
                     </div>
-                    <iframe 
+                    <img width="260px" height="260px" alt="cover" src="https://static.found.ee/user/209413/res-8383a802-87ed-41d8-892d-5fe7a460fc3a-dcd27b5c-fb08-48b0-8ebd-f326390c810f"></img>
+{ /*                   <iframe 
                         style={{
                             visibility: youtubeVisiblity,
                         }}
                         width="260" 
                         height="260" 
-                        src={data.youtubelink} 
+                        src={""
+                            //data.youtubelink
+                        } 
                         title="YouTube video player" 
                         frameBorder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         allowFullScreen>
-                        </iframe>
+                    </iframe> */}
                         <h6>{data.artists} - {data.trackname}</h6>
                         <div className="icons">
                             <div className="icon">
