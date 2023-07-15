@@ -17,36 +17,6 @@ const inter = Inter({ subsets: ['latin'] })
 
 const ReleasesPage = () => {
 
-    //pageref
-    const pageRef = useRef();
-
-    //const height = window.innerHeight;
-    const [height, setHeight] = useState(0);
-
-    //resize fun
-    function resizeFun() {
-       
-        if(window.innerHeight > (pageRef.current.offsetTop + pageRef.current.offsetHeight)){
-            setHeight(window.innerHeight);
-        }else{
-            setHeight(pageRef.current.offsetTop + pageRef.current.offsetHeight)
-        }
-
-
-
-    }
-
-    //set height for frame
-    useEffect(() => {
-        resizeFun();
-        window.addEventListener("resize", resizeFun);
-
-        return () => {
-            window.removeEventListener("resize", resizeFun);
-        }
-    });
-
-
     return(
         <>
         <div
@@ -56,8 +26,9 @@ const ReleasesPage = () => {
             flexDirection: "column",
             alignItems: "center",
             width: "100%",
-            height: `${height}px`,
-            background:"orange"
+            height: "100vh",
+            minHeight: "1650px",
+            //background:"orange"
         }}>
 
         <div 
@@ -86,7 +57,6 @@ const ReleasesPage = () => {
         >
 
             <motion.div 
-                ref={pageRef} 
                 animate={{
                     opacity: [0, 1]
                 }}
