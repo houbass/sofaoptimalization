@@ -109,7 +109,7 @@ const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, l
             width: "100%",
             maxWidth: "90%",
             marginLeft: "10%",
-            //backgroundImage: `url(${backgroundPic2.src})`,
+            backgroundImage: `url(${backgroundPic2.src})`,
             borderRadius: "20px 0px 0px 20px",
           }}>
             <div>

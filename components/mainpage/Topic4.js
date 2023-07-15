@@ -53,7 +53,7 @@ const Topic4 = ({ topic4Animation, mobile, titleSize, flexStyle1, lottieWidth, p
             <div
             style={{
               width: "90%",
-              //backgroundImage: `url(${backgroundPic2.src})`,
+              backgroundImage: `url(${backgroundPic2.src})`,
               borderRadius: "20px 0px 0px 20px",
               transition: "0.5s ease-in"
             }}>

@@ -220,7 +220,7 @@ export default function Home() {
 
 
     <br/><br/><br/><br/><br/>
-    <input placeholder='write some bullshit'></input>
+    <input id="someinput" name='inputtext' type='text' placeholder='write some bullshit'></input>
     <div>
       <main 
       style={{

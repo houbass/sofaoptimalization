@@ -32,7 +32,7 @@ const Topic3 = ({ topic3Opacity, blur, topic3Animation, mobile, titleSize, flexS
           <div
           style={{
             width: "90%",
-            //backgroundImage: `url(${backgroundPic2.src})`,
+            backgroundImage: `url(${backgroundPic2.src})`,
             borderRadius: "0 20px 20px 0",
             marginTop: "80px",
             opacity: topic3Opacity,

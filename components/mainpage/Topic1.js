@@ -35,7 +35,7 @@ const Topic1 = ({  topic1Opacity, topic1Animation, mobile, blur, titleSize, flex
             width: "90%",
             background: "orange",
             borderRadius: "0 20px 20px 0",
-            //backgroundImage: `url(${backgroundPic2.src})`,
+            backgroundImage: `url(${backgroundPic2.src})`,
             opacity: topic1Opacity,
             transition: "1s ease-in", 
             filter: blur,
