@@ -162,7 +162,7 @@ export default function Home() {
       setTitleSize("70px");
     }
 
-    console.log(window.innerWidth)
+    //console.log(window.innerWidth)
   }
 
 
@@ -171,10 +171,14 @@ export default function Home() {
     resizeFun();
     window.addEventListener("resize", resizeFun);
 
+    console.log("CHECK");
+
     return () => {
       window.removeEventListener("resize", resizeFun);
     }
-  }, [])
+
+
+  }, [resizeFun])
 
 
   //scroll listener
