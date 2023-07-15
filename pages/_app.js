@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }) {
       </Head>
 
       <GlobalStatesProvider>
-        <Navbar />
+
         <Component {...pageProps} />
       </GlobalStatesProvider>
 
