@@ -25,11 +25,15 @@ const ReleasesPage = () => {
 
     //resize fun
     function resizeFun() {
+       
         if(window.innerHeight > (pageRef.current.offsetTop + pageRef.current.offsetHeight)){
             setHeight(window.innerHeight);
         }else{
             setHeight(pageRef.current.offsetTop + pageRef.current.offsetHeight)
         }
+
+
+
     }
 
     //set height for frame
@@ -40,7 +44,7 @@ const ReleasesPage = () => {
         return () => {
             window.removeEventListener("resize", resizeFun);
         }
-    }, []);
+    });
 
 
     return(
@@ -53,7 +57,7 @@ const ReleasesPage = () => {
             alignItems: "center",
             width: "100%",
             height: `${height}px`,
-            //background:"orange"
+            background:"orange"
         }}>
 
         <div 

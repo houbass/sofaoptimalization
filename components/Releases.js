@@ -19,13 +19,15 @@ import Deezer from "@/pictures/deezer.png";
 
 
 
-const Releases = () => {
+const Releases = ({ }) => {
 
     //PASSING GLOBAL SETTINGS
     const { mobile } = useContext(GlobalStates);
 
     //states
     const [mobileFlex, setMobileFlex] = useState("row");
+    const [loaderVisibility, setLoaderVisibility] = useState("visible");
+    const [youtubeVisiblity, setYoutubeVisibility] = useState("hidden");
 
     //definice collekce databaze
     const [myData, setMyData] = useState([]);
@@ -36,24 +38,28 @@ const Releases = () => {
     //console.log("DATABASE: " + filteredData)
     //GET DATA FROM DATABASE
     const getData = async () => {
-        
-    //try {
-        
-      const data = await getDocs(contentCollectionRef);
-      const filteredData = data.docs.map((doc) => ({
-        ...doc.data(), 
-        id: doc.id, 
-      }));
-      setMyData(filteredData);
+        console.log("GETTING DATA");
+        setLoaderVisibility("visible");
+        setYoutubeVisibility("hidden");
+try{
 
-/*
-      
-    } 
-    catch (err) {
-      console.error(err);
-    }
-      */
+    const data = await getDocs(contentCollectionRef);
+    const filteredData = data.docs.map((doc) => ({
+      ...doc.data(), 
+      id: doc.id, 
+    }));
     setMyData(filteredData);
+    console.log("FINISHED");
+    setLoaderVisibility("hidden");
+    setYoutubeVisibility("visible");
+
+}
+catch(err) {
+    console.log(err)
+}
+
+
+
     };
 
     //get data
@@ -156,7 +162,25 @@ const Releases = () => {
 
             {filteredMyData?.map((data) => (
                 <div key={data.releaseindex} className="frame"> 
+                    <div 
+                    style={{
+                        width: "260px",
+                        height: "260px",
+                        background: "rgba(255,255,255,0.8)",
+                        position: "absolute",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        visibility: loaderVisibility,
+                        transition: "1s"
+                    }}>
+                        <div className="loader">loading</div>
+                    </div>
                     <iframe 
+                        style={{
+                            visibility: youtubeVisiblity,
+                        }}
                         width="260" 
                         height="260" 
                         src={data.youtubelink} 
