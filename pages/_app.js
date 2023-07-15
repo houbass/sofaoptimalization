@@ -26,7 +26,6 @@ export default function App({ Component, pageProps }) {
       <GlobalStatesProvider>
         <Navbar />
         <Component {...pageProps} />
-        <Spotifyplayer />
       </GlobalStatesProvider>
 
     </>

@@ -122,14 +122,6 @@ export default function Home() {
     }
   }
 
-
-
-
-
-
-
-
-
   //WIDTH LESS THEN 850px and 700px
   const [flexStyle1, setFlexStyle] = useState("row");
   const [lottieWidth, setLottieWidth] = useState("300px");
@@ -160,8 +152,6 @@ export default function Home() {
           }
 
         }
-
-
 
       }else{
         setFlexStyle("row");
@@ -235,7 +225,7 @@ export default function Home() {
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
         <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet"></link>
-
+        <link rel='stylesheet' href={styles} ></link>
       </Head>
 
     <div>
@@ -269,6 +259,8 @@ export default function Home() {
           <div
           ref={topic1Ref}
           >
+            <br /><br /><br /><br /><br /><br />
+            <input placeholder='try me'></input>
             <Topic1 
               topic1Width={topic1Width} 
               div1Width={div1Width} 
@@ -287,45 +279,20 @@ export default function Home() {
           <div
           ref={topic2Ref}
           >
-          <Topic2 
-            topic2Width={topic2Width} 
-            topic2Opacity={topic2Opacity} 
-            topic2Animation={topic2Animation} 
-            blur={topic2blur} 
-            titleSize={titleSize} 
-            flexStyle1={flexStyle1}
-            lottieWidth={lottieWidth}
-            pSize={pSize}
-          />
+
           </div>
 
           <div
           ref={topic3Ref}
           >
-            <Topic3 
-              topic3Animation={topic3Animation} 
-              topic3Width={topic3Width} 
-              topic3Opacity={topic2Opacity} 
-              blur={topic2blur} 
-              mobile={mobile} 
-              titleSize={titleSize} 
-              flexStyle1={flexStyle1}
-              lottieWidth={lottieWidth}
-              pSize={pSize}
-            />
+
+
           </div>
 
           <div
           ref={topic4Ref}
           >
-            <Topic4 
-              topic4Animation={topic4Animation} 
-              mobile={mobile} 
-              titleSize={titleSize}
-              flexStyle1={flexStyle1}
-              lottieWidth={lottieWidth}
-              pSize={pSize}
-            />
+
           </div>
           <Footer />
 
