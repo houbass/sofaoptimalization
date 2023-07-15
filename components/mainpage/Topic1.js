@@ -33,7 +33,7 @@ const Topic1 = ({  topic1Opacity, topic1Animation, mobile, blur, titleSize, flex
           ref={divRef}
           style={{
             width: "90%",
-            background: "orange",
+            //background: "orange",
             borderRadius: "0 20px 20px 0",
             backgroundImage: `url(${backgroundPic2.src})`,
             opacity: topic1Opacity,
