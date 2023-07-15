@@ -15,7 +15,7 @@ import backgroundPic2 from "@/components/pic/background2.svg"
 
 const inter = Inter({ subsets: ['latin'] })
 
-const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, lottieWidth, pSize }) => {
+const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, lottieWidth, pSize, mobile }) => {
 
 
     //Lottie ref
@@ -66,7 +66,7 @@ const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, l
 
 
     //MOBILE ANIMATION LOGIC
-    /*
+    
     useEffect(() => {
 
       if(mobile === true) {
@@ -76,7 +76,7 @@ const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, l
       }
 
     }, [topic2Animation])
-        */
+        
 
 
 
@@ -138,7 +138,7 @@ const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, l
                   //background: "orange",
                   marginRight: "30px"
                 }}>
-                  {/*
+                  
                   <Lottie 
                   lottieRef={animationRef}
                   style={{width: lottieWidth, height: lottieWidth}} 
@@ -148,7 +148,7 @@ const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, l
                   loop={false}
                   animationData={topic2Animation} 
                   />
-                */ }
+                
                 </div>
               </div>
               

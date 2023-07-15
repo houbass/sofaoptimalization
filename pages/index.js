@@ -279,6 +279,7 @@ export default function Home() {
             flexStyle1={flexStyle1}
             lottieWidth={lottieWidth}
             pSize={pSize}
+            mobile={mobile}
           />
           </div>
 

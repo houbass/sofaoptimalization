@@ -17,7 +17,7 @@ const Topic3 = ({ topic3Opacity, blur, topic3Animation, mobile, titleSize, flexS
   const animationRef = useRef();
 
   //MOBILE LOGIC
-      /*
+      
   useEffect(() => {
       if(mobile === true) {
         animationRef.current.stop();
@@ -25,7 +25,7 @@ const Topic3 = ({ topic3Opacity, blur, topic3Animation, mobile, titleSize, flexS
         animationRef.current.play();
       }
   }, [topic3Animation])
-*/
+
 
     return(
         <>
@@ -45,13 +45,13 @@ const Topic3 = ({ topic3Opacity, blur, topic3Animation, mobile, titleSize, flexS
                 style={{
                   marginRight: "30px"
                 }}>
-                  {/*
+                  
                   <Lottie 
                     lottieRef={animationRef} 
                     style={{width: lottieWidth, height: lottieWidth}}  
                     animationData={topic3Animation} 
                   />
-              */}
+              
               </div>
 
               <div>
