@@ -17,6 +17,8 @@ import Spotify from "@/pictures/spotify.png";
 import Apple from "@/pictures/apple.png";
 import Deezer from "@/pictures/deezer.png";
 
+
+
 const Releases = () => {
 
     //PASSING GLOBAL SETTINGS
@@ -31,20 +33,27 @@ const Releases = () => {
     //data z databaze
     const contentCollectionRef = collection(db, "content");
 
+    //console.log("DATABASE: " + filteredData)
     //GET DATA FROM DATABASE
     const getData = async () => {
-    try {
+        
+    //try {
+        
       const data = await getDocs(contentCollectionRef);
       const filteredData = data.docs.map((doc) => ({
         ...doc.data(), 
         id: doc.id, 
       }));
       setMyData(filteredData);
+
+/*
+      
     } 
     catch (err) {
       console.error(err);
     }
-
+      */
+    setMyData(filteredData);
     };
 
     //get data
@@ -54,8 +63,8 @@ const Releases = () => {
 
     const sorting = () => {
         //SORT DATA BY RELEASEINDEX
-        myData.sort((a,b)=>{return a.releaseindex - b.releaseindex});
-        myData.reverse();
+        myData?.sort((a,b)=>{return a.releaseindex - b.releaseindex});
+        myData?.reverse();
       }
   
         //SORT MY DATA
@@ -71,7 +80,7 @@ const Releases = () => {
   
         //FILTERING MYDATA
         const range = 4;
-        const filteredMyData = myData.filter((data)=> data.releaseindex > bottomRange && data.releaseindex < upperRange)
+        const filteredMyData = myData?.filter((data)=> data.releaseindex > bottomRange && data.releaseindex < upperRange)
   
         //NEXT RELEASES
         const nextReleasePage = () => {
@@ -87,7 +96,7 @@ const Releases = () => {
   
         //GET myData LENGTH
         const getDataLength =  () => {
-          const length = myData.length + 1;
+          const length = myData?.length + 1;
           setMyDataLength(length);
           setUpperRange(length);
           setBottomRange(length - range);
@@ -145,7 +154,7 @@ const Releases = () => {
                 color: "black"
             }}>
 
-            {filteredMyData.map((data) => (
+            {filteredMyData?.map((data) => (
                 <div key={data.releaseindex} className="frame"> 
                     <iframe 
                         width="260" 
