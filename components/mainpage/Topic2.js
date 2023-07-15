@@ -37,10 +37,7 @@ const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, l
     //flexdirection
     const [flex, setFlex] = useState("row");
 
-    //RESIZE FUN
-    const resizeFun = () => {
-      setActualWindowWidth(window.innerWidth);
-    }
+
 
     //MOBILE ANIMATION LOGIC
     useEffect(() => {
@@ -68,8 +65,12 @@ const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, l
         flexLogic()
     }, [flexStyle1])
 
+    //RESIZE FUN
+    const resizeFun = () => {
+      setActualWindowWidth(window.innerWidth);
+    }
 
-    //GET WINDOW WIDTH
+    //RESIZE LISTENER
     useEffect(() => {
       window.addEventListener("resize", resizeFun);
       resizeFun();
@@ -78,27 +79,30 @@ const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, l
       }
     }, [])
 
+
     //LATEST RELEASES CHANGE WITH WIDTH
     useEffect(() => {
+      const getWidth = window.innerWidth;
       
-      if(actualWindowWidth < 550){
+      if(getWidth < 550){
         setReleasesQuantity(0);
         setYoutubeBoxHeight("0px");
-        console.log(actualWindowWidth)
+        console.log(getWidth)
       }
-      if(actualWindowWidth < 740 && actualWindowWidth > 550){
+      
+      if(getWidth < 740 && getWidth > 550){
         setReleasesQuantity(2);
         setYoutubeBoxHeight("300px");
       }
-      if(actualWindowWidth < 980 && actualWindowWidth > 740){
+      if(getWidth < 980 && getWidth > 740){
         setReleasesQuantity(3);
         setYoutubeBoxHeight("300px");
       }
-      if(actualWindowWidth > 980 && actualWindowWidth < 1225){
+      if(getWidth > 980 && getWidth < 1225){
         setReleasesQuantity(4);
         setYoutubeBoxHeight("300px");
       }
-      if(actualWindowWidth > 1225){
+      if(getWidth > 1225){
         setReleasesQuantity(5);
         setYoutubeBoxHeight("300px");
       }
