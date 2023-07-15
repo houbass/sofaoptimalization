@@ -49,13 +49,13 @@ export default function Home() {
   const [titleSize, setTitleSize] = useState("70px");
 
   //TOPIC 1 STATES
-  const [topic1Opacity, setTopic1Opacity] = useState("0");
-  const [topic1blur, setTopic1blur] = useState("blur(5px)");
+  const [topic1Opacity, setTopic1Opacity] = useState("1");
+  const [topic1blur, setTopic1blur] = useState("blur(0px)");
   const [topic1Animation, setTopic1Animation] = useState(null);
 
   //TOPIC 2 STATES
-  const [topic2Opacity, setTopic2Opacity] = useState("0");
-  const [topic2blur, setTopic2blur] = useState("blur(5px)");
+  const [topic2Opacity, setTopic2Opacity] = useState("1");
+  const [topic2blur, setTopic2blur] = useState("blur(0px)");
   const [topic2Animation, setTopic2Animation] = useState(null);
 
   //TOPIC 3 STATES
@@ -65,142 +65,14 @@ export default function Home() {
   const [topic4Animation, setTopic4Animation] = useState(null);
   
 
-  //ZOBRAZOVANI ANIMACI KDYZ JE POTREBA
-  function scrollFun() {
 
-    const windowHeight = window.innerHeight;
-    const getscrollY = window.scrollY;
-    const constant = 200;
-
-    //TOPIC 1
-    const topic1Y = topic1Ref.current.offsetTop;
-    const topic1Height = topic1Ref.current.offsetHeight;
-    if((windowHeight + getscrollY) > (topic1Y)){
-      setTopic1Animation(topic1animationData);
-    }
-    if((windowHeight + getscrollY) > (topic1Y) && (getscrollY) > (topic1Y + topic1Height - 100)){
-      setTopic1Animation(null);
-    }
-
-    //TOPIC 2
-    const topic2Y = topic2Ref.current.offsetTop;
-    const topic2Height = topic2Ref.current.offsetHeight;
-    if((windowHeight + getscrollY) > (topic2Y + constant)){
-      setTopic2Animation(topic2animationData);
-    }
-    if((windowHeight + getscrollY) < (topic2Y + constant) ){
-      setTopic2Animation(null);
-    }
-    if((windowHeight + getscrollY) > (topic2Y + constant) && (getscrollY) > (topic2Y + topic2Height - 400)){
-      setTopic2Animation(null);
-    }
-
-    //TOPIC 3
-    const topic3Y = topic3Ref.current.offsetTop;
-    const topic3Height = topic3Ref.current.offsetHeight;
-    if((windowHeight + getscrollY) > (topic3Y + constant)){
-      setTopic3Animation(topic3animationData);
-    }
-    if((windowHeight + getscrollY) < (topic3Y + constant) ){
-      setTopic3Animation(null);
-    }
-    if((windowHeight + getscrollY) > (topic3Y + constant) && (getscrollY) > (topic3Y + topic3Height - 200)){
-      setTopic3Animation(null);
-    }
-
-    //TOPIC 4 
-    const topic4Y = topic4Ref.current.offsetTop;
-    if((windowHeight + getscrollY) > (topic4Y + constant)){
-      setTopic4Animation(topic4animationData);
-    }
-    if((windowHeight + getscrollY) < (topic4Y + constant) ){
-      setTopic4Animation(null);
-    }
-  }
 
   //WIDTH LESS THEN 850px and 700px
   const [flexStyle1, setFlexStyle] = useState("row");
   const [lottieWidth, setLottieWidth] = useState("300px");
   const [pSize, setPsize] = useState("20px");
 
-  function resizeFun() {
 
-    //850px <
-    if(window.innerWidth < 850 ){
-      setTitleSize("50px");
-
-      //700px <
-      if(window.innerWidth < 700) {
-        setFlexStyle("column");
-        setLottieWidth("300px");
-        setPsize("20px");
-
-        //450px <
-        if(window.innerWidth < 450){
-          setTitleSize("35px");
-          setLottieWidth("190px");
-          setPsize("17px");
-
-
-          //320px <
-          if(window.innerWidth < 320){
-            setLottieWidth("150px");
-          }
-
-        }
-
-
-
-      }else{
-        setFlexStyle("row");
-        setLottieWidth("300px");
-        setPsize("20px");
-      }
-
-    }
-    if(window.innerWidth > 850 ){
-      setTitleSize("70px");
-    }
-
-    console.log(window.innerWidth)
-  }
-
-
-  //resize listener
-  useEffect(() => {
-    resizeFun();
-    window.addEventListener("resize", resizeFun);
-
-    return () => {
-      window.removeEventListener("resize", resizeFun);
-    }
-  }, [])
-
-
-  //scroll listener
-  useEffect(() => {
-    scrollFun();
-    window.addEventListener("scroll", scrollFun);
-
-    return () => {
-      window.removeEventListener("scroll", scrollFun);
-    }
-  }, [])
-
-
-  //ONLOAD ANIMATION
-  useEffect(() => {
-    //setTopic1Width(`${div1Width}px`);
-    setTimeout(() => {
-      setTopic1Opacity("1");
-      setTopic1blur("blur(0px)");
-    }, 500);
-
-    setTimeout(() => {
-      setTopic2Opacity("1");
-      setTopic2blur("blur(0px)");
-    }, 1000);
-  }, [])
 
   return (
     <>
