@@ -19,6 +19,7 @@ const Topic4 = ({ topic4Animation, mobile, titleSize, flexStyle1, lottieWidth, p
     const [flex, setFlex] = useState("row");
   
     //MOBILE LOGIC
+    /*
     useEffect(() => {
         if(mobile === true) {
           animationRef.current.stop();
@@ -26,6 +27,7 @@ const Topic4 = ({ topic4Animation, mobile, titleSize, flexStyle1, lottieWidth, p
           animationRef.current.play();
         }
     }, [topic4Animation]);
+    */
 
     //FLEX MOBILE LOGIC
     useEffect(() => {
@@ -80,11 +82,14 @@ const Topic4 = ({ topic4Animation, mobile, titleSize, flexStyle1, lottieWidth, p
                 style={{
                   marginRight: "30px"
                 }}>
+                  {/*
                   <Lottie 
                   lottieRef={animationRef}
                   style={{width: lottieWidth, height: lottieWidth}} 
                   animationData={topic4Animation} 
                   />
+
+                  */}
                 </div>
               </div>
             </div>

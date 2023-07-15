@@ -16,6 +16,7 @@ const Topic1 = ({  topic1Opacity, topic1Animation, mobile, blur, titleSize, flex
   //animation ref
   const animationRef = useRef();
 
+      /*
   useEffect(() => {
     if(mobile === true) {
       animationRef.current.stop();
@@ -23,6 +24,8 @@ const Topic1 = ({  topic1Opacity, topic1Animation, mobile, blur, titleSize, flex
       animationRef.current.play();
     }
   }, [topic1Animation])
+
+      */
 
     return(
         <>
@@ -46,11 +49,11 @@ const Topic1 = ({  topic1Opacity, topic1Animation, mobile, blur, titleSize, flex
               padding: "20px 20px", 
               marginBottom: "10px",
             }}>
-                <Lottie 
+                {/*<Lottie 
                   lottieRef={animationRef} 
                   style={{width: lottieWidth, height: lottieWidth}} 
                   animationData={topic1Animation} 
-                />
+          />*/}
 
               <div 
               style={{

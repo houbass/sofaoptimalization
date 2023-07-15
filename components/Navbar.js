@@ -56,10 +56,7 @@ const Navbar = () => {
         }, 2000)
     }, [])
 
-    //GET WINDOW WIDTH
-    useEffect(() => {
-        resizeFun();
-    })
+
 
     function resizeFun() {
         if(window.innerWidth < 1300){
@@ -82,7 +79,12 @@ const Navbar = () => {
 
     }
 
+    //GET WINDOW WIDTH
     useEffect(() => {
+        resizeFun();
+    }, [])
+    useEffect(() => {
+        
         window.addEventListener("resize", resizeFun);
 
 
