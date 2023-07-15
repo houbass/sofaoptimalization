@@ -34,41 +34,42 @@ export default function Home() {
 
   const [text, setText] = useState("");
 
-    //refs
-    const topic1Ref = useRef();
-    const topic2Ref = useRef();
-    const topic3Ref = useRef();
-    const topic4Ref = useRef();
+  //refs
+  const topic1Ref = useRef();
+  const topic2Ref = useRef();
+  const topic3Ref = useRef();
+  const topic4Ref = useRef();
+
+  //PASSING GLOBAL SETTINGS
+  const { setMainWidth, mobile } = useContext(GlobalStates);
+
+  //MAIN PAGE
+  const mainRef = useRef(null);
+
+  //SETTINGS
+  const maxWidth = 1300;
+  const [titleSize, setTitleSize] = useState("70px");
+
+  //TOPIC 1 STATES
+  const [topic1Width, setTopic1Width] = useState("0");
+  const [div1Width, setDiv1Width] = useState(null);
+  const [topic1Opacity, setTopic1Opacity] = useState("0");
+  const [topic1blur, setTopic1blur] = useState("blur(5px)");
+  const [topic1Animation, setTopic1Animation] = useState(null);
+
+  //TOPIC 2 STATES
+  const [topic2Width, setTopic2Width] = useState("90%");
+  const [topic2Opacity, setTopic2Opacity] = useState("0");
+  const [topic2blur, setTopic2blur] = useState("blur(5px)");
+  const [topic2Animation, setTopic2Animation] = useState(null);
+
+  //TOPIC 3 STATES
+  const [topic3Width, setTopic3Width] = useState("90%");
+  const [topic3Animation, setTopic3Animation] = useState(null);
+
+  //TOPIC 4 STATES
+  const [topic4Animation, setTopic4Animation] = useState(null);
   
-    //PASSING GLOBAL SETTINGS
-    const { setMainWidth, mobile } = useContext(GlobalStates);
-  
-    //MAIN PAGE
-    const mainRef = useRef(null);
-  
-    //SETTINGS
-    const maxWidth = 1300;
-    const [titleSize, setTitleSize] = useState("70px");
-  
-    //TOPIC 1 STATES
-    const [topic1Width, setTopic1Width] = useState("0");
-    const [div1Width, setDiv1Width] = useState(null);
-    const [topic1Opacity, setTopic1Opacity] = useState("0");
-    const [topic1blur, setTopic1blur] = useState("blur(5px)");
-    const [topic1Animation, setTopic1Animation] = useState(null);
-  
-    //TOPIC 2 STATES
-    const [topic2Width, setTopic2Width] = useState("90%");
-    const [topic2Opacity, setTopic2Opacity] = useState("0");
-    const [topic2blur, setTopic2blur] = useState("blur(5px)");
-    const [topic2Animation, setTopic2Animation] = useState(null);
-  
-    //TOPIC 3 STATES
-    const [topic3Width, setTopic3Width] = useState("90%");
-    const [topic3Animation, setTopic3Animation] = useState(null);
-  
-    //TOPIC 4 STATES
-    const [topic4Animation, setTopic4Animation] = useState(null);
 
   //ZOBRAZOVANI ANIMACI KDYZ JE POTREBA
   function scrollFun() {
@@ -77,8 +78,59 @@ export default function Home() {
     const getscrollY = window.scrollY;
     const constant = 200;
 
+    //TOPIC 1
+    const topic1Y = topic1Ref.current.offsetTop;
+    const topic1Height = topic1Ref.current.offsetHeight;
+    if((windowHeight + getscrollY) > (topic1Y)){
+      setTopic1Animation(topic1animationData);
+    }
+    if((windowHeight + getscrollY) > (topic1Y) && (getscrollY) > (topic1Y + topic1Height - 100)){
+      setTopic1Animation(null);
+    }
 
+    //TOPIC 2
+    const topic2Y = topic2Ref.current.offsetTop;
+    const topic2Height = topic2Ref.current.offsetHeight;
+    if((windowHeight + getscrollY) > (topic2Y + constant)){
+      setTopic2Animation(topic2animationData);
+    }
+    if((windowHeight + getscrollY) < (topic2Y + constant) ){
+      setTopic2Animation(null);
+    }
+    if((windowHeight + getscrollY) > (topic2Y + constant) && (getscrollY) > (topic2Y + topic2Height - 400)){
+      setTopic2Animation(null);
+    }
+
+    //TOPIC 3
+    const topic3Y = topic3Ref.current.offsetTop;
+    const topic3Height = topic3Ref.current.offsetHeight;
+    if((windowHeight + getscrollY) > (topic3Y + constant)){
+      setTopic3Animation(topic3animationData);
+    }
+    if((windowHeight + getscrollY) < (topic3Y + constant) ){
+      setTopic3Animation(null);
+    }
+    if((windowHeight + getscrollY) > (topic3Y + constant) && (getscrollY) > (topic3Y + topic3Height - 200)){
+      setTopic3Animation(null);
+    }
+
+    //TOPIC 4 
+    const topic4Y = topic4Ref.current.offsetTop;
+    if((windowHeight + getscrollY) > (topic4Y + constant)){
+      setTopic4Animation(topic4animationData);
+    }
+    if((windowHeight + getscrollY) < (topic4Y + constant) ){
+      setTopic4Animation(null);
+    }
   }
+
+
+
+
+
+
+
+
 
   //WIDTH LESS THEN 850px and 700px
   const [flexStyle1, setFlexStyle] = useState("row");
@@ -127,6 +179,7 @@ export default function Home() {
     console.log(window.innerWidth)
   }
 
+
   //resize listener
   useEffect(() => {
     resizeFun();
@@ -165,11 +218,33 @@ export default function Home() {
 
   }, [div1Width])
 
+  //GET MAIN WIDTH
+  useEffect(() => {
+    setMainWidth(mainRef.current.offsetWidth + "px");
+  })
+
+  //console.log(pageyoffset);
+
 
 
   return (
     <>
-  <div>
+          <Head>
+        <title>Create Next App</title>
+        <meta name="description" content="Sofa Lofi page" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
+        <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet"></link>
+
+      </Head>
+
+    <div>
+    <div>
     <br/><br/><br/><br/><br/><br/>
     <h1 className='big'>Check</h1>
     <input 
@@ -178,6 +253,64 @@ export default function Home() {
     ></input>
     <p>{text}</p>
   </div>
+      <main 
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        background: "rgb(20,20,20)",
+        //backgroundImage: `url(${backgroundPic2.src})`
+        
+      }} 
+      className={`${inter.className} `}>
+
+        <div 
+        ref={mainRef}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          color: "white",
+          width: "100%",
+          maxWidth: `${maxWidth}px`,
+          //background: "rgba(20,20, 20, 1)",
+          backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
+          border: "solid 20px transparent",
+          borderImage: `url(${backgroundPic2.src}) 20 round`,
+          borderBottomStyle: "none",
+          borderTopStyle: "none",
+        }}>
+
+          <div
+          ref={topic1Ref}
+          >
+
+          </div>
+
+          <div
+          ref={topic2Ref}
+          >
+
+          </div>
+
+          <div
+          ref={topic3Ref}
+          >
+
+          </div>
+
+          <div
+          ref={topic4Ref}
+          >
+
+          </div>
+          <Footer />
+
+        </div>
+
+      </main>
+      </div>
+
     </>
   )
 }
