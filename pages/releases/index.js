@@ -7,6 +7,10 @@ import styles from '@/styles/Home.module.css'
 //motion lib
 import { motion } from 'framer-motion'
 
+//firebase database
+import { db, storage } from "config/firebase";
+import { getDocs, collection, addDoc, deleteDoc, updateDoc, doc } from "firebase/firestore";
+
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg"
 
@@ -15,7 +19,25 @@ import Releases from '@/components/Releases';
 
 const inter = Inter({ subsets: ['latin'] })
 
-const ReleasesPage = () => {
+
+//SERVER SIDER RENDER (firebase data)
+export async function getServerSideProps() {
+    const contentCollectionRef = collection(db, "content");
+
+    // Fetch data from external API
+    const res = await getDocs(contentCollectionRef);
+    const filteredData = res.docs.map((doc) => ({
+        ...doc.data(), 
+        id: doc.id, 
+    }));
+   
+    // Pass data to the page via props
+    return { props: { filteredData } }
+  }
+
+
+const ReleasesPage = ({ filteredData }) => {
+    console.log(filteredData)
 
     return(
         <>
@@ -79,7 +101,7 @@ const ReleasesPage = () => {
                         style={{
                             paddingBottom: "60px"
                         }}>Latest Sofa Lofi releases</h1>
-                        <Releases />
+                        <Releases filteredData={filteredData}/>
                         <div className='center'>
                             <h2>wanna hear more?</h2>
                             <p style={{fontSize: "12px"}}>check out Sofa Lofi Releases playlist</p>

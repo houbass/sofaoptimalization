@@ -1,5 +1,5 @@
 import styles from '@/styles/Home.module.css'
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 //local storage hook
 import useLocalStorageState from 'use-local-storage-state'
@@ -21,6 +21,15 @@ const Spotifyplayer = () => {
     const [closeBtnToggler, setCloseBtnToggler] = useLocalStorageState('closeBtnToggler', {defaultValue: true });
     const [closeBtnVisibility, setCloseBtnVisibility] = useState("visible");
 
+    //VISIBILITY
+    const [opacity, setOpacity] = useState("0");
+
+    //on load opacity
+    useEffect(() => {
+        setTimeout(() => {
+            setOpacity("1");
+        }, 3000)
+    }, [])
 
     //height handler
     const heightHandler = () => {
@@ -55,7 +64,7 @@ const Spotifyplayer = () => {
 
 
     return (
-        <div className={`${styles.spotifyplayer}`} style={{width: width, height: height}}>
+        <div className={`${styles.spotifyplayer}`} style={{width: width, height: height, opacity: opacity, transition: "2s"}}>
 
             <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
                 <button className='material-symbols-outlined' style={{ height:"22px", width:"22px", rotate: btnRotate, visibility: btnBiggerVisibility, borderRadius: "50%", marginBottom: "6px"}}

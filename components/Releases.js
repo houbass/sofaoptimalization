@@ -2,13 +2,6 @@ import { useContext, useEffect, useState } from "react";
 
 import Image from 'next/image';
 
-//firebase database
-import { db, storage } from "config/firebase";
-import { getDocs, collection, addDoc, deleteDoc, updateDoc, doc } from "firebase/firestore";
-
-//motion lib
-import {AnimatePresence, motion } from 'framer-motion'
-
 //GLOBALSTATES
 import { GlobalStates } from '@/globalstates/GlobalStates'
 
@@ -17,54 +10,22 @@ import Spotify from "@/pictures/spotify.png";
 import Apple from "@/pictures/apple.png";
 import Deezer from "@/pictures/deezer.png";
 
-
-
-const Releases = ({ }) => {
+const Releases = ({ filteredData }) => {
 
     //PASSING GLOBAL SETTINGS
     const { mobile } = useContext(GlobalStates);
 
     //states
     const [mobileFlex, setMobileFlex] = useState("row");
-    const [loaderVisibility, setLoaderVisibility] = useState("visible");
-    const [youtubeVisiblity, setYoutubeVisibility] = useState("hidden");
+    const [loaderVisibility, setLoaderVisibility] = useState("hidden");
+    const [youtubeVisiblity, setYoutubeVisibility] = useState("visible");
 
     //definice collekce databaze
     const [myData, setMyData] = useState([]);
 
-    //data z databaze
-    const contentCollectionRef = collection(db, "content");
-
-    //console.log("DATABASE: " + filteredData)
-    //GET DATA FROM DATABASE
-    const getData = async () => {
-        console.log("GETTING DATA");
-        setLoaderVisibility("visible");
-        setYoutubeVisibility("hidden");
-try{
-
-    const data = await getDocs(contentCollectionRef);
-    const filteredData = data.docs.map((doc) => ({
-      ...doc.data(), 
-      id: doc.id, 
-    }));
-    setMyData(filteredData);
-    console.log("FINISHED");
-    setLoaderVisibility("hidden");
-    setYoutubeVisibility("visible");
-
-}
-catch(err) {
-    console.log(err)
-}
-
-
-
-    };
-
     //get data
     useEffect(() => {
-        getData();
+        setMyData(filteredData);
     }, []);
 
     const sorting = () => {
@@ -82,7 +43,6 @@ catch(err) {
         const [myDataLength, setMyDataLength] = useState(null);
         const [upperRange, setUpperRange] = useState(null);
         const [bottomRange, setBottomRange] = useState(null);
-
   
         //FILTERING MYDATA
         const range = 4;
@@ -128,11 +88,9 @@ catch(err) {
           }else{
               setBackVisibility("visible");
           }
-        }, [getData, nextReleasePage, backReleasePage])
-
+        }, [myData, nextReleasePage, backReleasePage])
 
         //mobile logic
-
         function resizeFun() {
             if(window.innerWidth < 900){
                 setMobileFlex("column");
@@ -177,21 +135,20 @@ catch(err) {
                     }}>
                         <div className="loader">loading</div>
                     </div>
-                    <img width="260px" height="260px" alt="cover" src="https://static.found.ee/user/209413/res-8383a802-87ed-41d8-892d-5fe7a460fc3a-dcd27b5c-fb08-48b0-8ebd-f326390c810f"></img>
-{ /*                   <iframe 
+                    <iframe 
                         style={{
                             visibility: youtubeVisiblity,
                         }}
                         width="260" 
                         height="260" 
-                        src={""
-                            //data.youtubelink
+                        src={
+                            data.youtubelink
                         } 
                         title="YouTube video player" 
                         frameBorder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         allowFullScreen>
-                    </iframe> */}
+                    </iframe> 
                         <h6>{data.artists} - {data.trackname}</h6>
                         <div className="icons">
                             <div className="icon">
