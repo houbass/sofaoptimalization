@@ -41,7 +41,7 @@ const Submit = () => {
             flexDirection: "column",
             alignItems: "center",
             width: "100%",
-            background: "orange",
+            //background: "orange",
             height: "100vh",
             minHeight: "700px",
         }}>
