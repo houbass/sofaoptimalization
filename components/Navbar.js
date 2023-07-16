@@ -1,13 +1,17 @@
+import { useContext, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 //anime.js
 import anime from 'animejs';
 
 //GLOBALSTATES
-import { useEffect, useRef, useState } from "react";
+import { GlobalStates } from '@/globalstates/GlobalStates'
 
 //top navbar
 const Navbar = () => {
+
+    //PASSING GLOBAL SETTINGS
+    const { mobile } = useContext(GlobalStates);
 
     //navbar 
     const [navbarOpacity, setNavbarOpacity] = useState("0");
@@ -38,10 +42,16 @@ const Navbar = () => {
 
     //MOBILE BURGER mouse events
     function mouseEnterFun() {
-        setBurgerColor("rgba(255, 70, 70, 1)");
+        if(mobile === false){
+            setBurgerColor("rgba(255, 70, 70, 1)");
+        }else{
+        }
     }
     function mouseLeaveFun() {
-        setBurgerColor("rgba(255, 255, 255, 1)");
+        if(mobile === false){
+            setBurgerColor("rgba(255, 255, 255, 1)");
+        }else{
+        }
     }
     function burgerClickFun() {
         let path1;
@@ -49,6 +59,7 @@ const Navbar = () => {
         if(burgerToggler === false){
             setBurgerMenuVisibility("visible");
             setBurgerToggler(true);
+            setBurgerColor("rgba(255, 70, 70, 1)");
 
             path1 = crossPath1;
             setPath2("0");
@@ -81,6 +92,7 @@ const Navbar = () => {
         }else{
             setBurgerMenuVisibility("hidden");
             setBurgerToggler(false);
+            setBurgerColor("rgba(255, 255, 255, 1)");
 
             path1 = burgerPath1;
             setPath2("M10 29H100V49H0V29Z");
@@ -113,6 +125,7 @@ const Navbar = () => {
     function burgerLinkClickFun() {
         setBurgerMenuVisibility("hidden");
         setBurgerToggler(false);
+        setBurgerColor("rgba(255, 255, 255, 1)");
 
         setPath2("M10 29H100V49H0V29Z");
         const path1animation3 = anime({
