@@ -26,7 +26,7 @@ const Topic4 = ({ topic4Animation, mobile }) => {
         }else{
           animationRef.current.play();
         }
-    }, [topic4Animation]);
+    }, [mobile]);
     
 
     return(

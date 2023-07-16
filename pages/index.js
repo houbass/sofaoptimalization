@@ -41,11 +41,13 @@ export default function Home() {
   const maxWidth = 1300;
 
   //TOPICs STATES
-  const [topic1Animation, setTopic1Animation] = useState(null);
-  const [topic2Animation, setTopic2Animation] = useState(null);
-  const [topic3Animation, setTopic3Animation] = useState(null);
-  const [topic4Animation, setTopic4Animation] = useState(null);
+  //const [topic1Animation, setTopic1Animation] = useState(null);
+  const topic1Animation = topic1animationData;
+  const [topic2Animation, setTopic2Animation] = useState(topic2animationData);
+  const [topic3Animation, setTopic3Animation] = useState(topic3animationData);
+  const [topic4Animation, setTopic4Animation] = useState(topic4animationData);
 
+/*
   //RUN SVGs ANIMATION JUST WHEN YOU SCROLL ON IT
   function scrollFun() {
 
@@ -108,6 +110,7 @@ export default function Home() {
       window.removeEventListener("scroll", scrollFun);
     }
   }, [])
+  */
 
   return (
     <>
