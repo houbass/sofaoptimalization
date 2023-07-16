@@ -1,23 +1,28 @@
-import Head from 'next/head'
+import { useContext, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { Inter } from 'next/font/google'
-import { useEffect, useRef, useState } from 'react'
 
 //LOTTIE LIB
 import Lottie from "lottie-react";
 
+//LOTTIE DATA
+import topic3Animation from "@/components/lottieanimations/workplace.json";
+
+//GLOBALSTATES
+import { GlobalStates } from '@/globalstates/GlobalStates'
+
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg"
 
-const inter = Inter({ subsets: ['latin'] })
 
-const Topic3 = ({ topic3Animation, mobile }) => {
+const Topic3 = () => {
+
+  //PASSING GLOBAL SETTINGS
+  const { mobile } = useContext(GlobalStates);
 
   //ref
   const animationRef = useRef();
 
   //MOBILE LOGIC
-      
   useEffect(() => {
       if(mobile === true) {
         animationRef.current.stop();

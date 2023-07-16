@@ -1,33 +1,28 @@
-import Image from 'next/image'
-import Link from "next/link";
-import { Inter } from 'next/font/google'
 import { useContext, useEffect, useRef, useState } from 'react'
-
-//GLOBALSTATES
-import { GlobalStates } from '@/globalstates/GlobalStates'
+import Link from "next/link";
 
 //LOTTIE LIB
 import Lottie from "lottie-react";
 
+//LOTTIE DATA
+import topic2Animation from "@/components/lottieanimations/music.json";
+
+//GLOBALSTATES
+import { GlobalStates } from '@/globalstates/GlobalStates'
+
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg"
 
-const inter = Inter({ subsets: ['latin'] })
-
-const Topic2 = ({ topic2Animation }) => {
+const Topic2 = () => {
 
     //PASSING GLOBAL SETTINGS
     const { mobile } = useContext(GlobalStates);
 
     //Lottie ref
     const animationRef = useRef(null);
- 
-    //flexdirection
-    const [flex, setFlex] = useState("row");
 
     //MOBILE ANIMATION LOGIC
     useEffect(() => {
-
       if(mobile === true) {
         animationRef.current.goToAndStop(42, true);
       }else{

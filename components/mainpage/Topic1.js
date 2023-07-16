@@ -1,19 +1,26 @@
-import { Inter } from 'next/font/google';
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 
 //LOTTIE LIB
 import Lottie from "lottie-react";
 
+//LOTTIE DATA
+import topic1Animation from "@/components/lottieanimations/sofa.json";
+
+//GLOBALSTATES
+import { GlobalStates } from '@/globalstates/GlobalStates'
+
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
 
-const inter = Inter({ subsets: ['latin'] })
+const Topic1 = () => {
 
-const Topic1 = ({ topic1Animation, mobile }) => {
+  //PASSING GLOBAL SETTINGS
+  const { mobile } = useContext(GlobalStates);
 
   //animation ref
   const animationRef = useRef();
       
+  /*
   useEffect(() => {
     if(mobile === true) {
       animationRef.current.stop();
@@ -21,7 +28,7 @@ const Topic1 = ({ topic1Animation, mobile }) => {
       animationRef.current.play();
     }
   }, [mobile])
-
+*/
 
     return(
         <>
