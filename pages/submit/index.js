@@ -18,7 +18,7 @@ const Submit = () => {
 
     //resize fun
     function resizeFun() {
-        if(window.innerWidth < 550) {
+        if(window.innerWidth < 580) {
             setFlexDir("column");
         }else{
             setFlexDir("row");
@@ -108,7 +108,7 @@ const Submit = () => {
                     <div 
                     style={{
                         backgroundImage: `url(${backgroundPic2.src})`, 
-                        width: "220px",
+                        width: "240px",
                         height: "220px",
                         display: "flex",
                         flexDirection: "column",
@@ -132,7 +132,7 @@ const Submit = () => {
                     <div 
                     style={{
                         backgroundImage: `url(${backgroundPic2.src})`, 
-                        width: "220px",
+                        width: "240px",
                         height: "220px",
                         display: "flex",
                         flexDirection: "column",
@@ -140,7 +140,7 @@ const Submit = () => {
                         justifyContent: "center",
                         borderRadius: "20px"
                     }}>
-                        <p>SUBMIT PLAYLIST</p>
+                        <p>SUBMIT TO PLAYLIST</p>
                     </div>
                 </Link>
 

@@ -536,5 +536,24 @@ label {
   border: none;
   margin-top: 22px;
   border-radius: 50%;
+}
 
+.spotifybuttons2 {
+  background: white;
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 50%;
+}
+
+.error {
+  color: rgb(252, 75, 75);
+  background: rgba(0,0,0,0.3);
+  border-radius: 10%;
+  width: fit-content;
+  font-size: 15px;
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 15px;
+  padding-right: 5px;
 }

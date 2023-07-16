@@ -66,16 +66,22 @@ const Spotifyplayer = () => {
     return (
         <div className={`${styles.spotifyplayer}`} style={{width: width, height: height, opacity: opacity, transition: "2s"}}>
 
-            <div style={{display: "flex", flexDirection: "row", justifyContent: "center"}}>
-                <button className='material-symbols-outlined' style={{ height:"22px", width:"22px", rotate: btnRotate, visibility: btnBiggerVisibility, borderRadius: "50%", marginBottom: "6px"}}
-                 onClick={heightHandler}>expand_less</button>
 
+            <div style={{display: "flex", flexDirection: "row", justifyContent: "center", paddingBottom: "5px"}}>
+            <div className='spotifybuttons2' style={{visibility: btnBiggerVisibility}}> 
+                <button className='material-symbols-outlined' style={{ rotate: btnRotate, background: "none", height: "100%", width: "100%", border: "none" }}
+                 onClick={heightHandler}>
+                    
+                    <p style={{background: "none", color: "black"}} className='material-symbols-outlined'>expand_less</p>
+                    </button>
             </div>
+            </div>
+
 
             <div style={{display: "flex", flexDirection: "row", height: "100%"}}>
 
-            <div className='spotifybuttons' > 
-            <button  style={{ visibility: closeBtnVisibility, background: "none", height: "100%", width: "100%", border: "none" }} 
+            <div className='spotifybuttons' style={{visibility: closeBtnVisibility}}> 
+            <button  style={{ background: "none", height: "100%", width: "100%", border: "none" }} 
             onClick={() => {
                 closeHandler();
 
@@ -84,6 +90,7 @@ const Spotifyplayer = () => {
                 
             </button>
             </div>
+
 
             <iframe ref={playerRef} style={{border: "none", marginLeft: "40px"}}
             title="Sofa Lofi spotify playlist"

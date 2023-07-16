@@ -49,7 +49,7 @@ const ReleasesPage = ({ filteredData }) => {
             alignItems: "center",
             width: "100%",
             height: "100vh",
-            minHeight: "1650px",
+            minHeight: "1750px",
             //background:"orange"
         }}>
 
@@ -102,7 +102,7 @@ const ReleasesPage = ({ filteredData }) => {
                             paddingBottom: "60px"
                         }}>Latest Sofa Lofi releases</h1>
                         <Releases filteredData={filteredData}/>
-                        <div className='center'>
+                        <div className='center mt'>
                             <h2>wanna hear more?</h2>
                             <p style={{fontSize: "12px"}}>check out Sofa Lofi Releases playlist</p>
                             <a href="https://open.spotify.com/playlist/6xYInAFbEiRecBuFYqXvK7?si=6ed439a031744eed" target="_blank">

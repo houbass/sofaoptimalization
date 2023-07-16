@@ -17,6 +17,28 @@ const Playlistsubmit = () => {
   //funkce react hook form (kontrola polí a atd)
   const {register, handleSubmit, watch, reset, formState: { errors }} = useForm({defaultValues: {artistName: "", email: "", text: "", track: ""}});
 
+  //states
+  const [artistNameState, setArtistNameState] = useState(false);
+  const [emailState, setEmailState] = useState(false);
+  const [trackState, setTrackState] = useState(false);
+  const [messageState, setMessageState] = useState(true);
+  const [messageError, setMessageError] = useState("");
+  const [opacityFun, setOpacityFun] = useState(0);
+  const [pointerEventFun, setPointerEventFun] = useState("none");
+  const [formVisibility, setFormVisibility] = useState("visible");
+  const [thanksVisibility, setThanksVisibility] = useState("hidden");
+  const [artistNameError, setArtistNameError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [trackError, setTrackError] = useState("");
+
+  function thanksVisibilityFun() {
+    setFormVisibility("hidden");
+    setThanksVisibility("visible");
+  }
+
+  function goTop() {
+    window.scrollTo({top: 0});
+  }
 
   //funkce na posíláni na email
   const form = useRef();
@@ -31,107 +53,89 @@ const Playlistsubmit = () => {
     }, (error) => {
         console.log(error.text);
     });
-  };
-
-
-  //states
-  const [artistNameState, setArtistNameState] = useState(false);
-  const [emailState, setEmailState] = useState(false);
-  const [trackState, setTrackState] = useState(false);
-  const [messageState, setMessageState] = useState(true);
-  const [messageError, setMessageError] = useState("");
-  const [opacityFun, setOpacityFun] = useState(0);
-  const [pointerEventFun, setPointerEventFun] = useState("none");
-  const [formVisibility, setFormVisibility] = useState("visible");
-  const [thanksVisibility, setThanksVisibility] = useState("hidden");
-
-  function thanksVisibilityFun() {
-    setFormVisibility("hidden");
-    setThanksVisibility("visible");
-  }
-
-  function goTop() {
-    window.scrollTo({top: 0});
-  }
+  };  
 
   //artist name check
-  let artistNameCheck = watch("artistName").length;
-  let artistNameError = "";
+  const artistNameCheck = watch("artistName").length;
 
-  if(artistNameCheck === 0 ){
-    artistNameError = "*artist name is mandatory"
-  }
-  if(artistNameCheck > 0 && artistNameCheck < 2){
-    artistNameError = "*min length is 2"
-  }
-  if(artistNameCheck >= 20){
-    artistNameError = "*max length is 20"
-  }
+  useEffect(() => {
+    if(artistNameCheck === 0 ){
+      setArtistNameError("*artist name is mandatory");
+    }
+    if(artistNameCheck > 0 && artistNameCheck < 2){
+      setArtistNameError("*min length is 2");
+    }
+    if(artistNameCheck >= 20){
+      setArtistNameError("*max length is 20");
+    }
+  }, [artistNameCheck]);
+
   useEffect(()=>{
-    if (artistNameCheck >= 2 && artistNameCheck < 20) {  
+    if (artistNameCheck >= 2 && artistNameCheck <= 20) {  
       setArtistNameState(true);
-      console.log("artist true")
+      setArtistNameError("");
     }else{
       setArtistNameState(false);
-      console.log("artist false")
     }
-  })
+  }, [artistNameCheck]);
   
 
   //email check
-  let emailCheck = watch("email");
-  let emailSignCheck = emailCheck.includes("@");
-  let emailError = "";
+  const emailCheck = watch("email");
+  const emailSignCheck = emailCheck.includes("@");
 
-  if (emailSignCheck === false) {  
-    emailError = "*email is mandatory"
-  }
+  useEffect(() => {
+    if (emailSignCheck === false) {  
+      setEmailError("*email is mandatory");
+    }
+  }, [emailCheck])
+
   useEffect (() => {
     if(emailSignCheck === true){
-      emailError = ""
+      setEmailError("");
       setEmailState(true);
-      console.log("email true")
     }else{
       setEmailState(false);
     }
-  })
+  }, [emailCheck]);
 
 
   //track check
-  let trackCheck = watch("track");
-  let trackCheckLength = trackCheck.length;
-  let trackSignCheck = trackCheck.includes("spotify.com/track");
-  let trackError = "";
+  const trackCheck = watch("track");
+  const trackCheckLength = trackCheck.length;
+  const trackSignCheck = trackCheck.includes("spotify.com");
 
-  if(trackCheckLength === 0){
-    trackError = "*spotify link is mandatory";
-  }
-  if(trackCheckLength > 0 && trackSignCheck === false){
-    trackError = "*this doesn't look like Spotify link mate"
-  }
+  useEffect(() => {
+    if(trackCheckLength === 0){
+      setTrackError("*spotify link is mandatory");
+    }
+    if(trackCheckLength > 0 && trackSignCheck === false){
+      setTrackError("*this doesn't look like Spotify link mate");
+    }
+  }, [trackCheck]);
+
   useEffect(() => {
     if(trackSignCheck === true){
-      trackError = "";
+      setTrackError("");
       setTrackState(true);
-      console.log("track true")
     }else{
       setTrackState(false);
     }
-  })
+  }, [trackCheck]);
 
 
   //message check
-  let messageCheck = watch("text").length;
+  const messageCheck = watch("text").length;
+
   useEffect(() => {
-    if(messageCheck >= 500){
+    if(messageCheck > 500){
       setMessageError("*it's too long mate");
       setMessageState(false);
-      console.log("message false")
     }else{
       setMessageError("");
       setMessageState(true);
     }
-  })
+  }, [messageCheck]);
 
   //funkce pro zobrazeni buttonu
   useEffect(() => {
@@ -142,7 +146,7 @@ const Playlistsubmit = () => {
       setOpacityFun(0);
       setPointerEventFun("none"); 
     }
-  })
+  }, [artistNameState, emailState, messageState, trackState]);
 
 
   //form reset function
@@ -191,7 +195,7 @@ const Playlistsubmit = () => {
         <p>Once you submit your track, we will listen as soon as possible and reply back within a one week (after the date you submitted it).</p>
       </div>
         <br></br>
-      <form ref={form} onSubmit={sendEmail} className="form1 mt" >
+      <form ref={form} onSubmit={sendEmail} className="mt" style={{ width: "100%", maxWidth: "500px"}} >
         <div className="inputRow">
           <input {...register("artistName")} placeholder="Artist name" className="input length"/>
           <p className="error">{artistNameError}</p>
@@ -208,7 +212,7 @@ const Playlistsubmit = () => {
         </div>        
 
         <div className="inputCol mt">
-          <textarea {...register("text")} placeholder="Do you wanna say something? (max 500 characters)" rows="10" cols="50" className="textarea"/>
+          <textarea {...register("text")} placeholder="Do you wanna say something? (max 500 characters)" rows="10" cols="35" className="textarea"/>
           <p className="error">{messageError}</p>
         </div>
 
