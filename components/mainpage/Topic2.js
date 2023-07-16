@@ -21,6 +21,7 @@ const Topic2 = () => {
     //Lottie ref
     const animationRef = useRef(null);
 
+    /*
     //MOBILE ANIMATION LOGIC
     useEffect(() => {
       if(mobile === true) {
@@ -29,6 +30,7 @@ const Topic2 = () => {
         animationRef.current.play();
       }
     }, [mobile])
+    */
 
     return(
         <>

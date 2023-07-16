@@ -21,6 +21,7 @@ const Topic4 = () => {
     //ref
     const animationRef = useRef()
 
+    /*
     //MOBILE LOGIC
     useEffect(() => {
         if(mobile === true) {
@@ -29,7 +30,7 @@ const Topic4 = () => {
           animationRef.current.play();
         }
     }, [mobile]);
-    
+    */
 
     return(
         <>
