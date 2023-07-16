@@ -13,27 +13,6 @@ const inter = Inter({ subsets: ['latin'] })
 
 const Submit = () => {
 
-    //FLEX DIRECTION
-    const [flexDir, setFlexDir] = useState("row");
-
-    //resize fun
-    function resizeFun() {
-        if(window.innerWidth < 580) {
-            setFlexDir("column");
-        }else{
-            setFlexDir("row");
-        }
-    }
-
-    useEffect(() => {
-        resizeFun();
-        window.addEventListener("resize", resizeFun);
-
-        return () => {
-            window.removeEventListener("resize", resizeFun);
-        }
-    }, []);
-
     return(
         <div
         style={{
@@ -89,12 +68,8 @@ const Submit = () => {
                 }}
                 >
             <div 
-            style={{
-                //background: "orange",
-                display: "flex",
-                flexDirection: flexDir,
-                gap: "40px"
-            }}>
+            className='submitFlex'
+            >
                 <Link 
                 href="submit/demo"
                 className="submissionCard" 

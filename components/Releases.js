@@ -1,9 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import Image from 'next/image';
-
-//GLOBALSTATES
-import { GlobalStates } from '@/globalstates/GlobalStates'
 
 //import platform icons
 import Spotify from "@/pictures/spotify.png";
@@ -11,14 +8,6 @@ import Apple from "@/pictures/apple.png";
 import Deezer from "@/pictures/deezer.png";
 
 const Releases = ({ filteredData }) => {
-
-    //PASSING GLOBAL SETTINGS
-    const { mobile } = useContext(GlobalStates);
-
-    //states
-    const [mobileFlex, setMobileFlex] = useState("row");
-    const [loaderVisibility, setLoaderVisibility] = useState("hidden");
-    const [youtubeVisiblity, setYoutubeVisibility] = useState("visible");
 
     //definice collekce databaze
     const [myData, setMyData] = useState([]);
@@ -90,55 +79,20 @@ const Releases = ({ filteredData }) => {
           }
         }, [myData, nextReleasePage, backReleasePage])
 
-        //mobile logic
-        function resizeFun() {
-            if(window.innerWidth < 900){
-                setMobileFlex("column");
-            }else{
-                setMobileFlex("row");
-            }
-        }
-
-        useEffect(() => {
-            resizeFun()
-            window.addEventListener("resize", resizeFun);
-
-            return () => {
-                window.removeEventListener("resize", resizeFun);
-            }
-        }, [mobile])
-
     return(
         <div className="releasepage">
         <div className="releasesList">
             <div 
+            className="releasesFlex"
             style={{
-                display: "flex",
-                flexDirection: mobileFlex,
+                //display: "flex",
+                //flexDirection: mobileFlex,
                 color: "black"
             }}>
 
             {filteredMyData?.map((data) => (
                 <div key={data.releaseindex} className="frame"> 
-                    <div 
-                    style={{
-                        width: "260px",
-                        height: "260px",
-                        background: "rgba(255,255,255,0.8)",
-                        position: "absolute",
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        visibility: loaderVisibility,
-                        transition: "1s"
-                    }}>
-                        <div className="loader">loading</div>
-                    </div>
                     <iframe 
-                        style={{
-                            visibility: youtubeVisiblity,
-                        }}
                         width="260" 
                         height="260" 
                         src={
