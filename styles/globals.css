@@ -18,6 +18,10 @@ a > .iconImg {
   cursor:pointer;
 }
 
+button {
+  cursor: pointer;
+}
+
 .center {
   display: flex;
   flex-direction: column;
@@ -339,6 +343,7 @@ label {
 }
 .burgerVisibility{
   visibility: hidden;
+  cursor: pointer;
 }
 @media screen and (max-width: 700px) {
   .navbar {
@@ -565,9 +570,15 @@ label {
 
 .mainpageTitles {
   font-size: 70px;
+  cursor: default;
 }
+
 .mainpageP {
   font-size: 20px;
+  font-family: "Courier New";
+  font-weight: 500;
+  cursor: default;
+
 }
 .mainpageCards {
   display: flex; 
