@@ -527,3 +527,14 @@ label {
     rotate: 360deg;
   }
 }
+
+.spotifybuttons {
+  background: white;
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  border: none;
+  margin-top: 22px;
+  border-radius: 50%;
+
+}

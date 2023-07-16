@@ -11,7 +11,7 @@ const Spotifyplayer = () => {
 
     //BIGGER STATES
     const [height, setHeight] = useState(90);
-    const [width, setWidth] = useLocalStorageState('width', {defaultValue: "120px" });
+    const [width, setWidth] = useLocalStorageState('width', {defaultValue: "115px" });
     const [btnRotate, setBtnRotate] = useState("0deg");
     const [btnToggler, setBtnToggler] = useState(false);
     const [btnBiggerVisibility, setBtnBiggerVisibility] = useLocalStorageState('btnBiggerVisibility', {defaultValue: "hidden" });
@@ -49,7 +49,7 @@ const Spotifyplayer = () => {
     //close handler
     const closeHandler = () => {
         if(closeBtnToggler === false){
-            setWidth("120px");
+            setWidth("115px");
             setCloseBtnText("chevron_left");
             setCloseBtnToggler(true);
             setBtnBiggerVisibility("hidden");
@@ -73,14 +73,19 @@ const Spotifyplayer = () => {
             </div>
 
             <div style={{display: "flex", flexDirection: "row", height: "100%"}}>
-            <button className='material-symbols-outlined' style={{height:"22px", width:"22px", visibility: closeBtnVisibility, marginTop: "28px", borderRadius: "50%", marginRight: "8px", marginLeft: "8px"}} 
+
+            <div className='spotifybuttons' > 
+            <button  style={{ visibility: closeBtnVisibility, background: "none", height: "100%", width: "100%", border: "none" }} 
             onClick={() => {
                 closeHandler();
 
             }}>
-                {closeBtnText}
+                <p style={{background: "none", color: "black"}} className='material-symbols-outlined'>{closeBtnText}</p>
+                
             </button>
-            <iframe ref={playerRef} style={{border: "none"}}
+            </div>
+
+            <iframe ref={playerRef} style={{border: "none", marginLeft: "40px"}}
             title="Sofa Lofi spotify playlist"
             className="playlistFrame"
             src="https://open.spotify.com/embed/playlist/6so9XlkasaOqQFNghgzUX5?utm_source=generator" 
