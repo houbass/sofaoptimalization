@@ -10,7 +10,7 @@ import backgroundPic2 from "@/components/pic/background2.svg"
 
 const inter = Inter({ subsets: ['latin'] })
 
-const Topic4 = ({ topic4Animation, mobile, titleSize, flexStyle1, lottieWidth, pSize }) => {
+const Topic4 = ({ topic4Animation, mobile }) => {
 
     //ref
     const animationRef = useRef()
@@ -29,47 +29,28 @@ const Topic4 = ({ topic4Animation, mobile, titleSize, flexStyle1, lottieWidth, p
     }, [topic4Animation]);
     
 
-    //FLEX MOBILE LOGIC
-    useEffect(() => {
-      if(flexStyle1 === "column"){
-        //set "column-reverse"
-        setFlex("column-reverse")
-      }else{
-        //set "row"
-        setFlex("row")
-      }
-    }, [flexStyle1])
-
     return(
         <>
-          <div style={{
+          <div 
+          className='maincardsAnimation2'
+          style={{
             display: "flex",
             flexDirection: "row",
             justifyContent: "right",
             marginTop: "80px",
-            opacity: "1",
-            transition: "2s ease-in"
           }}>
             <div
             style={{
               width: "90%",
               backgroundImage: `url(${backgroundPic2.src})`,
               borderRadius: "20px 0px 0px 20px",
-              transition: "0.5s ease-in"
             }}>
 
-              <div 
-              style={{
-                display: "flex", 
-                flexDirection: flex, 
-                padding: "20px 20px", 
-                marginBottom: "10px",
-                
-              }}>
+              <div className='mainpageCards-reverse'>
                 <div>
-                  <h1 style={{fontSize: titleSize}}>Send us your music</h1>
+                  <h1 className='mainpageTitles'>Send us your music</h1>
                   <div style={{maxWidth: "600px"}}>     
-                    <p style={{fontSize: pSize}}>
+                    <p className="mainpageP">
                       Are you a Lo-Fi producer? Submit your music to our Spotify playlist or to release on Sofa Lofi Records.
                     </p>
                     <Link href="/submit">
@@ -85,11 +66,9 @@ const Topic4 = ({ topic4Animation, mobile, titleSize, flexStyle1, lottieWidth, p
                   
                   <Lottie 
                   lottieRef={animationRef}
-                  style={{width: lottieWidth, height: lottieWidth}} 
+                  className="lottieSize" 
                   animationData={topic4Animation} 
                   />
-
-                  
                 </div>
               </div>
             </div>

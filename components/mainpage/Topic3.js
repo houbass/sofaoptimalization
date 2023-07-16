@@ -11,7 +11,7 @@ import backgroundPic2 from "@/components/pic/background2.svg"
 
 const inter = Inter({ subsets: ['latin'] })
 
-const Topic3 = ({ topic3Opacity, blur, topic3Animation, mobile, titleSize, flexStyle1, lottieWidth, pSize }) => {
+const Topic3 = ({ topic3Animation, mobile }) => {
 
   //ref
   const animationRef = useRef();
@@ -29,18 +29,16 @@ const Topic3 = ({ topic3Opacity, blur, topic3Animation, mobile, titleSize, flexS
 
     return(
         <>
-          <div
+          <div 
+          className='maincardsAnimation2'
           style={{
             width: "90%",
             backgroundImage: `url(${backgroundPic2.src})`,
             borderRadius: "0 20px 20px 0",
             marginTop: "80px",
-            opacity: topic3Opacity,
-            filter: blur,
-            transition: "2s ease-in"
           }}>
 
-            <div style={{display: "flex", flexDirection: flexStyle1, padding: "20px 20px", marginBottom: "10px"}}>
+            <div className='mainpageCards'>
               <div 
                 style={{
                   marginRight: "30px"
@@ -48,16 +46,16 @@ const Topic3 = ({ topic3Opacity, blur, topic3Animation, mobile, titleSize, flexS
                   
                   <Lottie 
                     lottieRef={animationRef} 
-                    style={{width: lottieWidth, height: lottieWidth}}  
+                    className="lottieSize" 
                     animationData={topic3Animation} 
                   />
               
               </div>
 
               <div>
-                <h1 style={{fontSize: titleSize}}>Lets try Sofa workplace</h1>
+                <h1 className='mainpageTitles'>Lets try Sofa workplace</h1>
                 <div style={{maxWidth: "600px"}}>     
-                  <p style={{fontSize: pSize}}>This feature will help you to work and listen music on one place.
+                  <p className="mainpageP">This feature will help you to work and listen music on one place.
                   </p>
                   <Link href="/workplace">
                     <button className="nicebutton mt" >try it now</button>

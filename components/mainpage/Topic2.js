@@ -14,7 +14,7 @@ import backgroundPic2 from "@/components/pic/background2.svg"
 
 const inter = Inter({ subsets: ['latin'] })
 
-const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, lottieWidth, pSize }) => {
+const Topic2 = ({ topic2Animation }) => {
 
     //PASSING GLOBAL SETTINGS
     const { mobile } = useContext(GlobalStates);
@@ -35,33 +35,15 @@ const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, l
       }
     }, [topic2Animation])
 
-    //FLEX STYLE LOGIC
-    useEffect(() => {
-        //flex logic
-        function flexLogic() {
-          if(flexStyle1 === "column"){
-            //set "column-reverse"
-            setFlex("column-reverse")
-          }else{
-            //set "row"
-            setFlex("row")
-          }
-        }
-        flexLogic()
-    }, [flexStyle1])
-
-
     return(
         <>
-          <div style={{
+          <div 
+          className='maincardsAnimation2'
+          style={{
             display: "flex",
             flexDirection: "col",
             justifyContent: "right",
             marginTop: "80px",
-            opacity: topic2Opacity,
-            filter: blur,
-            transition: "2s ease-in",
-            //background: "orange",
             width: "100%",
             maxWidth: "90%",
             marginLeft: "10%",
@@ -69,18 +51,11 @@ const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, l
             borderRadius: "20px 0px 0px 20px",
           }}>
             <div>
-              <div 
-              style={{
-                display: "flex", 
-                flexDirection: flex, 
-                padding: "20px 20px", 
-                marginBottom: "10px",
-                
-              }}>
+              <div className='mainpageCards-reverse'>
                 <div>
-                  <h1 style={{fontSize: titleSize}}>Listen to our latest releases</h1>
+                  <h1 className='mainpageTitles'>Listen to our latest releases</h1>
                   <div style={{maxWidth: "600px"}}>     
-                    <p style={{fontSize: pSize}}>
+                    <p className="mainpageP">
                       Lets check our regular monday releases from the finests lofi producers.
                     </p>
                     <Link href="/releases">
@@ -96,7 +71,7 @@ const Topic2 = ({ topic2Opacity, topic2Animation, blur, titleSize, flexStyle1, l
                 }}>
                   <Lottie 
                   lottieRef={animationRef}
-                  style={{width: lottieWidth, height: lottieWidth}} 
+                  className="lottieSize" 
                   onComplete={() => {
                     animationRef.current.goToAndPlay(42, true);
                   }} 
