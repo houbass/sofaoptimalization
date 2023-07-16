@@ -13,9 +13,6 @@ const Navbar = () => {
     //PASSING GLOBAL SETTINGS
     const { mobile } = useContext(GlobalStates);
 
-    //navbar 
-    const [navbarOpacity, setNavbarOpacity] = useState("0");
-
     //burger SVG ref and Paths
     const svgRef = useRef();
     const path1ref = useRef();
@@ -27,18 +24,10 @@ const Navbar = () => {
     const burgerPath3 = "M0 58H100V78H0V58Z";
     const crossPath3 = "M0 62.2519L88.3527 2.3586e-06L99.8722 16.3494L11.5195 78.6013L0 62.2519Z";
 
-    //SETTINGS
-
-    //DESKTOP NAVBAR
-    const [navbarVisibility, setNavbarVisibility] = useState("visible");
-
     //MOBILE BURGER STATES
     const [burgerColor, setBurgerColor] = useState("rgba(255, 255, 255, 0.9)");
-    const [burgerVisibility, setBurgerVisiblity] = useState("hidden");
     const [burgerToggler, setBurgerToggler] = useState(false);
     const [mobileMenuVisibility, setBurgerMenuVisibility] = useState("hidden");
-
-
 
     //MOBILE BURGER mouse events
     function mouseEnterFun() {
@@ -149,53 +138,13 @@ const Navbar = () => {
             duration: 500,
             loop: false
           });
-
-
-
     }
-
-
-
-    //on load opacity
-    useEffect(() => {
-        setTimeout(() => {
-            setNavbarOpacity("1");
-        }, 2000)
-    }, [])
-
-    function resizeFun() {
-
-        function barVisibilityFun() {
-            if(window.innerWidth < 700){
-                setBurgerVisiblity("visible");
-                setNavbarVisibility("hidden");
-            }else{
-                setBurgerVisiblity("hidden");
-                setNavbarVisibility("visible");
-            }
-        }
-        barVisibilityFun()
-
-    }
-
-    //RESIZE LISTENER
-    useEffect(() => {
-        resizeFun();
-        window.addEventListener("resize", resizeFun);
-        return () => {
-            window.removeEventListener("resize", resizeFun);
-        }
-    }, [])
-
 
     return (
         <>
         <div 
-        className="navpage" 
-        style={{
-            opacity: navbarOpacity,
-            transition: "1s"
-        }}
+        className="navpage maincardsAnimation3" 
+
         >
         <div         style={{
             width: "100%",
@@ -205,9 +154,6 @@ const Navbar = () => {
 
         <nav 
         className="navbar"
-        style={{
-            visibility: navbarVisibility,
-        }}
         >
 
             <Link href="/">
@@ -231,17 +177,16 @@ const Navbar = () => {
             </Link>
 
         </nav>
-        <div
+        <div 
+            className="burgerVisibility"
             style={{
                 position: "absolute",
                 display: "flex",
                 flexDirection: "row",
                 justifyContent: "right",
-                //background: "orange",
                 width: "100%",
                 padding: "0 50px",
                 top: "20px",
-                visibility: burgerVisibility,
                 zIndex: "5"
                 
             }} 
@@ -261,6 +206,7 @@ const Navbar = () => {
 
             </div>
             <div
+            
             style={{
                 position: "absolute",
                 display: "flex",

@@ -64,7 +64,7 @@ const Spotifyplayer = () => {
 
 
     return (
-        <div className={`${styles.spotifyplayer}`} style={{width: width, height: height, opacity: opacity, transition: "2s"}}>
+        <div className={`${styles.spotifyplayer} maincardsAnimation3`} style={{width: width, height: height }}>
 
 
             <div style={{display: "flex", flexDirection: "row", justifyContent: "center", paddingBottom: "5px"}}>
