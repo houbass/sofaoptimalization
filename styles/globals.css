@@ -669,4 +669,62 @@ label {
   }
 }
 
+.loadingPage{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
+.loaderBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 200px;
+  gap: 10px;
+}
+
+.loader1 {
+  width: 30px;
+  height: 80px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 10px;
+
+  animation: loaderAnimation 0.5s linear infinite;
+  animation-direction: alternate;
+}
+
+.loader2 {
+  width: 30px;
+  height: 80px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 10px;
+  
+  animation: loaderAnimation2 0.5s linear infinite;
+  animation-direction: alternate;
+}
+
+@keyframes loaderAnimation {
+  from {
+    height: 30px;
+  }
+  to {
+    height: 80px;
+  }
+}
+
+@keyframes loaderAnimation2 {
+  from {
+    height: 80px;
+  }
+  to {
+    height: 30px;
+  }
+}

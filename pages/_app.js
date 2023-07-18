@@ -1,15 +1,17 @@
-import Head from 'next/head'
+import { useEffect, useState } from 'react';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
 
-//
-import '@/styles/globals.css'
+//styl  
+import '@/styles/globals.css';
 
 //GLOBALSTATES
-import { GlobalStatesProvider } from '@/globalstates/GlobalStates'
+import { GlobalStatesProvider } from '@/globalstates/GlobalStates';
 
 //components
-import Navbar from '@/components/Navbar'
-import Spotifyplayer from '@/components/Spotifyplayer'
-import { useEffect } from 'react'
+import Navbar from '@/components/Navbar';
+import Spotifyplayer from '@/components/Spotifyplayer';
+import LoadingPage from '@/components/LoadingPage';
 
 export default function App({ Component, pageProps }) {
 
@@ -24,6 +26,7 @@ export default function App({ Component, pageProps }) {
       </Head>
 
       <GlobalStatesProvider>
+        <LoadingPage/>
         <Navbar />
         <Component {...pageProps} />
         <Spotifyplayer />

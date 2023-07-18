@@ -160,7 +160,7 @@ const Navbar = () => {
                 <button>home</button>
             </Link>
 
-            <Link href="/releases">
+            <Link href="/releases" >
                 <button>releases</button>
             </Link>
 
@@ -226,7 +226,7 @@ const Navbar = () => {
                         <button onClick={burgerLinkClickFun}>HOME</button>
                     </Link>
 
-                    <Link href="/releases">
+                    <Link href="/releases" >
                         <button onClick={burgerLinkClickFun}>RELEASES</button>
                     </Link>
 
