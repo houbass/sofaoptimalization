@@ -1,6 +1,4 @@
 import { Inter } from 'next/font/google';
-import styles from '@/styles/Home.module.css';
-import { useEffect, useRef, useState } from 'react';
 
 //motion lib
 import { motion } from 'framer-motion';
@@ -13,18 +11,9 @@ import Clocks from '@/components/Clocks';
 import Calendar from '@/components/Calendar';
 import Todos from '@/components/Todos';
 
-
 const inter = Inter({ subsets: ['latin'] })
 
 const Workplace = () => {
-
-    //pageref
-    const pageRef = useRef();
-
-    //const height = window.innerHeight;
-    const [height, setHeight] = useState(0);
-
-
 
     return(
 
@@ -54,7 +43,6 @@ const Workplace = () => {
             //zIndex: "-5"
         }}>
         <motion.div 
-        ref={pageRef} 
         animate={{
             opacity: [0, 1]
         }}
