@@ -38,6 +38,7 @@ const Todos = () => {
 
     //add 
     const todoAdd = () => {
+        setAnimationHandler(null)
         const checking = todos.filter((item) => item.text===todo);
         const checkingCompleted = completedTodo.filter((item) => item===todo);
 
@@ -90,7 +91,7 @@ const Todos = () => {
             }
         }
 
-    }, [completedTodo]);
+    }, [completedTodo, todos]);
 
 
     return(
