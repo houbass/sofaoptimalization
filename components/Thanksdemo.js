@@ -16,33 +16,28 @@ const Thanksdemo = ({ visibility, setVisibility, setFormVisibility }) => {
         <div style={{
             position: "absolute",
             top: "200px",
-            //translate: "0px 180px",
             backgroundImage: `url(${backgroundPic2.src})`,             
-            //background: "white",
-            //zIndex: props.visibility,
-            //opacity: props.opacity,
-            //transition: props.transition,
-            //color: "black",
             visibility: visibility,
             display: "flex",
             flexDirection: "column",
-            padding: "60px 60px",
+            width: "80%",
             maxWidth: "800px",
-            width: "90%",
+            padding: "60px 60px",
             borderRadius: "30px",
             boxShadow: "0px 5px 40px rgba(0, 0, 0, 0.637)",
-            alignItems: "center"
+            alignItems: "center",
+            textAlign: "center"
         }}>
             <h1>Thank you for your submission</h1>
             <p>we let you know as soon as possible :))</p>
             <div className="buttonsBox">
 
                 <Link href="/submit">
-                    <button className="btnStyle2" onClick={changeVisibility} >submit another one</button>                
+                    <button className="nicebutton" onClick={changeVisibility} >submit another one</button>                
                 </Link>
 
                 <Link href="/">
-                    <button className="btnStyle2" onClick={changeVisibility}>back to homepage</button>              
+                    <button className="nicebutton" onClick={changeVisibility}>back to homepage</button>              
                 </Link>
             </div>
         </div>

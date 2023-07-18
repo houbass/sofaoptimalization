@@ -4,6 +4,9 @@ import { createContext, useEffect, useState } from "react";
 export const GlobalStates = createContext();
 export const GlobalStatesProvider = ({ children }) => {
 
+    //LOADER VISIBILITY
+    const [loadingState, setLoadingState] = useState("hidden");
+
     //MOBILE OR COMPUTER CHECK
     const [mobile, setMobile] = useState(null);
     useEffect(() => {
@@ -24,7 +27,7 @@ export const GlobalStatesProvider = ({ children }) => {
 
 
     return (
-        <GlobalStates.Provider value={{ mobile }}>
+        <GlobalStates.Provider value={{ mobile, loadingState, setLoadingState }}>
             {children}
         </GlobalStates.Provider>
     );

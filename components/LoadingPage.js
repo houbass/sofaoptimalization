@@ -1,10 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
+//GLOBALSTATES
+import { GlobalStates } from '@/globalstates/GlobalStates'
 
 export default function LoadingPage() {
+
+    //PASSING GLOBAL SETTINGS
+    const { loadingState, setLoadingState } = useContext(GlobalStates);
+
+    //router
     const router = useRouter();
-    const [loadingState, setLoadingState] = useState("hidden");
   
     useEffect(() => {
   
