@@ -5,7 +5,6 @@ import emailjs, { init, send } from '@emailjs/browser';
 //library
 import { useForm } from "react-hook-form";
 
-
 //GLOBALSTATES
 import { GlobalStates } from '@/globalstates/GlobalStates'
 
@@ -37,8 +36,6 @@ const SubmitDemo = () => {
   const [artistNameError, setArtistNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [trackError, setTrackError] = useState("");
-
-
 
   function thanksVisibilityFun() {
     setFormVisibility("hidden");

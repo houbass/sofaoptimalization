@@ -72,6 +72,7 @@ const Workplace = () => {
             borderImage: `url(${backgroundPic2.src}) 20 round`,
             borderBottomStyle: "none",
             borderTopStyle: "none",
+            //zIndex: "-5"
         }}>
         <motion.div 
         ref={pageRef} 

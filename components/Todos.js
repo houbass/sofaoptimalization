@@ -3,6 +3,12 @@ import { useEffect, useState } from "react";
 //local storage hook
 import useLocalStorageState from 'use-local-storage-state'
 
+//LOTTIE LIB
+import Lottie from "lottie-react";
+
+//LOTTIE DATA
+import congratsAnimation from "@/components/lottieanimations/congrats.json";
+
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg"
 
@@ -15,6 +21,7 @@ const Todos = () => {
 
     //VISIBLE COMPLETED
     const [completedVisibility, setCompletedVisibility] = useState("hidden");
+    const [animationHandler, setAnimationHandler] = useState(null);
 
     //INFO TEXT
     const [infoText, setInfoText] = useState("");
@@ -46,7 +53,7 @@ const Todos = () => {
                         menuVisibility: "hidden",
                         completed: false,
                         marginTop: "10px",
-                        zIndex: "2"
+                        //zIndex: "2"
                     }]);
                     setTodo(""); 
                 }
@@ -64,6 +71,7 @@ const Todos = () => {
 
     //DELETE ALL COMPLETED
     const deleteCompleted = () => {
+        setAnimationHandler(null)
         setCompletedTodo(completedTodo.filter((item) => null));
     }
 
@@ -71,9 +79,17 @@ const Todos = () => {
     useEffect(() => {
         if(completedTodo.length <= 0){
             setCompletedVisibility("hidden");
+
         }else{
             setCompletedVisibility("visible");
+
+            if(completedBar === 100){
+                setAnimationHandler(congratsAnimation)
+            }else{
+                setAnimationHandler(null)
+            }
         }
+
     }, [completedTodo]);
 
 
@@ -88,7 +104,8 @@ const Todos = () => {
             flexDirection: "column",
             alignItems: "center",
             //marginTop: "80px",
-            marginBottom: "150px"
+            marginBottom: "150px",
+            zIndex: "0"
         }}>
             <div style={{display: "flex", gap:"10px"}}>
                 <input style={{maxWidth: "300px"}} onChange={todoInput} value={todo} placeholder="add note"></input>
@@ -186,12 +203,19 @@ const Todos = () => {
                                 <p style={{color: "green", fontWeight: "bold"}}>{item}</p>
                             </div>
                         ))}
+
                         <button className='material-symbols-outlined' onClick={deleteCompleted}>scan_delete</button>
                     </div>
                 
                 </div>
+
             </div>
             </div>
+            <Lottie 
+                //lottieRef={animationRef} 
+                className="congrats" 
+                animationData={animationHandler} 
+            />
         </div>
     )
 }

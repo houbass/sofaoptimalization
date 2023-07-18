@@ -592,6 +592,14 @@ label {
   padding: 20px 20px;
   margin-bottom: 10px;
 }
+
+.congrats {
+
+  position: absolute;
+  top: 0;
+  height: 100vh;
+  z-index: -3;
+}
 .lottieSize {
   width: 300px;
   height: 300px;
