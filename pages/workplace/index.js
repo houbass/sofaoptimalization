@@ -25,26 +25,6 @@ const Workplace = () => {
     const [height, setHeight] = useState(0);
 
 
-    //resize fun
-    function resizeFun() {
-        if(window.innerHeight > (pageRef.current.offsetTop + pageRef.current.offsetHeight)){
-            setHeight(window.innerHeight);
-        }else{
-            setHeight(pageRef.current.offsetTop + pageRef.current.offsetHeight)
-        }
-
-        console.log("resizing")
-    }
-
-    //set height for frame
-    useEffect(() => {
-        resizeFun();
-        window.addEventListener("resize", resizeFun);
-
-        return () => {
-            window.removeEventListener("resize", resizeFun);
-        }
-    });  
 
     return(
 
@@ -59,7 +39,6 @@ const Workplace = () => {
 
         <div 
         style={{
-            height: height,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
