@@ -68,7 +68,7 @@ function Calendar() {
             default:
                 setTail("th");
         }
-    })
+    }, [day])
 
 
     return (

@@ -16,12 +16,12 @@ const ClockDisplay = ({ seconds, minutes, hours }) => {
         const canvas = canvasRef.current;
         const context = canvas.getContext("2d");
         //animation handler (zabranuje aby se animace zrychlovala po kazdem updatu)
-        const timerIdHolder = {timerId: null};
+        //const timerIdHolder = {timerId: null};
 
         //animation function
-        const render = () => { 
+        //const render = () => { 
             //animation request
-            timerIdHolder.timerId = window.requestAnimationFrame(render);
+            //timerIdHolder.timerId = window.requestAnimationFrame(render);
 
             //cleare canvas every step
             context.clearRect(0, 0, canvas.width, canvas.height);
@@ -127,11 +127,11 @@ const ClockDisplay = ({ seconds, minutes, hours }) => {
             context.closePath()
             context.restore();
 
-        };
-        render();
+        //};
+        //render();
 
         //animation cancel
-        return () => cancelAnimationFrame(timerIdHolder.timerId);
+        //return () => cancelAnimationFrame(timerIdHolder.timerId);
     },[seconds]);
 
     return (

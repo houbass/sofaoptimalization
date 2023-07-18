@@ -24,9 +24,6 @@ const hourss = useRef(date.getHours());
 
 //STYLES
 const styleMain = {
-    //position: "absolute",
-    //left: "10px",
-    //marginTop: "70px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -44,7 +41,7 @@ const styleTextClock = {
 
 useEffect(() => {
 
-    const interval = setInterval(async() => {
+    const interval = setInterval(() => {
 
         //seconds
         if (sec.current < 59){
@@ -88,8 +85,10 @@ useEffect(() => {
         }
 
     }, 1000)
-    return () => clearInterval(interval);
-})
+    return () => {
+        clearInterval(interval);
+    }
+},[])
 
   return (
     <div style={styleMain}>

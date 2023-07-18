@@ -742,3 +742,76 @@ label {
     flex-direction: column;
   }
 }
+
+.todo {
+  display: flex;
+  flex-direction: row;
+  transition: 0.5s;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding-left: 10px;
+  background-image: linear-gradient(to right, rgba(20, 20, 20, 0.7) , rgb(40, 40, 40, 0.7));
+}
+
+.todobtn {
+  font-size: 15px; 
+  padding: 4px; 
+  width: 50px;
+}
+.completedTodos {
+  position: absolute;
+  top: 220px;
+  right: 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  background: rgba(20,20,20,0.7);
+  border-radius: 10px 0 0 10px;
+  border: solid 3px rgba(255,255,255,0.7);
+  transition: 1s;
+}
+
+@media screen and (max-width: 950px) {
+  .completedTodos {
+    margin-top: 20px;
+    position: initial;
+    border-radius: 0px;
+    border: none;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .todo {
+    font-size: 13px;
+  }
+  .todobtn {
+    width: 40px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .todo {
+    font-size: 11px;
+  }
+  .todobtn {
+    width: 30px;
+  }
+  .completedTodos {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .todo {
+    font-size: 9px;
+    padding-left: 5px;
+    
+  }
+  .todobtn {
+    width: 25px;
+  }
+  .completedTodos {
+    font-size: 10px;
+  }
+}
