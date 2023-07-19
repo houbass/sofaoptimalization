@@ -1,6 +1,4 @@
-//import emailJs
-import React, { useRef, useState, useEffect, useContext } from 'react';
-import emailjs, { init, send } from '@emailjs/browser';
+import Image from "next/image";
 
 //library
 import { useForm } from "react-hook-form";
@@ -8,10 +6,19 @@ import { useForm } from "react-hook-form";
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
 
-//components
-import Thanksdemo from './Thanksdemo';
+//import emailJs
+import React, { useRef, useState, useEffect } from 'react';
+import emailjs, { init, send } from '@emailjs/browser';
 
-const SubmitDemo = () => {
+//import platform icons
+import Instagram from "./pic/icons/instagram.png";
+import Spotify from "./pic/icons/spotify.png";
+import Facebook from "./pic/icons/facebook.png";
+
+//components
+import Thanksmsg from "./Thanksmsg";
+
+const Contact = () => {
 
   //funkce react hook form (kontrola polí a atd)
   const {register, handleSubmit, watch, reset, formState: { errors }} = useForm({defaultValues: {artistName: "", email: "", text: "", track: ""}});
@@ -19,17 +26,14 @@ const SubmitDemo = () => {
   //states
   const [artistNameState, setArtistNameState] = useState(false);
   const [emailState, setEmailState] = useState(false);
-  const [trackState, setTrackState] = useState(false);
   const [messageState, setMessageState] = useState(true);
   const [messageError, setMessageError] = useState("");
   const [opacityFun, setOpacityFun] = useState(0);
   const [pointerEventFun, setPointerEventFun] = useState("none");
   const [formVisibility, setFormVisibility] = useState("visible");
   const [thanksVisibility, setThanksVisibility] = useState("hidden");
-
   const [artistNameError, setArtistNameError] = useState("");
   const [emailError, setEmailError] = useState("");
-  const [trackError, setTrackError] = useState("");
 
   const [btnClass2, setBtnClass2] = useState("");
   const [btnText, setBtnText] = useState("send")
@@ -39,43 +43,43 @@ const SubmitDemo = () => {
     setThanksVisibility("visible");
   }
 
-    //funkce na posíláni na email
-    const form = useRef();
+  function goTop() {
+    window.scrollTo({top: 0});
+  }
 
-    const sendEmail = async(e) => {
-      e.preventDefault();
-      //setButtonLoading("btnAnimation");
-      setBtnClass2("fa fa-spinner fa-spin")
-      setBtnText("");
-      await emailjs.sendForm("service_za1xlkr", "template_mdryrxo", form.current, "BpUJsAuZF7Y43-jj1")
-      .then((result) => {
-          //console.log(result.text);
-          formResetFun();
-          goTop();
-          thanksVisibilityFun();
-          //setButtonLoading("");
-          setBtnClass2("")
-          setBtnText("send");
-      }, (error) => {
-          console.log(error.text);
-      });
-      
-    };
+  //funkce na posíláni na email
+  const form = useRef();
+  const sendEmail = async(e) => {
+    e.preventDefault();
+    //setButtonLoading("btnAnimation");
+    setBtnClass2("fa fa-spinner fa-spin")
+    setBtnText("");
+    await emailjs.sendForm("service_sw0l5ng", "template_myc9xzg", form.current, "B79QzheXw7xK4gIqG")
+    .then((result) => {
+        formResetFun();
+        thanksVisibilityFun();
+        goTop();
+        //setButtonLoading("");
+        setBtnClass2("")
+        setBtnText("send");
+    }, (error) => {
+        console.log(error.text);
+    });
+  };  
 
   //artist name check
   const artistNameCheck = watch("artistName").length;
 
   useEffect(() => {
     if(artistNameCheck === 0 ){
-      setArtistNameError("*artist name is mandatory");
+      setArtistNameError("*name is mandatory");
     }
     if(artistNameCheck > 0 && artistNameCheck < 2){
       setArtistNameError("*min length is 2");
     }
-    if(artistNameCheck > 20){
+    if(artistNameCheck >= 20){
       setArtistNameError("*max length is 20");
     }
-
   }, [artistNameCheck]);
 
   useEffect(()=>{
@@ -93,9 +97,9 @@ const SubmitDemo = () => {
   const emailSignCheck = emailCheck.includes("@");
 
   useEffect(() => {
-  if (emailSignCheck === false) {  
-    setEmailError("*email is mandatory");
-  }
+    if (emailSignCheck === false) {  
+      setEmailError("*email is mandatory");
+    }
   }, [emailCheck])
 
   useEffect (() => {
@@ -107,52 +111,37 @@ const SubmitDemo = () => {
     }
   }, [emailCheck]);
 
-  //track check
-  const trackCheck = watch("track");
-  const trackCheckLength = trackCheck.length;
-  const trackSignCheck = trackCheck.includes("soundcloud.com");
 
-  useEffect(() => {
-    if(trackCheckLength === 0){
-      setTrackError("*soundcloud link is mandatory");
-    }
-    if(trackCheckLength > 0 && trackSignCheck === false){
-      setTrackError("*this doesn't look like Soundcloud link mate");
-    }
-  }, [trackCheck]);
-
-  useEffect(() => {
-    if(trackSignCheck === true){
-      setTrackError("");
-      setTrackState(true);
-    }else{
-      setTrackState(false);
-    }
-  }, [trackCheck]);
 
   //message check
   const messageCheck = watch("text").length;
 
   useEffect(() => {
-    if(messageCheck >= 500){
+    if(messageCheck > 500){
       setMessageError("*it's too long mate");
       setMessageState(false);
-    }else{
+    }
+    if(messageCheck <= 0){
+      setMessageError("*message is mandatory");
+      setMessageState(false);
+    }
+    else{
       setMessageError("");
       setMessageState(true);
     }
-  }, [messageCheck])
+  }, [messageCheck]);
 
   //funkce pro zobrazeni buttonu
   useEffect(() => {
-    if(artistNameState === true && emailState === true && messageState === true && trackState === true){
+    if(artistNameState === true && emailState === true && messageState === true ){
       setOpacityFun(1);
       setPointerEventFun("all");
     }else{
       setOpacityFun(0);
       setPointerEventFun("none"); 
     }
-  }, [artistNameState, emailState, messageState, trackState]);
+  }, [artistNameState, emailState, messageState]);
+
 
   //form reset function
   const formResetFun = () => {
@@ -163,62 +152,42 @@ const SubmitDemo = () => {
     }))
   }
 
-  function goTop() {
-    window.scrollTo({top: 0});
-  }
 
   return (
+    <>
     <div style={{
-        backgroundImage: `url(${backgroundPic2.src})`,      
+      maxWidth: "1000px",
+      width: "90%",
+    }}>
+    <div style={{
+        backgroundImage: `url(${backgroundPic2.src})`,        
         display: "flex",
         flexDirection: "column",
-        //justifyContent: "center",
         alignItems: "center",
-        maxWidth: "1000px",
-        width: "90%",
         padding: "30px 30px",
-        borderRadius: "30px",
-        visibility: formVisibility,
+        borderRadius: "30px 30px 0 0",
+        visibility: formVisibility
     }}>
       
-      <div className="title">
-        <h1>Submit your demo</h1>
-      </div>
+
 
       <div className="description mt">
-        <p>This form is used to submit your demo to label consideration. 
-            Please make sure that you respect the conditions listed below before submitting otherwise it will be automatically declined.
-        </p>
+        <h3>Do you have something on your mind? Send us a message.
+        </h3>
         <br></br>
-        <div className="list">
-            <ul >
-                <li>Be lofi hip hop (better check our playlist to get a vibe)</li>
-                <li>Be instrumental (without vocals)</li>
-                <li>Be unreleased</li>
-                <li>Be finished</li>
-                <li>Submit maximum one or two tracks at once (we are mainly looking for singles)</li>
-                <li>Only private Soundcloud links are allowed</li>
-            </ul>
-        </div>
-        <br></br>
-        <p>Once you submit your track, we will listen as soon as possible and reply back within a one week (after the date you submitted it).</p>
+
       </div>
         <br></br>
       <form ref={form} onSubmit={sendEmail} className="mt" style={{ width: "100%", maxWidth: "500px"}} >
         <div className="inputRow">
-          <input {...register("artistName")} placeholder="Artist name" className="input length" a/>
+          <input {...register("artistName")} placeholder="Your name" className="input length"/>
           <p className="error">{artistNameError}</p>
         </div>
 
         <div className="inputRow">
           <input {...register("email")} placeholder="Email" className="input length"/>
           <p className="error">{emailError}</p>
-        </div>
-
-        <div className="inputCol">
-          <input {...register("track")} placeholder="Paste Soundcloud link to your demo" className="input" />
-          <p className="error">{trackError}</p>
-        </div>        
+        </div>     
 
         <div className="inputCol mt">
           <textarea {...register("text")} placeholder="Do you wanna say something? (max 500 characters)" rows="10" cols="35" className="textarea"/>
@@ -228,9 +197,10 @@ const SubmitDemo = () => {
         <div className="inputRow mb mt">
           <button 
           onClick={() => {
-            console.log("SHOW THANKS")
+            console.log("PLAYLIST SUBMITED")
 
           }}
+
           style={{opacity: opacityFun, transition: "1s", pointerEvents: pointerEventFun, width: "90px"}} 
           className="nicebutton"
           type="submit">
@@ -239,10 +209,47 @@ const SubmitDemo = () => {
           </button>
         </div>
       </form>
-      <Thanksdemo visibility={thanksVisibility} setVisibility={setThanksVisibility} setFormVisibility={setFormVisibility}/>
+      <Thanksmsg visibility={thanksVisibility} setVisibility={setThanksVisibility} setFormVisibility={setFormVisibility}/>
+      
     </div>
+            <div style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+              background: "rgb(241, 239, 235)",
+              borderRadius: "0 0 30px 30px",
+              paddingTop: "5px",
+              paddingBottom: "5px",
+
+              }}>
+  
+              <div style={{
+                  width: "100%",
+                  maxWidth: "300px",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  padding: "0 15px"
+                  }}>
+  
+                  <div className="icon">
+                      <a href="https://www.instagram.com/sofalofi_rec/" target="_blank"><Image className="iconImg" src={Instagram} /></a>
+                  </div>
+  
+                  <div className="icon">
+                      <a href="https://open.spotify.com/user/3172sefla554nzu4bpuk3o3ysjme?si=99f3d22c46564509" target="_blank"><Image className="iconImg" src={Spotify} /></a>
+                  </div>
+  
+                  <div className="icon">
+                      <a href="https://www.facebook.com/sofalofirec/" target="_blank"><Image className="iconImg" src={Facebook} /></a>
+                  </div>
+  
+              </div>
+          </div>
+          </div>
+          </>
   );
 }
 
-export default SubmitDemo;
-
+export default Contact;

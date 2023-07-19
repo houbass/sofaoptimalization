@@ -22,6 +22,7 @@ const Todos = () => {
     //VISIBLE COMPLETED
     const [completedVisibility, setCompletedVisibility] = useState("hidden");
     const [animationHandler, setAnimationHandler] = useState(null);
+    const [congratsText, setCongratsText] = useState("");
 
     //INFO TEXT
     const [infoText, setInfoText] = useState("");
@@ -38,13 +39,16 @@ const Todos = () => {
 
     //add 
     const todoAdd = () => {
-        setAnimationHandler(null)
+
         const checking = todos.filter((item) => item.text===todo);
         const checkingCompleted = completedTodo.filter((item) => item===todo);
 
         if(todo === ""){
-            setInfoText("*write some note")
+            setInfoText("*write some to do")
         }else{
+            setAnimationHandler(null)
+            setCongratsText("");
+
             if(todo.length < 15) {
 
                 if(checking.length === 0 && checkingCompleted.length === 0){            
@@ -73,6 +77,7 @@ const Todos = () => {
     //DELETE ALL COMPLETED
     const deleteCompleted = () => {
         setAnimationHandler(null)
+        setCongratsText("");
         setCompletedTodo(completedTodo.filter((item) => null));
     }
 
@@ -86,8 +91,10 @@ const Todos = () => {
 
             if(completedBar === 100){
                 setAnimationHandler(congratsAnimation)
+                setCongratsText("congrats you have finished all todos");
             }else{
                 setAnimationHandler(null)
+                setCongratsText("");
             }
         }
 
@@ -108,11 +115,13 @@ const Todos = () => {
             marginBottom: "150px",
             zIndex: "0"
         }}>
+
             <div style={{display: "flex", gap:"10px"}}>
-                <input style={{maxWidth: "300px"}} onChange={todoInput} value={todo} placeholder="add note"></input>
+                <input style={{maxWidth: "300px"}} onChange={todoInput} value={todo} placeholder="add to do"></input>
                 <button style={{width: "30px", height: "30px", borderRadius: "20%"}} className='material-symbols-outlined' onClick={todoAdd}>add</button>
             </div>
             <p style={{color: "red", fontWeight: "bold", fontSize: "12px"}}>{infoText} </p>
+
             <br/>
             <div 
             style={{
@@ -122,11 +131,21 @@ const Todos = () => {
                 width: "90%",
                 minHeigh: "200px",
                 borderRadius: "40px",
-            }}>
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                padding: "20px 20px"
 
+            }}>
+                
+                <div className="congratsText">
+                <h3>{congratsText}</h3>
+                </div>
             <div 
             style={{
-                padding: "20px"
+                
+                width: "100%"
             }}>
                 {todos.map((note) => {
                           
@@ -201,11 +220,15 @@ const Todos = () => {
 
                         {completedTodo.map((item) => (
                             <div key={item.text}>
-                                <p style={{color: "green", fontWeight: "bold"}}>{item}</p>
+                                <p style={{color: "#04AA6D", fontWeight: "bold"}}>{item}</p>
                             </div>
                         ))}
-
-                        <button className='material-symbols-outlined' onClick={deleteCompleted}>scan_delete</button>
+                        
+                        <button 
+                        className='material-symbols-outlined' 
+                        style={{marginTop: "15px"}}
+                        onClick={deleteCompleted}
+                        >scan_delete</button>
                     </div>
                 
                 </div>

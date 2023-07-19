@@ -334,7 +334,7 @@ label {
 .navbar {
   display: flex;
   flex-direction: row;
-  height: 60px;
+  height: 70px;
   background: rgba(20,20,20,0.9);
   justify-content: space-around;
   align-items: center;
@@ -760,7 +760,7 @@ label {
   align-items: center;
   height: 50px;
   padding-left: 10px;
-  background-image: linear-gradient(to right, rgba(20, 20, 20, 0.7) , rgb(40, 40, 40, 0.7));
+  background-image: linear-gradient(to right, rgba(255, 117, 117, 0.3) , rgb(40, 40, 40, 0.7));
 }
 
 .todobtn {
@@ -864,4 +864,33 @@ label {
   padding: 12px 16px; /* Some padding */
   font-size: 16px; /* Set a font size */
   width: 200px;
+}
+
+.logonav {
+  cursor: pointer;
+  transition: 0.5s;
+  padding-top: 3px;
+}
+
+
+.logonav:hover {
+  scale: 1.1;
+}
+
+
+.congratsText {
+  text-align: center;
+  color: #04AA6D;
+  font-size: 19px;
+  animation: congratsTextAnim infinite 1s alternate;
+}
+
+@keyframes congratsTextAnim {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 1.1;
+  }
+  
 }
