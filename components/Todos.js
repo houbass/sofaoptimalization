@@ -178,20 +178,19 @@ const Todos = () => {
                     }
                     
                     return(
+                        <div className="todo">
+                        <button id="todobtn" className="material-symbols-outlined" onClick={mapCheckDone} title="completed" >check</button>
                         <div 
+                        id="todotextbox"
+                        //className="todotextbox"
                         key={note.text}
-                        className="todo"
-                        style={{
-                        }}>
+                        >
                             <p >{note.text}</p>
-                            <div 
-                            style={{
-                                display: "flex",
-                                height: "100%",
-                            }}>
-                                <button className="todobtn material-symbols-outlined" onClick={mapCheckDone} title="completed" >check</button>
-                                <button className="todobtn material-symbols-outlined" onClick={mapDelete} title="delete" >delete</button>
-                            </div>
+
+                        </div>
+  
+                        
+   
                         </div>
                     )
                 })}

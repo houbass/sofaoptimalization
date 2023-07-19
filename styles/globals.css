@@ -754,20 +754,48 @@ label {
 
 .todo {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   transition: 0.5s;
   justify-content: space-between;
   align-items: center;
-  height: 50px;
-  padding-left: 10px;
-  background-image: linear-gradient(to right, rgba(255, 117, 117, 0.3) , rgb(40, 40, 40, 0.7));
+  height: 45px;
+  /*background: orange;*/
+  gap: 15px;
+  
 }
 
-.todobtn {
-  font-size: 15px; 
-  padding: 4px; 
-  width: 50px;
+#todotextbox {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 10px;
+  background: linear-gradient(to right, rgba(255, 117, 117, 0.4) , rgb(40, 40, 40, 0.7));
+  border-radius: 15px;
+  font-weight: bold;
+  transition: 2s;
+
 }
+
+
+#todobtn {
+  font-size: 15px; 
+  padding: 10px; 
+  border-radius: 50%;
+  transition: 0.2s;
+  background-color: white;
+}
+
+/* one hoover affect another element */
+#todobtn:hover + #todotextbox{
+  background: linear-gradient(to left, rgba(255, 117, 117, 0.4) , rgb(40, 40, 40, 0.7));
+  background-color:rgba(4, 170, 109, 1);
+}
+#todobtn:hover{
+  background-color:#04AA6D;
+}
+
 .completedTodos {
   position: absolute;
   top: 220px;
@@ -794,17 +822,11 @@ label {
   .todo {
     font-size: 13px;
   }
-  .todobtn {
-    width: 40px;
-  }
 }
 
 @media screen and (max-width: 390px) {
   .todo {
     font-size: 11px;
-  }
-  .todobtn {
-    width: 30px;
   }
   .completedTodos {
     font-size: 12px;
@@ -816,9 +838,6 @@ label {
     font-size: 9px;
     padding-left: 5px;
     
-  }
-  .todobtn {
-    width: 25px;
   }
   .completedTodos {
     font-size: 10px;
