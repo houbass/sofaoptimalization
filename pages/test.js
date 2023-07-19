@@ -10,7 +10,8 @@ export default function Test() {
 
     const [btnClass, setBtnClass] = useState("");
 
-    
+    const [btnClass2, setBtnClass2] = useState("");
+    const [btnText, setBtnText] = useState("CLICK TO SEND")
 
   return (
     <>
@@ -29,6 +30,17 @@ export default function Test() {
         onClick={() => {setBtnClass("btnAnimation")}}
         >
             TEST BUTTON
+        </button>
+
+        <button 
+        class="buttonload"
+        onClick={() => {
+          setBtnClass2("fa fa-spinner fa-spin");
+          setBtnText("");
+        }}
+        >
+        <i class={btnClass2}></i>
+            {btnText}
         </button>
 
       </div>

@@ -31,7 +31,8 @@ const SubmitDemo = () => {
   const [emailError, setEmailError] = useState("");
   const [trackError, setTrackError] = useState("");
 
-  const [buttonLoading, setButtonLoading] = useState("")
+  const [btnClass2, setBtnClass2] = useState("");
+  const [btnText, setBtnText] = useState("send")
 
   function thanksVisibilityFun() {
     setFormVisibility("hidden");
@@ -43,14 +44,18 @@ const SubmitDemo = () => {
 
     const sendEmail = async(e) => {
       e.preventDefault();
-      setButtonLoading("btnAnimation");
+      //setButtonLoading("btnAnimation");
+      setBtnClass2("fa fa-spinner fa-spin")
+      setBtnText("");
       await emailjs.sendForm("service_za1xlkr", "template_mdryrxo", form.current, "BpUJsAuZF7Y43-jj1")
       .then((result) => {
           //console.log(result.text);
           formResetFun();
           goTop();
           thanksVisibilityFun();
-          setButtonLoading("");
+          //setButtonLoading("");
+          setBtnClass2("")
+          setBtnText("send");
       }, (error) => {
           console.log(error.text);
       });
@@ -227,12 +232,11 @@ const SubmitDemo = () => {
             console.log("SHOW THANKS")
 
           }}
-
-
-          style={{opacity: opacityFun, transition: "1s", pointerEvents: pointerEventFun}} 
-          className={"nicebutton" + " " + buttonLoading} 
+          style={{opacity: opacityFun, transition: "1s", pointerEvents: pointerEventFun, width: "90px"}} 
+          className="nicebutton"
           type="submit">
-            submit
+            <i class={btnClass2}></i>
+            {btnText}
           </button>
         </div>
       </form>

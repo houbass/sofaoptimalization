@@ -15,7 +15,7 @@ const Thanksdemo = ({ visibility, setVisibility, setFormVisibility }) => {
     return (
         <div style={{
             position: "absolute",
-            top: "200px",
+            top: "150px",
             backgroundImage: `url(${backgroundPic2.src})`,             
             visibility: visibility,
             display: "flex",
