@@ -824,3 +824,37 @@ label {
     font-size: 10px;
   }
 }
+         
+.testbutton {
+  background-color: orange;
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;            
+  border-radius: 10px;
+  display: block;
+}
+
+.btnAnimation {
+  animation: buttonAnim 1s ease-in-out infinite;
+  animation-direction: alternate;
+}
+
+
+@keyframes buttonAnim {
+  from {
+    background-size: 200% auto;
+    background-image: linear-gradient(to right, #FC354C 0%, #0ABFBC  51%, #FC354C  100%);
+  }
+  to {
+    background-size: 200% auto;
+    background-image: linear-gradient(to right, #FC354C 0%, #0ABFBC  51%, #FC354C  100%);
+    background-position: right center; /* change the direction of the change here */
+  }
+}
+
+
+

@@ -9,16 +9,10 @@ import backgroundPic2 from "@/components/pic/background2.svg";
 import React, { useRef, useState, useEffect, useContext } from 'react';
 import emailjs, { init, send } from '@emailjs/browser';
 
-//GLOBALSTATES
-import { GlobalStates } from '@/globalstates/GlobalStates'
-
 //components
 import Thanksdemo from "./Thanksdemo";
 
 const Playlistsubmit = () => {
-
-  //PASSING GLOBAL SETTINGS
-  const { loadingState, setLoadingState } = useContext(GlobalStates);
 
   //funkce react hook form (kontrola polí a atd)
   const {register, handleSubmit, watch, reset, formState: { errors }} = useForm({defaultValues: {artistName: "", email: "", text: "", track: ""}});
@@ -37,6 +31,8 @@ const Playlistsubmit = () => {
   const [emailError, setEmailError] = useState("");
   const [trackError, setTrackError] = useState("");
 
+  const [buttonLoading, setButtonLoading] = useState("")
+
   function thanksVisibilityFun() {
     setFormVisibility("hidden");
     setThanksVisibility("visible");
@@ -50,14 +46,13 @@ const Playlistsubmit = () => {
   const form = useRef();
   const sendEmail = async(e) => {
     e.preventDefault();
-    setLoadingState("visible")
+    setButtonLoading("btnAnimation");
     await emailjs.sendForm("service_za1xlkr", "template_icltax6", form.current, "BpUJsAuZF7Y43-jj1")
     .then((result) => {
-        //console.log(result.text);
         formResetFun();
         thanksVisibilityFun();
         goTop();
-        setLoadingState("hidden")
+        setButtonLoading("");
     }, (error) => {
         console.log(error.text);
     });
@@ -232,7 +227,7 @@ const Playlistsubmit = () => {
           }}
 
           style={{opacity: opacityFun, transition: "1s", pointerEvents: pointerEventFun}} 
-          className="nicebutton" 
+          className={"nicebutton" + " " + buttonLoading} 
           type="submit">
             submit
           </button>
