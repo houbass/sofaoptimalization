@@ -225,9 +225,14 @@ const Todos = () => {
                         
                         <button 
                         className='material-symbols-outlined' 
-                        style={{marginTop: "15px"}}
+                        style={{
+                            marginTop: "15px",
+                            borderRadius: "50%",
+                            width: "27px",
+                            height: "27px"
+                        }}
                         onClick={deleteCompleted}
-                        >scan_delete</button>
+                        >delete</button>
                     </div>
                 
                 </div>
