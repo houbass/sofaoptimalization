@@ -8,6 +8,9 @@ import anime from 'animejs';
 //pic
 import logoWhite from "./pic/logonavWhite.png";
 import logoRed from "./pic/logonavRed.png";
+import logoRedSvg from "./pic/logonavRedSvg.svg";
+import newtry from "./pic/newtrysvg.svg";
+import newtry2 from "./pic/newtrysvgRed.svg";
 
 //GLOBALSTATES
 import { GlobalStates } from '@/globalstates/GlobalStates'
@@ -30,7 +33,7 @@ const Navbar = () => {
     const crossPath3 = "M0 62.2519L88.3527 2.3586e-06L99.8722 16.3494L11.5195 78.6013L0 62.2519Z";
 
     //img hover
-    const [imgSrc, setImgSrc] = useState(logoWhite);
+    const [imgSrc, setImgSrc] = useState(newtry);
 
     //MOBILE BURGER STATES
     const [burgerColor, setBurgerColor] = useState("rgba(255, 255, 255, 0.9)");
@@ -149,11 +152,11 @@ const Navbar = () => {
     }
 
     function imageEnter() {
-        setImgSrc(logoRed);
+        setImgSrc(newtry2);
     }
 
     function imageLeave() {
-        setImgSrc(logoWhite);
+        setImgSrc(newtry);
     }
 
     return (
@@ -172,7 +175,6 @@ const Navbar = () => {
         className="navbar"
         >
 
-
             <Link 
             href="/"
             className="logonav" 
@@ -184,6 +186,10 @@ const Navbar = () => {
                 height="50" 
                 src={imgSrc} >   
                 </Image>
+
+
+
+
             </Link>
 
             <Link href="/releases" >

@@ -1,6 +1,7 @@
 import { useContext, useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
+import Image from 'next/image';
 
 //LOTTIE DATA
 import topic4animationData from "@/components/lottieanimations/production.json";
@@ -10,6 +11,7 @@ import { GlobalStates } from '@/globalstates/GlobalStates'
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg"
+import backgroundPic3 from "@/components/pic/background3.jpg"
 
 //mainpage components
 import Topic1 from '@/components/mainpage/Topic1'
@@ -17,6 +19,7 @@ import Topic2 from '@/components/mainpage/Topic2'
 import Topic3 from '@/components/mainpage/Topic3'
 import Topic4 from '@/components/mainpage/Topic4'
 import Footer from '@/components/mainpage/Footer'
+import { color } from 'canvas-sketch-util';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -67,7 +70,7 @@ export default function Home() {
         style={{
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
+          
           color: "white",
           maxWidth: `${maxWidth}px`,
           //background: "rgba(20,20, 20, 1)",
@@ -77,6 +80,58 @@ export default function Home() {
           borderBottomStyle: "none",
           borderTopStyle: "none",
         }}>
+        <div 
+        className='maincardsAnimation' 
+        style={{
+          marginTop: "70px",
+            
+          width: "100%",
+
+
+        }}>
+        <Image         style={{
+
+          maxWidth: "1300px",  
+          width: "100%",
+          height: "auto"
+
+        }} src={backgroundPic3}>
+
+</Image>
+
+        </div>
+
+        <div 
+        style={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}> 
+
+
+        <div className='welcometext'>
+          <svg 
+          className='welcomesvg'
+          xmlns="http://www.w3.org/2000/svg" 
+          width="500" 
+          height="120" 
+          viewBox="-40 -50 500 100"
+          >
+              <text 
+              className='textPath'
+              style={{
+                fontSize: "150px",
+                    fontFamily: "Brush Script MT",
+                    
+              }} x="11" y="41">Welcome</text>
+            </svg>
+            <p 
+            className='sofalofiAnim'
+              > to Sofa Lofi</p>
+          </div>
+          </div>
+
 
           <Topic1 />
           <Topic2 />

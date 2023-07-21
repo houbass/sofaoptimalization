@@ -53,7 +53,7 @@ const Topic1 = () => {
               <div 
               style={{
               }}>
-                <h1 className='mainpageTitles' >Welcome to Sofa Lofi</h1>
+                <h1 className='mainpageTitles' >Listen to our playlist</h1>
                 <div style={{maxWidth: "600px"}}>     
                   <p className="mainpageP" >We are a music label with taste for lofi hip hop, focusing to help you 
                     to study work or chill, just try to hit the play button bellow and dive into the vibe...

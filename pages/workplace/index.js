@@ -40,6 +40,8 @@ const Workplace = () => {
             borderImage: `url(${backgroundPic2.src}) 20 round`,
             borderBottomStyle: "none",
             borderTopStyle: "none",
+            height: "100vh",
+            minHeight: "1200px",
             //zIndex: "-5"
         }}>
         <motion.div 
