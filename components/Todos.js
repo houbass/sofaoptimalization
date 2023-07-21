@@ -169,6 +169,8 @@ const Todos = () => {
                                 ...completedTodo, note.text
                             ])
 
+                            
+
                         
                     }
 
