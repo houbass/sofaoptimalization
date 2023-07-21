@@ -348,14 +348,7 @@ label {
   visibility: hidden;
   cursor: pointer;
 }
-@media screen and (max-width: 700px) {
-  .navbar {
-    visibility: hidden;
-  }
-  .burgerVisibility{
-    visibility: visible;
-  }
-}
+
 
 .navbar button {
   font-size: 20px;
@@ -924,9 +917,9 @@ label {
 
 
 .welcometext {
-  position: absolute;
 
-  top: 120px;
+  position: absolute;
+  top: 70px;
   background: rgba(0, 0, 0, 0.5);
   padding: 50px;
   display: flex;
@@ -935,6 +928,7 @@ label {
   text-align: center;
   max-width: 1300px;
   width: 100%;
+
 }
 
 .textPath {
@@ -971,6 +965,9 @@ label {
  
 }
 
+.imgmargin {
+  top: 0px;
+}
 
 
 .sofalofiAnim{
@@ -1005,11 +1002,7 @@ animation-delay: 2s;
   .sofalofiAnim{
     font-size: 80px;
   }
-  .welcometext {
 
-    top: 70px;
-
-  }
 }
 
 @media screen and (max-width: 450px ) {
@@ -1018,5 +1011,19 @@ animation-delay: 2s;
   }
   .sofalofiAnim{
     font-size: 50px;
+  }
+}
+
+
+@media screen and (max-width: 700px) {
+  .navbar {
+    visibility: hidden;
+  }
+  .burgerVisibility{
+    visibility: visible;
+  }
+
+  .imgmargin {
+    top: 70px;
   }
 }

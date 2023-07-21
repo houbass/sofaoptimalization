@@ -67,7 +67,7 @@ export default function Home() {
       className={`${inter.className} `}>
 
 <div 
-        className='maincardsAnimation' 
+        className='maincardsAnimation imgmargin' 
         style={{
           //marginTop: "70px",
           maxWidth: "1300px",  
@@ -102,9 +102,9 @@ width: "100%",
         }}>
 
 
-        <div 
+      <div 
         style={{
-          width: "100%",
+
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
