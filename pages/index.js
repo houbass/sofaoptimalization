@@ -19,7 +19,6 @@ import Topic2 from '@/components/mainpage/Topic2'
 import Topic3 from '@/components/mainpage/Topic3'
 import Topic4 from '@/components/mainpage/Topic4'
 import Footer from '@/components/mainpage/Footer'
-import { color } from 'canvas-sketch-util';
 
 const inter = Inter({ subsets: ['latin'] })
 
