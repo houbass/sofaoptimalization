@@ -121,7 +121,7 @@ export default function Home() {
               className='textPath'
               style={{
                 fontSize: "150px",
-                    fontFamily: "Brush Script MT",
+                fontFamily: "Brush Script MT",
                     
               }} x="11" y="41">Welcome</text>
             </svg>

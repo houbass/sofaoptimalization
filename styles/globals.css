@@ -971,7 +971,7 @@ label {
 .sofalofiAnim{
 opacity: 0;
 font-size: 100px;
-font-family: "Brush Script MT";
+font-family: "Brush Script mt";
 
 
 animation: sofatextAnim 3s forwards;
