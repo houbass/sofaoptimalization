@@ -119,11 +119,9 @@ export default function Home() {
           >
               <text 
               className='textPath'
-              style={{
-                fontSize: "150px",
-                fontFamily: "Brush Script MT, cursive",
-                    
-              }} x="11" y="41">Welcome</text>
+              x="11" 
+              y="41"
+              >Welcome</text>
             </svg>
             <p 
             className='sofalofiAnim'

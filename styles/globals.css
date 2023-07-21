@@ -936,6 +936,8 @@ label {
 
 .textPath {
   stroke: #ffff;
+  font-size: 150px;
+  font-family: "Brush Script MT";
   stroke-width: 3px;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
