@@ -118,7 +118,7 @@ const Todos = () => {
 
             <div style={{display: "flex", gap:"10px"}}>
                 <input style={{maxWidth: "300px"}} onChange={todoInput} value={todo} placeholder="add to do"></input>
-                <button style={{width: "30px", height: "30px", borderRadius: "20%"}} className='material-symbols-outlined' onClick={todoAdd}>add</button>
+                <button style={{width: "30px", height: "30px", borderRadius: "20%", fontSize: "16px"}} className='material-symbols-outlined' onClick={todoAdd}>add</button>
             </div>
             <p style={{color: "red", fontWeight: "bold", fontSize: "12px"}}>{infoText} </p>
 
@@ -229,6 +229,7 @@ const Todos = () => {
                         style={{
                             marginTop: "15px",
                             borderRadius: "50%",
+                            fontSize: "14px",
                             width: "27px",
                             height: "27px"
                         }}
