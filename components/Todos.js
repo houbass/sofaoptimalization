@@ -169,8 +169,7 @@ const Todos = () => {
                                 ...completedTodo, note.text
                             ])
 
-                            
-
+                    
                         
                     }
 
@@ -180,7 +179,7 @@ const Todos = () => {
                     }
                     
                     return(
-                        <div className="todo">
+                        <div key={note.text} className="todo">
                         <button id="todobtn" className="material-symbols-outlined" onClick={mapCheckDone} title="completed" >check</button>
                         <div 
                         id="todotextbox"
