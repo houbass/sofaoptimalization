@@ -19,6 +19,7 @@ import Topic2 from '@/components/mainpage/Topic2'
 import Topic3 from '@/components/mainpage/Topic3'
 import Topic4 from '@/components/mainpage/Topic4'
 import Footer from '@/components/mainpage/Footer'
+import { auth } from '@/config/firebase';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -58,11 +59,29 @@ export default function Home() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        background: "rgb(20,20,20)",
+        zIndex: "-5",
         //backgroundImage: `url(${backgroundPic2.src})`
+        backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
         
       }} 
       className={`${inter.className} `}>
+
+<div 
+        className='maincardsAnimation' 
+        style={{
+          //marginTop: "70px",
+          maxWidth: "1300px",  
+          width: "100%",
+          position: "fixed",
+          zIndex: "0",
+          
+        }}>
+          <Image         style={{
+width: "100%",
+          height: "auto"
+          }} src={backgroundPic3}>
+          </Image>
+        </div>
 
         <div 
         ref={mainRef}
@@ -73,32 +92,15 @@ export default function Home() {
           color: "white",
           maxWidth: `${maxWidth}px`,
           //background: "rgba(20,20, 20, 1)",
-          backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
+          //backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
           border: "solid 20px transparent",
           borderImage: `url(${backgroundPic2.src}) 20 round`,
           borderBottomStyle: "none",
           borderTopStyle: "none",
-        }}>
-        <div 
-        className='maincardsAnimation' 
-        style={{
-          marginTop: "70px",
-            
-          width: "100%",
-
+          zIndex: "1",
 
         }}>
-        <Image         style={{
 
-          maxWidth: "1300px",  
-          width: "100%",
-          height: "auto"
-
-        }} src={backgroundPic3}>
-
-</Image>
-
-        </div>
 
         <div 
         style={{
@@ -115,7 +117,7 @@ export default function Home() {
           xmlns="http://www.w3.org/2000/svg" 
           width="500" 
           height="120" 
-          viewBox="-40 -50 500 100"
+          viewBox="-20 -55 500 100"
           >
               <text 
               className='textPath'
@@ -129,6 +131,13 @@ export default function Home() {
           </div>
           </div>
 
+          <div
+          style={{
+            height: "100vw",
+            maxHeight: "1100px"
+          }}>
+
+          </div>
 
           <Topic1 />
           <Topic2 />

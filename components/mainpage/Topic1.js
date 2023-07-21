@@ -39,6 +39,7 @@ const Topic1 = () => {
             borderRadius: "0 20px 20px 0",
             backgroundImage: `url(${backgroundPic2.src})`,
             marginTop: "100px",
+            zIndex: "5"
           }}>
         
             <div 
