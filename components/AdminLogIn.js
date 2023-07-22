@@ -8,7 +8,7 @@ import { auth, googleProvider } from "config/firebase";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 //GLOBALSTATES
-import { GlobalStates } from '@/globalstates/GlobalStates'
+//import { GlobalStates } from '@/globalstates/GlobalStates'
 
 //components
 //import AdminLogIn from '@/components/AdminLogIn';
@@ -16,13 +16,13 @@ import AddNewRelease from '@/components/AddNewRelease';
 import AdminContent from '@/components/AdminContent';
 import { useCallback, useContext, useEffect, useState } from 'react';
 
-const AdminLogIn = ({ setShowContent, setShowContentOpacity }) => {
+const AdminLogIn = ({ setShowContent, setShowContentOpacity, getData }) => {
 
     //ERR
     const [errorState, setErrorState] = useState("");
 
     //PASSING GLOBAL SETTINGS
-    const { myData, loaderState, getData } = useContext(GlobalStates);
+    //const { myData, loaderState, getData } = useContext(GlobalStates);
 
     //LOGIN SAVE
     const [name, setName] = useState("");

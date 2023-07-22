@@ -7,11 +7,13 @@ import { getDocs, collection, addDoc, deleteDoc, updateDoc, doc } from "firebase
 import { ref, uploadBytes } from "firebase/storage";
 
 //GLOBALSTATES
-import { GlobalStates } from '@/globalstates/GlobalStates'
+//import { GlobalStates } from '@/globalstates/GlobalStates'
 
-const AdminContent = () => {
+const AdminContent = ({ myData, refresh, setRefresh }) => {
 
-    const { getData, myData, refresh, setRefresh } = useContext(GlobalStates);
+    //const { myData, refresh, setRefresh } = useContext(GlobalStates);
+
+
     const [data, setData] = useState([]);
 
     //UPDATE TABLE

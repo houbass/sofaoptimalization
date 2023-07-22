@@ -5,9 +5,9 @@ import { getDocs, collection, addDoc, deleteDoc, updateDoc, doc } from "firebase
 import { useContext, useEffect, useState } from "react";
 
 //GLOBALSTATES
-import { GlobalStates } from '@/globalstates/GlobalStates'
+//import { GlobalStates } from '@/globalstates/GlobalStates'
 
-const AddNewRelease = () => {
+const AddNewRelease = ({ myData, refresh, setRefresh }) => {
     
     //add new release states
     const [addArtist, setAddArtist] = useState("");
@@ -21,7 +21,8 @@ const AddNewRelease = () => {
     const [submitButtonVisibility, setSubmitButtonVisibility] = useState("hidden");   
 
     //PASSING GLOBAL SETTINGS
-    const {myData, refresh, setRefresh, getData } = useContext(GlobalStates);
+    //const {myData, refresh, setRefresh } = useContext(GlobalStates);
+
 
     //NEW RELEASE
     const contentCollectionRef = collection(db, "content");

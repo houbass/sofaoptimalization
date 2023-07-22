@@ -21,6 +21,7 @@ export default function Home() {
   //SETTINGS
   const maxWidth = 1300;
 
+  //last v. 23/07/23 22:38
 
   return (
     <>
