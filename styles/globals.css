@@ -11,6 +11,7 @@
     background: rgb(20, 20, 20);
     background-image: linear-gradient(to bottom, rgb(20, 20, 20) ,rgb(50, 50, 50)) ,rgb(20, 20, 20)  ;
     background-repeat: no-repeat;
+    cursor: default;
 }
 
 a{
@@ -1067,18 +1068,7 @@ animation-delay: 2s;
 }
 
 
-@media screen and (max-width: 700px) {
-  .navbar {
-    visibility: hidden;
-  }
-  .burgerVisibility{
-    visibility: visible;
-  }
 
-  .welcometext {
-    top: 70px;
-  }
-}
 
 .courier {
   font-family: "Courier New";
@@ -1113,3 +1103,45 @@ animation-delay: 2s;
   filter: brightness(1.1);
 }
 
+.footerLogo{
+  height: 150px;
+  width: 150px;
+  visibility: visible;
+  margin-left: 30px;
+}
+
+.footerhello {
+  padding-right: 30px;
+}
+
+@media screen and (max-width: 700px) {
+  .navbar {
+    visibility: hidden;
+  }
+  .burgerVisibility{
+    visibility: visible;
+  }
+
+  .welcometext {
+    top: 70px;
+  }
+
+  .footerLogo{
+    height: 100px;
+    width: 100px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+
+  .footerLogo{
+    height: 70px;
+    width: 70px;
+    margin-left: 10px;
+  }
+
+  .footerhello {
+    padding-right: 0px;
+  }
+
+}

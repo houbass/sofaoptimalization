@@ -6,9 +6,6 @@ import Link from "next/link";
 import anime from 'animejs';
 
 //pic
-import logoWhite from "./pic/logonavWhite.png";
-import logoRed from "./pic/logonavRed.png";
-import logoRedSvg from "./pic/logonavRedSvg.svg";
 import newtry from "./pic/newtrysvg.svg";
 import newtry2 from "./pic/newtrysvgRed.svg";
 

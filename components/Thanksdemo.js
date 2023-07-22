@@ -18,7 +18,8 @@ const Thanksdemo = ({ visibility, setVisibility, setFormVisibility }) => {
         style={{
             position: "absolute",
             top: "150px",
-            backgroundImage: `url(${backgroundPic2.src})`,             
+            //backgroundImage: `url(${backgroundPic2.src})`,
+            background: "rgba(20,20,20,0.8)",              
             visibility: visibility,
             display: "flex",
             flexDirection: "column",

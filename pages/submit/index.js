@@ -3,6 +3,7 @@ import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import Head from 'next/head';
 
 //motion lib
 import { motion } from 'framer-motion'
@@ -16,6 +17,31 @@ const inter = Inter({ subsets: ['latin'] })
 const Submit = () => {
 
     return(
+        <>
+        <Head>
+            <title>Sofa Lofi submission</title>
+            <meta name="description" content="submit your music" key="desc"/>
+            
+            <meta
+            property="og:description"
+            content="submit your music"
+            />
+            <meta
+            property="og:image"
+            content="https://sofalofi.com//_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbackground3_v2.f374276e.jpg&w=3840&q=75"
+            />
+
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+            <link rel="icon" href="/favicon.ico" />
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />        
+            <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
+            <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet"></link>
+
+        </Head>
+
         <div
         style={{
             display: "flex",
@@ -152,6 +178,7 @@ const Submit = () => {
         </main>
         </div>
         </div>
+        </>
     )
 }
 

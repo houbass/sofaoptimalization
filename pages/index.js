@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Sofa Lofi lofi music</title>
+        <title>Sofa Lofi music</title>
         <meta name="description" content="lo-fi hip hop beats, music to chill, study and work" key="desc"/>
         
         <meta
