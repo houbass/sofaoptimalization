@@ -19,7 +19,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
 
   //SETTINGS
-  const maxWidth = 1300;
+  const maxWidth = 800;
 
   //last v. 23/07/23 22:38
 
@@ -66,7 +66,7 @@ export default function Home() {
         className='maincardsAnimation2 imgmargin' 
         style={{
           //marginTop: "70px",
-          maxWidth: "1300px",  
+          maxWidth: "800px",  
           width: "100%",
           position: "fixed",
           zIndex: "0",
@@ -74,7 +74,7 @@ export default function Home() {
         }}>
           <Image         style={{
           width: "100%",
-          height: "auto"
+          height: "auto",
           }} src={backgroundPic3}>
           </Image>
           <div 

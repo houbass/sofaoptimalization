@@ -93,8 +93,8 @@ const Releases = ({ filteredData }) => {
             {filteredMyData?.map((data) => (
                 <div key={data.releaseindex} className="frame"> 
                     <iframe 
-                        width="260" 
-                        height="260" 
+                        width="200" 
+                        height="200" 
                         src={
                             data.youtubelink
                         } 

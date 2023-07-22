@@ -58,7 +58,7 @@ const Workplace = () => {
         className='maincardsAnimation4 imgmargin' 
         style={{
           //marginTop: "70px",
-          maxWidth: "1300px",  
+          maxWidth: "800px",  
           width: "100%",
           position: "absolute",
           zIndex: "0",
@@ -67,7 +67,7 @@ const Workplace = () => {
           <Image 
           className='submitImg'
           style={{
-            height: "1600px"
+            height: "1300px"
           }}
         src={backgroundPic6}>
           </Image>
@@ -82,15 +82,13 @@ const Workplace = () => {
             alignItems: "center",
             color: "white",
             width: "100%",
-            maxWidth: "1300px",
-            //background: "rgba(20,20, 20, 1)",
-            
+            maxWidth: "800px",            
             border: "solid 20px transparent",
             borderImage: `url(${backgroundPic2.src}) 20 round`,
             borderBottomStyle: "none",
             borderTopStyle: "none",
             height: "100vh",
-            minHeight: "1600px",
+            minHeight: "1300px",
             zIndex: "1"
         }}>
         <motion.div 

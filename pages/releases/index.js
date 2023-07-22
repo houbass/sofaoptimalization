@@ -84,7 +84,7 @@ const ReleasesPage = ({ filteredData }) => {
         className='maincardsAnimation4 imgmargin' 
         style={{
           //marginTop: "70px",
-          maxWidth: "1300px",  
+          maxWidth: "800px",  
           width: "100%",
           position: "absolute",
           top: "0",
@@ -109,7 +109,7 @@ const ReleasesPage = ({ filteredData }) => {
             alignItems: "center",
             color: "white",
             width: "100%",
-            maxWidth: "1300px",
+            maxWidth: "800px",
             //background: "rgba(20,20, 20, 1)",
             
             border: "solid 20px transparent",
@@ -147,7 +147,7 @@ const ReleasesPage = ({ filteredData }) => {
                     
                         textAlign: "center",
                         background: "orange",
-                        padding: "30px",
+                        padding: "30px 5px",
                         borderRadius: "50px",
                         background: "rgba(20,20,20,0.8)",
                         boxShadow: "0px 5px 40px rgba(0, 0, 0, 0.637)",

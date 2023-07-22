@@ -57,11 +57,11 @@ const Submit = () => {
         className='maincardsAnimation4 imgmargin' 
         style={{
           //marginTop: "70px",
-          maxWidth: "1300px",  
+          maxWidth: "800px",  
           width: "100%",
           position: "absolute",
           zIndex: "0",
-          backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
+          //backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
         }}>
           <Image 
           className='submitImg'
@@ -78,7 +78,7 @@ const Submit = () => {
             alignItems: "center",
             color: "white",
             width: "100%",
-            maxWidth: "1300px",
+            maxWidth: "800px",
             //background: "rgba(20,20, 20, 1)",
             
             border: "solid 20px transparent",

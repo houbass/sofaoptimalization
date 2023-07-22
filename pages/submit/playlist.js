@@ -89,7 +89,7 @@ const Playlist = () => {
         //className='maincardsAnimation2 imgmargin' 
         style={{
           //marginTop: "70px",
-          maxWidth: "1280px",  
+          maxWidth: "780px",  
           width: "100%",
           position: "absolute",
           zIndex: "0",
@@ -110,7 +110,7 @@ const Playlist = () => {
             alignItems: "center",
             color: "white",
             width: "100%",
-            maxWidth: "1300px",
+            maxWidth: "800px",
             //background: "rgba(20,20, 20, 1)",
             
             border: "solid 20px transparent",

@@ -168,7 +168,7 @@ const Navbar = () => {
         >
         <div         style={{
             width: "100%",
-            maxWidth: "1300px",
+            maxWidth: "800px",
 
         }} >
 

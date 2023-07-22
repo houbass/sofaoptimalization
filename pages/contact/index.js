@@ -61,7 +61,7 @@ const ContactPage = () => {
         className='maincardsAnimation4 imgmargin' 
         style={{
           //marginTop: "70px",
-          maxWidth: "1300px",  
+          maxWidth: "800px",  
           width: "100%",
           position: "absolute",
           zIndex: "0",
@@ -87,7 +87,7 @@ const ContactPage = () => {
             alignItems: "center",
             color: "white",
             width: "100%",
-            maxWidth: "1300px",
+            maxWidth: "800px",
             //background: "rgba(20,20, 20, 1)",
             //backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
             border: "solid 20px transparent",
