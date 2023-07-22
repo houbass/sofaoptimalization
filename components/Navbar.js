@@ -248,7 +248,6 @@ const Navbar = () => {
                 background: "rgba(0, 0, 0, 0.9)",
                 width: "100%",
                 height: "100vh",
-                padding: "0 50px",
                 top: "0px",
                 visibility: mobileMenuVisibility,
             }} 

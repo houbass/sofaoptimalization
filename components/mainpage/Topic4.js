@@ -21,7 +21,7 @@ const Topic4 = () => {
     //ref
     const animationRef = useRef()
 
-    /*
+   
     //MOBILE LOGIC
     useEffect(() => {
         if(mobile === true) {
@@ -30,12 +30,12 @@ const Topic4 = () => {
           animationRef.current.play();
         }
     }, [mobile]);
-    */
+  
 
     return(
         <>
           <div 
-          className='maincardsAnimation2'
+          className='maincardsAnimation'
           style={{
             display: "flex",
             flexDirection: "row",

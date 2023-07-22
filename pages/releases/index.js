@@ -95,11 +95,13 @@ const ReleasesPage = ({ filteredData }) => {
                         alignItems: "center",
                         minHeight: "800px",
                         paddingBottom: "100px",
-                        textAlign: "center"
+                        textAlign: "center",
+                        fontFamily: "'Caveat Brush', cursive",
                     }}>
                         <h1 
                         style={{
-                            paddingBottom: "60px"
+                            paddingBottom: "60px",
+                            
                         }}>Latest Sofa Lofi releases</h1>
                         <Releases filteredData={filteredData}/>
                         <div className='center mt'>
