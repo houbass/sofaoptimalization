@@ -103,7 +103,8 @@ const Releases = ({ filteredData }) => {
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         allowFullScreen>
                     </iframe> 
-                        <h6 style={{marginTop: "5px"}} className="courier">{data.artists} - {data.trackname}</h6>
+                        <h5 style={{marginTop: "5px"}} className="courier">{data.trackname}</h5>
+                        <h6 style={{marginTop: "5px"}} className="courier">{data.artists}</h6>
                         <div className="icons">
                             <div className="icon">
                                 <a href={data.spotifylink} target="_blank"><Image alt="spotify" className="iconImg" src={Spotify} /></a>
