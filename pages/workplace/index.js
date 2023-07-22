@@ -1,10 +1,12 @@
 import { Inter } from 'next/font/google';
+import Image from 'next/image';
 
 //motion lib
 import { motion } from 'framer-motion';
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
+import backgroundPic6 from "@/components/pic/background6_v2.jpg"
 
 //COMPONENTS
 import Clocks from '@/components/Clocks';
@@ -25,6 +27,26 @@ const Workplace = () => {
             width: "100%",
         }}>
 
+        <div 
+        className='maincardsAnimation4 imgmargin' 
+        style={{
+          //marginTop: "70px",
+          maxWidth: "1300px",  
+          width: "100%",
+          position: "absolute",
+          zIndex: "0",
+          //backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
+        }}>
+          <Image 
+          className='submitImg'
+          style={{
+            height: "1600px"
+          }}
+        src={backgroundPic6}>
+          </Image>
+
+        </div>
+
 
         <div 
         style={{
@@ -35,14 +57,14 @@ const Workplace = () => {
             width: "100%",
             maxWidth: "1300px",
             //background: "rgba(20,20, 20, 1)",
-            backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
+            
             border: "solid 20px transparent",
             borderImage: `url(${backgroundPic2.src}) 20 round`,
             borderBottomStyle: "none",
             borderTopStyle: "none",
             height: "100vh",
-            minHeight: "1200px",
-            //zIndex: "-5"
+            minHeight: "1600px",
+            zIndex: "1"
         }}>
         <motion.div 
         animate={{

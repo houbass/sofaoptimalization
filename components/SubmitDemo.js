@@ -169,7 +169,9 @@ const SubmitDemo = () => {
 
   return (
     <div style={{
-        backgroundImage: `url(${backgroundPic2.src})`,      
+        //backgroundImage: `url(${backgroundPic2.src})`,    
+        background: "rgba(20,20,20,0.8)",  
+        boxShadow: "0px 5px 40px rgba(0, 0, 0, 0.637)",
         display: "flex",
         flexDirection: "column",
         //justifyContent: "center",
@@ -181,11 +183,11 @@ const SubmitDemo = () => {
         visibility: formVisibility,
     }}>
       
-      <div className="title">
+      <div className="title brush" >
         <h1>Submit your demo</h1>
       </div>
 
-      <div className="description mt">
+      <div className="description mt courier">
         <p>This form is used to submit your demo to label consideration. 
             Please make sure that you respect the conditions listed below before submitting otherwise it will be automatically declined.
         </p>
@@ -205,23 +207,23 @@ const SubmitDemo = () => {
       </div>
         <br></br>
       <form ref={form} onSubmit={sendEmail} className="mt" style={{ width: "100%", maxWidth: "500px"}} >
-        <div className="inputRow">
-          <input {...register("artistName")} placeholder="Artist name" className="input length" a/>
+        <div className="inputRow courier">
+          <input {...register("artistName")} placeholder="Artist name" className="input length courier" a/>
           <p className="error">{artistNameError}</p>
         </div>
 
-        <div className="inputRow">
-          <input {...register("email")} placeholder="Email" className="input length"/>
+        <div className="inputRow courier">
+          <input {...register("email")} placeholder="Email" className="input length courier"/>
           <p className="error">{emailError}</p>
         </div>
 
-        <div className="inputCol">
-          <input {...register("track")} placeholder="Paste Soundcloud link to your demo" className="input" />
+        <div className="inputCol courier">
+          <input {...register("track")} placeholder="Paste Soundcloud link to your demo" className="input courier" />
           <p className="error">{trackError}</p>
         </div>        
 
-        <div className="inputCol mt">
-          <textarea {...register("text")} placeholder="Do you wanna say something? (max 500 characters)" rows="10" cols="35" className="textarea"/>
+        <div className="inputCol mt courier">
+          <textarea {...register("text")} placeholder="Do you wanna say something? (max 500 characters)" rows="10" cols="35" className="textarea courier"/>
           <p className="error">{messageError}</p>
         </div>
 

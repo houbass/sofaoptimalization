@@ -39,6 +39,7 @@ const Navbar = () => {
     const [burgerColor, setBurgerColor] = useState("rgba(255, 255, 255, 0.9)");
     const [burgerToggler, setBurgerToggler] = useState(false);
     const [mobileMenuVisibility, setBurgerMenuVisibility] = useState("hidden");
+    const [burgerBackground, setBurgerBackground] = useState("rgba(20,20,20,0.8)");
 
     //MOBILE BURGER mouse events
     function mouseEnterFun() {
@@ -60,6 +61,7 @@ const Navbar = () => {
             setBurgerMenuVisibility("visible");
             setBurgerToggler(true);
             setBurgerColor("rgba(255, 70, 70, 1)");
+            setBurgerBackground("transparent");
 
             path1 = crossPath1;
             setPath2("0");
@@ -93,6 +95,7 @@ const Navbar = () => {
             setBurgerMenuVisibility("hidden");
             setBurgerToggler(false);
             setBurgerColor("rgba(255, 255, 255, 1)");
+            setBurgerBackground("rgba(20,20,20,0.8)")
 
             path1 = burgerPath1;
             setPath2("M10 29H100V49H0V29Z");
@@ -126,6 +129,7 @@ const Navbar = () => {
         setBurgerMenuVisibility("hidden");
         setBurgerToggler(false);
         setBurgerColor("rgba(255, 255, 255, 1)");
+        setBurgerBackground("rgba(20,20,20,0.8)")
 
         setPath2("M10 29H100V49H0V29Z");
         const path1animation3 = anime({
@@ -218,8 +222,11 @@ const Navbar = () => {
                 justifyContent: "right",
                 width: "100%",
                 padding: "0 50px",
-                top: "20px",
-                zIndex: "5"
+                top: "0px",
+                zIndex: "5",
+                background: burgerBackground,
+                height: "70px",
+                paddingTop: "15px"
                 
             }} 
             onMouseEnter={mouseEnterFun} 

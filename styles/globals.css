@@ -331,6 +331,8 @@ label {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
+  
 
 }
 
@@ -338,7 +340,7 @@ label {
   display: flex;
   flex-direction: row;
   height: 70px;
-  background: rgba(20,20,20,0.9);
+  background: rgba(20,20,20,0.8);
   justify-content: space-around;
   align-items: center;
   color: white;
@@ -491,7 +493,7 @@ label {
   display: flex;
   flex-direction: column;
   height: 60px;
-  background: rgba(20,20,20,0.9);
+  background: rgba(20,20,20,0.8);
   justify-content: space-around;
   align-items: left;
   color: white;
@@ -550,7 +552,12 @@ label {
   flex-direction: row;
   gap: 40px;
 }
-@media screen and (max-width: 580px) {
+.submitImg {
+  width: 100%;
+  object-fit: cover;
+  
+}
+@media screen and (max-width: 650px) {
   .submitFlex {
     flex-direction: column;
   }
@@ -667,6 +674,12 @@ label {
   animation-fill-mode: forwards;
 }
 
+.maincardsAnimation4 {
+  opacity: 1;
+  animation-name: mainpageAnimation2;
+  animation-duration: 2s;
+}
+
 @keyframes mainpageAnimation {
   from {
     opacity: 0.0;
@@ -699,6 +712,8 @@ label {
     filter: blur(0px);
   }
 }
+
+
 
 
 
@@ -785,6 +800,8 @@ label {
   height: 45px;
   /*background: orange;*/
   gap: 15px;
+  font-family: 'Caveat Brush', cursive;
+  font-size: 30PX;
   
 }
 
@@ -795,10 +812,12 @@ label {
   flex-direction: row;
   align-items: center;
   padding-left: 10px;
-  background: linear-gradient(to right, rgba(255, 117, 117, 0.4) , rgb(40, 40, 40, 0.7));
+  background: linear-gradient(to right, rgba(255, 255, 255, 1) , rgb(40, 40, 40, 0.7));
   border-radius: 15px;
-  font-weight: bold;
+  color: black;
   transition: 2s;
+  
+
 
 }
 
@@ -813,8 +832,9 @@ label {
 
 /* one hoover affect another element */
 #todobtn:hover + #todotextbox{
-  background: linear-gradient(to left, rgba(255, 117, 117, 0.4) , rgb(40, 40, 40, 0.7));
-  background-color:rgba(4, 170, 109, 1);
+
+
+  background: linear-gradient(to right,  rgba(4, 170, 109, 1), rgba(255, 255, 255, 1) );
 }
 #todobtn:hover{
   background-color:#04AA6D;
@@ -844,13 +864,13 @@ label {
 
 @media screen and (max-width: 450px) {
   .todo {
-    font-size: 13px;
+    font-size: 23px;
   }
 }
 
 @media screen and (max-width: 390px) {
   .todo {
-    font-size: 11px;
+    font-size: 19px;
   }
   .completedTodos {
     font-size: 12px;
@@ -859,7 +879,7 @@ label {
 
 @media screen and (max-width: 340px) {
   .todo {
-    font-size: 9px;
+    font-size: 14px;
     padding-left: 5px;
     
   }
@@ -1055,10 +1075,41 @@ animation-delay: 2s;
     visibility: visible;
   }
 
-  .imgmargin {
-    top: 70px;
-  }
   .welcometext {
     top: 70px;
   }
 }
+
+.courier {
+  font-family: "Courier New";
+  font-weight: 600;
+}
+
+.brush {
+  font-family: 'Caveat Brush', cursive;
+}
+
+.brush > h1 {
+  font-size: 40px;
+}
+
+.brush > h2 {
+  font-size: 30px;
+}
+
+.brush > p {
+  font-size: 15px;
+}
+
+.submithover {
+  scale: 1;
+  transition: 0.5s;
+  cursor: pointer;
+  filter: brightness(1);
+}
+
+.submithover:hover {
+  scale: 1.05;
+  filter: brightness(1.1);
+}
+

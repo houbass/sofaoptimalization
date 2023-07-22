@@ -13,7 +13,9 @@ const Thanksdemo = ({ visibility, setVisibility, setFormVisibility }) => {
     }
 
     return (
-        <div style={{
+        <div 
+        className="brush"
+        style={{
             position: "absolute",
             top: "150px",
             backgroundImage: `url(${backgroundPic2.src})`,             
@@ -30,6 +32,7 @@ const Thanksdemo = ({ visibility, setVisibility, setFormVisibility }) => {
         }}>
             <h1>Thank you for your submission</h1>
             <p>we let you know as soon as possible :))</p>
+            <br/>
             <div className="buttonsBox">
 
                 <Link href="/submit">

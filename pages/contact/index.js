@@ -2,12 +2,14 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
+import Image from 'next/image'
 
 //motion lib
 import { motion } from 'framer-motion';
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
+import backgroundPic7 from "@/components/pic/background7_v2.jpg"
 
 //components
 import Contact from '@/components/Contact';
@@ -16,33 +18,6 @@ const inter = Inter({ subsets: ['latin'] })
 
 const ContactPage = () => {
 
-    //pageref
-    const pageRef = useRef();
-
-    //const height = window.innerHeight;
-    const [height, setHeight] = useState(0);
-
-
-    //resize fun
-    function resizeFun() {
-        if(window.innerHeight > (pageRef.current.offsetTop + pageRef.current.offsetHeight)){
-            setHeight(window.innerHeight);
-        }else{
-            setHeight(pageRef.current.offsetTop + pageRef.current.offsetHeight)
-        }
-
-        console.log("resizing")
-    }
-
-    //set height for frame
-    useEffect(() => {
-        resizeFun();
-        window.addEventListener("resize", resizeFun);
-
-        return () => {
-            window.removeEventListener("resize", resizeFun);
-        }
-    });     
 
     return(
 
@@ -56,10 +31,31 @@ const ContactPage = () => {
             
         }}>
 
+        <div 
+        className='maincardsAnimation4 imgmargin' 
+        style={{
+          //marginTop: "70px",
+          maxWidth: "1300px",  
+          width: "100%",
+          position: "absolute",
+          zIndex: "0",
+          //backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
+        }}>
+          <Image 
+          className='submitImg'
+          style={{
+            height: "1400px"
+          }}
+        src={backgroundPic7}>
+          </Image>
+
+        </div>
+
 
         <div 
         style={{
-            height: height,
+            minHeight: "1400px",
+            height: "100vh",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -67,14 +63,14 @@ const ContactPage = () => {
             width: "100%",
             maxWidth: "1300px",
             //background: "rgba(20,20, 20, 1)",
-            backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
+            //backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
             border: "solid 20px transparent",
             borderImage: `url(${backgroundPic2.src}) 20 round`,
             borderBottomStyle: "none",
             borderTopStyle: "none",
+            zIndex: "1",
         }}>
         <motion.div 
-        ref={pageRef} 
         animate={{
             opacity: [0, 1]
         }}
@@ -87,8 +83,8 @@ const ContactPage = () => {
             flexDirection: "column",
             alignItems: "center",
             width: "100%",
-            height: "800px",
-            paddingTop: "100px"
+
+            paddingTop: "100px",
             //background: "orange"
         }}
         >      

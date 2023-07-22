@@ -158,39 +158,42 @@ const Contact = () => {
     <div style={{
       maxWidth: "1000px",
       width: "90%",
+      
     }}>
     <div style={{
-        backgroundImage: `url(${backgroundPic2.src})`,        
+        //backgroundImage: `url(${backgroundPic2.src})`,  
+        background: "rgba(20,20,20,0.8)",      
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         padding: "30px 30px",
         borderRadius: "30px 30px 0 0",
-        visibility: formVisibility
+        visibility: formVisibility,
+        boxShadow: "0px 5px 40px rgba(0, 0, 0, 0.637)",
     }}>
       
 
 
-      <div className="description mt">
-        <h3>Do you have something on your mind? Send us a message.
-        </h3>
+      <div style={{textAlign: "center"}} className="description mt brush">
+        <h2>Wanna ask something? Send us a message.
+        </h2>
         <br></br>
 
       </div>
         <br></br>
-      <form ref={form} onSubmit={sendEmail} className="mt" style={{ width: "100%", maxWidth: "500px"}} >
+      <form ref={form} onSubmit={sendEmail} className="mt courier" style={{ width: "100%", maxWidth: "500px"}} >
         <div className="inputRow">
-          <input {...register("artistName")} placeholder="Your name" className="input length"/>
+          <input {...register("artistName")} placeholder="Your name" className="input length courier"/>
           <p className="error">{artistNameError}</p>
         </div>
 
         <div className="inputRow">
-          <input {...register("email")} placeholder="Email" className="input length"/>
+          <input {...register("email")} placeholder="Email" className="input length courier"/>
           <p className="error">{emailError}</p>
         </div>     
 
         <div className="inputCol mt">
-          <textarea {...register("text")} placeholder="Do you wanna say something? (max 500 characters)" rows="10" cols="35" className="textarea"/>
+          <textarea {...register("text")} placeholder="Do you wanna say something? (max 500 characters)" rows="10" cols="35" className="textarea courier"/>
           <p className="error">{messageError}</p>
         </div>
 
@@ -221,6 +224,7 @@ const Contact = () => {
               borderRadius: "0 0 30px 30px",
               paddingTop: "5px",
               paddingBottom: "5px",
+              visibility: formVisibility
 
               }}>
   

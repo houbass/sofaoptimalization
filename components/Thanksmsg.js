@@ -13,10 +13,13 @@ const Thanksmsg = ({ visibility, setVisibility, setFormVisibility }) => {
     }
 
     return (
-        <div style={{
+        <div 
+        className="brush"
+        style={{
             position: "absolute",
             top: "150px",
-            backgroundImage: `url(${backgroundPic2.src})`,             
+            //backgroundImage: `url(${backgroundPic2.src})`,   
+            background: "rgba(20,20,20,0.8)",           
             visibility: visibility,
             display: "flex",
             flexDirection: "column",
@@ -30,6 +33,7 @@ const Thanksmsg = ({ visibility, setVisibility, setFormVisibility }) => {
         }}>
             <h1>Thank you for your message</h1>
             <p>we will check it as soon as possible :))</p>
+            <br/>
             <div className="buttonsBox">
 
                 <Link href="/contact">

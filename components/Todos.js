@@ -105,19 +105,21 @@ const Todos = () => {
         <div id="div1" 
 
         style={{
+            maxWidth: "580px",
             width: "90%",
-            height: "700px",
-            //background: "orange",
+            //height: "700px",
+            background: "rgba(20,20,20,0.8)",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            //marginTop: "80px",
-            marginBottom: "150px",
-            zIndex: "0"
+            zIndex: "0",
+            padding: "50px 0",
+            borderRadius: "50px",
+            boxShadow: "0px 5px 40px rgba(0, 0, 0, 0.637)",
         }}>
 
             <div style={{display: "flex", gap:"10px"}}>
-                <input style={{maxWidth: "300px"}} onChange={todoInput} value={todo} placeholder="add to do"></input>
+                <input className="courier" style={{maxWidth: "300px"}} onChange={todoInput} value={todo} placeholder="add to do"></input>
                 <button style={{width: "30px", height: "30px", borderRadius: "20%", fontSize: "16px"}} className='material-symbols-outlined' onClick={todoAdd}>add</button>
             </div>
             <p style={{color: "red", fontWeight: "bold", fontSize: "12px"}}>{infoText} </p>
@@ -126,7 +128,7 @@ const Todos = () => {
             <div 
             style={{
                 //position: "absolute",
-                backgroundImage: `url(${backgroundPic2.src})`,
+                //backgroundImage: `url(${backgroundPic2.src})`,
                 maxWidth: "500PX",
                 width: "90%",
                 minHeigh: "200px",
