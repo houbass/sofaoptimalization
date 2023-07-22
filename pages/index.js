@@ -25,13 +25,23 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
-        <meta name="description" content="Sofa Lofi page" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <title>Sofa Lofi lofi music</title>
+        <meta name="description" content="lo-fi hip hop beats, music to chill, study and work" key="desc"/>
         
+        <meta
+          property="og:description"
+          content="lo-fi hip hop beats, music to chill, study and work"
+        />
+        <meta
+          property="og:image"
+          content="https://sofalofi.com//_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbackground3_v2.f374276e.jpg&w=3840&q=75"
+        />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />        
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
         <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet"></link>
@@ -145,3 +155,6 @@ export default function Home() {
     </>
   )
 }
+
+
+
