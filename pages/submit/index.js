@@ -10,7 +10,7 @@ import { motion } from 'framer-motion'
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
-import backgroundPic4 from "@/components/pic/background4_v2.jpg"
+import backgroundPic4 from "@/components/pic/background4_v3.jpg"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -43,28 +43,34 @@ const Submit = () => {
         </Head>
 
         <div
+        
         style={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             width: "100%",
-            //background: "orange",
             height: "100vh",
-            minHeight: "1500px",
+            minHeight: "1153px",
+            //background:"orange"
         }}>
 
         <div 
         className='maincardsAnimation4 imgmargin' 
         style={{
           //marginTop: "70px",
-          maxWidth: "800px",  
+          maxWidth: "1000px",  
           width: "100%",
           position: "absolute",
+          top: "0",
           zIndex: "0",
-          //backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
+          
         }}>
           <Image 
-          className='submitImg'
+          className='submitImg' 
+          style={{
+            //width: "1000px",
+            height: "1153px"
+          }}
         src={backgroundPic4}>
           </Image>
 
@@ -78,7 +84,7 @@ const Submit = () => {
             alignItems: "center",
             color: "white",
             width: "100%",
-            maxWidth: "800px",
+            maxWidth: "1000px",
             //background: "rgba(20,20, 20, 1)",
             
             border: "solid 20px transparent",
@@ -168,7 +174,9 @@ const Submit = () => {
                         borderRadius: "20px",
                         boxShadow: "0px 5px 40px rgba(0, 0, 0, 0.637)",
                     }}>
-                        <h2>SUBMIT TO PLAYLIST</h2>
+                        <h2>SUBMIT </h2>
+                        <h2>TO </h2>
+                        <h2>PLAYLIST</h2>
                     </div>
                 </Link>
 

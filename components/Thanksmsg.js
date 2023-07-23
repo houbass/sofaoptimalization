@@ -24,7 +24,7 @@ const Thanksmsg = ({ visibility, setVisibility, setFormVisibility }) => {
             display: "flex",
             flexDirection: "column",
             width: "80%",
-            maxWidth: "800px",
+            maxWidth: "600px",
             padding: "60px 60px",
             borderRadius: "30px",
             boxShadow: "0px 5px 40px rgba(0, 0, 0, 0.637)",

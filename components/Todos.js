@@ -9,9 +9,6 @@ import Lottie from "lottie-react";
 //LOTTIE DATA
 import congratsAnimation from "@/components/lottieanimations/congrats.json";
 
-//pic 
-import backgroundPic2 from "@/components/pic/background2.svg"
-
 const Todos = () => {
     
     //TODO

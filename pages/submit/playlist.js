@@ -10,7 +10,7 @@ import { motion } from 'framer-motion'
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
-import backgroundPic4 from "@/components/pic/background4_v2.jpg"
+import backgroundPic4 from "@/components/pic/background4_v3.jpg"
 
 //components
 import Playlistsubmit from '@/components/Playlistsubmit'
@@ -82,21 +82,25 @@ const Playlist = () => {
             alignItems: "center",
             width: "100%",
             height: "100vh",
-            minHeight: "1500px"
+            minHeight: "1400px"
         }}>
 
 <       div 
         //className='maincardsAnimation2 imgmargin' 
         style={{
           //marginTop: "70px",
-          maxWidth: "780px",  
+          maxWidth: "980px",  
           width: "100%",
           position: "absolute",
           zIndex: "0",
           filter: "blur(5px)"
         }}>
           <Image 
-          className='submitImg'
+          className='submitImg' 
+          style={{
+            //width: "1000px",
+            height: "1153px"
+          }}
         src={backgroundPic4}>
           </Image>
 
@@ -110,7 +114,7 @@ const Playlist = () => {
             alignItems: "center",
             color: "white",
             width: "100%",
-            maxWidth: "800px",
+            maxWidth: "1000px",
             //background: "rgba(20,20, 20, 1)",
             
             border: "solid 20px transparent",

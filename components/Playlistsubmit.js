@@ -1,9 +1,5 @@
-
 //library
 import { useForm } from "react-hook-form";
-
-//pic 
-import backgroundPic2 from "@/components/pic/background2.svg";
 
 //import emailJs
 import React, { useRef, useState, useEffect, useContext } from 'react';
@@ -45,7 +41,7 @@ const Playlistsubmit = () => {
 
   //funkce na posíláni na email
   const form = useRef();
-  const sendEmail = async(e) => {
+  async function sendEmail(e) {
     e.preventDefault();
     //setButtonLoading("btnAnimation");
     setBtnClass2("fa fa-spinner fa-spin")
@@ -64,9 +60,9 @@ const Playlistsubmit = () => {
   };  
 
   //artist name check
-  const artistNameCheck = watch("artistName").length;
+  function artistcheck(e) {
+    const artistNameCheck = e.target.value.length;
 
-  useEffect(() => {
     if(artistNameCheck === 0 ){
       setArtistNameError("*artist name is mandatory");
     }
@@ -76,66 +72,59 @@ const Playlistsubmit = () => {
     if(artistNameCheck >= 20){
       setArtistNameError("*max length is 20");
     }
-  }, [artistNameCheck]);
 
-  useEffect(()=>{
     if (artistNameCheck >= 2 && artistNameCheck <= 20) {  
       setArtistNameState(true);
       setArtistNameError("");
     }else{
       setArtistNameState(false);
     }
-  }, [artistNameCheck]);
-  
+  }
+
 
   //email check
-  const emailCheck = watch("email");
-  const emailSignCheck = emailCheck.includes("@");
+  function emailcheck(e) {
+    const emailCheck = e.target.value;
+    const emailSignCheck = emailCheck.includes("@");
 
-  useEffect(() => {
     if (emailSignCheck === false) {  
       setEmailError("*email is mandatory");
+      setEmailState(false);
     }
-  }, [emailCheck])
-
-  useEffect (() => {
     if(emailSignCheck === true){
       setEmailError("");
       setEmailState(true);
     }else{
       setEmailState(false);
     }
-  }, [emailCheck]);
-
+  }
 
   //track check
-  const trackCheck = watch("track");
-  const trackCheckLength = trackCheck.length;
-  const trackSignCheck = trackCheck.includes("spotify.com");
+  function trackcheck(e) {
+    const trackCheck = e.target.value;
+    const trackCheckLength = trackCheck.length;
+    const trackSignCheck = trackCheck.includes("spotify.com");
 
-  useEffect(() => {
     if(trackCheckLength === 0){
       setTrackError("*spotify link is mandatory");
+      setTrackState(false);
     }
     if(trackCheckLength > 0 && trackSignCheck === false){
       setTrackError("*this doesn't look like Spotify link mate");
-    }
-  }, [trackCheck]);
-
-  useEffect(() => {
+      setTrackState(false);
+    }    
     if(trackSignCheck === true){
       setTrackError("");
       setTrackState(true);
     }else{
       setTrackState(false);
     }
-  }, [trackCheck]);
-
-
+  }
+  
   //message check
-  const messageCheck = watch("text").length;
+  function messagecheck(e) {
+    const messageCheck = e.target.value.length;
 
-  useEffect(() => {
     if(messageCheck > 500){
       setMessageError("*it's too long mate");
       setMessageState(false);
@@ -143,8 +132,8 @@ const Playlistsubmit = () => {
       setMessageError("");
       setMessageState(true);
     }
-  }, [messageCheck]);
-
+  }
+  
   //funkce pro zobrazeni buttonu
   useEffect(() => {
     if(artistNameState === true && emailState === true && messageState === true && trackState === true){
@@ -159,11 +148,11 @@ const Playlistsubmit = () => {
 
   //form reset function
   const formResetFun = () => {
-    reset(formValues => ({
+  /*  reset(formValues => ({
       ...formValues,
       track: "",
       text: "",
-    }))
+    }))*/
   }
 
 
@@ -207,22 +196,40 @@ const Playlistsubmit = () => {
         <br></br>
       <form ref={form} onSubmit={sendEmail} className="mt courier" style={{ width: "100%", maxWidth: "500px"}} >
         <div className="inputRow">
-          <input {...register("artistName")} placeholder="Artist name" className="input length courier"/>
+          <input {...register("artistName")} 
+          placeholder="Artist name" 
+          className="input length courier" 
+          onChange={artistcheck}
+          />
           <p className="error">{artistNameError}</p>
         </div>
 
         <div className="inputRow">
-          <input {...register("email")} placeholder="Email" className="input length courier"/>
+          <input {...register("email")} 
+          placeholder="Email" 
+          className="input length courier" 
+          onChange={emailcheck}
+          />
           <p className="error">{emailError}</p>
         </div>
 
         <div className="inputCol">
-          <input {...register("track")} placeholder="Paste Spotify link to your demo" className="input"/>
+          <input {...register("track")} 
+          placeholder="Paste Spotify link to your demo" 
+          className="input" 
+          onChange={trackcheck}
+          />
           <p className="error">{trackError}</p>
         </div>        
 
         <div className="inputCol mt">
-          <textarea {...register("text")} placeholder="Do you wanna say something? (max 500 characters)" rows="10" cols="35" className="textarea courier"/>
+          <textarea {...register("text")} 
+          placeholder="Do you wanna say something? (max 500 characters)" 
+          rows="10" 
+          cols="35" 
+          className="textarea courier" 
+          onChange={messagecheck}
+          />
           <p className="error">{messageError}</p>
         </div>
 

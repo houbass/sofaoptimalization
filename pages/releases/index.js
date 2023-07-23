@@ -15,7 +15,7 @@ import { getDocs, collection, addDoc, deleteDoc, updateDoc, doc } from "firebase
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg"
-import backgroundPic4 from "@/components/pic/background5_v2.jpg"
+import backgroundPic4 from "@/components/pic/background5_v3.jpg"
 
 //components
 import Releases from '@/components/Releases';
@@ -76,7 +76,7 @@ const ReleasesPage = ({ filteredData }) => {
             alignItems: "center",
             width: "100%",
             height: "100vh",
-            minHeight: "1750px",
+            minHeight: "1550px",
             //background:"orange"
         }}>
 
@@ -84,7 +84,7 @@ const ReleasesPage = ({ filteredData }) => {
         className='maincardsAnimation4 imgmargin' 
         style={{
           //marginTop: "70px",
-          maxWidth: "800px",  
+          maxWidth: "1000px",  
           width: "100%",
           position: "absolute",
           top: "0",
@@ -94,7 +94,7 @@ const ReleasesPage = ({ filteredData }) => {
           <Image 
           className='submitImg' 
           style={{
-            height: "1750px"
+            height: "1550px"
           }}
         src={backgroundPic4}>
           </Image>
@@ -109,7 +109,7 @@ const ReleasesPage = ({ filteredData }) => {
             alignItems: "center",
             color: "white",
             width: "100%",
-            maxWidth: "800px",
+            maxWidth: "1000px",
             //background: "rgba(20,20, 20, 1)",
             
             border: "solid 20px transparent",
@@ -123,7 +123,8 @@ const ReleasesPage = ({ filteredData }) => {
         
         className={` ${inter.className}`} 
         style={{
-            marginTop: "100px"
+            marginTop: "100px",
+            width: "100%"
         }}
         >
 
@@ -135,6 +136,12 @@ const ReleasesPage = ({ filteredData }) => {
                     duration: 2,
                     ease: "easeInOut",
                 }}
+                style={{
+                    //background: "orange",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                }}
                 >
                     <div 
                     className='brush'
@@ -144,13 +151,16 @@ const ReleasesPage = ({ filteredData }) => {
                         marginTop: "50px",
                         alignItems: "center",
                         //minHeight: "800px",
-                    
+                        //maxWidth: "680px",
+                        //width: "90%",
                         textAlign: "center",
                         background: "orange",
-                        padding: "30px 5px",
+                        padding: "30px 15px",
                         borderRadius: "50px",
                         background: "rgba(20,20,20,0.8)",
                         boxShadow: "0px 5px 40px rgba(0, 0, 0, 0.637)",
+                        margin: "0px 10px"
+                        
 
                     }}>
                         <h1 

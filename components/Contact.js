@@ -3,9 +3,6 @@ import Image from "next/image";
 //library
 import { useForm } from "react-hook-form";
 
-//pic 
-import backgroundPic2 from "@/components/pic/background2.svg";
-
 //import emailJs
 import React, { useRef, useState, useEffect } from 'react';
 import emailjs, { init, send } from '@emailjs/browser';
@@ -49,7 +46,7 @@ const Contact = () => {
 
   //funkce na posíláni na email
   const form = useRef();
-  const sendEmail = async(e) => {
+  async function sendEmail(e) {
     e.preventDefault();
     //setButtonLoading("btnAnimation");
     setBtnClass2("fa fa-spinner fa-spin")
@@ -67,10 +64,13 @@ const Contact = () => {
     });
   };  
 
-  //artist name check
-  const artistNameCheck = watch("artistName").length;
 
-  useEffect(() => {
+
+
+  //artist name check
+  function artistcheck(e) {
+    const artistNameCheck = e.target.value.length;
+
     if(artistNameCheck === 0 ){
       setArtistNameError("*name is mandatory");
     }
@@ -80,43 +80,35 @@ const Contact = () => {
     if(artistNameCheck >= 20){
       setArtistNameError("*max length is 20");
     }
-  }, [artistNameCheck]);
-
-  useEffect(()=>{
     if (artistNameCheck >= 2 && artistNameCheck <= 20) {  
       setArtistNameState(true);
       setArtistNameError("");
     }else{
       setArtistNameState(false);
     }
-  }, [artistNameCheck]);
-  
+  }
 
   //email check
-  const emailCheck = watch("email");
-  const emailSignCheck = emailCheck.includes("@");
+  function emailcheck(e) {
+    const emailCheck = e.target.value;
+    const emailSignCheck = emailCheck.includes("@");
 
-  useEffect(() => {
     if (emailSignCheck === false) {  
       setEmailError("*email is mandatory");
+      setEmailState(false);
     }
-  }, [emailCheck])
-
-  useEffect (() => {
     if(emailSignCheck === true){
       setEmailError("");
       setEmailState(true);
     }else{
       setEmailState(false);
     }
-  }, [emailCheck]);
-
-
+  }
 
   //message check
-  const messageCheck = watch("text").length;
+  function messagecheck(e) {
+    const messageCheck = e.target.value.length;
 
-  useEffect(() => {
     if(messageCheck > 500){
       setMessageError("*it's too long mate");
       setMessageState(false);
@@ -129,9 +121,8 @@ const Contact = () => {
       setMessageError("");
       setMessageState(true);
     }
-  }, [messageCheck]);
+}
 
-  //funkce pro zobrazeni buttonu
   useEffect(() => {
     if(artistNameState === true && emailState === true && messageState === true ){
       setOpacityFun(1);
@@ -173,27 +164,39 @@ const Contact = () => {
     }}>
       
 
-
       <div style={{textAlign: "center"}} className="description mt brush">
         <h2>Wanna ask something? Send us a message.
         </h2>
-        <br></br>
-
+        <br/>
       </div>
-        <br></br>
+
       <form ref={form} onSubmit={sendEmail} className="mt courier" style={{ width: "100%", maxWidth: "500px"}} >
         <div className="inputRow">
-          <input {...register("artistName")} placeholder="Your name" className="input length courier"/>
+          <input {...register("artistName")} 
+          placeholder="Your name" 
+          className="input length courier" 
+          onChange={artistcheck}
+          />
           <p className="error">{artistNameError}</p>
         </div>
 
         <div className="inputRow">
-          <input {...register("email")} placeholder="Email" className="input length courier"/>
+          <input {...register("email")} 
+          placeholder="Email" 
+          className="input length courier" 
+          onChange={emailcheck}
+          />
           <p className="error">{emailError}</p>
         </div>     
 
         <div className="inputCol mt">
-          <textarea {...register("text")} placeholder="Do you wanna say something? (max 500 characters)" rows="10" cols="35" className="textarea courier"/>
+          <textarea {...register("text")} 
+          placeholder="Do you wanna say something? (max 500 characters)" 
+          rows="10" 
+          cols="35" 
+          className="textarea courier" 
+          onChange={messagecheck}
+          />
           <p className="error">{messageError}</p>
         </div>
 
@@ -201,9 +204,7 @@ const Contact = () => {
           <button 
           onClick={() => {
             console.log("PLAYLIST SUBMITED")
-
           }}
-
           style={{opacity: opacityFun, transition: "1s", pointerEvents: pointerEventFun, width: "90px"}} 
           className="nicebutton"
           type="submit">
@@ -212,6 +213,8 @@ const Contact = () => {
           </button>
         </div>
       </form>
+
+
       <Thanksmsg visibility={thanksVisibility} setVisibility={setThanksVisibility} setFormVisibility={setFormVisibility}/>
       
     </div>

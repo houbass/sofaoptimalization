@@ -1,22 +1,17 @@
 //import emailJs
-import React, { useRef, useState, useEffect, useContext } from 'react';
-import emailjs, { init, send } from '@emailjs/browser';
-
-//library
-import { useForm } from "react-hook-form";
-
-//pic 
-import backgroundPic2 from "@/components/pic/background2.svg";
+import React, { useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 
 //components
 import Thanksdemo from './Thanksdemo';
 
 const SubmitDemo = () => {
 
-  //funkce react hook form (kontrola polí a atd)
-  const {register, handleSubmit, watch, reset, formState: { errors }} = useForm({defaultValues: {artistName: "", email: "", text: "", track: ""}});
-
   //states
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [link, setLink] = useState("");
+  const [message, setMessage] = useState("");
   const [artistNameState, setArtistNameState] = useState(false);
   const [emailState, setEmailState] = useState(false);
   const [trackState, setTrackState] = useState(false);
@@ -26,34 +21,37 @@ const SubmitDemo = () => {
   const [pointerEventFun, setPointerEventFun] = useState("none");
   const [formVisibility, setFormVisibility] = useState("visible");
   const [thanksVisibility, setThanksVisibility] = useState("hidden");
-
   const [artistNameError, setArtistNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [trackError, setTrackError] = useState("");
-
   const [btnClass2, setBtnClass2] = useState("");
   const [btnText, setBtnText] = useState("send")
 
+  //thanks message visibility
   function thanksVisibilityFun() {
     setFormVisibility("hidden");
     setThanksVisibility("visible");
   }
 
-    //funkce na posíláni na email
-    const form = useRef();
+    //form data
+    const formdata = {
+      artistName: name,
+      email: email,
+      track: link,
+      text: message
+    }
 
-    const sendEmail = async(e) => {
+    //send form by email.js
+    async function sendEmail(e) {
       e.preventDefault();
       //setButtonLoading("btnAnimation");
       setBtnClass2("fa fa-spinner fa-spin")
       setBtnText("");
-      await emailjs.sendForm("service_za1xlkr", "template_mdryrxo", form.current, "BpUJsAuZF7Y43-jj1")
+      await emailjs.send("service_za1xlkr", "template_mdryrxo", formdata, "BpUJsAuZF7Y43-jj1")
       .then((result) => {
           //console.log(result.text);
-          formResetFun();
           goTop();
           thanksVisibilityFun();
-          //setButtonLoading("");
           setBtnClass2("")
           setBtnText("send");
       }, (error) => {
@@ -63,9 +61,10 @@ const SubmitDemo = () => {
     };
 
   //artist name check
-  const artistNameCheck = watch("artistName").length;
+  function artistcheck(e) {
+    const artistNameCheck = e.target.value.length;
+    setName(e.target.value);
 
-  useEffect(() => {
     if(artistNameCheck === 0 ){
       setArtistNameError("*artist name is mandatory");
     }
@@ -75,65 +74,61 @@ const SubmitDemo = () => {
     if(artistNameCheck > 20){
       setArtistNameError("*max length is 20");
     }
-
-  }, [artistNameCheck]);
-
-  useEffect(()=>{
     if (artistNameCheck >= 2 && artistNameCheck <= 20) {  
       setArtistNameState(true);
       setArtistNameError("");
     }else{
       setArtistNameState(false);
     }
-  }, [artistNameCheck]);
-  
+  }
 
   //email check
-  const emailCheck = watch("email");
-  const emailSignCheck = emailCheck.includes("@");
+  function emailcheck(e) {
+    const emailCheck = e.target.value;
+    const emailSignCheck = emailCheck.includes("@");
+    setEmail(emailCheck);
 
-  useEffect(() => {
-  if (emailSignCheck === false) {  
-    setEmailError("*email is mandatory");
-  }
-  }, [emailCheck])
-
-  useEffect (() => {
+    if (emailSignCheck === false) {  
+      setEmailError("*email is mandatory");
+      setEmailState(false);
+    }
     if(emailSignCheck === true){
       setEmailError("");
       setEmailState(true);
     }else{
       setEmailState(false);
     }
-  }, [emailCheck]);
-
+  }
+  
   //track check
-  const trackCheck = watch("track");
-  const trackCheckLength = trackCheck.length;
-  const trackSignCheck = trackCheck.includes("soundcloud.com");
+  function trackcheck(e) {
+    const trackCheck = e.target.value;
+    const trackCheckLength = trackCheck.length;
+    const trackSignCheck = trackCheck.includes("soundcloud.com");
+    setLink(trackCheck)
 
-  useEffect(() => {
     if(trackCheckLength === 0){
       setTrackError("*soundcloud link is mandatory");
+      setTrackState(false);
     }
     if(trackCheckLength > 0 && trackSignCheck === false){
       setTrackError("*this doesn't look like Soundcloud link mate");
+      setTrackState(false);
     }
-  }, [trackCheck]);
 
-  useEffect(() => {
     if(trackSignCheck === true){
       setTrackError("");
       setTrackState(true);
     }else{
       setTrackState(false);
     }
-  }, [trackCheck]);
+  }
 
   //message check
-  const messageCheck = watch("text").length;
+  function messagecheck(e) {
+    const messageCheck = e.target.value.length
+    setMessage(e.target.value)
 
-  useEffect(() => {
     if(messageCheck >= 500){
       setMessageError("*it's too long mate");
       setMessageState(false);
@@ -141,7 +136,7 @@ const SubmitDemo = () => {
       setMessageError("");
       setMessageState(true);
     }
-  }, [messageCheck])
+  }
 
   //funkce pro zobrazeni buttonu
   useEffect(() => {
@@ -154,14 +149,6 @@ const SubmitDemo = () => {
     }
   }, [artistNameState, emailState, messageState, trackState]);
 
-  //form reset function
-  const formResetFun = () => {
-    reset(formValues => ({
-      ...formValues,
-      track: "",
-      text: "",
-    }))
-  }
 
   function goTop() {
     window.scrollTo({top: 0});
@@ -206,24 +193,42 @@ const SubmitDemo = () => {
         <p>Once you submit your track, we will listen as soon as possible and reply back within a one week (after the date you submitted it).</p>
       </div>
         <br></br>
-      <form ref={form} onSubmit={sendEmail} className="mt" style={{ width: "100%", maxWidth: "500px"}} >
+      <form onSubmit={sendEmail} className="mt" style={{ width: "100%", maxWidth: "500px"}} >
         <div className="inputRow courier">
-          <input {...register("artistName")} placeholder="Artist name" className="input length courier" a/>
+          <input 
+          placeholder="Artist name" 
+          className="input length courier" 
+          onChange={artistcheck}
+          />
           <p className="error">{artistNameError}</p>
         </div>
 
         <div className="inputRow courier">
-          <input {...register("email")} placeholder="Email" className="input length courier"/>
+          <input 
+          placeholder="Email" 
+          className="input length courier" 
+          onChange={emailcheck}
+          />
           <p className="error">{emailError}</p>
         </div>
 
         <div className="inputCol courier">
-          <input {...register("track")} placeholder="Paste Soundcloud link to your demo" className="input courier" />
+          <input
+          placeholder="Paste Soundcloud link to your demo" 
+          className="input courier" 
+          onChange={trackcheck} 
+          />
           <p className="error">{trackError}</p>
         </div>        
 
         <div className="inputCol mt courier">
-          <textarea {...register("text")} placeholder="Do you wanna say something? (max 500 characters)" rows="10" cols="35" className="textarea courier"/>
+          <textarea
+          placeholder="Do you wanna say something? (max 500 characters)" 
+          rows="10" 
+          cols="35" 
+          className="textarea courier"
+          onChange={messagecheck}
+          />
           <p className="error">{messageError}</p>
         </div>
 

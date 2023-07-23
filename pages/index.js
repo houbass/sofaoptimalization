@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg"
-import backgroundPic3 from "@/components/pic/background3_v2.jpg"
+import backgroundPic3 from "@/components/pic/background3_v3.jpg"
 
 //mainpage components
 import Topic1 from '@/components/mainpage/Topic1'
@@ -19,7 +19,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
 
   //SETTINGS
-  const maxWidth = 800;
+  const maxWidth = 1000;
 
   //last v. 23/07/23 22:38
 
@@ -39,8 +39,7 @@ export default function Home() {
         />
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-
+        
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />        
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
@@ -63,10 +62,9 @@ export default function Home() {
       className={`${inter.className} `}>
 
         <div 
-        className='maincardsAnimation2 imgmargin' 
+        className='maincardsAnimation2 imgmargin2' 
         style={{
-          //marginTop: "70px",
-          maxWidth: "800px",  
+          maxWidth: `${maxWidth}px`,  
           width: "100%",
           position: "fixed",
           zIndex: "0",
@@ -79,7 +77,7 @@ export default function Home() {
           </Image>
           <div 
           style={{
-            background: "linear-gradient(to bottom, rgba(63,83,83,1), rgba(63,83,83,0))",
+            background: "linear-gradient(to bottom, rgba(20,23,39,1), rgba(20,23,39,0))",
             width: "100%",
             height: "500px",
           }}>
@@ -115,7 +113,13 @@ export default function Home() {
         }}> 
 
 
-        <div className='welcometext'>
+        <div 
+        className='welcometext' 
+        style={{
+          maxWidth: `${maxWidth}px`,
+          width: "100%"
+        }}
+        >
           <svg 
           className='welcomesvg'
           xmlns="http://www.w3.org/2000/svg" 

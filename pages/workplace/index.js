@@ -58,7 +58,7 @@ const Workplace = () => {
         className='maincardsAnimation4 imgmargin' 
         style={{
           //marginTop: "70px",
-          maxWidth: "800px",  
+          maxWidth: "1000px",  
           width: "100%",
           position: "absolute",
           zIndex: "0",
@@ -82,7 +82,7 @@ const Workplace = () => {
             alignItems: "center",
             color: "white",
             width: "100%",
-            maxWidth: "800px",            
+            maxWidth: "1000px",            
             border: "solid 20px transparent",
             borderImage: `url(${backgroundPic2.src}) 20 round`,
             borderBottomStyle: "none",

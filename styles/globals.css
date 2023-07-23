@@ -117,7 +117,7 @@ button {
   align-items: center;
   border-radius: 0 0 30px 30px;
   width: fit-content;
-  margin: 15px;
+
 }
 
 .frame2 {
@@ -567,6 +567,7 @@ label {
 .releasesFlex {
   display: flex;
   flex-direction: row;
+  gap: 15px;
 }
 @media screen and (max-width: 925px) {
   .releasesFlex {
@@ -980,8 +981,7 @@ mark {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  max-width: 800px;
-  width: 100%;
+
 
 }
 
@@ -1023,7 +1023,13 @@ mark {
   top: 0px;
   display: flex;
   flex-direction: column;
+}
 
+.imgmargin2 {
+  top: 0px;
+  display: flex;
+  flex-direction: column;
+  margin-top: -70px;
 }
 
 
@@ -1133,6 +1139,10 @@ animation-delay: 2s;
   .footerLogo{
     height: 100px;
     width: 100px;
+  }
+
+  .imgmargin2{
+    margin-top: 0px;
   }
 }
 

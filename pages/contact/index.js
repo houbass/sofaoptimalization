@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
-import backgroundPic7 from "@/components/pic/background7_v2.jpg"
+import backgroundPic7 from "@/components/pic/background7_v3.jpg"
 
 //components
 import Contact from '@/components/Contact';
@@ -60,8 +60,8 @@ const ContactPage = () => {
         <div 
         className='maincardsAnimation4 imgmargin' 
         style={{
-          //marginTop: "70px",
-          maxWidth: "800px",  
+          marginTop: "70px",
+          maxWidth: "1000px",  
           width: "100%",
           position: "absolute",
           zIndex: "0",
@@ -80,14 +80,14 @@ const ContactPage = () => {
 
         <div 
         style={{
-            minHeight: "1400px",
+            minHeight: "1470px",
             height: "100vh",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             color: "white",
             width: "100%",
-            maxWidth: "800px",
+            maxWidth: "1000px",
             //background: "rgba(20,20, 20, 1)",
             //backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
             border: "solid 20px transparent",
