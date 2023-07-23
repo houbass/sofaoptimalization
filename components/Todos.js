@@ -141,8 +141,8 @@ const Todos = () => {
 
             }}>
                 
-                <div className="congratsText">
-                <h3>{congratsText}</h3>
+                <div className="congratsText brush">
+                <h2>{congratsText}</h2>
                 </div>
             <div 
             style={{
@@ -182,13 +182,14 @@ const Todos = () => {
                     
                     return(
                         <div key={note.text} className="todo">
-                        <button id="todobtn" className="material-symbols-outlined" onClick={mapCheckDone} title="completed" >check</button>
+                        <button style={{ fontVariationSettings: "'wght' 1200", fontSize: "30px"}} id="todobtn" className="material-symbols-outlined" onClick={mapCheckDone} title="completed" >check</button>
                         <div 
-                        id="todotextbox"
+                        id="todotextbox" 
+                        
                         //className="todotextbox"
                         key={note.text}
                         >
-                            <p >{note.text}</p>
+                            <mark>{note.text}</mark>
 
                         </div>
   
@@ -222,7 +223,10 @@ const Todos = () => {
 
                         {completedTodo.map((item) => (
                             <div key={item.text}>
-                                <p style={{color: "#04AA6D", fontWeight: "bold"}}>{item}</p>
+                                <p 
+                                className="brush"
+                                style={{color: "#04AA6D", fontWeight: "bold", textDecoration: "line-through", textDecorationColor: "rgba(255,255,255,0.7)"
+}}>{item}</p>
                             </div>
                         ))}
                         

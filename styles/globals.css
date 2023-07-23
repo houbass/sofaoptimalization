@@ -812,14 +812,19 @@ label {
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-left: 10px;
-  background: linear-gradient(to right, rgba(255, 255, 255, 1) , rgb(40, 40, 40, 0.7));
-  border-radius: 15px;
   color: black;
   transition: 2s;
-  
 
+}
 
+mark {
+  padding: 0.03em 0.2em;
+  border-radius: 0.8em 0.3em;
+  background: transparent;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.9) , rgb(255, 255, 255, 0.5));
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  width: 100%;
 }
 
 
@@ -828,17 +833,16 @@ label {
   padding: 10px; 
   border-radius: 50%;
   transition: 0.2s;
-  background-color: white;
+  background-color: transparent;
+  color: #04AA6D;
+  font-weight: bold;
 }
 
 /* one hoover affect another element */
-#todobtn:hover + #todotextbox{
 
-
-  background: linear-gradient(to right,  rgba(4, 170, 109, 1), rgba(255, 255, 255, 1) );
-}
 #todobtn:hover{
-  background-color:#04AA6D;
+  color: white;
+  background: #04aa6d7b;
 }
 
 .completedTodos {
