@@ -172,7 +172,7 @@ const Playlistsubmit = () => {
         <h1>Submit your track to our Spotify playlist</h1>
       </div>
 
-      <div className="description mt courier">
+      <div className="mainpageP mt">
         <p>This form is used to submit music to our Spotify playlist. 
           Please make sure that you respect the conditions listed below before submitting otherwise it will be automatically declined.
         </p>

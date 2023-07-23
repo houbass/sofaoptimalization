@@ -56,7 +56,7 @@ export default function Home() {
         alignItems: "center",
         zIndex: "-5",
         //backgroundImage: `url(${backgroundPic2.src})`
-        backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
+        //backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
         
       }} 
       className={`${inter.className} `}>

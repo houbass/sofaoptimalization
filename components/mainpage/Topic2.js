@@ -50,7 +50,7 @@ const Topic2 = () => {
             <div>
               <div className='mainpageCards-reverse'>
                 <div>
-                  <h1 className='mainpageTitles'>Listen to our latest releases</h1>
+                  <h1 className='mainpageTitles'>Check out latest Sofa Lofi music</h1>
                   <div style={{maxWidth: "600px"}}>     
                     <p className="mainpageP">
                       Lets check our regular monday releases from the finests lofi producers.

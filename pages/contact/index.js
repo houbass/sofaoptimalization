@@ -18,7 +18,6 @@ const inter = Inter({ subsets: ['latin'] })
 
 const ContactPage = () => {
 
-
     return(
       <>
         <Head>

@@ -9,6 +9,9 @@ import Lottie from "lottie-react";
 //LOTTIE DATA
 import congratsAnimation from "@/components/lottieanimations/congrats.json";
 
+//components
+import Checkmark from "./Checkmark";
+
 const Todos = () => {
     
     //TODO
@@ -180,6 +183,7 @@ const Todos = () => {
                     return(
                         <div key={note.text} className="todo">
                         <button style={{ fontVariationSettings: "'wght' 1200", fontSize: "30px"}} id="todobtn" className="material-symbols-outlined" onClick={mapCheckDone} title="completed" >check</button>
+                        
                         <div 
                         id="todotextbox" 
                         

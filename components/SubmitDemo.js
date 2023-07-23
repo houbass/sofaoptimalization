@@ -169,7 +169,7 @@ const SubmitDemo = () => {
         <h1>Submit your demo</h1>
       </div>
 
-      <div className="description mt courier">
+      <div className="mainpageP mt">
         <p>This form is used to submit your demo to label consideration. 
             Please make sure that you respect the conditions listed below before submitting otherwise it will be automatically declined.
         </p>
