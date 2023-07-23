@@ -25,13 +25,7 @@ const SubmitDemo = () => {
   const [emailError, setEmailError] = useState("");
   const [trackError, setTrackError] = useState("");
   const [btnClass2, setBtnClass2] = useState("");
-  const [btnText, setBtnText] = useState("send")
-
-  //thanks message visibility
-  function thanksVisibilityFun() {
-    setFormVisibility("hidden");
-    setThanksVisibility("visible");
-  }
+  const [btnText, setBtnText] = useState("send");
 
     //form data
     const formdata = {
@@ -51,7 +45,8 @@ const SubmitDemo = () => {
       .then((result) => {
           //console.log(result.text);
           goTop();
-          thanksVisibilityFun();
+          setFormVisibility("hidden");
+          setThanksVisibility("visible");
           setBtnClass2("")
           setBtnText("send");
       }, (error) => {
@@ -234,11 +229,7 @@ const SubmitDemo = () => {
 
         <div className="inputRow mb mt">
           <button 
-          onClick={() => {
-            console.log("SHOW THANKS")
-
-          }}
-          style={{opacity: opacityFun, transition: "1s", pointerEvents: pointerEventFun, width: "90px"}} 
+          style={{opacity: opacityFun, pointerEvents: pointerEventFun, width: "90px"}} 
           className="nicebutton"
           type="submit">
             <i class={btnClass2}></i>

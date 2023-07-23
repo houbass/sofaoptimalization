@@ -35,11 +35,6 @@ const Contact = () => {
   const [btnClass2, setBtnClass2] = useState("");
   const [btnText, setBtnText] = useState("send")
 
-  function thanksVisibilityFun() {
-    setFormVisibility("hidden");
-    setThanksVisibility("visible");
-  }
-
   function goTop() {
     window.scrollTo({top: 0});
   }
@@ -54,9 +49,9 @@ const Contact = () => {
     await emailjs.sendForm("service_sw0l5ng", "template_myc9xzg", form.current, "B79QzheXw7xK4gIqG")
     .then((result) => {
         formResetFun();
-        thanksVisibilityFun();
+        setFormVisibility("hidden");
+        setThanksVisibility("visible");
         goTop();
-        //setButtonLoading("");
         setBtnClass2("")
         setBtnText("send");
     }, (error) => {
@@ -205,7 +200,7 @@ const Contact = () => {
           onClick={() => {
             console.log("PLAYLIST SUBMITED")
           }}
-          style={{opacity: opacityFun, transition: "1s", pointerEvents: pointerEventFun, width: "90px"}} 
+          style={{opacity: opacityFun, pointerEvents: pointerEventFun, width: "90px"}} 
           className="nicebutton"
           type="submit">
             <i class={btnClass2}></i>
