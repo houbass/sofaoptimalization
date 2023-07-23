@@ -106,7 +106,6 @@ export default function MasteringContract({ name, artist, dashgoEmail, track, sh
                 position: showPosition,
                 //top: "50px",
                 opacity: showOpacity,
-                //left: "0"
                 zIndex: "-1",
 
             }}>
