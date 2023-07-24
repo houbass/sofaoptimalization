@@ -67,7 +67,7 @@ const Demo = () => {
           width: "100%",
           position: "absolute",
           zIndex: "0",
-          filter: "blur(5px)"
+          //filter: "blur(5px)"
         }}>
           <Image 
           className='submitImg'
