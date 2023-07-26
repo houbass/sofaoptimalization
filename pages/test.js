@@ -60,14 +60,26 @@ const Demo = () => {
             //backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
         }}>
 
-        <Image 
-          className='submitImg'
+<div 
+        className='maincardsAnimation4 imgmargin' 
+        style={{
+          //marginTop: "70px",
+          maxWidth: "1000px",  
+          width: "100%",
+          position: "absolute",
+          top: "0",
+          zIndex: "0",
+          
+        }}>
+          <Image 
+          className='submitImg' 
           style={{
             //width: "1000px",
             height: "1153px"
           }}
         src={backgroundPic4}>
           </Image>
+          </div>
 
 
         <div 
