@@ -13,7 +13,8 @@ import backgroundPic2 from "@/components/pic/background2.svg";
 import backgroundPic4 from "@/components/pic/background4_v3.jpg"
 
 //COMPONENTS
-import SubmitDemo from '@/components/SubmitDemo'
+//import SubmitDemo from '@/components/SubmitDemo'
+import SubmitdemoV2 from '@/components/SubmitdemoV2'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -122,7 +123,7 @@ const Demo = () => {
                     alignItems: "center",
                 }}
                 >
-            <SubmitDemo />
+            <SubmitdemoV2 />
             </motion.div>
             </main>
         </div>

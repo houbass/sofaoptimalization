@@ -118,11 +118,17 @@ const Todos = () => {
             boxShadow: "0px 5px 40px rgba(0, 0, 0, 0.637)",
         }}>
 
-            <div style={{display: "flex", gap:"10px"}}>
-                <input className="courier" style={{maxWidth: "300px"}} onChange={todoInput} value={todo} placeholder="add to do"></input>
-                <button style={{width: "30px", height: "30px", borderRadius: "20%", fontSize: "16px"}} className='material-symbols-outlined' onClick={todoAdd}>add</button>
+            <div>
+            <div className="addbox">
+                <input className="courier" style={{height: "30px", maxWidth: "300px", background: "rgba(255,255,255,0.9)"}} onChange={todoInput} value={todo} placeholder="add to do"></input>
+                <button 
+                    className='material-symbols-outlined addbtn' 
+                    onClick={todoAdd}
+                >add
+                </button>
             </div>
             <p style={{color: "red", fontWeight: "bold", fontSize: "12px"}}>{infoText} </p>
+            </div>
 
             <br/>
             <div 
@@ -232,16 +238,10 @@ const Todos = () => {
                         ))}
                         
                         <button 
-                        className='material-symbols-outlined' 
-                        style={{
-                            marginTop: "15px",
-                            borderRadius: "50%",
-                            fontSize: "14px",
-                            width: "27px",
-                            height: "27px"
-                        }}
-                        onClick={deleteCompleted}
-                        >delete</button>
+                        className='material-symbols-outlined todoclose' 
+                        onClick={deleteCompleted} 
+                        //id="tododelete"
+                        >close</button>
                     </div>
                 
                 </div>

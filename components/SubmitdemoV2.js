@@ -5,12 +5,18 @@ import emailjs from '@emailjs/browser';
 //components
 import Thanksdemo from './Thanksdemo';
 
-const Submittest = () => {
+const SubmitdemoV2 = () => {
 
   const [errText, setErrText] = useState("");
   const [errArtist, setErrArtist] = useState("");
   const [errEmail, setErrEmail] = useState("");
   const [errLink, setErrLink] = useState("");
+
+  const [btnClass2, setBtnClass2] = useState("");
+  const [btnText, setBtnText] = useState("submit");
+
+  const [formVisibility, setFormVisibility] = useState("visible");
+  const [thanksVisibility, setThanksVisibility] = useState("hidden");
 
   const name = useRef();
   const mail = useRef();
@@ -18,7 +24,9 @@ const Submittest = () => {
   const message = useRef();
 
   //submit function
-  async function submit() {
+  async function submit(e) {
+    e.preventDefault()
+
     const emailcheck = mail.current.value.includes("@");
     const soundcloud = link.current.value.includes("soundcloud.com");
 
@@ -34,6 +42,11 @@ const Submittest = () => {
       email: mail.current.value,
       track: link.current.value,
       text: message.current.value
+    }
+
+    //go top fun
+    function goTop() {
+      window.scrollTo({top: 0});
     }
   
     //validattion
@@ -69,6 +82,8 @@ const Submittest = () => {
     }
     else{
       setErrText("")
+      setBtnClass2("fa fa-spinner fa-spin");
+      setBtnText("");
 
       await emailjs.send("service_za1xlkr", "template_mdryrxo", formdata, "BpUJsAuZF7Y43-jj1")
       .then((result) => {
@@ -81,7 +96,14 @@ const Submittest = () => {
         setErrEmail("");
         setErrLink("");
 
-        setErrText("THANK YOU FOR YOUR SUBMISSION")
+        setBtnClass2("");
+        setBtnText("submit");
+
+        setErrText("THANK YOU FOR YOUR SUBMISSION");
+
+        goTop();
+        setFormVisibility("hidden");
+        setThanksVisibility("visible");
 
           //console.log(result.text);
       }, (error) => {
@@ -89,6 +111,8 @@ const Submittest = () => {
           setErrArtist("");
           setErrEmail("");
           setErrLink("");
+          setBtnClass2("")
+          setBtnText("submit");
 
           setErrText("PLEASE CHECK YOUR INTERNET CONNECTION AND TRY IT AGAIN")
       });
@@ -112,7 +136,7 @@ const Submittest = () => {
         width: "90%",
         padding: "30px 30px",
         borderRadius: "30px",
-        visibility: "visible",
+        visibility: formVisibility,
     }}>
       
       <div className="title brush" >
@@ -160,7 +184,7 @@ const Submittest = () => {
 
         <div className="inputCol courier">
           <input
-          placeholder="Paste Soundcloud link to your demo" 
+          placeholder="Soundcloud link" 
           className="input courier" 
           ref={link}
           />
@@ -178,21 +202,25 @@ const Submittest = () => {
         </div>
 
         <div className="inputRow mb mt">
-
-        </div>
-      </form>
-      <button 
-          style={{opacity: "visible", width: "90px"}} 
+        <button 
+          style={{opacity: "visible", width: "100px"}} 
           className="nicebutton" 
           onClick={submit} 
-          >
-          submit
-          </button>
-          <br/>
-          <p className='error'>{errText}</p>
+      >
+        <i class={btnClass2}></i>
+        {btnText}
+      </button>
+      <br/>
+      
+
+        </div>
+        <br/>
+        <p className='error'>{errText}</p>
+      </form>
+      <Thanksdemo visibility={thanksVisibility} setVisibility={setThanksVisibility} setFormVisibility={setFormVisibility}/>
     </div>
   );
 }
 
-export default Submittest;
+export default SubmitdemoV2;
 

@@ -837,7 +837,7 @@ mark {
 
 #todobtn {
   font-size: 15px; 
-  padding: 10px; 
+  padding: 5px;
   border-radius: 50%;
   transition: 0.2s;
   background-color: transparent;
@@ -845,12 +845,65 @@ mark {
   font-weight: bold;
 }
 
+.todoclose {
+  margin-top: 15px;
+  border-radius: 50%;
+  font-size: 14px;
+  width: 30px;
+  height: 30px;
+  color: red;
+  font-variation-settings: 'wght' 1200; 
+  font-size: 22px;
+  background: none;
+}
+.todoclose:hover {
+  scale: 1.1;
+  color: red;
+}
+
+#tododelete {
+  font-size: 15px; 
+  padding: 10px; 
+  border-radius: 50%;
+  transition: 0.2s;
+  background-color: transparent;
+  color: #f12a2a;
+  font-weight: bold;
+}
+
+
 /* one hoover affect another element */
+.addbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+
+  gap: 15px;
+}
 
 #todobtn:hover{
   color: white;
   background: #04aa6d7b;
 }
+
+.addbtn {
+  width: 35px;
+  height: 30px;
+  border-radius: 50%; 
+  font-size: 20px;
+  font-variation-settings: 'wght' 1500;
+  background: none;
+  color: white;
+  margin-top: -5px;
+}
+
+.addbtn:hover {
+  color: black;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+
 
 .completedTodos {
   position: absolute;
