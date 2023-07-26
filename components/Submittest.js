@@ -1,5 +1,6 @@
 //import emailJs
 import React, { useState, useEffect, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 //components
 import Thanksdemo from './Thanksdemo';
@@ -11,17 +12,25 @@ const Submittest = () => {
   const link = useRef();
   const message = useRef();
 
-  function submit() {
-    const artist = name.current.value;
-    const email = mail.current.value;
-
-    console.log("NAME: " + artist);
+  async function submit() {
+    console.log("NAME: " + name.current.value);
     console.log("EMAIL: " + mail.current.value);
     console.log("LINK: " + link.current.value);
     console.log("MESSAGE: " + message.current.value);
-    
-    
 
+    const formdata = {
+      artistName: name.current.value,
+      email: mail.current.value,
+      track: link.current.value,
+      text: message.current.value
+    }
+    
+    await emailjs.send("service_za1xlkr", "template_mdryrxo", formdata, "BpUJsAuZF7Y43-jj1")
+    .then((result) => {
+        //console.log(result.text);
+    }, (error) => {
+        console.log(error.text);
+    });
 
   }
   
