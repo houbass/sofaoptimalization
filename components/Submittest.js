@@ -7,33 +7,87 @@ import Thanksdemo from './Thanksdemo';
 
 const Submittest = () => {
 
+  const [errText, setErrText] = useState("");
+  const [errArtist, setErrArtist] = useState("");
+  const [errEmail, setErrEmail] = useState("");
+  const [errLink, setErrLink] = useState("");
+
   const name = useRef();
   const mail = useRef();
   const link = useRef();
   const message = useRef();
 
+  //submit function
   async function submit() {
+    const emailcheck = mail.current.value.includes("@");
+    const soundcloud = link.current.value.includes("soundcloud.com");
+
+    /*
     console.log("NAME: " + name.current.value);
     console.log("EMAIL: " + mail.current.value);
     console.log("LINK: " + link.current.value);
     console.log("MESSAGE: " + message.current.value);
-
+    */
+    console.log(emailcheck);
     const formdata = {
       artistName: name.current.value,
       email: mail.current.value,
       track: link.current.value,
       text: message.current.value
     }
-    
-    await emailjs.send("service_za1xlkr", "template_mdryrxo", formdata, "BpUJsAuZF7Y43-jj1")
-    .then((result) => {
-        //console.log(result.text);
-    }, (error) => {
-        console.log(error.text);
-    });
+  
+    //validattion
+    if(
+      name.current.value.length === 0 || 
+      emailcheck === false ||
+      soundcloud === false
+      ) {
+        //artist
+        if(name.current.value.length === 0){
+          setErrArtist("NAME IS MANDATORY");
+        }
+        if(name.current.value.length > 0){
+          setErrArtist("");
+        }
+        //email
+        if(emailcheck === false){
+          setErrEmail("EMAIL IS MANDATORY");
+        }
+        if(emailcheck === true){
+          setErrEmail("");
+        }
+        //link
+        if(soundcloud === false){
+          setErrLink("SOUNDCLOUD LINK IS MANDATORY");
+        }
+        if(soundcloud === true){
+          setErrLink("");
+        }
+
+        console.log("ERR")
+        setErrText("REVIEW YOUR SUBMISSION AND TRY IT AGAIN")
+    }
+    else{
+      setErrText("")
+
+      await emailjs.send("service_za1xlkr", "template_mdryrxo", formdata, "BpUJsAuZF7Y43-jj1")
+      .then((result) => {
+        name.current.value = "";
+        mail.current.value = "";
+        link.current.value = "";
+        message.current.value = "";
+        setErrText("THANK YOU FOR YOUR SUBMISSION")
+
+          //console.log(result.text);
+      }, (error) => {
+          console.log(error);
+          setErrText("ERROR")
+      });
+  }
+
 
   }
-  
+
 
 
   return (
@@ -82,14 +136,17 @@ const Submittest = () => {
           placeholder="Artist name" 
           className="input length courier" 
           />
+          <p className='error'>{errArtist}</p>
         </div>
 
         <div className="inputRow courier">
           <input 
           placeholder="Email" 
           className="input length courier" 
-          ref={mail}
+          ref={mail} 
+          type='email' 
           />
+          <p className='error'>{errEmail}</p>
         </div>
 
         <div className="inputCol courier">
@@ -98,7 +155,7 @@ const Submittest = () => {
           className="input courier" 
           ref={link}
           />
-
+          <p className='error'>{errLink}</p>
         </div>        
 
         <div className="inputCol mt courier">
@@ -118,10 +175,12 @@ const Submittest = () => {
       <button 
           style={{opacity: "visible", width: "90px"}} 
           className="nicebutton" 
-          onClick={submit}
+          onClick={submit} 
           >
-            submit
+          submit
           </button>
+          <br/>
+          <p className='error'>{errText}</p>
     </div>
   );
 }
