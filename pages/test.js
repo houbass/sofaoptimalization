@@ -10,6 +10,7 @@ import { motion } from 'framer-motion'
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
+import backgroundPic4 from "@/components/pic/background4_v3.jpg";
 
 //COMPONENTS
 //import SubmitDemo from '@/components/SubmitDemo'
@@ -59,7 +60,14 @@ const Demo = () => {
             //backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
         }}>
 
-
+        <Image 
+          className='submitImg'
+          style={{
+            //width: "1000px",
+            height: "1153px"
+          }}
+        src={backgroundPic4}>
+          </Image>
 
 
         <div 
