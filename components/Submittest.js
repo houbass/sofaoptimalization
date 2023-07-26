@@ -44,28 +44,28 @@ const Submittest = () => {
       ) {
         //artist
         if(name.current.value.length === 0){
-          setErrArtist("NAME IS MANDATORY");
+          setErrArtist("*NAME IS MANDATORY");
         }
         if(name.current.value.length > 0){
           setErrArtist("");
         }
         //email
         if(emailcheck === false){
-          setErrEmail("EMAIL IS MANDATORY");
+          setErrEmail("*EMAIL IS MANDATORY");
         }
         if(emailcheck === true){
           setErrEmail("");
         }
         //link
         if(soundcloud === false){
-          setErrLink("SOUNDCLOUD LINK IS MANDATORY");
+          setErrLink("*SOUNDCLOUD LINK IS MANDATORY");
         }
         if(soundcloud === true){
           setErrLink("");
         }
 
         console.log("ERR")
-        setErrText("REVIEW YOUR SUBMISSION AND TRY IT AGAIN")
+        setErrText("PLEASE REVIEW YOUR SUBMISSION AND TRY IT AGAIN")
     }
     else{
       setErrText("")
@@ -76,12 +76,21 @@ const Submittest = () => {
         mail.current.value = "";
         link.current.value = "";
         message.current.value = "";
+
+        setErrArtist("");
+        setErrEmail("");
+        setErrLink("");
+
         setErrText("THANK YOU FOR YOUR SUBMISSION")
 
           //console.log(result.text);
       }, (error) => {
           console.log(error);
-          setErrText("ERROR")
+          setErrArtist("");
+          setErrEmail("");
+          setErrLink("");
+
+          setErrText("PLEASE CHECK YOUR INTERNET CONNECTION AND TRY IT AGAIN")
       });
   }
 
