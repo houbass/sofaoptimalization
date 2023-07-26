@@ -1,10 +1,30 @@
 //import emailJs
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 //components
 import Thanksdemo from './Thanksdemo';
 
 const Submittest = () => {
+
+  const name = useRef();
+  const mail = useRef();
+  const link = useRef();
+  const message = useRef();
+
+  function submit() {
+    const artist = name.current.value;
+    const email = mail.current.value;
+
+    console.log("NAME: " + artist);
+    console.log("EMAIL: " + mail.current.value);
+    console.log("LINK: " + link.current.value);
+    console.log("MESSAGE: " + message.current.value);
+    
+    
+
+
+  }
+  
 
 
   return (
@@ -49,6 +69,7 @@ const Submittest = () => {
       <form className="mt" style={{ width: "100%", maxWidth: "500px"}} >
         <div className="inputRow courier">
           <input 
+          ref={name}
           placeholder="Artist name" 
           className="input length courier" 
           />
@@ -58,14 +79,15 @@ const Submittest = () => {
           <input 
           placeholder="Email" 
           className="input length courier" 
+          ref={mail}
           />
-
         </div>
 
         <div className="inputCol courier">
           <input
           placeholder="Paste Soundcloud link to your demo" 
           className="input courier" 
+          ref={link}
           />
 
         </div>        
@@ -75,10 +97,9 @@ const Submittest = () => {
           placeholder="Do you wanna say something? (max 500 characters)" 
           rows="10" 
           cols="35" 
-          className="textarea courier"
-
+          className="textarea courier" 
+          ref={message}
           />
-
         </div>
 
         <div className="inputRow mb mt">
@@ -87,7 +108,8 @@ const Submittest = () => {
       </form>
       <button 
           style={{opacity: "visible", width: "90px"}} 
-          className="nicebutton"
+          className="nicebutton" 
+          onClick={submit}
           >
             submit
           </button>
