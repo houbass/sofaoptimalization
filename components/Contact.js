@@ -1,7 +1,5 @@
 import Image from "next/image";
 
-//library
-import { useForm } from "react-hook-form";
 
 //import emailJs
 import React, { useRef, useState, useEffect } from 'react';
@@ -17,126 +15,114 @@ import Thanksmsg from "./Thanksmsg";
 
 const Contact = () => {
 
-  //funkce react hook form (kontrola polí a atd)
-  const {register, handleSubmit, watch, reset, formState: { errors }} = useForm({defaultValues: {artistName: "", email: "", text: "", track: ""}});
-
   //states
-  const [artistNameState, setArtistNameState] = useState(false);
-  const [emailState, setEmailState] = useState(false);
-  const [messageState, setMessageState] = useState(true);
-  const [messageError, setMessageError] = useState("");
-  const [opacityFun, setOpacityFun] = useState(0);
-  const [pointerEventFun, setPointerEventFun] = useState("none");
-  const [formVisibility, setFormVisibility] = useState("visible");
-  const [thanksVisibility, setThanksVisibility] = useState("hidden");
-  const [artistNameError, setArtistNameError] = useState("");
-  const [emailError, setEmailError] = useState("");
+  const [errText, setErrText] = useState("");
+  const [errArtist, setErrArtist] = useState("");
+  const [errEmail, setErrEmail] = useState("");
+  const [errMessage, setErrMessage] = useState("");
 
   const [btnClass2, setBtnClass2] = useState("");
-  const [btnText, setBtnText] = useState("send")
+  const [btnText, setBtnText] = useState("submit");
 
-  function goTop() {
-    window.scrollTo({top: 0});
-  }
+  const [formVisibility, setFormVisibility] = useState("visible");
+  const [thanksVisibility, setThanksVisibility] = useState("hidden");
 
-  //funkce na posíláni na email
-  const form = useRef();
-  async function sendEmail(e) {
-    e.preventDefault();
-    //setButtonLoading("btnAnimation");
-    setBtnClass2("fa fa-spinner fa-spin")
-    setBtnText("");
-    await emailjs.sendForm("service_sw0l5ng", "template_myc9xzg", form.current, "B79QzheXw7xK4gIqG")
-    .then((result) => {
-        formResetFun();
-        setFormVisibility("hidden");
-        setThanksVisibility("visible");
-        goTop();
-        setBtnClass2("")
-        setBtnText("send");
-    }, (error) => {
-        console.log(error.text);
-    });
-  };  
+  const name = useRef();
+  const mail = useRef();
+  const message = useRef();
 
+  //submit function
+  async function submit(e) {
+    e.preventDefault()
 
+    const emailcheck = mail.current.value.includes("@");
 
-
-  //artist name check
-  function artistcheck(e) {
-    const artistNameCheck = e.target.value.length;
-
-    if(artistNameCheck === 0 ){
-      setArtistNameError("*name is mandatory");
+    console.log(emailcheck);
+    const formdata = {
+      artistName: name.current.value,
+      email: mail.current.value,
+      text: message.current.value
     }
-    if(artistNameCheck > 0 && artistNameCheck < 2){
-      setArtistNameError("*min length is 2");
-    }
-    if(artistNameCheck >= 20){
-      setArtistNameError("*max length is 20");
-    }
-    if (artistNameCheck >= 2 && artistNameCheck <= 20) {  
-      setArtistNameState(true);
-      setArtistNameError("");
-    }else{
-      setArtistNameState(false);
-    }
-  }
 
-  //email check
-  function emailcheck(e) {
-    const emailCheck = e.target.value;
-    const emailSignCheck = emailCheck.includes("@");
-
-    if (emailSignCheck === false) {  
-      setEmailError("*email is mandatory");
-      setEmailState(false);
+    //go top fun
+    function goTop() {
+      window.scrollTo({top: 0});
     }
-    if(emailSignCheck === true){
-      setEmailError("");
-      setEmailState(true);
-    }else{
-      setEmailState(false);
-    }
-  }
+  
+    //validattion
+    if(
+      name.current.value.length === 0 || 
+      emailcheck === false || 
+      message.current.value.length === 0
+      ) {
+        //artist
+        if(name.current.value.length === 0){
+          setErrArtist("*NAME IS MANDATORY");
+        }
+        if(name.current.value.length > 0){
+          setErrArtist("");
+        }
+        //email
+        if(emailcheck === false){
+          setErrEmail("*EMAIL IS MANDATORY");
+        }
+        if(emailcheck === true){
+          setErrEmail("");
+        }
+        //message
+        if(message.current.value.length === 0){
+          setErrMessage("*MESSAGE IS MANDATORY");
+        }
+        if(message.current.value.length > 500 ){
+          setErrMessage("*MESSAGE IS TOO LONG");
+        }
+        if(message.current.value.length > 0 && message.current.value.length < 501){
+          setErrMessage("");
+        }
 
-  //message check
-  function messagecheck(e) {
-    const messageCheck = e.target.value.length;
-
-    if(messageCheck > 500){
-      setMessageError("*it's too long mate");
-      setMessageState(false);
-    }
-    if(messageCheck <= 0){
-      setMessageError("*message is mandatory");
-      setMessageState(false);
+        console.log("ERR")
+        setErrText("PLEASE REVIEW YOUR SUBMISSION AND TRY IT AGAIN")
     }
     else{
-      setMessageError("");
-      setMessageState(true);
-    }
-}
+      setErrText("")
+      setBtnClass2("fa fa-spinner fa-spin");
+      setBtnText("");
 
-  useEffect(() => {
-    if(artistNameState === true && emailState === true && messageState === true ){
-      setOpacityFun(1);
-      setPointerEventFun("all");
-    }else{
-      setOpacityFun(0);
-      setPointerEventFun("none"); 
-    }
-  }, [artistNameState, emailState, messageState]);
+      await emailjs.send("service_sw0l5ng", "template_myc9xzg", formdata, "B79QzheXw7xK4gIqG")
+      .then((result) => {
+        name.current.value = "";
+        mail.current.value = "";
+        message.current.value = "";
 
+        setErrArtist("");
+        setErrEmail("");
+        setErrMessage("");
 
-  //form reset function
-  const formResetFun = () => {
-    reset(formValues => ({
-      ...formValues,
-      track: "",
-      text: "",
-    }))
+        setBtnClass2("");
+        setBtnText("submit");
+
+        setErrText("");
+
+        goTop();
+        setFormVisibility("hidden");
+        setThanksVisibility("visible");
+
+          //console.log(result.text);
+      }, (error) => {
+          console.log(error);
+          setErrArtist("");
+          setErrEmail("");
+          setErrMessage("");
+          setBtnClass2("")
+          setBtnText("submit");
+
+          setErrText("PLEASE CHECK YOUR INTERNET CONNECTION AND TRY IT AGAIN")
+      });
   }
+
+
+  }
+
 
 
   return (
@@ -165,48 +151,52 @@ const Contact = () => {
         <br/>
       </div>
 
-      <form ref={form} onSubmit={sendEmail} className="mt courier" style={{ width: "100%", maxWidth: "500px"}} >
-        <div className="inputRow">
-          <input {...register("artistName")} 
-          placeholder="Your name" 
+      <form className="mt" style={{ width: "100%", maxWidth: "500px"}} >
+        <div className="inputRow courier">
+          <input 
+          ref={name}
+          placeholder="Name" 
           className="input length courier" 
-          onChange={artistcheck}
           />
-          <p className="error">{artistNameError}</p>
+          <p className='error'>{errArtist}</p>
         </div>
 
-        <div className="inputRow">
-          <input {...register("email")} 
+        <div className="inputRow courier">
+          <input 
           placeholder="Email" 
           className="input length courier" 
-          onChange={emailcheck}
+          ref={mail} 
+          type='email' 
           />
-          <p className="error">{emailError}</p>
-        </div>     
+          <p className='error'>{errEmail}</p>
+        </div>      
 
-        <div className="inputCol mt">
-          <textarea {...register("text")} 
-          placeholder="Do you wanna say something? (max 500 characters)" 
+        <div className="inputCol mt courier">
+          <textarea
+          placeholder="(max 500 characters)" 
           rows="10" 
           cols="35" 
           className="textarea courier" 
-          onChange={messagecheck}
+          ref={message}
           />
-          <p className="error">{messageError}</p>
+          <p className='error'>{errMessage}</p>
         </div>
 
         <div className="inputRow mb mt">
-          <button 
-          onClick={() => {
-            console.log("PLAYLIST SUBMITED")
-          }}
-          style={{opacity: opacityFun, pointerEvents: pointerEventFun, width: "90px"}} 
-          className="nicebutton"
-          type="submit">
-            <i class={btnClass2}></i>
-            {btnText}
-          </button>
+        <button 
+          style={{opacity: "visible", width: "100px"}} 
+          className="nicebutton" 
+          onClick={submit} 
+      >
+        <i class={btnClass2}></i>
+        {btnText}
+      </button>
+      <br/>
+      
+
         </div>
+        <br/>
+        <p className='error'>{errText}</p>
       </form>
 
 

@@ -1,171 +1,147 @@
-//library
-import { useForm } from "react-hook-form";
-
 //import emailJs
-import React, { useRef, useState, useEffect, useContext } from 'react';
-import emailjs, { init, send } from '@emailjs/browser';
+import React, { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 //components
-import Thanksdemo from "./Thanksdemo";
+import Thanksdemo from './Thanksdemo';
 
 const Playlistsubmit = () => {
 
-  //funkce react hook form (kontrola polí a atd)
-  const {register, handleSubmit, watch, reset, formState: { errors }} = useForm({defaultValues: {artistName: "", email: "", text: "", track: ""}});
-
-  //states
-  const [artistNameState, setArtistNameState] = useState(false);
-  const [emailState, setEmailState] = useState(false);
-  const [trackState, setTrackState] = useState(false);
-  const [messageState, setMessageState] = useState(true);
-  const [messageError, setMessageError] = useState("");
-  const [opacityFun, setOpacityFun] = useState(0);
-  const [pointerEventFun, setPointerEventFun] = useState("none");
-  const [formVisibility, setFormVisibility] = useState("visible");
-  const [thanksVisibility, setThanksVisibility] = useState("hidden");
-  const [artistNameError, setArtistNameError] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [trackError, setTrackError] = useState("");
+  const [errText, setErrText] = useState("");
+  const [errArtist, setErrArtist] = useState("");
+  const [errEmail, setErrEmail] = useState("");
+  const [errLink, setErrLink] = useState("");
+  const [errMessage, setErrMessage] = useState("");
 
   const [btnClass2, setBtnClass2] = useState("");
-  const [btnText, setBtnText] = useState("send")
+  const [btnText, setBtnText] = useState("submit");
 
-  function goTop() {
-    window.scrollTo({top: 0});
-  }
+  const [formVisibility, setFormVisibility] = useState("visible");
+  const [thanksVisibility, setThanksVisibility] = useState("hidden");
 
-  //funkce na posíláni na email
-  const form = useRef();
-  async function sendEmail(e) {
-    e.preventDefault();
-    //setButtonLoading("btnAnimation");
-    setBtnClass2("fa fa-spinner fa-spin")
-    setBtnText("");
-    await emailjs.sendForm("service_za1xlkr", "template_icltax6", form.current, "BpUJsAuZF7Y43-jj1")
-    .then((result) => {
-        formResetFun();
+  const name = useRef();
+  const mail = useRef();
+  const link = useRef();
+  const message = useRef();
 
+  //submit function
+  async function submit(e) {
+    e.preventDefault()
+
+    const emailcheck = mail.current.value.includes("@");
+    const soundcloud = link.current.value.includes("spotify.com");
+
+    console.log(emailcheck);
+    const formdata = {
+      artistName: name.current.value,
+      email: mail.current.value,
+      track: link.current.value,
+      text: message.current.value
+    }
+
+    //go top fun
+    function goTop() {
+      window.scrollTo({top: 0});
+    }
+  
+    //validattion
+    if(
+      name.current.value.length === 0 || 
+      emailcheck === false ||
+      soundcloud === false || 
+      message.current.value.length > 500
+      ) {
+        //artist
+        if(name.current.value.length === 0){
+          setErrArtist("*NAME IS MANDATORY");
+        }
+        if(name.current.value.length > 0){
+          setErrArtist("");
+        }
+        //email
+        if(emailcheck === false){
+          setErrEmail("*EMAIL IS MANDATORY");
+        }
+        if(emailcheck === true){
+          setErrEmail("");
+        }
+        //link
+        if(soundcloud === false){
+          setErrLink("*SPOTIFY LINK IS MANDATORY");
+        }
+        if(soundcloud === true){
+          setErrLink("");
+        }
+        //message
+        if(message.current.value.length > 500 ){
+          setErrMessage("*MESSAGE IS TOO LONG");
+        }
+        if(message.current.value.length === 0 || message.current.value.length < 501){
+          setErrMessage("");
+        }
+
+        console.log("ERR")
+        setErrText("PLEASE REVIEW YOUR SUBMISSION AND TRY IT AGAIN")
+    }
+    else{
+      setErrText("")
+      setBtnClass2("fa fa-spinner fa-spin");
+      setBtnText("");
+
+      await emailjs.send("service_za1xlkr", "template_icltax6", formdata, "BpUJsAuZF7Y43-jj1")
+      .then((result) => {
+        name.current.value = "";
+        mail.current.value = "";
+        link.current.value = "";
+        message.current.value = "";
+
+        setErrArtist("");
+        setErrEmail("");
+        setErrLink("");
+        setErrMessage("");
+
+        setBtnClass2("");
+        setBtnText("submit");
+
+        setErrText("");
+
+        goTop();
         setFormVisibility("hidden");
         setThanksVisibility("visible");
-        goTop();
 
-        setBtnClass2("")
-        setBtnText("send");
-    }, (error) => {
-        console.log(error.text);
-    });
-  };  
+          //console.log(result.text);
+      }, (error) => {
+          console.log(error);
+          setErrArtist("");
+          setErrEmail("");
+          setErrLink("");
+          setErrMessage("");
+          setBtnClass2("")
+          setBtnText("submit");
 
-  //artist name check
-  function artistcheck(e) {
-    const artistNameCheck = e.target.value.length;
-
-    if(artistNameCheck === 0 ){
-      setArtistNameError("*artist name is mandatory");
-    }
-    if(artistNameCheck > 0 && artistNameCheck < 2){
-      setArtistNameError("*min length is 2");
-    }
-    if(artistNameCheck >= 20){
-      setArtistNameError("*max length is 20");
-    }
-
-    if (artistNameCheck >= 2 && artistNameCheck <= 20) {  
-      setArtistNameState(true);
-      setArtistNameError("");
-    }else{
-      setArtistNameState(false);
-    }
+          setErrText("PLEASE CHECK YOUR INTERNET CONNECTION AND TRY IT AGAIN")
+      });
   }
 
 
-  //email check
-  function emailcheck(e) {
-    const emailCheck = e.target.value;
-    const emailSignCheck = emailCheck.includes("@");
-
-    if (emailSignCheck === false) {  
-      setEmailError("*email is mandatory");
-      setEmailState(false);
-    }
-    if(emailSignCheck === true){
-      setEmailError("");
-      setEmailState(true);
-    }else{
-      setEmailState(false);
-    }
   }
 
-  //track check
-  function trackcheck(e) {
-    const trackCheck = e.target.value;
-    const trackCheckLength = trackCheck.length;
-    const trackSignCheck = trackCheck.includes("spotify.com");
-
-    if(trackCheckLength === 0){
-      setTrackError("*spotify link is mandatory");
-      setTrackState(false);
-    }
-    if(trackCheckLength > 0 && trackSignCheck === false){
-      setTrackError("*this doesn't look like Spotify link mate");
-      setTrackState(false);
-    }    
-    if(trackSignCheck === true){
-      setTrackError("");
-      setTrackState(true);
-    }else{
-      setTrackState(false);
-    }
-  }
-  
-  //message check
-  function messagecheck(e) {
-    const messageCheck = e.target.value.length;
-
-    if(messageCheck > 500){
-      setMessageError("*it's too long mate");
-      setMessageState(false);
-    }else{
-      setMessageError("");
-      setMessageState(true);
-    }
-  }
-  
-  //funkce pro zobrazeni buttonu
-  useEffect(() => {
-    if(artistNameState === true && emailState === true && messageState === true && trackState === true){
-      setOpacityFun(1);
-      setPointerEventFun("all");
-    }else{
-      setOpacityFun(0);
-      setPointerEventFun("none"); 
-    }
-  }, [artistNameState, emailState, messageState, trackState]);
-
-
-  //form reset function
-  const formResetFun = () => {
-  /*  reset(formValues => ({
-      ...formValues,
-      track: "",
-      text: "",
-    }))*/
-  }
 
 
   return (
     <div style={{
-        //backgroundImage: `url(${backgroundPic2.src})`, 
-        background: "rgba(20,20,20,0.8)",       
+        //backgroundImage: `url(${backgroundPic2.src})`,    
+        background: "rgba(20,20,20,0.8)",  
         boxShadow: "0px 5px 40px rgba(0, 0, 0, 0.637)",
         display: "flex",
         flexDirection: "column",
+        //justifyContent: "center",
         alignItems: "center",
         maxWidth: "1000px",
         width: "90%",
         padding: "30px 30px",
         borderRadius: "30px",
-        visibility: formVisibility
+        visibility: formVisibility,
     }}>
       
       <div className="title brush">
@@ -191,59 +167,61 @@ const Playlistsubmit = () => {
         <p>Once you submit your track, we will listen as soon as possible and reply back within a one week (after the date you submitted it).</p>
       </div>
         <br></br>
-      <form ref={form} onSubmit={sendEmail} className="mt courier" style={{ width: "100%", maxWidth: "500px"}} >
-        <div className="inputRow">
-          <input {...register("artistName")} 
+      <form className="mt" style={{ width: "100%", maxWidth: "500px"}} >
+        <div className="inputRow courier">
+          <input 
+          ref={name}
           placeholder="Artist name" 
           className="input length courier" 
-          onChange={artistcheck}
           />
-          <p className="error">{artistNameError}</p>
+          <p className='error'>{errArtist}</p>
         </div>
 
-        <div className="inputRow">
-          <input {...register("email")} 
+        <div className="inputRow courier">
+          <input 
           placeholder="Email" 
           className="input length courier" 
-          onChange={emailcheck}
+          ref={mail} 
+          type='email' 
           />
-          <p className="error">{emailError}</p>
+          <p className='error'>{errEmail}</p>
         </div>
 
-        <div className="inputCol">
-          <input {...register("track")} 
-          placeholder="Paste Spotify link to your demo" 
-          className="input" 
-          onChange={trackcheck}
+        <div className="inputCol courier">
+          <input
+          placeholder="Spotify link" 
+          className="input courier" 
+          ref={link}
           />
-          <p className="error">{trackError}</p>
+          <p className='error'>{errLink}</p>
         </div>        
 
-        <div className="inputCol mt">
-          <textarea {...register("text")} 
+        <div className="inputCol mt courier">
+          <textarea
           placeholder="Do you wanna say something? (max 500 characters)" 
           rows="10" 
           cols="35" 
           className="textarea courier" 
-          onChange={messagecheck}
+          ref={message}
           />
-          <p className="error">{messageError}</p>
+          <p className='error'>{errMessage}</p>
         </div>
 
         <div className="inputRow mb mt">
-          <button 
-          onClick={() => {
-            console.log("PLAYLIST SUBMITED")
+        <button 
+          style={{opacity: "visible", width: "100px"}} 
+          className="nicebutton" 
+          onClick={submit} 
+      >
+        <i class={btnClass2}></i>
+        {btnText}
+      </button>
+      <br/>
+      
 
-          }}
-
-          style={{opacity: opacityFun, pointerEvents: pointerEventFun, width: "90px"}} 
-          className="nicebutton"
-          type="submit">
-            <i class={btnClass2}></i>
-            {btnText}
-          </button>
         </div>
+        <br/>
+        <p className='error'>{errText}</p>
       </form>
       <Thanksdemo visibility={thanksVisibility} setVisibility={setThanksVisibility} setFormVisibility={setFormVisibility}/>
     </div>
@@ -251,3 +229,4 @@ const Playlistsubmit = () => {
 }
 
 export default Playlistsubmit;
+

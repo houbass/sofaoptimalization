@@ -1,5 +1,5 @@
 //import emailJs
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
 //components
@@ -11,6 +11,7 @@ const SubmitdemoV2 = () => {
   const [errArtist, setErrArtist] = useState("");
   const [errEmail, setErrEmail] = useState("");
   const [errLink, setErrLink] = useState("");
+  const [errMessage, setErrMessage] = useState("");
 
   const [btnClass2, setBtnClass2] = useState("");
   const [btnText, setBtnText] = useState("submit");
@@ -30,12 +31,6 @@ const SubmitdemoV2 = () => {
     const emailcheck = mail.current.value.includes("@");
     const soundcloud = link.current.value.includes("soundcloud.com");
 
-    /*
-    console.log("NAME: " + name.current.value);
-    console.log("EMAIL: " + mail.current.value);
-    console.log("LINK: " + link.current.value);
-    console.log("MESSAGE: " + message.current.value);
-    */
     console.log(emailcheck);
     const formdata = {
       artistName: name.current.value,
@@ -53,7 +48,8 @@ const SubmitdemoV2 = () => {
     if(
       name.current.value.length === 0 || 
       emailcheck === false ||
-      soundcloud === false
+      soundcloud === false || 
+      message.current.value.length > 500
       ) {
         //artist
         if(name.current.value.length === 0){
@@ -76,6 +72,13 @@ const SubmitdemoV2 = () => {
         if(soundcloud === true){
           setErrLink("");
         }
+        //message
+        if(message.current.value.length > 500 ){
+          setErrMessage("*MESSAGE IS TOO LONG");
+        }
+        if(message.current.value.length === 0 || message.current.value.length < 501){
+          setErrMessage("");
+        }
 
         console.log("ERR")
         setErrText("PLEASE REVIEW YOUR SUBMISSION AND TRY IT AGAIN")
@@ -95,11 +98,12 @@ const SubmitdemoV2 = () => {
         setErrArtist("");
         setErrEmail("");
         setErrLink("");
+        setErrMessage("");
 
         setBtnClass2("");
         setBtnText("submit");
 
-        setErrText("THANK YOU FOR YOUR SUBMISSION");
+        setErrText("");
 
         goTop();
         setFormVisibility("hidden");
@@ -111,6 +115,7 @@ const SubmitdemoV2 = () => {
           setErrArtist("");
           setErrEmail("");
           setErrLink("");
+          setErrMessage("");
           setBtnClass2("")
           setBtnText("submit");
 
@@ -199,6 +204,7 @@ const SubmitdemoV2 = () => {
           className="textarea courier" 
           ref={message}
           />
+          <p className='error'>{errMessage}</p>
         </div>
 
         <div className="inputRow mb mt">
