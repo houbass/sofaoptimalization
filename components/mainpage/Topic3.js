@@ -59,9 +59,9 @@ const Topic3 = () => {
               </div>
 
               <div>
-                <h1 className='mainpageTitles'>Lets try Sofa workplace</h1>
+                <h1 className='mainpageTitles'>Let’s try Sofa workplace</h1>
                 <div style={{maxWidth: "600px"}}>     
-                  <p className="mainpageP">This feature will help you to work and listen music at one place.
+                  <p className="mainpageP">This feature will help you to work and listen to music in one place.
                   </p>
                   <Link href="/workplace">
                     <button className="nicebutton mt" >try it now</button>

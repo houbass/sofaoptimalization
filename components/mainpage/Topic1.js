@@ -56,8 +56,9 @@ const Topic1 = () => {
               }}>
                 <h1 className='mainpageTitles' >Listen to our playlist</h1>
                 <div style={{maxWidth: "600px"}}>     
-                  <p className="mainpageP" >We are a music label with taste for lofi hip hop, focusing to help you 
-                    to study work or chill, just try to hit the play button bellow and dive into the vibe...
+                  <p className="mainpageP" >We are a music label with a taste for lofi hip hop, 
+                  focusing on helping you to study, work or just chill. Simply hit the 
+                  button below and take a dive into the vibe...
                   </p>
                   <a href="https://open.spotify.com/playlist/6so9XlkasaOqQFNghgzUX5?si=9d0511d634164493" target="_blank">
                     <button className="nicebutton mt" >listen to it now</button>

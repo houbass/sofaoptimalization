@@ -17,7 +17,7 @@ const Footer = () => {
         <div 
         style={{
             background: "rgba(20,20,20,0.8)", 
-            height:"250px",
+            height:"285px",
             marginTop: "75px",
             paddingTop: "30px"
 

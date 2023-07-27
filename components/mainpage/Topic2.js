@@ -53,7 +53,7 @@ const Topic2 = () => {
                   <h1 className='mainpageTitles'>Check out latest Sofa Lofi music</h1>
                   <div style={{maxWidth: "600px"}}>     
                     <p className="mainpageP">
-                      Lets check our regular monday releases from the finests lofi producers.
+                    Let’s check our regular monday releases from the finests lofi producers.
                     </p>
                     <Link href="/releases">
                       <button className="nicebutton mt" >check them all</button>
