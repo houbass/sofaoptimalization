@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg"
-import backgroundPic3 from "@/components/pic/background3_v3.jpg"
+import backgroundPic3 from "@/components/pic/background3_v3.webp"
 
 //mainpage components
 import Topic1 from '@/components/mainpage/Topic1'

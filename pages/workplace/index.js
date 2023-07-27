@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
-import backgroundPic6 from "@/components/pic/background6_v2.jpg"
+import backgroundPic6 from "@/components/pic/background6_v2.webp";
 
 //COMPONENTS
 import Clocks from '@/components/Clocks';
