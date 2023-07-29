@@ -80,7 +80,7 @@ const Submit = () => {
 
           }}
             src={backgroundPic4} 
-            placeholder={backgroundPic4Low}
+            placeholder="blur"
             >
           </Image>
 
