@@ -1,7 +1,7 @@
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Head from 'next/head';
 
@@ -11,10 +11,15 @@ import { motion } from 'framer-motion'
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
 import backgroundPic4 from "@/components/pic/background4_v3.webp";
+import backgroundPic4Low from "@/components/pic/background4_v3_low.webp";
+
+//hooks
+//import useProgressiveImg from '@/hooks/useProgressiveImg';
 
 const inter = Inter({ subsets: ['latin'] })
 
 const Submit = () => {
+
 
     return(
         <>
@@ -69,10 +74,16 @@ const Submit = () => {
           className='submitImg' 
           style={{
             //width: "1000px",
-            height: "1153px"
+            height: "1153px",
+            //filter: blur ? "blur(20px)" : "none",
+            //transition: blur ? "none" : "filter 0.3s ease-out"
+
           }}
-        src={backgroundPic4}>
+            src={backgroundPic4} 
+            placeholder={backgroundPic4Low}
+            >
           </Image>
+
 
         </div>
 
