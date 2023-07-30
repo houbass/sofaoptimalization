@@ -4,6 +4,7 @@ import Link from 'next/link'
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Head from 'next/head';
+import Script from 'next/script';
 
 //motion lib
 import { motion } from 'framer-motion'
@@ -47,6 +48,17 @@ const Submit = () => {
 
         </Head>
 
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-XQWVQB598P" />
+        <Script id="google-analytics">
+            {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-XQWVQB598P');
+            `}
+        </Script>
+
         <div
         
         style={{
@@ -73,11 +85,7 @@ const Submit = () => {
           <Image 
           className='submitImg' 
           style={{
-            //width: "1000px",
             height: "1153px",
-            //filter: blur ? "blur(20px)" : "none",
-            //transition: blur ? "none" : "filter 0.3s ease-out"
-
           }}
             src={backgroundPic4} 
             placeholder="blur"

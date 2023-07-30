@@ -2,6 +2,7 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import Image from 'next/image';
+import Script from 'next/script';
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg"
@@ -13,6 +14,7 @@ import Topic2 from '@/components/mainpage/Topic2'
 import Topic3 from '@/components/mainpage/Topic3'
 import Topic4 from '@/components/mainpage/Topic4'
 import Footer from '@/components/mainpage/Footer'
+import { useEffect } from 'react';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,7 +23,8 @@ export default function Home() {
   //SETTINGS
   const maxWidth = 1000;
 
-  //last v. 23/07/23 22:38
+  //last v. 30/07/23 12:30
+
 
   return (
     <>
@@ -47,8 +50,20 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet"></link>
 
       </Head>
+      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-XQWVQB598P" />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-XQWVQB598P');
+          `}
+      </Script>
+
 
     <div>
+      
       <main 
       style={{
         display: "flex",
@@ -70,10 +85,14 @@ export default function Home() {
           zIndex: "0",
           
         }}>
-          <Image         style={{
+          <Image         
+          style={{
           width: "100%",
           height: "auto",
-          }} src={backgroundPic3}>
+          }} 
+          src={backgroundPic3} 
+          placeholder='blur'
+          >
           </Image>
           <div 
           style={{

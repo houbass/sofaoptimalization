@@ -3,6 +3,7 @@ import styles from '@/styles/Home.module.css'
 import { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
+import Script from 'next/script'
 
 //motion lib
 import { motion } from 'framer-motion';
@@ -43,8 +44,16 @@ const ContactPage = () => {
             <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet"></link>
 
         </Head>
-      
-  
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-XQWVQB598P" />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-XQWVQB598P');
+            `}
+        </Script>
 
         <div
         className={`${inter.className}`}
@@ -71,7 +80,8 @@ const ContactPage = () => {
           style={{
             height: "1400px"
           }}
-        src={backgroundPic7}>
+        src={backgroundPic7}
+        placeholder='blur'>
           </Image>
 
         </div>
