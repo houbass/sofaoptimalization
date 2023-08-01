@@ -12,10 +12,6 @@ import { motion } from 'framer-motion'
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
 import backgroundPic4 from "@/components/pic/background4_v3.webp";
-import backgroundPic4Low from "@/components/pic/background4_v3_low.webp";
-
-//hooks
-//import useProgressiveImg from '@/hooks/useProgressiveImg';
 
 const inter = Inter({ subsets: ['latin'] })
 

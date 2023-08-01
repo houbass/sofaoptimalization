@@ -165,6 +165,7 @@ const Navbar = () => {
         <div 
         className="navpage maincardsAnimation3" 
 
+
         >
         <div         style={{
             width: "100%",
@@ -173,7 +174,8 @@ const Navbar = () => {
         }} >
 
         <nav 
-        className="navbar"
+        className="navbar" 
+
         >
 
             <Link 

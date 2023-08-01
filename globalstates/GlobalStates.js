@@ -1,15 +1,15 @@
 
-import { createContext, useEffect, useState } from "react";
+import { createContext, useLayoutEffect, useState } from "react";
 
 export const GlobalStates = createContext();
 export const GlobalStatesProvider = ({ children }) => {
 
     //LOADER VISIBILITY
     const [loadingState, setLoadingState] = useState("hidden");
-
+    
     //MOBILE OR COMPUTER CHECK
     const [mobile, setMobile] = useState(null);
-    useEffect(() => {
+    useLayoutEffect(() => {
       if (navigator.userAgent.match(/Android/i)
       || navigator.userAgent.match(/webOS/i)
       || navigator.userAgent.match(/iPhone/i)

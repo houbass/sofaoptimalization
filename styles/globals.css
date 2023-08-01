@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
 
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -334,9 +333,6 @@ label {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-  
-
 }
 
 .navbar {
@@ -461,6 +457,7 @@ label {
   height: 100px;
   text-align: center;
   justify-content: center;
+  margin-top: 30px;
   margin-bottom: 30px;
 
 }
@@ -1225,4 +1222,73 @@ animation-delay: 2s;
 
 .checkmarksvg:hover {
   opacity: 1;
+}
+
+.roasterpage {
+  color: white;
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.roaster {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  max-width: 300px;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.roasterlink {
+  width: 100%;
+}
+
+
+.roasterbtn {
+  width: 100%;
+  height: 80px;
+  background: white;
+  transition: 0.2s;
+  border: none;
+  font-weight: bold;
+  color: black;
+}
+
+.roasterbtn:hover {
+  background: rgba(247, 58, 58, 0.8);
+  color: white;
+}
+
+.buttondiv {
+  text-align: center;
+  width: 100%;
+  background: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: black;
+  height: 80px;
+}
+
+.buttondiv > div {
+  display: flex;
+  gap: 20px
+}
+
+.iconRoaster {
+  width: 30px;
+  height: 30px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.iconRoaster:hover {
+  scale: 1.1;
+
 }
