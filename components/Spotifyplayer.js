@@ -1,10 +1,11 @@
 import styles from '@/styles/Home.module.css'
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 //local storage hook
 import useLocalStorageState from 'use-local-storage-state'
 
 const Spotifyplayer = () => {
+
 
     //PAGE REF
     const playerRef = useRef(null);
@@ -14,22 +15,26 @@ const Spotifyplayer = () => {
     const [width, setWidth] = useLocalStorageState('width', {defaultValue: "115px" });
     const [btnRotate, setBtnRotate] = useState("0deg");
     const [btnToggler, setBtnToggler] = useState(false);
-    const [btnBiggerVisibility, setBtnBiggerVisibility] = useLocalStorageState('btnBiggerVisibility', {defaultValue: "hidden" });
+    const [btnBiggerVisibility, setBtnBiggerVisibility] = useLocalStorageState('btnBiggerVisibility', {defaultValue: "0" });
+    const [btnBiggerEvent, setBtnBiggerEvent] = useLocalStorageState('btnBiggerEvent', {defaultValue: "none" });
 
     //CLOSE STATES
     const [closeBtnText, setCloseBtnText] = useLocalStorageState('closeBtnText', {defaultValue: "chevron_left" });
     const [closeBtnToggler, setCloseBtnToggler] = useLocalStorageState('closeBtnToggler', {defaultValue: true });
-    const [closeBtnVisibility, setCloseBtnVisibility] = useState("visible");
+    const [closeBtnVisibility, setCloseBtnVisibility] = useState("1");
 
-    //VISIBILITY
-    const [opacity, setOpacity] = useState("0");
+    const [spotifyVisbility, setSpotifyVisibility] = useState("visible");
 
-    //on load opacity
-    useEffect(() => {
-        setTimeout(() => {
-            setOpacity("1");
-        }, 3000)
-    }, [])
+    useLayoutEffect(() => {
+        const pageHref = window.location.pathname;
+        if(pageHref === "/roaster"){
+            setSpotifyVisibility("hidden");
+            console.log("HIDDEN");
+        }else{
+            setSpotifyVisibility("visible");
+            console.log("VISSIBLE");
+        }
+    })
 
     //height handler
     const heightHandler = () => {
@@ -37,12 +42,12 @@ const Spotifyplayer = () => {
             setHeight(400);
             setBtnRotate("180deg");
             setBtnToggler(true);
-            setCloseBtnVisibility("hidden");        
+            setCloseBtnVisibility("0");        
         }else{
             setHeight(90);
             setBtnRotate("0deg");
             setBtnToggler(false);  
-            setCloseBtnVisibility("visible");          
+            setCloseBtnVisibility("1");          
         }
     }
 
@@ -52,24 +57,26 @@ const Spotifyplayer = () => {
             setWidth("115px");
             setCloseBtnText("chevron_left");
             setCloseBtnToggler(true);
-            setBtnBiggerVisibility("hidden");
+            setBtnBiggerVisibility("0");
+            setBtnBiggerEvent("none");
         }else{
             setWidth("100%");
             setCloseBtnText("chevron_right");
             setCloseBtnToggler(false); 
-            setBtnBiggerVisibility("visible");           
+            setBtnBiggerVisibility("1"); 
+            setBtnBiggerEvent("all");       
         }
     }
 
 
 
     return (
-        <div className={`${styles.spotifyplayer} maincardsAnimation3`} style={{width: width, height: height }}>
+        <div className={`${styles.spotifyplayer} maincardsAnimation3`} style={{width: width, height: height, visibility: spotifyVisbility }}>
 
 
             <div style={{display: "flex", flexDirection: "row", justifyContent: "center", paddingBottom: "5px"}}>
-            <div className='spotifybuttons2' style={{visibility: btnBiggerVisibility}}> 
-                <button className='material-symbols-outlined' style={{ rotate: btnRotate, background: "none", height: "100%", width: "100%", border: "none" }}
+            <div className='spotifybuttons2' style={{opacity: btnBiggerVisibility}}> 
+                <button className='material-symbols-outlined' style={{ rotate: btnRotate, background: "none", height: "100%", width: "100%", border: "none", pointerEvents: btnBiggerEvent }}
                  onClick={heightHandler}>
                     
                     <p style={{background: "none", color: "black"}} className='material-symbols-outlined'>expand_less</p>
@@ -78,9 +85,9 @@ const Spotifyplayer = () => {
             </div>
 
 
-            <div style={{display: "flex", flexDirection: "row", height: "100%"}}>
+            <div style={{display: "flex", flexDirection: "row", height: "100%" }}>
 
-            <div className='spotifybuttons' style={{visibility: closeBtnVisibility}}> 
+            <div className='spotifybuttons' style={{ opacity: closeBtnVisibility}}> 
             <button  style={{ background: "none", height: "100%", width: "100%", border: "none" }} 
             onClick={() => {
                 closeHandler();
