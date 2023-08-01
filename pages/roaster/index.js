@@ -2,10 +2,30 @@ import Head from "next/head";
 import Script from "next/script";
 import { useContext, useLayoutEffect } from "react";
 
+//firebase database
+import { db, storage } from "config/firebase";
+import { getDocs, collection, addDoc, deleteDoc, updateDoc, doc } from "firebase/firestore";
+
+
 //components
 import Roaster from "@/components/Roaster";
 
-export default function RoasterPage() {
+//SERVER SIDER RENDER (firebase data)
+export async function getServerSideProps() {
+  const contentCollectionRef = collection(db, "content");
+
+  // Fetch data from external API
+  const res = await getDocs(contentCollectionRef);
+  const filteredData = res.docs.map((doc) => ({
+      ...doc.data(), 
+      id: doc.id, 
+  }));
+ 
+  // Pass data to the page via props
+  return { props: { filteredData } }
+}
+
+export default function RoasterPage({ filteredData }) {
 
     return(
         <>
@@ -46,7 +66,7 @@ export default function RoasterPage() {
         style={{
 
         }}>
-            <Roaster />
+            <Roaster filteredData={filteredData} />
         </main>
         </>
     )

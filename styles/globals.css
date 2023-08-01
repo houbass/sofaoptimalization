@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
 
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -1258,7 +1257,6 @@ animation-delay: 2s;
   border: none;
   font-weight: bold;
   color: black;
-  
 }
 
 .roasterbtn:hover {

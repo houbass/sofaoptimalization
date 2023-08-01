@@ -41,7 +41,6 @@ export async function getServerSideProps() {
 
 
 const ReleasesPage = ({ filteredData }) => {
-    console.log(filteredData)
 
     return(
         <>
