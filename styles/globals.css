@@ -35,7 +35,7 @@ button {
   top: 100px; 
   padding: 30px;
   border-radius: 30px;
-  background: rgb(253, 63, 63);
+  background: rgba(247, 58, 58, 1);
   transition: 0.5s ease-in-out; 
 }
 
@@ -174,14 +174,14 @@ button {
 
 .logoutbutton{
   position: absolute;
-  top: 60px;
+  top: 80px;
   right: 5px;
 }
 
 .adminpage {
   display: flex;
   flex-direction: column;
-  background: pink;
+
   align-items: center;
   color: black;
 }
@@ -1291,4 +1291,23 @@ animation-delay: 2s;
 .iconRoaster:hover {
   scale: 1.1;
 
+}
+
+.adminmenu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 120px;
+  left: 0px;
+  background: white;
+  padding: 10px;
+  border-radius: 0 10px 10px 0;
+  gap: 15px;
+  z-index: 10;
+}
+@media screen and (max-width: 700px) {
+  .adminmenu{
+    flex-direction: row;
+    top: 15px
+  }
 }

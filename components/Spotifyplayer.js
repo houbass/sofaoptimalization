@@ -27,7 +27,7 @@ const Spotifyplayer = () => {
 
     useLayoutEffect(() => {
         const pageHref = window.location.pathname;
-        if(pageHref === "/roaster"){
+        if(pageHref === "/roaster" || pageHref === "/admin" || pageHref === "/admin/contracts"){
             setSpotifyVisibility("hidden");
             console.log("HIDDEN");
         }else{

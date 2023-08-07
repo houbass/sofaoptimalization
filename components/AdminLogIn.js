@@ -145,13 +145,9 @@ const AdminLogIn = ({ setShowContent, setShowContentOpacity, getData }) => {
                 className='custombutton'
             >logout</button>
         </div>
-        <div className='adminlogin' style={{visibility: showTable, opacity: showTableOpacity}}>
+        <div className='adminlogin' style={{visibility: showTable, opacity: showTableOpacity, textAlign: "center"}}>
                         
-            <h2>ADMIN PAGE</h2>
 
-            <div className={styles.description}>
-                <p>for admin using only</p>
-            </div>
             <div>
             <div className={`${styles.login}`} >
 

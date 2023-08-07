@@ -77,21 +77,12 @@ export default function Contract() {
             </div> 
 
             <div 
-                    style={{
-                        position: "absolute",
-                        top: "100px",
-                        left: "0px",
-                        background: "white",
-                        padding: "10px",
-                        borderRadius: "0 10px 10px 0"
-                    }}>
+            className='adminmenu'
+            >
                         <Link href="../admin" className='linkContracts'>
                             <p>ADMIN PANEL</p>
                         </Link>
-                        <br/>
-                        <Link href="../admin/titles" className='linkContracts'>
-                            <p>TITLES</p>
-                        </Link>
+
                     </div>
 
             <MasteringContract name={name} artist={artist} dashgoEmail={dashgoEmail} track={track} shareSplit={shareSplit} setCursorType={setCursorType}/>

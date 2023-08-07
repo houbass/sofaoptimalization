@@ -93,7 +93,7 @@ return (
     <div style={{marginTop: "60px"}}>
         <div className='addrelease'>
             <fieldset>
-            <legend><strong>add new release</strong></legend>
+            <legend style={{color: "white", padding: "5px"}}><strong>add new release</strong></legend>
             <input value={addArtist} placeholder='artists' onChange={(e)=>setAddArtist(e.target.value)}></input>
             
             <input value={addTrack} placeholder='track name' onChange={(e)=>setAddTrack(e.target.value)}></input>
@@ -105,7 +105,7 @@ return (
             <div className="addreleaseconfirm">
 
 
-            <p style={{fontSize: "12px"}}><strong>#{actualIndex}</strong></p>
+            <p style={{fontSize: "12px", color: "white"}}><strong>#{actualIndex}</strong></p>
             <button 
                 onClick={addNewRelease}
                 style={{visibility: submitButtonVisibility}} 

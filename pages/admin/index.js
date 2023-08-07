@@ -106,8 +106,7 @@ const Admin = () => {
                     getData={getData}
                 />
 
-                <br/>
-                <div style={{visibility: showContent, opacity: showContentOpacity, transition: "1s ease-in-out"}} >
+                <div style={{visibility: showContent, opacity: showContentOpacity, transition: "1s ease-in-out", paddingTop: "60px", marginBottom: "50px"}} >
                 
                     <AddNewRelease 
                         myData={myData} 
@@ -122,28 +121,14 @@ const Admin = () => {
                     />
 
                     <div 
-                    style={{
-                        position: "absolute",
-                        top: "100px",
-                        left: "0px",
-                        background: "white",
-                        padding: "10px",
-                        borderRadius: "0 10px 10px 0"
-                    }}>
+                    className='adminmenu'>
                         <Link href="admin/contracts" className='linkContracts'>
                             <p>CONTRACTS</p>
-                        </Link>
-                        <br/>
-                        <Link href="admin/titles" className='linkContracts'>
-                            <p>TITLES</p>
                         </Link>
                     </div>
 
                 </div>
             </div>
-
-
-            <br/><br/><br/><br/><br/><br/><br/>
         </div>
         </>  
     )
