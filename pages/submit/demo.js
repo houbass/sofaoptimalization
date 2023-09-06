@@ -32,10 +32,33 @@ const Demo = () => {
             property="og:description"
             content="submit your music to label consideration"
             />
+
+            <meta name="twitter:card" content="summary" />
+            <meta
+            property="og:title"
+            content="Sofa Lofi demo submission" 
+            />
+
             <meta
             property="og:image"
-            content="https://sofalofi.com//_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbackground3_v2.f374276e.jpg&w=3840&q=75"
+            content="background.webp"
             />
+
+            <meta
+            property="og:image:type"
+            content="image/webp"
+            />
+
+            <meta
+            property="og:image:width"
+            content="500"
+            />
+            <meta
+            property="og:image:height"
+            content="500"
+            />
+
+            <meta name="author" content="Ondrej Laube" />
 
             <meta name="viewport" content="width=device-width, initial-scale=1" />
 

@@ -29,13 +29,35 @@ const ContactPage = () => {
             property="og:description"
             content="Wanna ask something? Send us a message."
             />
+
+            <meta name="twitter:card" content="summary" />
             <meta
-            property="og:image"
-            content="https://sofalofi.com//_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fbackground3_v2.f374276e.jpg&w=3840&q=75"
+              property="og:title"
+              content="Sofa Lofi contact" 
             />
 
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta
+              property="og:image"
+              content="background.webp"
+            />
 
+            <meta
+              property="og:image:type"
+              content="image/webp"
+            />
+
+            <meta
+              property="og:image:width"
+              content="500"
+            />
+            <meta
+              property="og:image:height"
+              content="500"
+            />
+
+            <meta name="author" content="Ondrej Laube" />
+
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
 
             <link rel="icon" href="/favicon.ico" />
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />        

@@ -9,6 +9,7 @@ import emailjs, { init, send } from '@emailjs/browser';
 import Instagram from "./pic/icons/instagram.png";
 import Spotify from "./pic/icons/spotify.png";
 import Facebook from "./pic/icons/facebook.png";
+import Youtube from "./pic/icons/youtube.svg";
 
 //components
 import Thanksmsg from "./Thanksmsg";
@@ -224,13 +225,17 @@ const Contact = () => {
                   justifyContent: "space-between",
                   padding: "0 15px"
                   }}>
-  
+
                   <div className="icon">
-                      <a href="https://www.instagram.com/sofalofi_rec/" target="_blank"><Image className="iconImg" src={Instagram} /></a>
+                      <a href="https://open.spotify.com/user/3172sefla554nzu4bpuk3o3ysjme?si=99f3d22c46564509" target="_blank"><Image className="iconImg" src={Spotify} /></a>
+                  </div>
+
+                  <div className="icon">
+                      <a href="https://www.youtube.com/channel/UCVDaWGsukHQo677tAfySD6g" target="_blank"><Image width={90} className="iconImg" src={Youtube} /></a>
                   </div>
   
                   <div className="icon">
-                      <a href="https://open.spotify.com/user/3172sefla554nzu4bpuk3o3ysjme?si=99f3d22c46564509" target="_blank"><Image className="iconImg" src={Spotify} /></a>
+                      <a href="https://www.instagram.com/sofalofi_rec/" target="_blank"><Image className="iconImg" src={Instagram} /></a>
                   </div>
   
                   <div className="icon">

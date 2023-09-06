@@ -9,7 +9,7 @@ const CalendarDisplay = ({ dayText, dayMonth, tail, monthText }) => {
             alignItems: "center"
         }}>
             <div style={{
-                width: "40px",
+                width: "45px",
                 height: "20px",
                 position: "absolute",
                 display: "flex",
@@ -41,7 +41,7 @@ const CalendarDisplay = ({ dayText, dayMonth, tail, monthText }) => {
             </div>
 
             <div style={{
-                width: "90px",
+                width: "105px",
                 border: "solid 3px white",
                 borderRadius: "22px",
                 marginTop: "9px"
@@ -63,7 +63,7 @@ const CalendarDisplay = ({ dayText, dayMonth, tail, monthText }) => {
                 </div>
 
                 <div style={{
-                    height: "33px",
+                    height: "35px",
                     background: "rgba(255,255,255,0.1)",
                     fontSize: "28px",
                     fontWeight: "bold",
@@ -87,7 +87,7 @@ const CalendarDisplay = ({ dayText, dayMonth, tail, monthText }) => {
                 </div>
 
                 <div style={{
-                    height: "22px",
+                    height: "33px",
                     background: "white",
                     display: "flex",
                     flexDirection: "row",
