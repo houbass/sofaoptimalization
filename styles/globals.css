@@ -1273,7 +1273,7 @@ animation-delay: 2s;
   align-items: center;
   justify-content: space-between;
   color: black;
-  height: 80px;
+  padding: 10px;
 }
 
 .buttondiv > div {

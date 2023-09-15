@@ -36,7 +36,9 @@ console.log(myData[0])
             <div className="buttondiv">
                 <p>checkout to our latest release</p>
                 <p><strong>{myData[0]?.artists} - {myData[0]?.trackname}</strong></p>
-                <div>
+                <div style={{
+                    marginTop: "10px"
+                }}>
                     <a href={myData[0]?.spotifylink} target="_blank">
                         <Image className="iconRoaster" src={Spotify} />
                     </a>
