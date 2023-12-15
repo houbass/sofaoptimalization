@@ -135,7 +135,7 @@ const AdminLogIn = ({ setShowContent, setShowContentOpacity, getData }) => {
     },[getData])
 
     //kontrole kdo je nalogován (?) znamená že když nejsou data tak skipne
-        console.log(auth?.currentUser?.email + " is logged in");
+        //console.log(auth?.currentUser?.email + " is logged in");
     return(
         <div className='adminpage'>
         <div className='logoutbutton'>

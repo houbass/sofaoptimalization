@@ -20,9 +20,6 @@ const AddNewRelease = ({ myData, refresh, setRefresh }) => {
     const [actualIndex, setActualIndex] = useState(null); 
     const [submitButtonVisibility, setSubmitButtonVisibility] = useState("hidden");   
 
-    //PASSING GLOBAL SETTINGS
-    //const {myData, refresh, setRefresh } = useContext(GlobalStates);
-
 
     //NEW RELEASE
     const contentCollectionRef = collection(db, "content");
@@ -56,10 +53,8 @@ const AddNewRelease = ({ myData, refresh, setRefresh }) => {
     //AUTOMATIC RELEASES INDEXING
     const getDataIndex =  () => {
         const index = myData[0]?.releaseindex;
-        console.log(index);
         if(index === undefined){
             setActualIndex(1);
-            console.log("yo");
         }else{
             setActualIndex(Number(index) + 1);
         }
@@ -80,7 +75,6 @@ const AddNewRelease = ({ myData, refresh, setRefresh }) => {
         addDeezerLink === ""  || 
         addReleaseDate === ""  
         ){
-            console.log("EMPTY");
             setSubmitButtonVisibility("hidden");
 
         }else{

@@ -13,19 +13,29 @@ import Roaster from "@/components/Roaster";
 //SERVER SIDER RENDER (firebase data)
 export async function getServerSideProps() {
   const contentCollectionRef = collection(db, "content");
+  const contentCollectionRef2 = collection(db, "streamingurl");
 
   // Fetch data from external API
   const res = await getDocs(contentCollectionRef);
+  const data2 = await getDocs(contentCollectionRef2);
+
   const filteredData = res.docs.map((doc) => ({
       ...doc.data(), 
       id: doc.id, 
   }));
+
+  const filteredData2 = data2.docs.map((doc) => ({
+    ...doc.data(), 
+    id: doc.id, 
+  }));
  
   // Pass data to the page via props
-  return { props: { filteredData } }
+  return { props: { filteredData, filteredData2 } }
 }
 
-export default function RoasterPage({ filteredData }) {
+export default function RoasterPage({ filteredData, filteredData2 }) {
+
+  console.log(filteredData2[0]?.url)
 
     return(
         <>
@@ -89,7 +99,7 @@ export default function RoasterPage({ filteredData }) {
         style={{
 
         }}>
-            <Roaster filteredData={filteredData} />
+            <Roaster filteredData={filteredData} filteredData2={filteredData2}/>
         </main>
         </>
     )

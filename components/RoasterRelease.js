@@ -28,8 +28,6 @@ export default function RoasterRelease({ filteredData }) {
     useLayoutEffect(() => {
         setMyData(filteredData);
     }, [sorting]);
-
-console.log(myData[0])
     
     return(
         <>
@@ -40,15 +38,15 @@ console.log(myData[0])
                     marginTop: "10px"
                 }}>
                     <a href={myData[0]?.spotifylink} target="_blank">
-                        <Image className="iconRoaster" src={Spotify} />
+                        <Image className="iconRoaster" src={Spotify} alt="spotify" />
                     </a>
 
                     <a href={myData[0]?.ituneslink} target="_blank">
-                        <Image className="iconRoaster" src={Apple} />
+                        <Image className="iconRoaster" src={Apple} alt="apple"/>
                     </a>
 
                     <a href={myData[0]?.deezerlink} target="_blank">
-                        <Image className="iconRoaster" src={Deezer} />
+                        <Image className="iconRoaster" src={Deezer} alt="deezer"/>
                     </a>
                 </div>
             </div>

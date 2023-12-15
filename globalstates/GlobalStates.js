@@ -17,10 +17,8 @@ export const GlobalStatesProvider = ({ children }) => {
       || navigator.userAgent.match(/iPod/i)
       || navigator.userAgent.match(/BlackBerry/i)
       || navigator.userAgent.match(/Windows Phone/i)) {
-        console.log("ITS MOBILE")
         setMobile(true);
       } else {
-        console.log("ITS COMPUTER")
         setMobile(false);
       }
     }, [])

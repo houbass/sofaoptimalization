@@ -29,10 +29,8 @@ const Spotifyplayer = () => {
         const pageHref = window.location.pathname;
         if(pageHref === "/roaster" || pageHref === "/admin" || pageHref === "/admin/contracts"){
             setSpotifyVisibility("hidden");
-            console.log("HIDDEN");
         }else{
             setSpotifyVisibility("visible");
-            console.log("VISSIBLE");
         }
     })
 

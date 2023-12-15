@@ -22,6 +22,7 @@ import { getDocs, collection, addDoc, deleteDoc, updateDoc, doc } from "firebase
 import AdminLogIn from '@/components/AdminLogIn';
 import AddNewRelease from '@/components/AddNewRelease';
 import AdminContent from '@/components/AdminContent';
+import EditStramingUrl from '@/components/EditStramingUrl';
 
 
 
@@ -35,25 +36,35 @@ const Admin = () => {
     const [refresh, setRefresh] = useState(false);
 
     //FETCHING RELEASES FROM DATABASE
-    //definice collekce databaze
     const [myData, setMyData] = useState([]);
+    const [myData2, setMyData2] = useState([]);
 
     //LOADER STATE
     const [loaderState, setLoaderState] = useState(false);
 
     //data z databaze
     const contentCollectionRef = collection(db, "content");
+    const contentCollectionRef2 = collection(db, "streamingurl");
 
     //GET DATA FROM DATABASE
     const getData = async () => {
     setLoaderState(true);
     try {
       const data = await getDocs(contentCollectionRef);
+      const data2 = await getDocs(contentCollectionRef2);
+
       const filteredData = data.docs.map((doc) => ({
         ...doc.data(), 
         id: doc.id, 
       }));
       setMyData(filteredData);
+
+      const filteredData2 = data2.docs.map((doc) => ({
+        ...doc.data(), 
+        id: doc.id, 
+      }));
+      setMyData2(filteredData2);
+
       setLoaderState(false);
     } 
     catch (err) {
@@ -77,8 +88,6 @@ const Admin = () => {
     useEffect(() => {
       sorting();
     }, [myData]);
-
-
 
     return(
       
@@ -112,6 +121,12 @@ const Admin = () => {
                         myData={myData} 
                         refresh={refresh} 
                         setRefresh={setRefresh}
+                    />
+
+                    <EditStramingUrl 
+                      myData={myData2} 
+                      refresh={refresh} 
+                      setRefresh={setRefresh}
                     />
                     <AdminContent 
                         myData={myData} 
