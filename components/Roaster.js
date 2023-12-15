@@ -50,19 +50,19 @@ export default function Roaster({ filteredData, filteredData2 }) {
                 width: "80%"
             }}>
                 <div className="icon">
-                    <a href="https://open.spotify.com/user/3172sefla554nzu4bpuk3o3ysjme?si=99f3d22c46564509" target="_blank"><Image className="iconImg" src={Spotify2} alt="spotify" /></a>
+                    <a href="https://open.spotify.com/user/3172sefla554nzu4bpuk3o3ysjme" target="_blank"><Image className="iconImg" src={Spotify2} alt="spotify" /></a>
                 </div>
 
                 <div className="icon">
-                    <a href="https://www.youtube.com/channel/UCVDaWGsukHQo677tAfySD6g" target="_blank"><Image width={90} className="iconImg" src={Youtube} alt="youtube" /></a>
+                    <a href="https://www.youtube.com/@sofalofi" target="_blank"><Image width={90} className="iconImg" src={Youtube} alt="youtube" /></a>
                 </div>
 
                 <div className="icon">
-                    <a href="https://www.instagram.com/sofalofi_rec/" target="_blank"><Image className="iconImg" src={Instagram} alt="instagram"/></a>
+                    <a href="https://www.instagram.com/sofalofi_rec" target="_blank"><Image className="iconImg" src={Instagram} alt="instagram"/></a>
                 </div>
         
                 <div className="icon">
-                    <a href="https://www.facebook.com/sofalofirec/" target="_blank"><Image className="iconImg" src={Facebook} alt="facebook" /></a>
+                    <a href="https://www.facebook.com/sofalofirec" target="_blank"><Image className="iconImg" src={Facebook} alt="facebook" /></a>
                 </div>
             </div>
         </div>
