@@ -21,7 +21,7 @@ export default function Roaster({ filteredData, filteredData2 }) {
         }}>
             <RoasterRelease filteredData={filteredData} />
 
-            <Link className="roasterlink" href="https://open.spotify.com/playlist/6so9XlkasaOqQFNghgzUX5?si=1dc2f69d937b4fcb" target="_blank" >
+            <Link className="roasterlink" href="https://open.spotify.com/playlist/6so9XlkasaOqQFNghgzUX5" target="_blank" >
                 <button className="roasterbtn">🎵 Listen to our Spotify playlist</button>
             </Link>
 
