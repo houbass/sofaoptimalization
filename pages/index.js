@@ -13,17 +13,39 @@ import Topic1 from '@/components/mainpage/Topic1'
 import Topic2 from '@/components/mainpage/Topic2'
 import Topic3 from '@/components/mainpage/Topic3'
 import Topic4 from '@/components/mainpage/Topic4'
+import LiveStream from '@/components/mainpage/LiveStream';
 import Footer from '@/components/mainpage/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+
+//firebase database
+import { db, storage } from "config/firebase";
+import { getDocs, collection, addDoc, deleteDoc, updateDoc, doc } from "firebase/firestore";
+
+
+//SERVER SIDER RENDER (firebase data)
+export async function getServerSideProps() {
+  const contentCollectionRef2 = collection(db, "streamingurl");
+
+  // Fetch data from external API
+  const data2 = await getDocs(contentCollectionRef2);
+
+  const streamUrl = data2.docs.map((doc) => ({
+    ...doc.data(), 
+    id: doc.id, 
+  }));
+ 
+  // Pass data to the page via props
+  return { props: { streamUrl } }
+}
+
+
+
+export default function Home({ streamUrl }) {
 
   //SETTINGS
   const maxWidth = 1000;
-
-  //last v. 30/07/23 12:30
-
 
   return (
     <>
@@ -188,7 +210,9 @@ export default function Home() {
           </div>
 
           <Topic1 />
+          <LiveStream streamUrl={streamUrl}/>
           <Topic2 />
+
           <Topic3 />
           <Topic4 />
           <Footer />

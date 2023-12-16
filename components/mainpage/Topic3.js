@@ -38,10 +38,15 @@ const Topic3 = () => {
           <div 
           className='maincardsAnimation'
           style={{
-            width: "90%",
-            backgroundImage: `url(${backgroundPic2.src})`,
-            borderRadius: "0 20px 20px 0",
+            display: "flex",
+            flexDirection: "col",
+            justifyContent: "right",
             marginTop: "80px",
+            width: "100%",
+            maxWidth: "90%",
+            marginLeft: "10%",
+            backgroundImage: `url(${backgroundPic2.src})`,
+            borderRadius: "20px 0px 0px 20px",
           }}>
 
             <div className='mainpageCards'>

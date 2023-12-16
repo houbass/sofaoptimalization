@@ -5,7 +5,7 @@ import Link from "next/link";
 import Lottie from "lottie-react";
 
 //LOTTIE DATA
-import topic2Animation from "@/components/lottieanimations/music.json";
+import topic2Animation from "@/components/lottieanimations/livestream.json";
 
 //GLOBALSTATES
 import { GlobalStates } from '@/globalstates/GlobalStates'
@@ -13,7 +13,11 @@ import { GlobalStates } from '@/globalstates/GlobalStates'
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg"
 
-const Topic2 = () => {
+
+
+
+
+const LiveStream = ({ streamUrl }) => {
 
     //PASSING GLOBAL SETTINGS
     const { mobile } = useContext(GlobalStates);
@@ -43,21 +47,22 @@ const Topic2 = () => {
             marginTop: "80px",
             width: "100%",
             maxWidth: "90%",
-            marginRight: "10%",
+            marginLeft: "10%",
             backgroundImage: `url(${backgroundPic2.src})`,
-            borderRadius: "0px 20px 20px 0px",
+            borderRadius: "20px 0px 0px 20px",
           }}>
             <div>
               <div className='mainpageCards-reverse'>
+
                 <div>
-                  <h1 className='mainpageTitles'>Check out latest Sofa Lofi music</h1>
+                  <h1 className='mainpageTitles'>We are streaming 24/7 on Youtube</h1>
                   <div style={{maxWidth: "600px"}}>     
                     <p className="mainpageP">
-                    Let’s check our regular monday releases from the finests lofi producers.
+                    Wanna hear music without interuption? Let’s check our 24/7 Youtube live stream.
                     </p>
-                    <Link href="/releases">
-                      <button className="nicebutton mt" >check them all</button>
-                    </Link>
+                    <a href={streamUrl[0].url} target="_blank">
+                      <button className="nicebutton mt" >listen to it now</button>
+                    </a>
                   </div>
                 </div>
 
@@ -76,6 +81,9 @@ const Topic2 = () => {
                   animationData={topic2Animation} 
                   />
                 </div>
+
+
+                
               </div>
               
             </div>
@@ -84,4 +92,4 @@ const Topic2 = () => {
     )
 }
 
-export default Topic2;
+export default LiveStream;

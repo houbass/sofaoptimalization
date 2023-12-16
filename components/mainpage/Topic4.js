@@ -40,13 +40,19 @@ const Topic4 = () => {
             display: "flex",
             flexDirection: "row",
             justifyContent: "right",
-            marginTop: "80px",
+            //marginTop: "80px",
           }}>
             <div
             style={{
-              width: "90%",
+              display: "flex",
+              flexDirection: "col",
+              justifyContent: "right",
+              marginTop: "80px",
+              width: "100%",
+              maxWidth: "90%",
+              marginRight: "10%",
               backgroundImage: `url(${backgroundPic2.src})`,
-              borderRadius: "20px 0px 0px 20px",
+              borderRadius: "0px 20px 20px 0px",
             }}>
 
               <div className='mainpageCards-reverse'>

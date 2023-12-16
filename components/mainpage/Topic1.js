@@ -51,9 +51,7 @@ const Topic1 = () => {
                   animationData={topic1Animation} 
           />
 
-              <div 
-              style={{
-              }}>
+              <div >
                 <h1 className='mainpageTitles' >Listen to our playlist</h1>
                 <div style={{maxWidth: "600px"}}>     
                   <p className="mainpageP" >We are a music label with a taste for lofi hip hop, 

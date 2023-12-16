@@ -26,21 +26,29 @@ const inter = Inter({ subsets: ['latin'] })
 
 //SERVER SIDER RENDER (firebase data)
 export async function getServerSideProps() {
-    const contentCollectionRef = collection(db, "content");
+  const contentCollectionRef = collection(db, "content");
+  const contentCollectionRef2 = collection(db, "streamingurl");
 
-    // Fetch data from external API
-    const res = await getDocs(contentCollectionRef);
-    const filteredData = res.docs.map((doc) => ({
-        ...doc.data(), 
-        id: doc.id, 
-    }));
-   
-    // Pass data to the page via props
-    return { props: { filteredData } }
-  }
+  // Fetch data from external API
+  const res = await getDocs(contentCollectionRef);
+  const data2 = await getDocs(contentCollectionRef2);
+
+  const filteredData = res.docs.map((doc) => ({
+      ...doc.data(), 
+      id: doc.id, 
+  }));
+
+  const filteredData2 = data2.docs.map((doc) => ({
+    ...doc.data(), 
+    id: doc.id, 
+  }));
+ 
+  // Pass data to the page via props
+  return { props: { filteredData, filteredData2 } }
+}
 
 
-const ReleasesPage = ({ filteredData }) => {
+const ReleasesPage = ({ filteredData, filteredData2 }) => {
 
     return(
         <>
@@ -205,9 +213,12 @@ const ReleasesPage = ({ filteredData }) => {
                         <Releases filteredData={filteredData}/>
                         <div className='brush center mt'>
                             <h2>wanna hear more?</h2>
-                            <p>check out Sofa Lofi Releases playlist</p>
+                            <p>check out Sofa Lofi Releases playlist or our 24/7 Youtube live stream</p>
                             <a href="https://open.spotify.com/playlist/6xYInAFbEiRecBuFYqXvK7?si=6ed439a031744eed" target="_blank">
-                                <button className="nicebutton mt" >listen to it now</button>
+                                <button className="nicebutton mt" >playlist</button>
+                            </a>
+                            <a href={filteredData2[0].url} target="_blank">
+                                <button className="nicebutton mt" >live stream</button>
                             </a>
                         </div>
 
