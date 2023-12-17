@@ -1,4 +1,4 @@
-const apiKey = process.env.REACT_APP_API_KEY;
+const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
 console.log('API Key:', apiKey);
 
