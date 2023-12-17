@@ -226,7 +226,7 @@ const SubmitdemoV2 = () => {
           gap: "10px"
         }}>
           <input onChange={() => setNewsletter(!newsletter)} type='checkbox' />
-          <p>subscibe me for Sofa Lofi newsletter</p>
+          <p>subscribe me for Sofa Lofi newsletter</p>
         </div>
 
         <div className="inputRow mb mt">
