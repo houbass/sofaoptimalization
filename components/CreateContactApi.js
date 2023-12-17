@@ -1,4 +1,4 @@
-const apiKey = process.env.REACT_APP_API_KEY;
+//const apiKey = process.env.REACT_APP_API_KEY;
 
 //CREATE NEW CONTACT
 async function createContact(email) {
@@ -7,7 +7,7 @@ async function createContact(email) {
         headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'api-key': apiKey
+        'api-key': "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"
         },
         body: JSON.stringify({
         email: email,
@@ -38,7 +38,7 @@ async function getContacts() {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'api-key': apiKey
+            'api-key': "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"
         },
     };
     try {
