@@ -71,7 +71,7 @@ const Subscribe = () => {
               </div>
 
               <div>
-                <h1 className='mainpageTitles'>Don't miss a thing</h1>
+                <h1 className='mainpageTitles'>Don’t miss a thing</h1>
                 <div style={{maxWidth: "600px"}}>     
                   <p className="mainpageP">Do you wanna get notified about new releases, competitions and much more? Subscribe our newsletter now.
                   </p>
