@@ -268,7 +268,7 @@ const Navbar = () => {
                     </Link>
 
                     <Link href="/submit">
-                        <button onClick={burgerLinkClickFun}>SUBMIT MUSIC</button>
+                    <button onClick={burgerLinkClickFun}>SUBMIT MUSIC</button>
                     </Link>
 
                     <Link href="/workplace">

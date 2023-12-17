@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import Image from 'next/image';
 import Script from 'next/script';
 
+
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg"
 import backgroundPic3 from "@/components/pic/background3_v3.webp"
@@ -14,6 +15,7 @@ import Topic2 from '@/components/mainpage/Topic2'
 import Topic3 from '@/components/mainpage/Topic3'
 import Topic4 from '@/components/mainpage/Topic4'
 import LiveStream from '@/components/mainpage/LiveStream';
+import Subscribe from '@/components/mainpage/Subscribe';
 import Footer from '@/components/mainpage/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -39,7 +41,6 @@ export async function getServerSideProps() {
   // Pass data to the page via props
   return { props: { streamUrl } }
 }
-
 
 
 export default function Home({ streamUrl }) {
@@ -212,9 +213,10 @@ export default function Home({ streamUrl }) {
           <Topic1 />
           <LiveStream streamUrl={streamUrl}/>
           <Topic2 />
-
           <Topic3 />
           <Topic4 />
+          <Subscribe />
+
           <Footer />
 
         </div>

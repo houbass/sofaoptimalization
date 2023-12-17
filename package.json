@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
+    "@sendinblue/client": "^3.3.1",
     "animejs": "^3.2.1",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.2",
@@ -24,6 +25,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.45.1",
+    "sib-api-v3-sdk": "^4.0.0",
+    "sib-api-v3-typescript": "^2.2.2",
     "use-local-storage": "^3.0.0",
     "use-local-storage-state": "^18.3.3"
   }

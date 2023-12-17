@@ -36,8 +36,6 @@ const Playlist = () => {
         }else{
             setHeight(pageRef.current.offsetTop + pageRef.current.offsetHeight)
         }
-
-        console.log("resizing")
     }
 
     //set height for frame

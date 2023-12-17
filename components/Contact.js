@@ -13,6 +13,7 @@ import Youtube from "./pic/icons/youtube.svg";
 
 //components
 import Thanksmsg from "./Thanksmsg";
+import {subscribe} from "./CreateContactApi";
 
 const Contact = () => {
 
@@ -27,6 +28,8 @@ const Contact = () => {
 
   const [formVisibility, setFormVisibility] = useState("visible");
   const [thanksVisibility, setThanksVisibility] = useState("hidden");
+
+  const [newsletter, setNewsletter] = useState(false);
 
   const name = useRef();
   const mail = useRef();
@@ -91,6 +94,11 @@ const Contact = () => {
 
       await emailjs.send("service_sw0l5ng", "template_myc9xzg", formdata, "B79QzheXw7xK4gIqG")
       .then((result) => {
+
+        if(newsletter === true) {
+          subscribe(mail.current.value);
+        }
+
         name.current.value = "";
         mail.current.value = "";
         message.current.value = "";
@@ -121,10 +129,7 @@ const Contact = () => {
       });
   }
 
-
   }
-
-
 
   return (
     <>
@@ -181,6 +186,19 @@ const Contact = () => {
           ref={message}
           />
           <p className='error'>{errMessage}</p>
+        </div>
+
+        <div className="courier"
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "left",
+          alignItems: "center",
+          //background: "orange",
+          gap: "10px"
+        }}>
+          <input onChange={() => setNewsletter(!newsletter)} type='checkbox' />
+          <p>subscibe me for Sofa Lofi newsletter</p>
         </div>
 
         <div className="inputRow mb mt">

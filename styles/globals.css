@@ -281,7 +281,7 @@ fieldset {
   
 }
 
-input {
+.input {
   font-size: 15px;
   width: 100%;
   padding: 5px;
@@ -309,6 +309,22 @@ label {
 .nicebutton:hover {
   background: rgba(247, 58, 58, 0.8);
   color: rgb(255, 255, 255);
+}
+
+.nicebutton2 {
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  background: rgba(247, 58, 58, 0.8);
+  color: rgb(255, 255, 255);
+  transition: 0.2s ease-in-out;
+}
+
+.nicebutton2:hover {
+  background: rgb(255, 255, 255);
+  color: black;
 }
 
 
@@ -493,7 +509,7 @@ label {
   display: flex;
   flex-direction: column;
   height: 60px;
-  background: rgba(20,20,20,0.8);
+
   justify-content: space-around;
   align-items: left;
   color: white;

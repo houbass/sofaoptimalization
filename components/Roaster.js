@@ -9,9 +9,13 @@ import Youtube from "components/pic/icons/youtube_white.svg";
 
 //components
 import RoasterRelease from "./RoasterRelease";
+import Subscribtion from './Subscribtion';
+import { useState } from "react";
 
 export default function Roaster({ filteredData, filteredData2 }) {
 
+    const [formVisibility, setFormVisibility] = useState("hidden");
+    
     return(
         <>
         <div 
@@ -41,6 +45,11 @@ export default function Roaster({ filteredData, filteredData2 }) {
             <Link className="roasterlink" href="./" >
                 <button className="roasterbtn">💻 Website</button>  
             </Link>    
+
+
+            <button className="roasterbtn" onClick={() => setFormVisibility("visible")}>🔔 Subscribe to the newsletter</button>
+            <Subscribtion formVisibility={formVisibility} setFormVisibility={setFormVisibility}/>  
+
 
             <div 
             style={{

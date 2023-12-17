@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser';
 
 //components
 import Thanksdemo from './Thanksdemo';
+import {subscribe} from "./CreateContactApi";
 
 const SubmitdemoV2 = () => {
 
@@ -18,6 +19,9 @@ const SubmitdemoV2 = () => {
 
   const [formVisibility, setFormVisibility] = useState("visible");
   const [thanksVisibility, setThanksVisibility] = useState("hidden");
+
+  const [newsletter, setNewsletter] = useState(false);
+
 
   const name = useRef();
   const mail = useRef();
@@ -90,6 +94,12 @@ const SubmitdemoV2 = () => {
 
       await emailjs.send("service_za1xlkr", "template_mdryrxo", formdata, "BpUJsAuZF7Y43-jj1")
       .then((result) => {
+        
+        if(newsletter === true) {
+          subscribe(mail.current.value);
+        }
+
+
         name.current.value = "";
         mail.current.value = "";
         link.current.value = "";
@@ -125,7 +135,6 @@ const SubmitdemoV2 = () => {
 
 
   }
-
 
 
   return (
@@ -207,16 +216,29 @@ const SubmitdemoV2 = () => {
           <p className='error'>{errMessage}</p>
         </div>
 
+        <div className="courier"
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "left",
+          alignItems: "center",
+          //background: "orange",
+          gap: "10px"
+        }}>
+          <input onChange={() => setNewsletter(!newsletter)} type='checkbox' />
+          <p>subscibe me for Sofa Lofi newsletter</p>
+        </div>
+
         <div className="inputRow mb mt">
         <button 
           style={{opacity: "visible", width: "100px"}} 
           className="nicebutton" 
           onClick={submit} 
-      >
-        <i class={btnClass2}></i>
-        {btnText}
-      </button>
-      <br/>
+        >
+          <i class={btnClass2}></i>
+          {btnText}
+        </button>
+        <br/>
       
 
         </div>

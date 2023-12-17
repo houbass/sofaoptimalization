@@ -58,7 +58,7 @@ const LiveStream = ({ streamUrl }) => {
                   <h1 className='mainpageTitles'>We are streaming 24/7 on Youtube</h1>
                   <div style={{maxWidth: "600px"}}>     
                     <p className="mainpageP">
-                    Wanna hear music without interuption? Let’s check our 24/7 Youtube live stream.
+                    Wanna listen music without interuption and advertises? Let’s check out our 24/7 Youtube live stream.
                     </p>
                     <a href={streamUrl[0].url} target="_blank">
                       <button className="nicebutton mt" >listen to it now</button>
