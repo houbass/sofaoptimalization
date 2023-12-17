@@ -47,7 +47,7 @@ export default function Roaster({ filteredData, filteredData2 }) {
             </Link>    
 
 
-            <button className="roasterbtn" onClick={() => setFormVisibility("visible")}>🔔 Subscribe to the newsletter</button>
+            <button className="roasterbtn" onClick={() => setFormVisibility("showAnim")}>🔔 Subscribe to the newsletter</button>
             <Subscribtion formVisibility={formVisibility} setFormVisibility={setFormVisibility}/>  
 
 

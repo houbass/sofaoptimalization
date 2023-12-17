@@ -76,7 +76,7 @@ const Subscribe = () => {
                   <p className="mainpageP">Do you wanna get notified about new releases, competitions and much more? Subscribe our newsletter now.
                   </p>
 
-                  <button className="nicebutton mt" onClick={() => setFormVisibility("visible")} >subscribe</button>
+                  <button className="nicebutton mt" onClick={() => setFormVisibility("showAnim")} >subscribe</button>
                 
                 </div>
               </div>

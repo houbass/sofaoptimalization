@@ -327,6 +327,25 @@ label {
   color: black;
 }
 
+.nicebutton3 {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 30px;
+  font-weight: bold;
+  border: none;
+  background: none;
+  color: rgb(255, 255, 255);
+  transition: 0.2s ease-in-out;
+  rotate: 45deg;
+  text-align: center;
+}
+
+.nicebutton3:hover {
+  color: rgba(247, 58, 58, 0.8);
+
+}
+
 
 .mt {
   margin-top: 20px;
@@ -554,6 +573,17 @@ label {
 .error {
   color: rgb(252, 75, 75);
   background: rgba(0,0,0,0.3);
+  border-radius: 10%;
+  width: fit-content;
+  font-size: 15px;
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 15px;
+  padding-right: 5px;
+}
+
+.error2 {
+  color: rgb(252, 75, 75);
   border-radius: 10%;
   width: fit-content;
   font-size: 15px;
@@ -1325,5 +1355,55 @@ animation-delay: 2s;
   .adminmenu{
     flex-direction: row;
     top: 15px
+  }
+}
+
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.showAnim {
+  visibility: hidden;
+  opacity: 0;
+  animation: showTrans 0.5s forwards;
+}
+
+@keyframes showTrans {
+  0%{
+    visibility: visible;
+    opacity: 0;
+  }
+  1%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.hideAnim {
+  visibility: visible;
+  opacity: 1;
+  animation: hideTrans 0.5s forwards;
+}
+
+@keyframes hideTrans {
+  0%{
+    opacity: 1;
+  }
+  99%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 0;
+    visibility: hidden;
   }
 }
