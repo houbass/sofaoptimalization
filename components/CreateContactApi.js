@@ -1,7 +1,5 @@
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
-console.log('API Key:', apiKey);
-
 //CREATE NEW CONTACT
 async function createContact(email) {
     const options = {
