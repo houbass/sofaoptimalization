@@ -1,3 +1,4 @@
+const apiKey = process.env.NEXT_PUBLIC_SECOND_API_KEY;
 
 import { initializeApp } from "firebase/app";
 //import { getAnalytics } from "firebase/analytics";
@@ -12,7 +13,7 @@ import{ getFirestore } from "firebase/firestore";
 import{ getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD_jBgvwSWJbP2_P_civBenTF73AIKtG2I",
+  apiKey: apiKey,
   authDomain: "sofalofi.firebaseapp.com",
   projectId: "sofalofi",
   storageBucket: "sofalofi.appspot.com",
