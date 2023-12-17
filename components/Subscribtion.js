@@ -102,7 +102,7 @@ export default function Subscribtion({ formVisibility, setFormVisibility }) {
                 style={{
                     padding: "0px 40px 40px 40px",
                 }}>
-                    <p className='error2' style={{ marginBottom: "20px", minHeight:"20px"}}>{errText}</p>
+                    <p className='error2' style={{ marginBottom: "10px", minHeight:"20px"}}>{errText}</p>
                     <input 
                     style={{ marginBottom: "20px"}}
                     className="input length courier"  
