@@ -13,7 +13,7 @@ import Youtube from "./pic/icons/youtube.svg";
 
 //components
 import Thanksmsg from "./Thanksmsg";
-import {subscribe} from "./CreateContactApi";
+import {subscribe} from "../config/CreateContactApi";
 
 const Contact = () => {
 

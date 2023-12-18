@@ -4,7 +4,7 @@ import emailjs from '@emailjs/browser';
 
 //components
 import Thanksdemo from './Thanksdemo';
-import {subscribe} from "./CreateContactApi";
+import {subscribe} from "../config/CreateContactApi";
 
 const Playlistsubmit = () => {
 

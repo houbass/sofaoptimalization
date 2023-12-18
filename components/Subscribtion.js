@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 //components
-import {subscribe} from "./CreateContactApi";
+import {subscribe} from "../config/CreateContactApi";
 
 
 export default function Subscribtion({ formVisibility, setFormVisibility }) {
