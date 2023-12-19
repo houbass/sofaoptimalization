@@ -15,6 +15,7 @@ export default function Subscribtion({ formVisibility, setFormVisibility }) {
     const [btnText, setBtnText] = useState("subscribe");
 
 
+    //SEND AND CHECK SUBSCRIBED EMAIL
     function subscribeNow() {
         setBtnClass2("fa fa-spinner fa-spin");
         setBtnText("")
@@ -48,27 +49,67 @@ export default function Subscribtion({ formVisibility, setFormVisibility }) {
           })
     }
 
+    //CLOSE TAB
     function close() {
         setFormVisibility("hideAnim");
         setErrText("");
     }
 
+    //CLOSE ON ESCP
+    function closeOnKey(e) {
+        if(e.key === "Escape") {
+            close()
+        }
+    }
+
+    //ADDING EVENT LISTENER
+    useEffect(() => {
+        window.addEventListener("keydown", closeOnKey);
+
+        return () => {
+            window.removeEventListener("keydown", closeOnKey);
+        }
+    })
+
+
+
     return (
+        <>
+
         <div 
+        //onClick={close}
         className={formVisibility}
         style={{
             position: "fixed",
             top: "0",
             left: "0",
-            zIndex: 30,
+            zIndex: 5,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            background: "rgba(0,0,0,0.9)",
+            //background: "rgba(0,0,0,0.9)",
+            //background: "orange",
             width: "100%",
             height: "100vh",
         }}>
+            <div 
+            onClick={close}
+            style={{
+                background: "rgba(0,0,0,0.9)",
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
+                //maxWidth: "450px",
+                width: "100%",
+                height: "100vh",
+                transition: "0.5s",
+                //opacity: inputVisibility,
+                //border: "2px solid rgba(200,200,200)",
+                borderRadius: "25px",
+                position: "absolute",
+                zIndex: 6
+            }}></div>
             <div 
             style={{
                 background: "rgb(10,10,10)",
@@ -81,6 +122,8 @@ export default function Subscribtion({ formVisibility, setFormVisibility }) {
                 opacity: inputVisibility,
                 border: "2px solid rgba(200,200,200)",
                 borderRadius: "25px",
+                position: "absolute",
+                zIndex: 7
             }}>
                 <div 
                 style={{
@@ -124,8 +167,10 @@ export default function Subscribtion({ formVisibility, setFormVisibility }) {
                 }}>
                     <p style={{marginBottom: "10px", fontSize: "50px", fontWeight: "bold", fontFamily: "'Caveat Brush', cursive"}}>Thank you for subscription :))</p>
             </div>
+            
 
         </div>
+        </>
     )
 }
 
