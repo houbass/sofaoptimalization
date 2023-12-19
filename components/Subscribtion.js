@@ -163,7 +163,8 @@ export default function Subscribtion({ formVisibility, setFormVisibility }) {
                     width: "100%", 
                     maxWidth: "300px", 
                     //visibility: "visible",
-                    textAlign: "center"
+                    textAlign: "center",
+                    zIndex: 8
                 }}>
                     <p style={{marginBottom: "10px", fontSize: "50px", fontWeight: "bold", fontFamily: "'Caveat Brush', cursive"}}>Thank you for subscription :))</p>
             </div>

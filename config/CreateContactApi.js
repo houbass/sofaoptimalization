@@ -10,8 +10,8 @@ async function createContact(email) {
         'api-key': apiKey
         },
         body: JSON.stringify({
-        email: email,
-        updateEnabled: false
+            email: email,
+            updateEnabled: false
         }),
     };
     try {
@@ -26,7 +26,38 @@ async function createContact(email) {
         //console.log("CONTACT CREATED SUCCESFULLY")
     
     } catch (error) {
-        //console.error('Error creating contact:', error);
+        console.error('Error creating contact:', error);
+    }
+}
+
+//CREATE NEW CONTACT
+async function updateContact(email) {
+    const options = {
+        method: 'POST',
+        headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'api-key': apiKey
+        },
+        body: JSON.stringify({
+            email: email,
+            emailBlacklisted: false,
+            updateEnabled: true
+        }),
+    };
+    try {
+        const response = await fetch('https://api.brevo.com/v3/contacts', options);
+    
+        // Check if the request was successful (status code 2xx)
+        if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+    
+        //const data = await response.json();
+        //console.log("CONTACT CREATED SUCCESFULLY")
+    
+    } catch (error) {
+        console.error('Error creating contact:', error);
     }
 }
 
@@ -64,15 +95,22 @@ export async function subscribe(email) {
             const contactsData = await getContacts()
             const existingContacts = contactsData.contacts.map(e => e.email);
             const existStatus = existingContacts.includes(email.toLowerCase());
+            const blackList = contactsData.contacts.filter(e => e.email === email)[0]?.emailBlacklisted;
 
             if(existStatus === false) {
                 await createContact(email);
                 return "Thank you for subscription :))"
-            } else{
+            } else if(existStatus === true && blackList === true) {
+                await updateContact(email);
+                return "Thank you for subscription :))"
+            }
+            else{
                 return "*It looks that you are already subscribed";
             }
         } catch (error) {
+            
             return "SOMETHING WENT WRONG, CHECK YOUR INTERNET CONNECTION OR TRY IT AGAIN LATER";
+
         }
     } else{
         return "*Email is not valid";
