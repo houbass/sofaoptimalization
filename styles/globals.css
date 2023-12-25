@@ -1339,6 +1339,19 @@ animation-delay: 2s;
 
 }
 
+.iconRoasterYoutube {
+  width: 35px;
+  height: 35px;
+  transition: 0.2s;
+  cursor: pointer;
+
+}
+
+.iconRoasterYoutube:hover {
+  scale: 1.1;
+
+}
+
 .adminmenu {
   position: absolute;
   display: flex;

@@ -7,6 +7,7 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import Spotify from "@/pictures/spotify.png";
 import Apple from "@/pictures/apple.png";
 import Deezer from "@/pictures/deezer.png";
+import Youtube from "@/pictures/youtube.svg";
 
 
 export default function RoasterRelease({ filteredData }) {
@@ -35,10 +36,18 @@ export default function RoasterRelease({ filteredData }) {
                 <p>checkout to our latest release</p>
                 <p><strong>{myData[0]?.artists} - {myData[0]?.trackname}</strong></p>
                 <div style={{
-                    marginTop: "10px"
+                    marginTop: "10px",
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    justifyContent: "space-around"
                 }}>
                     <a href={myData[0]?.spotifylink} target="_blank">
                         <Image className="iconRoaster" src={Spotify} alt="spotify" />
+                    </a>
+
+                    <a href={myData[0].youtubelink} target="_blank">
+                        <Image className="iconRoasterYoutube" src={Youtube} alt="youtube"/>
                     </a>
 
                     <a href={myData[0]?.ituneslink} target="_blank">
