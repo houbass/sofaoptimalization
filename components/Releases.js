@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import Image from 'next/image';
 
 //import platform icons
@@ -85,8 +84,6 @@ const Releases = ({ filteredData }) => {
             <div 
             className="releasesFlex"
             style={{
-                //display: "flex",
-                //flexDirection: mobileFlex,
                 color: "black"
             }}>
 

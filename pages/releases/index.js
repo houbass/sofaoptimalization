@@ -1,8 +1,6 @@
-import { useEffect, useState, useContext, useRef } from 'react';
 
 //fonts and styles
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
 import Image from 'next/image';
 import Head from 'next/head';
 import Script from 'next/script';
@@ -11,8 +9,8 @@ import Script from 'next/script';
 import { motion } from 'framer-motion'
 
 //firebase database
-import { db, storage } from "config/firebase";
-import { getDocs, collection, addDoc, deleteDoc, updateDoc, doc } from "firebase/firestore";
+import { db } from "config/firebase";
+import { getDocs, collection } from "firebase/firestore";
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
@@ -110,7 +108,6 @@ const ReleasesPage = ({ filteredData, filteredData2 }) => {
         </Script>
 
         <div
-        
         style={{
             display: "flex",
             flexDirection: "column",
@@ -118,13 +115,11 @@ const ReleasesPage = ({ filteredData, filteredData2 }) => {
             width: "100%",
             height: "100vh",
             minHeight: "1550px",
-            //background:"orange"
         }}>
 
         <div 
         className='maincardsAnimation4 imgmargin' 
         style={{
-          //marginTop: "70px",
           maxWidth: "1000px",  
           width: "100%",
           position: "absolute",
@@ -137,8 +132,9 @@ const ReleasesPage = ({ filteredData, filteredData2 }) => {
           style={{
             height: "1550px"
           }}
-        src={backgroundPic4} 
-        placeholder='blur'>
+          src={backgroundPic4} 
+          alt="background"
+          placeholder='blur'>
           </Image>
 
         </div>
@@ -152,8 +148,6 @@ const ReleasesPage = ({ filteredData, filteredData2 }) => {
             color: "white",
             width: "100%",
             maxWidth: "1000px",
-            //background: "rgba(20,20, 20, 1)",
-            
             border: "solid 20px transparent",
             borderImage: `url(${backgroundPic2.src}) 20 round`,
             borderBottomStyle: "none",
@@ -179,7 +173,6 @@ const ReleasesPage = ({ filteredData, filteredData2 }) => {
                     ease: "easeInOut",
                 }}
                 style={{
-                    //background: "orange",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
@@ -192,9 +185,6 @@ const ReleasesPage = ({ filteredData, filteredData2 }) => {
                         flexDirection: "column",
                         marginTop: "50px",
                         alignItems: "center",
-                        //minHeight: "800px",
-                        //maxWidth: "680px",
-                        //width: "90%",
                         textAlign: "center",
                         background: "orange",
                         padding: "30px 15px",

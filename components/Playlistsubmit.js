@@ -221,7 +221,6 @@ const Playlistsubmit = () => {
           flexDirection: "row",
           justifyContent: "left",
           alignItems: "center",
-          //background: "orange",
           gap: "10px"
         }}>
           <input onChange={() => setNewsletter(!newsletter)} type='checkbox' />
@@ -234,7 +233,7 @@ const Playlistsubmit = () => {
           className="nicebutton" 
           onClick={submit} 
       >
-        <i class={btnClass2}></i>
+        <i className={btnClass2}></i>
         {btnText}
       </button>
       <br/>

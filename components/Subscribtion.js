@@ -152,7 +152,7 @@ export default function Subscribtion({ formVisibility, setFormVisibility }) {
                     placeholder='write your email here' 
                     onChange={(e) => setEmail(e.target.value)}
                     ></input>
-                    <button className='nicebutton2' onClick={subscribeNow}><i class={btnClass2}></i>{btnText}</button>
+                    <button className='nicebutton2' onClick={subscribeNow}><i className={btnClass2}></i>{btnText}</button>
                 </div>
             </div>
 

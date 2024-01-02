@@ -1,7 +1,4 @@
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Head from 'next/head'
 import Script from 'next/script'
@@ -16,37 +13,10 @@ import backgroundPic4 from "@/components/pic/background4_v3.webp";
 //components
 import Playlistsubmit from '@/components/Playlistsubmit'
 
-
 const inter = Inter({ subsets: ['latin'] })
 
 
 const Playlist = () => {
-
-    //pageref
-    const pageRef = useRef();
-
-    //const height = window.innerHeight;
-    const [height, setHeight] = useState(0);
-
-
-    //resize fun
-    function resizeFun() {
-        if(window.innerHeight > (pageRef.current.offsetTop + pageRef.current.offsetHeight)){
-            setHeight(window.innerHeight);
-        }else{
-            setHeight(pageRef.current.offsetTop + pageRef.current.offsetHeight)
-        }
-    }
-
-    //set height for frame
-    useEffect(() => {
-        resizeFun();
-        window.addEventListener("resize", resizeFun);
-
-        return () => {
-            window.removeEventListener("resize", resizeFun);
-        }
-    });
 
     return(
         <>
@@ -108,7 +78,6 @@ const Playlist = () => {
             `}
         </Script>
 
-
         <div
         style={{
             display: "flex",
@@ -122,7 +91,6 @@ const Playlist = () => {
         <div 
         className='maincardsAnimation4 imgmargin' 
         style={{
-          //marginTop: "70px",
           maxWidth: "1000px",  
           width: "100%",
           position: "absolute",
@@ -133,10 +101,10 @@ const Playlist = () => {
             <Image 
             className='submitImg' 
             style={{
-                //width: "1000px",
                 height: "1153px"
             }}
             src={backgroundPic4} 
+            alt='background'
             placeholder='blur'
             > 
             </Image>
@@ -152,8 +120,6 @@ const Playlist = () => {
             color: "white",
             width: "100%",
             maxWidth: "1000px",
-            //background: "rgba(20,20, 20, 1)",
-            
             border: "solid 20px transparent",
             borderImage: `url(${backgroundPic2.src}) 20 round`,
             borderBottomStyle: "none",
@@ -171,7 +137,6 @@ const Playlist = () => {
         className={`${inter.className}`}
         >
             <motion.div 
-                ref={pageRef} 
                 animate={{
                     opacity: [0, 1]
                 }}

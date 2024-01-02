@@ -699,6 +699,9 @@ label {
   }
 }
 
+.maincardsAnimationDefault {
+  opacity: 0;
+}
 
 
 .maincardsAnimation {
@@ -1087,6 +1090,17 @@ mark {
 
 }
 
+.textPathDefault {
+  stroke: #ffff;
+  font-size: 150px;
+  font-family: 'Caveat Brush', cursive;
+  stroke-width: 3px;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  fill: transparent;
+  opacity: 0;
+}
+
 .textPath {
   stroke: #ffff;
   font-size: 150px;
@@ -1096,7 +1110,6 @@ mark {
   stroke-dashoffset: 1000;
   fill: transparent;
   animation: dash 3s linear forwards;
-  transition: 1s;
 }
 
 
@@ -1134,13 +1147,17 @@ mark {
   margin-top: -70px;
 }
 
+.sofalofiAnimDefault{
+  opacity: 0;
+  font-size: 100px;
+  font-family: 'Caveat Brush', cursive;
+}
+
 
 .sofalofiAnim{
 opacity: 0;
 font-size: 100px;
 font-family: 'Caveat Brush', cursive;
-
-
 animation: sofatextAnim 3s forwards;
 animation-delay: 2s;
 }

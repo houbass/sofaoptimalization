@@ -22,7 +22,6 @@ const SubmitdemoV2 = () => {
 
   const [newsletter, setNewsletter] = useState(false);
 
-
   const name = useRef();
   const mail = useRef();
   const link = useRef();
@@ -99,7 +98,6 @@ const SubmitdemoV2 = () => {
           subscribe(mail.current.value);
         }
 
-
         name.current.value = "";
         mail.current.value = "";
         link.current.value = "";
@@ -131,20 +129,15 @@ const SubmitdemoV2 = () => {
 
           setErrText("PLEASE CHECK YOUR INTERNET CONNECTION AND TRY IT AGAIN")
       });
+    }
   }
-
-
-  }
-
 
   return (
-    <div style={{
-        //backgroundImage: `url(${backgroundPic2.src})`,    
+    <div style={{  
         background: "rgba(20,20,20,0.8)",  
         boxShadow: "0px 5px 40px rgba(0, 0, 0, 0.637)",
         display: "flex",
         flexDirection: "column",
-        //justifyContent: "center",
         alignItems: "center",
         maxWidth: "1000px",
         width: "90%",
@@ -222,7 +215,6 @@ const SubmitdemoV2 = () => {
           flexDirection: "row",
           justifyContent: "left",
           alignItems: "center",
-          //background: "orange",
           gap: "10px"
         }}>
           <input onChange={() => setNewsletter(!newsletter)} type='checkbox' />
@@ -235,7 +227,7 @@ const SubmitdemoV2 = () => {
           className="nicebutton" 
           onClick={submit} 
         >
-          <i class={btnClass2}></i>
+          <i className={btnClass2}></i>
           {btnText}
         </button>
         <br/>

@@ -1,4 +1,5 @@
-const apiKey = process.env.NEXT_PUBLIC_SECOND_API_KEY;
+//const apiKey = process.env.NEXT_PUBLIC_SECOND_API_KEY;
+const apiKey = "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";
 
 import { initializeApp } from "firebase/app";
 //import { getAnalytics } from "firebase/analytics";

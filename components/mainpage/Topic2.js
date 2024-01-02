@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import Link from "next/link";
 
 //LOTTIE LIB
@@ -10,10 +10,7 @@ import topic2Animation from "@/components/lottieanimations/music.json";
 //GLOBALSTATES
 import { GlobalStates } from '@/globalstates/GlobalStates'
 
-//pic 
-import backgroundPic2 from "@/components/pic/background2.svg"
-
-const Topic2 = () => {
+const Topic2 = ({ introClasses, backgroundPic2 }) => {
 
     //PASSING GLOBAL SETTINGS
     const { mobile } = useContext(GlobalStates);
@@ -35,7 +32,7 @@ const Topic2 = () => {
     return(
         <>
           <div 
-          className='maincardsAnimation'
+          className={introClasses[3]}
           style={{
             display: "flex",
             flexDirection: "col",

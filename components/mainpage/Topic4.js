@@ -10,10 +10,8 @@ import topic4Animation from "@/components/lottieanimations/production.json";
 //GLOBALSTATES
 import { GlobalStates } from '@/globalstates/GlobalStates'
 
-//pic 
-import backgroundPic2 from "@/components/pic/background2.svg"
 
-const Topic4 = () => {
+const Topic4 = ({ introClasses, backgroundPic2 }) => {
 
     //PASSING GLOBAL SETTINGS
     const { mobile } = useContext(GlobalStates);
@@ -35,7 +33,7 @@ const Topic4 = () => {
     return(
         <>
           <div 
-          className='maincardsAnimation'
+          className={introClasses[3]}
           style={{
             display: "flex",
             flexDirection: "row",
