@@ -1,7 +1,5 @@
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
-import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Head from 'next/head';
 import Script from 'next/script';
@@ -87,13 +85,11 @@ const Submit = () => {
             width: "100%",
             height: "100vh",
             minHeight: "1153px",
-            //background:"orange"
         }}>
 
         <div 
         className='maincardsAnimation4 imgmargin' 
         style={{
-          //marginTop: "70px",
           maxWidth: "1000px",  
           width: "100%",
           position: "absolute",
@@ -107,11 +103,10 @@ const Submit = () => {
             height: "1153px",
           }}
             src={backgroundPic4} 
+            alt='background'
             placeholder="blur"
             >
           </Image>
-
-
         </div>
 
         <div 
@@ -122,9 +117,7 @@ const Submit = () => {
             alignItems: "center",
             color: "white",
             width: "100%",
-            maxWidth: "1000px",
-            //background: "rgba(20,20, 20, 1)",
-            
+            maxWidth: "1000px",            
             border: "solid 20px transparent",
             borderImage: `url(${backgroundPic2.src}) 20 round`,
             borderBottomStyle: "none",
@@ -132,9 +125,6 @@ const Submit = () => {
             zIndex: "1",
         }}>
 
-
-
-        
         <main 
         style={{
             color: "white",
@@ -174,7 +164,6 @@ const Submit = () => {
                     <div 
                     className='brush submithover'
                     style={{
-                        //backgroundImage: `url(${backgroundPic2.src})`,
                         background: "rgba(20,20,20,0.8)", 
                         width: "270px",
                         height: "270px",
@@ -201,7 +190,6 @@ const Submit = () => {
                     <div 
                     className='brush submithover'
                     style={{
-                        //backgroundImage: `url(${backgroundPic2.src})`, 
                         background: "rgba(20,20,20,0.8)",
                         width: "270px",
                         height: "270px",
@@ -217,8 +205,6 @@ const Submit = () => {
                         <h2>PLAYLIST</h2>
                     </div>
                 </Link>
-
-
             </div>
             </motion.div>
         </main>

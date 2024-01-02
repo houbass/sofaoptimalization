@@ -1,14 +1,11 @@
-import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useLayoutEffect, useState } from "react";
-
+import { useLayoutEffect, useState } from "react";
 
 //import platform icons
 import Spotify from "@/pictures/spotify.png";
 import Apple from "@/pictures/apple.png";
 import Deezer from "@/pictures/deezer.png";
 import Youtube from "@/pictures/youtube.svg";
-
 
 export default function RoasterRelease({ filteredData }) {
 

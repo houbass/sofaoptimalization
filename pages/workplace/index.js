@@ -89,25 +89,22 @@ const Workplace = () => {
         <div 
         className='maincardsAnimation4 imgmargin' 
         style={{
-          //marginTop: "70px",
           maxWidth: "1000px",  
           width: "100%",
           position: "absolute",
           zIndex: "0",
-          //backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
         }}>
-          <Image 
-          className='submitImg'
-          style={{
-            height: "1300px"
-          }}
-        src={backgroundPic6} 
-        placeholder='blur'
-        >
-          </Image>
-
+            <Image 
+            className='submitImg'
+            style={{
+                height: "1300px"
+            }}
+            src={backgroundPic6} 
+            alt='background'
+            placeholder='blur'
+            >
+            </Image>
         </div>
-
 
         <div 
         style={{
@@ -144,8 +141,6 @@ const Workplace = () => {
         className={`${inter.className}`}
         style={{width: "100%"}}
         >
-
-
             <div 
             style={{
                 display: "flex",
@@ -153,12 +148,10 @@ const Workplace = () => {
                 justifyContent: "space-between",
                 marginTop: "70px",
                 padding: "0px 30px"
-
             }}>
                 <Clocks />
                 <Calendar />
             </div>
-
 
             <div 
             style={{
@@ -168,18 +161,14 @@ const Workplace = () => {
                 flexDirection: "column",
                 alignItems: "center"
             }}>
-
                 <Todos />
-
             </div>
 
         </main>
         </motion.div>
         </div>
-
         </div>
         </>
-
     )
 }
 

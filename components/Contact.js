@@ -1,8 +1,7 @@
 import Image from "next/image";
 
-
 //import emailJs
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import emailjs, { init, send } from '@emailjs/browser';
 
 //import platform icons
@@ -40,8 +39,6 @@ const Contact = () => {
     e.preventDefault()
 
     const emailcheck = mail.current.value.includes("@");
-
-    console.log(emailcheck);
     const formdata = {
       artistName: name.current.value,
       email: mail.current.value,
@@ -136,10 +133,8 @@ const Contact = () => {
     <div style={{
       maxWidth: "1000px",
       width: "90%",
-      
     }}>
     <div style={{
-        //backgroundImage: `url(${backgroundPic2.src})`,  
         background: "rgba(20,20,20,0.8)",      
         display: "flex",
         flexDirection: "column",
@@ -194,7 +189,6 @@ const Contact = () => {
           flexDirection: "row",
           justifyContent: "left",
           alignItems: "center",
-          //background: "orange",
           gap: "10px"
         }}>
           <input onChange={() => setNewsletter(!newsletter)} type='checkbox' />
@@ -207,7 +201,7 @@ const Contact = () => {
           className="nicebutton" 
           onClick={submit} 
       >
-        <i class={btnClass2}></i>
+        <i className={btnClass2}></i>
         {btnText}
       </button>
       <br/>
@@ -232,9 +226,7 @@ const Contact = () => {
               paddingTop: "5px",
               paddingBottom: "5px",
               visibility: formVisibility
-
               }}>
-  
               <div style={{
                   width: "100%",
                   maxWidth: "300px",
@@ -245,23 +237,23 @@ const Contact = () => {
                   }}>
 
                   <div className="icon">
-                      <a href="https://open.spotify.com/user/3172sefla554nzu4bpuk3o3ysjme?si=99f3d22c46564509" target="_blank"><Image className="iconImg" src={Spotify} /></a>
+                      <a href="https://open.spotify.com/user/3172sefla554nzu4bpuk3o3ysjme?si=99f3d22c46564509" target="_blank"><Image className="iconImg" src={Spotify} alt="spotify"/></a>
                   </div>
 
                   <div className="icon">
-                      <a href="https://www.youtube.com/channel/UCVDaWGsukHQo677tAfySD6g" target="_blank"><Image width={90} className="iconImg" src={Youtube} /></a>
+                      <a href="https://www.youtube.com/channel/UCVDaWGsukHQo677tAfySD6g" target="_blank"><Image width={90} className="iconImg" src={Youtube} alt="youtube"/></a>
                   </div>
   
                   <div className="icon">
-                      <a href="https://www.instagram.com/sofalofi_rec/" target="_blank"><Image className="iconImg" src={Instagram} /></a>
+                      <a href="https://www.instagram.com/sofalofi_rec/" target="_blank"><Image className="iconImg" src={Instagram} alt="instagram"/></a>
                   </div>
   
                   <div className="icon">
-                      <a href="https://www.facebook.com/sofalofirec/" target="_blank"><Image className="iconImg" src={Facebook} /></a>
+                      <a href="https://www.facebook.com/sofalofirec/" target="_blank"><Image className="iconImg" src={Facebook} alt="facebook"/></a>
                   </div>
   
               </div>
-          </div>
+            </div>
           </div>
           </>
   );

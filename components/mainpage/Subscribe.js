@@ -1,5 +1,4 @@
 import { useContext, useEffect, useRef, useState } from 'react'
-import Link from 'next/link'
 
 //LOTTIE LIB
 import Lottie from "lottie-react";
@@ -10,15 +9,11 @@ import topic3Animation from "@/components/lottieanimations/subscribe.json";
 //GLOBALSTATES
 import { GlobalStates } from '@/globalstates/GlobalStates'
 
-//pic 
-import backgroundPic2 from "@/components/pic/background2.svg"
-
 //components
 import Subscribtion from '../Subscribtion';
 
 
-
-const Subscribe = () => {
+const Subscribe = ({ introClasses, backgroundPic2 }) => {
 
   const [formVisibility, setFormVisibility] = useState("hidden");
 
@@ -43,7 +38,7 @@ const Subscribe = () => {
         <>
         <Subscribtion formVisibility={formVisibility} setFormVisibility={setFormVisibility}/>
           <div 
-          className='maincardsAnimation'
+          className={introClasses[3]}
           style={{
             display: "flex",
             flexDirection: "col",

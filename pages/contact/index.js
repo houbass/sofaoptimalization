@@ -1,6 +1,4 @@
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-import { useEffect, useRef, useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import Script from 'next/script'
@@ -95,15 +93,15 @@ const ContactPage = () => {
           width: "100%",
           position: "absolute",
           zIndex: "0",
-          //backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
         }}>
           <Image 
           className='submitImg'
           style={{
             height: "1400px"
           }}
-        src={backgroundPic7}
-        placeholder='blur'>
+          src={backgroundPic7} 
+          alt='background'
+          placeholder='blur'>
           </Image>
 
         </div>
@@ -119,8 +117,6 @@ const ContactPage = () => {
             color: "white",
             width: "100%",
             maxWidth: "1000px",
-            //background: "rgba(20,20, 20, 1)",
-            //backgroundImage: "linear-gradient(to bottom, rgb(20, 20, 20) , rgb(40, 40, 40), rgb(20, 20, 20))",
             border: "solid 20px transparent",
             borderImage: `url(${backgroundPic2.src}) 20 round`,
             borderBottomStyle: "none",
@@ -140,12 +136,10 @@ const ContactPage = () => {
             flexDirection: "column",
             alignItems: "center",
             width: "100%",
-
             paddingTop: "100px",
-            //background: "orange"
         }}
         >      
-            <Contact />
+          <Contact />
         </motion.div> 
 
         </div> 

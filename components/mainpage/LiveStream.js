@@ -1,5 +1,4 @@
-import { useContext, useEffect, useRef, useState } from 'react'
-import Link from "next/link";
+import { useContext, useEffect, useRef } from 'react'
 
 //LOTTIE LIB
 import Lottie from "lottie-react";
@@ -10,14 +9,8 @@ import topic2Animation from "@/components/lottieanimations/livestream.json";
 //GLOBALSTATES
 import { GlobalStates } from '@/globalstates/GlobalStates'
 
-//pic 
-import backgroundPic2 from "@/components/pic/background2.svg"
 
-
-
-
-
-const LiveStream = ({ streamUrl }) => {
+const LiveStream = ({ introClasses, backgroundPic2, streamUrl }) => {
 
     //PASSING GLOBAL SETTINGS
     const { mobile } = useContext(GlobalStates);
@@ -39,7 +32,7 @@ const LiveStream = ({ streamUrl }) => {
     return(
         <>
           <div 
-          className='maincardsAnimation'
+          className={introClasses[3]}
           style={{
             display: "flex",
             flexDirection: "col",

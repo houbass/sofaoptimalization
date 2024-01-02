@@ -185,9 +185,10 @@ const Navbar = () => {
             onMouseLeave={imageLeave} 
             >
                 <Image 
-
                 height="50" 
-                src={imgSrc} >   
+                src={imgSrc} 
+                alt="sofa lofi logo"
+                >   
                 </Image>
 
 

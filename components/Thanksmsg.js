@@ -1,15 +1,12 @@
 import React from "react";
 import Link from 'next/link'
 
-//pic 
-import backgroundPic2 from "@/components/pic/background2.svg";
 
 const Thanksmsg = ({ visibility, setVisibility, setFormVisibility }) => {
 
     function changeVisibility() {
         setVisibility("hidden");
         setFormVisibility("visible");
-        
     }
 
     return (
