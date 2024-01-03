@@ -11,7 +11,8 @@ async function createContact(email) {
         },
         body: JSON.stringify({
             email: email,
-            updateEnabled: false
+            updateEnabled: false,
+            listIds: [2],
         }),
     };
     try {
@@ -42,7 +43,8 @@ async function updateContact(email) {
         body: JSON.stringify({
             email: email,
             emailBlacklisted: false,
-            updateEnabled: true
+            updateEnabled: true,
+            listIds: [2],
         }),
     };
     try {
