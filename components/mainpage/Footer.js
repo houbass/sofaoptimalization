@@ -7,9 +7,9 @@ const Footer = ({ Logo, Instagram, Spotify, Facebook, Youtube }) => {
         <div 
         style={{
             background: "rgba(20,20,20,0.8)", 
-            height:"285px",
             marginTop: "75px",
-            paddingTop: "30px"
+            padding: "75px 0px"
+
 
         }}>
             <div 
@@ -29,7 +29,6 @@ const Footer = ({ Logo, Instagram, Spotify, Facebook, Youtube }) => {
                 <div 
                 className="brush footerhello"
                 >
-                    
                     <Link 
                     style={{
                     fontSize: "22px",

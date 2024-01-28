@@ -45,20 +45,7 @@ const LiveStream = ({ introClasses, backgroundPic2, streamUrl }) => {
             borderRadius: "20px 0px 0px 20px",
           }}>
             <div>
-              <div className='mainpageCards-reverse'>
-
-                <div>
-                  <h1 className='mainpageTitles'>We are streaming 24/7 on Youtube</h1>
-                  <div style={{maxWidth: "600px"}}>     
-                    <p className="mainpageP">
-                    Wanna listen music without interuption and advertises? Let’s check out our 24/7 Youtube live stream.
-                    </p>
-                    <a href={streamUrl[0].url} target="_blank">
-                      <button className="nicebutton mt" >listen to it now</button>
-                    </a>
-                  </div>
-                </div>
-
+              <div className='mainpageCards'>
                 <div 
                 style={{
                   //background: "orange",
@@ -75,7 +62,17 @@ const LiveStream = ({ introClasses, backgroundPic2, streamUrl }) => {
                   />
                 </div>
 
-
+                <div>
+                  <h1 className='mainpageTitles'>We are streaming 24/7 on Youtube</h1>
+                  <div style={{maxWidth: "600px"}}>     
+                    <p className="mainpageP">
+                    Wanna listen music without interuption and advertises? Let’s check out our 24/7 Youtube live stream.
+                    </p>
+                    <a href={streamUrl[0].url} target="_blank">
+                      <button className="nicebutton mt" >listen to it now</button>
+                    </a>
+                  </div>
+                </div>
                 
               </div>
               

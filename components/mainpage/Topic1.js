@@ -41,13 +41,9 @@ const Topic1 = ({ introClasses, backgroundPic2}) => {
           }}>
         
             <div 
-            className='mainpageCards'
+            className='mainpageCards-reverse'
             >
-                <Lottie 
-                  lottieRef={animationRef} 
-                  className="lottieSize" 
-                  animationData={topic1Animation} 
-          />
+
 
               <div >
                 <h1 className='mainpageTitles' >Listen to our playlist</h1>
@@ -61,6 +57,13 @@ const Topic1 = ({ introClasses, backgroundPic2}) => {
                   </a>
                 </div>
               </div>
+
+              <Lottie 
+                lottieRef={animationRef} 
+                className="lottieSize" 
+                animationData={topic1Animation} 
+              />
+
             </div>
           </div>
         </>

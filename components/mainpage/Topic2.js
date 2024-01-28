@@ -73,6 +73,7 @@ const Topic2 = ({ introClasses, backgroundPic2 }) => {
                   animationData={topic2Animation} 
                   />
                 </div>
+
               </div>
               
             </div>
