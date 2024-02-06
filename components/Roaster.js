@@ -19,18 +19,15 @@ export default function Roaster({ filteredData, filteredData2 }) {
     return(
         <>
         <div 
-        className="roaster"
-        style={{
-
-        }}>
+        className="roaster">
             <RoasterRelease filteredData={filteredData} />
 
             <Link className="roasterlink" href="https://open.spotify.com/playlist/6so9XlkasaOqQFNghgzUX5" target="_blank" >
-                <button className="roasterbtn">🎵 Listen to our Spotify playlist</button>
+                <button className="roasterbtn ">🎵 Listen to our Spotify playlist</button>
             </Link>
 
             <Link className="roasterlink" href={filteredData2[0]?.url} target="_blank" >
-                <button className="roasterbtn">📺 24/7 Youtube live stream</button>
+                <button className="roasterbtn ">📺 24/7 Youtube live stream</button>
             </Link>
 
             <Link className="roasterlink" href="submit/playlist" >

@@ -30,10 +30,9 @@ export default function RoasterRelease({ filteredData }) {
     return(
         <>
             <div className="buttondiv">
-                <p>checkout to our latest release</p>
-                <p><strong>{myData[0]?.artists} - {myData[0]?.trackname}</strong></p>
+                <p className="arial">checkout to our latest release</p>
+                <h3 className="brush" style={{fontSize: "20px"}}><strong>{myData[0]?.artists} - {myData[0]?.trackname}</strong></h3>
                 <div style={{
-                    marginTop: "10px",
                     display: "flex",
                     flexDirection: "row",
                     alignItems: "center",

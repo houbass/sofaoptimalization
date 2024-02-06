@@ -1220,6 +1220,13 @@ animation-delay: 2s;
   font-size: 15px;
 }
 
+
+.arial {
+  font-family: Arial;
+  font-size: 13px;
+  font-weight: 700;
+}
+
 .submithover {
   scale: 1;
   transition: 0.5s;
@@ -1337,6 +1344,7 @@ animation-delay: 2s;
   justify-content: space-between;
   color: black;
   padding: 10px;
+  gap: 10px;
 }
 
 .buttondiv > div {
