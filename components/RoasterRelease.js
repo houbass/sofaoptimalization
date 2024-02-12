@@ -42,7 +42,7 @@ export default function RoasterRelease({ filteredData }) {
                         <Image className="iconRoaster" src={Spotify} alt="spotify" />
                     </a>
 
-                    <a href={myData[0]?.youtubelink} target="_blank">
+                    <a href={`https://www.youtube.com/watch?v=${myData[0]?.youtubelink}`} target="_blank">
                         <Image className="iconRoasterYoutube" src={Youtube} alt="youtube"/>
                     </a>
 

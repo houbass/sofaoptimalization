@@ -1,4 +1,5 @@
-const apiKey = process.env.NEXT_PUBLIC_API_KEY;
+// api keys
+import { apiKeys } from "./apiKeys";
 
 //CREATE NEW CONTACT
 async function createContact(email) {
@@ -7,7 +8,7 @@ async function createContact(email) {
         headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'api-key': apiKey
+        'api-key': apiKeys.subscribe
         },
         body: JSON.stringify({
             email: email,
@@ -38,7 +39,7 @@ async function updateContact(email) {
         headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'api-key': apiKey
+        'api-key': apiKeys.subscribe
         },
         body: JSON.stringify({
             email: email,
@@ -71,7 +72,7 @@ async function getContacts() {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'api-key': apiKey
+            'api-key': apiKeys.subscribe
         },
     };
     try {

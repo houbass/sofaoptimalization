@@ -1,4 +1,5 @@
-const apiKey = process.env.NEXT_PUBLIC_SECOND_API_KEY;
+
+import { apiKeys } from "./apiKeys";
 
 import { initializeApp } from "firebase/app";
 
@@ -11,8 +12,9 @@ import{ getFirestore } from "firebase/firestore";
 //funkce pro storage
 import{ getStorage } from "firebase/storage";
 
+
 const firebaseConfig = {
-  apiKey: apiKey,
+  apiKey: apiKeys.google,
   authDomain: "sofalofi.firebaseapp.com",
   projectId: "sofalofi",
   storageBucket: "sofalofi.appspot.com",

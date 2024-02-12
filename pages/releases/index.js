@@ -21,7 +21,6 @@ import Releases from '@/components/Releases';
 
 const inter = Inter({ subsets: ['latin'] })
 
-
 //SERVER SIDER RENDER (firebase data)
 export async function getServerSideProps() {
   const contentCollectionRef = collection(db, "content");
@@ -96,16 +95,7 @@ const ReleasesPage = ({ filteredData, filteredData2 }) => {
 
         </Head>
 
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-XQWVQB598P" />
-        <Script id="google-analytics">
-            {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
 
-            gtag('config', 'G-XQWVQB598P');
-            `}
-        </Script>
 
         <div
         style={{

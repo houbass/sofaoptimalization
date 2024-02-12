@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Image from 'next/image';
 
+import YouTubeVideo from "./YoutubeVideoInfo";
+
 //import platform icons
 import Spotify from "@/pictures/spotify.png";
 import Apple from "@/pictures/apple.png";
@@ -87,19 +89,16 @@ const Releases = ({ filteredData }) => {
                 color: "black"
             }}>
 
+            
             {filteredMyData?.map((data) => (
+
+                
                 <div key={data.releaseindex} className="frame"> 
-                    <iframe 
-                        width="200" 
-                        height="200" 
-                        src={
-                            data.youtubelink
-                        } 
-                        title="YouTube video player" 
-                        frameBorder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowFullScreen>
-                    </iframe> 
+
+                    
+
+                    <YouTubeVideo videoId={data.youtubelink} />
+                
                         <h5 style={{marginTop: "5px"}} className="courier">{data.trackname}</h5>
                         <h6 style={{marginTop: "5px"}} className="courier">{data.artists}</h6>
                         <div className="icons">
@@ -118,6 +117,8 @@ const Releases = ({ filteredData }) => {
                     </div>
 
                 ))}
+
+
                 </div>
 
                 <div className="next">
