@@ -13,7 +13,7 @@ import { GlobalStates } from '@/globalstates/GlobalStates'
 import Subscribtion from '../Subscribtion';
 
 
-const Subscribe = ({ introClasses, backgroundPic2 }) => {
+const Subscribe = ({ backgroundPic2 }) => {
 
   const [formVisibility, setFormVisibility] = useState("hidden");
 
@@ -38,7 +38,6 @@ const Subscribe = ({ introClasses, backgroundPic2 }) => {
         <>
         <Subscribtion formVisibility={formVisibility} setFormVisibility={setFormVisibility}/>
           <div 
-          className={introClasses[3]}
           style={{
             display: "flex",
             flexDirection: "col",

@@ -1,6 +1,4 @@
 import Head from "next/head";
-import Script from "next/script";
-import { useContext, useLayoutEffect } from "react";
 
 //firebase database
 import { db, storage } from "config/firebase";
@@ -84,16 +82,6 @@ export default function RoasterPage({ filteredData, filteredData2 }) {
         <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet"></link>
         </Head>
 
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-XQWVQB598P" />
-        <Script id="google-analytics">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-XQWVQB598P');
-          `}
-        </Script>
         <main 
         className="roasterpage"
         style={{

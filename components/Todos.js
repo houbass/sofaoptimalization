@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 //local storage hook
-import useLocalStorageState from 'use-local-storage-state'
+import useLocalStorageState from 'use-local-storage-state';
 
 //LOTTIE LIB
 import Lottie from "lottie-react";

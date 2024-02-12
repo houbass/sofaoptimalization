@@ -10,7 +10,7 @@ import topic2Animation from "@/components/lottieanimations/livestream.json";
 import { GlobalStates } from '@/globalstates/GlobalStates'
 
 
-const LiveStream = ({ introClasses, backgroundPic2, streamUrl }) => {
+const LiveStream = ({ backgroundPic2, streamUrl }) => {
 
     //PASSING GLOBAL SETTINGS
     const { mobile } = useContext(GlobalStates);
@@ -32,7 +32,6 @@ const LiveStream = ({ introClasses, backgroundPic2, streamUrl }) => {
     return(
         <>
           <div 
-          className={introClasses[3]}
           style={{
             display: "flex",
             flexDirection: "col",

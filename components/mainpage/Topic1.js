@@ -10,7 +10,7 @@ import topic1Animation from "@/components/lottieanimations/sofa.json";
 import { GlobalStates } from '@/globalstates/GlobalStates'
 
 
-const Topic1 = ({ introClasses, backgroundPic2}) => {
+const Topic1 = ({backgroundPic2}) => {
 
   //PASSING GLOBAL SETTINGS
   const { mobile } = useContext(GlobalStates);
@@ -31,13 +31,12 @@ const Topic1 = ({ introClasses, backgroundPic2}) => {
     return(
         <>
           <div 
-          className={introClasses[3]}
           style={{
             width: "90%",
             borderRadius: "0 20px 20px 0",
             backgroundImage: `url(${backgroundPic2.src})`,
             marginTop: "100px",
-            zIndex: "5"
+            zIndex: "5",
           }}>
         
             <div 

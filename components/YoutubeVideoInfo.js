@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios'; // You can use any HTTP library for making requests
 import Image from 'next/image';
 

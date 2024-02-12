@@ -36,7 +36,7 @@ const Navbar = () => {
     const [burgerColor, setBurgerColor] = useState("rgba(255, 255, 255, 0.9)");
     const [burgerToggler, setBurgerToggler] = useState(false);
     const [mobileMenuVisibility, setBurgerMenuVisibility] = useState("hidden");
-    const [burgerBackground, setBurgerBackground] = useState("rgba(20,20,20,0.8)");
+    const [burgerBackground, setBurgerBackground] = useState("rgba(20,20,20,1)");
 
     //MOBILE BURGER mouse events
     function mouseEnterFun() {
@@ -92,7 +92,7 @@ const Navbar = () => {
             setBurgerMenuVisibility("hidden");
             setBurgerToggler(false);
             setBurgerColor("rgba(255, 255, 255, 1)");
-            setBurgerBackground("rgba(20,20,20,0.8)")
+            setBurgerBackground("rgba(20,20,20,1)")
 
             path1 = burgerPath1;
             setPath2("M10 29H100V49H0V29Z");
@@ -126,7 +126,7 @@ const Navbar = () => {
         setBurgerMenuVisibility("hidden");
         setBurgerToggler(false);
         setBurgerColor("rgba(255, 255, 255, 1)");
-        setBurgerBackground("rgba(20,20,20,0.8)")
+        setBurgerBackground("rgba(20,20,20,1)")
 
         setPath2("M10 29H100V49H0V29Z");
         const path1animation3 = anime({
@@ -163,128 +163,160 @@ const Navbar = () => {
     return (
         <>
         <div 
-        className="navpage maincardsAnimation3" 
+        style={{
 
-
-        >
-        <div         style={{
-            width: "100%",
-            maxWidth: "1000px",
-
-        }} >
-
-        <nav 
-        className="navbar" 
-
-        >
-
-            <Link 
-            href="/"
-            className="logonav" 
-            onMouseEnter={imageEnter} 
-            onMouseLeave={imageLeave} 
-            >
-                <Image 
-                height="50" 
-                src={imgSrc} 
-                alt="sofa lofi logo"
-                >   
-                </Image>
-
-
-
-
-            </Link>
-
-            <Link href="/releases" >
-                <button>releases</button>
-            </Link>
-
-            <Link href="/submit">
-                <button>submit music</button>
-            </Link>
-
-            <Link href="/workplace">
-                <button>workplace</button>
-            </Link>
-
-            <Link href="/contact">
-                <button>contact</button>
-            </Link>
-
-        </nav>
-        <div 
-            className="burgerVisibility"
+        }}>
+            <div 
+            className="navpage maincardsAnimation3" 
             style={{
-                position: "absolute",
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "right",
-                width: "100%",
-                padding: "0 50px",
-                top: "0px",
-                zIndex: "5",
-                background: burgerBackground,
-                height: "70px",
-                paddingTop: "15px"
-                
-            }} 
-            onMouseEnter={mouseEnterFun} 
-            onMouseLeave={mouseLeaveFun}
-            onClick={burgerClickFun}
-            >
-                
-
-                <svg ref={svgRef} width="40" height="40" viewBox="0 0 100 78" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path ref={path1ref} d={burgerPath1} fill={burgerColor}/>
-
-                    <path d={path2} fill={burgerColor}/>
-                    <path ref={path3ref} d={burgerPath3} fill={burgerColor}/>
-                    
-                </svg>
-
-            </div>
-            <div
-            
-            style={{
-                position: "absolute",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                justifyContent: "center",
-                background: "rgba(0, 0, 0, 0.9)",
-                width: "100%",
-                height: "100vh",
-                top: "0px",
-                visibility: mobileMenuVisibility,
             }} 
             >
-                <div className="mobNavbar">
-                    <Link href="/">
-                        <button onClick={burgerLinkClickFun}>HOME</button>
-                    </Link>
+                <div         
+                style={{
+                    width: "100%",
+                    maxWidth: "1000px",
+                    padding: "0px 20px"
+                }} >
 
-                    <Link href="/releases" >
-                        <button onClick={burgerLinkClickFun}>RELEASES</button>
-                    </Link>
+                    <nav 
+                    className="navbar" 
+                    >
 
-                    <Link href="/submit">
-                    <button onClick={burgerLinkClickFun}>SUBMIT MUSIC</button>
-                    </Link>
+                        <Link 
+                        href="/"
+                        className="logonav" 
+                        onMouseEnter={imageEnter} 
+                        onMouseLeave={imageLeave} 
+                        >
+                            <Image 
+                            height="50" 
+                            src={imgSrc} 
+                            alt="sofa lofi logo"
+                            >   
+                            </Image>
 
-                    <Link href="/workplace">
-                        <button onClick={burgerLinkClickFun}>WORKPLACE</button>
-                    </Link>
 
-                    <Link href="/contact">
-                        <button onClick={burgerLinkClickFun}>CONTACT</button>
-                    </Link>
+
+
+                        </Link>
+
+                        <Link href="/releases" >
+                            <button>releases</button>
+                        </Link>
+
+                        <Link href="/submit">
+                            <button>submit music</button>
+                        </Link>
+
+                        <Link href="/workplace">
+                            <button>workplace</button>
+                        </Link>
+
+                        <Link href="/contact">
+                            <button>contact</button>
+                        </Link>
+
+                    </nav>
+
                 </div>
             </div>
-        </div>
+
+
+            <div
+            className="burgerVisibility"
+            style={{
+                position: "fixed",
+                zIndex: "65",
+                width: "100%"
+            }} 
+            >
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        padding: "0px 20px",
+                    }} 
+                >
+                    <div 
+                    
+                    style={{
+
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "right",
+                        width: "100%",
+                        padding: "15px 50px",
+                        top: "0px",
+
+                        background: burgerBackground,
+                        height: "70px",
+                    }} 
+                    onMouseEnter={mouseEnterFun} 
+                    onMouseLeave={mouseLeaveFun}
+                    onClick={burgerClickFun}
+                    >
+                    
+                        <svg ref={svgRef} width="40" height="40" viewBox="0 0 100 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path ref={path1ref} d={burgerPath1} fill={burgerColor}/>
+
+                            <path d={path2} fill={burgerColor}/>
+                            <path ref={path3ref} d={burgerPath3} fill={burgerColor}/>
+                            
+                        </svg>
+
+                    </div>
+                </div>
+            </div>
+
+            <div
+            style={{
+                position: "fixed",
+                zIndex: "52",
+                width: "100%",
+                padding: "0px 20px",
+                visibility: mobileMenuVisibility,
+            }} >
+                <div
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    background: "rgba(20, 20, 20, 1)",
+                    height: "100vh",
+                    top: "0px",
+                }} 
+                >
+                    <div className="mobNavbar">
+                        <Link href="/">
+                            <button onClick={burgerLinkClickFun}>HOME</button>
+                        </Link>
+
+                        <Link href="/releases" >
+                            <button onClick={burgerLinkClickFun}>RELEASES</button>
+                        </Link>
+
+                        <Link href="/submit">
+                        <button onClick={burgerLinkClickFun}>SUBMIT MUSIC</button>
+                        </Link>
+
+                        <Link href="/workplace">
+                            <button onClick={burgerLinkClickFun}>WORKPLACE</button>
+                        </Link>
+
+                        <Link href="/contact">
+                            <button onClick={burgerLinkClickFun}>CONTACT</button>
+                        </Link>
+                    </div>
+                </div>
+            </div>
+
         </div>
         </>
-
     )
 }
 

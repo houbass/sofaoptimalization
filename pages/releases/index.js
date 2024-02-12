@@ -159,7 +159,7 @@ const ReleasesPage = ({ filteredData, filteredData2 }) => {
                     opacity: [0, 1]
                 }}
                 transition={{
-                    duration: 2,
+                    duration: 1,
                     ease: "easeInOut",
                 }}
                 style={{

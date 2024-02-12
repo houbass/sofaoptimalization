@@ -10,7 +10,7 @@ import topic2Animation from "@/components/lottieanimations/music.json";
 //GLOBALSTATES
 import { GlobalStates } from '@/globalstates/GlobalStates'
 
-const Topic2 = ({ introClasses, backgroundPic2 }) => {
+const Topic2 = ({ backgroundPic2 }) => {
 
     //PASSING GLOBAL SETTINGS
     const { mobile } = useContext(GlobalStates);
@@ -32,7 +32,6 @@ const Topic2 = ({ introClasses, backgroundPic2 }) => {
     return(
         <>
           <div 
-          className={introClasses[3]}
           style={{
             display: "flex",
             flexDirection: "col",

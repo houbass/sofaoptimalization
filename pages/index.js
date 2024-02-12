@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import { Inter } from 'next/font/google'
 import Image from 'next/image';
-import Script from 'next/script';
 
 //pictures 
 import backgroundPic2 from "@/components/pic/background2.svg";
@@ -116,17 +115,6 @@ export default function Home({ streamUrl }) {
         <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet"></link>
 
       </Head>
-      <Script async src="https://www.googletagmanager.com/gtag/js?id=G-XQWVQB598P" />
-      <Script id="google-analytics">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-XQWVQB598P');
-          `}
-      </Script>
-
 
     <ImagesLoader imageUrls={imageUrls} setAllImagesLoaded={setAllImagesLoaded}/>
 
@@ -170,6 +158,7 @@ export default function Home({ streamUrl }) {
         </div>
 
         <div 
+        className={introClasses[3]}
         style={{
           display: "flex",
           flexDirection: "column",
@@ -180,73 +169,33 @@ export default function Home({ streamUrl }) {
           borderImage: `url(${backgroundPic2.src}) 20 round`,
           borderBottomStyle: "none",
           borderTopStyle: "none",
-          zIndex: "1",
+          zIndex: "15",
         }}>
-
-        <div 
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}> 
-
-        <div 
-        className='welcometext' 
-        style={{
-          maxWidth: `${maxWidth}px`,
-          width: "100%"
-        }}
-        >
-          <svg 
-          className='welcomesvg'
-          xmlns="http://www.w3.org/2000/svg" 
-          width="500" 
-          height="120" 
-          viewBox="-20 -55 500 100"
-          >
-              <text 
-              className={introClasses[0]}
-              x="11" 
-              y="41"
-              >Welcome</text>
-            </svg>
-            <p 
-            className={introClasses[1]}
-              > to Sofa Lofi</p>
-          </div>
-          </div>
 
           <div
           style={{
-            height: "100vw",
-            maxHeight: "1100px"
+            aspectRatio: "1 / 0.8"
           }}>
 
           </div>
 
           <Topic1 
-          introClasses={introClasses} 
           backgroundPic2={backgroundPic2}
           />
           <LiveStream 
-          introClasses={introClasses} 
           backgroundPic2={backgroundPic2}
           streamUrl={streamUrl}
           />
           <Topic2 
-          introClasses={introClasses} 
           backgroundPic2={backgroundPic2}
           />
           <Topic3 
-          introClasses={introClasses} 
           backgroundPic2={backgroundPic2} 
           />
           <Topic4 
-          introClasses={introClasses} 
           backgroundPic2={backgroundPic2}     
           />
           <Subscribe 
-          introClasses={introClasses} 
           backgroundPic2={backgroundPic2} 
           />
 

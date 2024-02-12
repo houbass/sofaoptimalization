@@ -1,19 +1,58 @@
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 
 //styl  
 import '@/styles/globals.css';
+
+//local storage hook
+import useLocalStorageState from 'use-local-storage-state';
 
 //GLOBALSTATES
 import { GlobalStatesProvider } from '@/globalstates/GlobalStates';
 
 //components
+import { apiKeys } from '@/config/apiKeys';
 import Navbar from '@/components/Navbar';
 import Spotifyplayer from '@/components/Spotifyplayer';
 import LoadingPage from '@/components/LoadingPage';
+import Coockies from '@/components/Coockies';
 
 export default function App({ Component, pageProps }) {
+
+
+  const [askedForCoockies, setAskedForCoockies] = useLocalStorageState('askedForCoockies', {defaultValue: false });
+  const [coockiesAccepted, setCoockiesAccepted] = useLocalStorageState('coockiesAccepted', {defaultValue: false });
+
+  useEffect(() => {
+
+    if(coockiesAccepted === true && askedForCoockies === true) {
+      loadGoogleAnalytics();
+    }
+    
+
+  }, [coockiesAccepted])
+
+
+  function loadGoogleAnalytics() {
+
+    console.log("LOADING ANALYTICS");
+
+    const script = document.createElement("script");
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${apiKeys.gaId}`;
+    script.async = true;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag(){
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', `${apiKeys.gaId}`, {
+      page_path: window.location.pathname
+    })
+  }
 
   return (
     <>
@@ -30,7 +69,15 @@ export default function App({ Component, pageProps }) {
         <LoadingPage/>
         <Navbar />
         <Component {...pageProps} />
-        <Spotifyplayer />
+
+        {coockiesAccepted === true && askedForCoockies === true ? <Spotifyplayer /> : null}
+
+        <Coockies 
+        askedForCoockies={askedForCoockies} 
+        setAskedForCoockies={setAskedForCoockies}
+        setCoockiesAccepted={setCoockiesAccepted}
+        />
+
       </GlobalStatesProvider>
 
     </>

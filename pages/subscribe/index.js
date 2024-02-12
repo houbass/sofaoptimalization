@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Script from "next/script";
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/router';
 
@@ -73,18 +72,6 @@ export default function SubscribeMe() {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
         <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet"></link>
         </Head>
-
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-XQWVQB598P" />
-        <Script id="google-analytics">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-XQWVQB598P');
-          `}
-        </Script>
-
 
         <main className="roasterpage">
             <Subscribtion formVisibility={formVisibility} setFormVisibility={setFormVisibility}/>
