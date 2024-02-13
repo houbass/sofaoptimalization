@@ -25,6 +25,11 @@ export default function App({ Component, pageProps }) {
 
   // LOAD GOOGLE ANALYTICS
   function loadGoogleAnalytics() {
+    const script = document.createElement("script");
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${apiKeys.gaId}`;
+    script.async = true;
+    document.head.appendChild(script);
+    
     window.dataLayer = window.dataLayer || [];
 
     function gtag(){
@@ -36,14 +41,6 @@ export default function App({ Component, pageProps }) {
       page_path: window.location.pathname
     })
   }
-
-  // LOAD GOOGLE ANALYTICS SCRIPT
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${apiKeys.gaId}`;
-    script.async = true;
-    document.head.appendChild(script);
-  }, [])
 
   // CHECK IF USER AGREE WITH COOCKIES
   useEffect(() => {
