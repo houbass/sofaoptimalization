@@ -19,29 +19,12 @@ import Coockies from '@/components/Coockies';
 
 export default function App({ Component, pageProps }) {
 
-
+  // STATES FOR COOCKIES SETTING
   const [askedForCoockies, setAskedForCoockies] = useLocalStorageState('askedForCoockies', {defaultValue: false });
   const [coockiesAccepted, setCoockiesAccepted] = useLocalStorageState('coockiesAccepted', {defaultValue: false });
 
-  useEffect(() => {
-
-    if(coockiesAccepted === true && askedForCoockies === true) {
-      loadGoogleAnalytics();
-    }
-    
-
-  }, [coockiesAccepted])
-
-
+  // LOAD GOOGLE ANALYTICS
   function loadGoogleAnalytics() {
-
-    console.log("LOADING ANALYTICS");
-
-    const script = document.createElement("script");
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${apiKeys.gaId}`;
-    script.async = true;
-    document.head.appendChild(script);
-
     window.dataLayer = window.dataLayer || [];
 
     function gtag(){
@@ -53,6 +36,22 @@ export default function App({ Component, pageProps }) {
       page_path: window.location.pathname
     })
   }
+
+  // LOAD GOOGLE ANALYTICS SCRIPT
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${apiKeys.gaId}`;
+    script.async = true;
+    document.head.appendChild(script);
+  }, [])
+
+  // CHECK IF USER AGREE WITH COOCKIES
+  useEffect(() => {
+    if(coockiesAccepted === true && askedForCoockies === true) {
+      loadGoogleAnalytics();
+    }
+  }, [coockiesAccepted])
+  
 
   return (
     <>
