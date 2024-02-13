@@ -114,6 +114,9 @@ export default function Home({ streamUrl }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
         <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet"></link>
 
+        <meta name="seznam-wmt" content="xQb07hCMs9ApmgtQoOu1aSOKKM7ZrT1Z" />
+        <meta name="yandex-verification" content="3e717d60e6803ad0" />
+
       </Head>
 
     <ImagesLoader imageUrls={imageUrls} setAllImagesLoaded={setAllImagesLoaded}/>
