@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 //import platform icons
-import Spotify2 from "components/pic/icons/spotifyWhite.png";
-import Instagram from "components/pic/icons/instagramWhite.png";
-import Facebook from "components/pic/icons/facebookWhite.png";
+import Spotify2 from "components/pic/icons/spotifyWhite.svg";
+import Instagram from "components/pic/icons/instagramWhite.svg";
+import Facebook from "components/pic/icons/facebookWhite.svg";
 import Youtube from "components/pic/icons/youtube_white.svg";
 
 //components
@@ -56,7 +56,7 @@ export default function Roaster({ filteredData, filteredData2 }) {
                 width: "80%"
             }}>
                 <div className="icon">
-                    <a href="https://open.spotify.com/user/3172sefla554nzu4bpuk3o3ysjme" target="_blank"><Image className="iconImg" src={Spotify2} alt="spotify" /></a>
+                    <a href="https://open.spotify.com/user/3172sefla554nzu4bpuk3o3ysjme" target="_blank"><Image className="iconImg" src={Spotify2} alt="spotify" width={75}/></a>
                 </div>
 
                 <div className="icon">
@@ -64,11 +64,11 @@ export default function Roaster({ filteredData, filteredData2 }) {
                 </div>
 
                 <div className="icon">
-                    <a href="https://www.instagram.com/sofalofi_rec" target="_blank"><Image className="iconImg" src={Instagram} alt="instagram"/></a>
+                    <a href="https://www.instagram.com/sofalofi_rec" target="_blank"><Image className="iconImg" src={Instagram} alt="instagram" width={90}/></a>
                 </div>
         
                 <div className="icon">
-                    <a href="https://www.facebook.com/sofalofirec" target="_blank"><Image className="iconImg" src={Facebook} alt="facebook" /></a>
+                    <a href="https://www.facebook.com/sofalofirec" target="_blank"><Image className="iconImg" src={Facebook} alt="facebook" width={80}/></a>
                 </div>
             </div>
         </div>

@@ -4,9 +4,9 @@ import Image from 'next/image';
 import YouTubeVideo from "./YoutubeVideoInfo";
 
 //import platform icons
-import Spotify from "@/pictures/spotify.png";
-import Apple from "@/pictures/apple.png";
-import Deezer from "@/pictures/deezer.png";
+import Spotify from "components/pic/icons/spotify.svg";
+import Apple from "components/pic/icons/apple.svg";
+import Deezer from "components/pic/icons/deezer.svg";
 
 const Releases = ({ filteredData }) => {
 
@@ -96,13 +96,13 @@ const Releases = ({ filteredData }) => {
                             <h6 style={{marginTop: "5px"}} className="courier">{data.artists}</h6>
                             <div className="icons">
                                 <div className="icon">
-                                    <a href={data.spotifylink} target="_blank"><Image alt="spotify" className="iconImg" src={Spotify} /></a>
+                                    <a href={data.spotifylink} target="_blank"><Image alt="spotify" className="iconImg" src={Spotify} width={75} /></a>
                                 </div>
                                 <div className="icon">
-                                    <a href={data.ituneslink} target="_blank"><Image alt="apple" className="iconImg" src={Apple} /></a>
+                                    <a href={data.ituneslink} target="_blank"><Image alt="apple" className="iconImg" src={Apple} width={75}/></a>
                                 </div>
                                 <div className="icon">
-                                    <a href={data.deezerlink} target="_blank"><Image alt="deezer" className="iconImg" src={Deezer} /></a>
+                                    <a href={data.deezerlink} target="_blank"><Image alt="deezer" className="iconImg" src={Deezer} width={75}/></a>
                                 </div>
                             </div>
                             <p>{data.releasedate}</p>

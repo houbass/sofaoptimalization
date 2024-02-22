@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios'; // You can use any HTTP library for making requests
+import axios from 'axios'; 
 import Image from 'next/image';
-
 import { apiKeys } from '@/config/apiKeys';
 
 //pic
-import PlaySvg from "@/pictures/play.svg";
+import PlaySvg from "components/pic/icons/play.svg";
 
 const YouTubeVideo = ({ videoId }) => {
 
@@ -40,18 +39,23 @@ const YouTubeVideo = ({ videoId }) => {
         }}
         >
             <div>
-            {videoInfo && (
                 <div 
                 style={{
                     width: "200px",
-                    //height: "150px",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
+                    height: "130px"
                 }}>
-                        <img width={200} height="auto" src={videoInfo.thumbnails.medium.url} alt="Video Thumbnail"/>
-
+                        {videoInfo 
+                        ? <img width={200} height="auto" src={videoInfo?.thumbnails.medium.url} alt="Video Thumbnail"/> 
+                        : <div 
+                            style={{
+                                width: "100%",
+                                height: "100%",
+                                //background: "orange"
+                            }}></div>}
                         <div 
                         style={{
                             position: "absolute"
@@ -66,7 +70,7 @@ const YouTubeVideo = ({ videoId }) => {
                             }}></Image>
                         </div>
                 </div>
-            )}
+
             </div>
         </a>
     );

@@ -2,10 +2,10 @@ import Image from "next/image";
 import { useLayoutEffect, useState } from "react";
 
 //import platform icons
-import Spotify from "@/pictures/spotify.png";
-import Apple from "@/pictures/apple.png";
-import Deezer from "@/pictures/deezer.png";
-import Youtube from "@/pictures/youtube.svg";
+import Spotify from "components/pic/icons/spotify.svg";
+import Apple from "components/pic/icons/apple.svg";
+import Deezer from "components/pic/icons/deezer.svg";
+import Youtube from "components/pic/icons/youtube.svg";
 
 export default function RoasterRelease({ filteredData }) {
 
@@ -39,19 +39,19 @@ export default function RoasterRelease({ filteredData }) {
                     justifyContent: "space-around"
                 }}>
                     <a href={myData[0]?.spotifylink} target="_blank">
-                        <Image className="iconRoaster" src={Spotify} alt="spotify" />
+                        <Image className="iconRoaster" src={Spotify} alt="spotify" width={75}/>
                     </a>
 
                     <a href={`https://www.youtube.com/watch?v=${myData[0]?.youtubelink}`} target="_blank">
-                        <Image className="iconRoasterYoutube" src={Youtube} alt="youtube"/>
+                        <Image className="iconRoasterYoutube" src={Youtube} alt="youtube" width={75}/>
                     </a>
 
                     <a href={myData[0]?.ituneslink} target="_blank">
-                        <Image className="iconRoaster" src={Apple} alt="apple"/>
+                        <Image className="iconRoaster" src={Apple} alt="apple" width={75}/>
                     </a>
 
                     <a href={myData[0]?.deezerlink} target="_blank">
-                        <Image className="iconRoaster" src={Deezer} alt="deezer"/>
+                        <Image className="iconRoaster" src={Deezer} alt="deezer" width={75}/>
                     </a>
                 </div>
             </div>

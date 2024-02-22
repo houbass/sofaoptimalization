@@ -5,9 +5,9 @@ import React, { useRef, useState } from 'react';
 import emailjs, { init, send } from '@emailjs/browser';
 
 //import platform icons
-import Instagram from "./pic/icons/instagram.png";
-import Spotify from "./pic/icons/spotify.png";
-import Facebook from "./pic/icons/facebook.png";
+import Instagram from "./pic/icons/instagram.svg";
+import Spotify from "./pic/icons/spotify.svg";
+import Facebook from "./pic/icons/facebook.svg";
 import Youtube from "./pic/icons/youtube.svg";
 
 //components
@@ -237,7 +237,7 @@ const Contact = () => {
                   }}>
 
                   <div className="icon">
-                      <a href="https://open.spotify.com/user/3172sefla554nzu4bpuk3o3ysjme?si=99f3d22c46564509" target="_blank"><Image className="iconImg" src={Spotify} alt="spotify"/></a>
+                      <a href="https://open.spotify.com/user/3172sefla554nzu4bpuk3o3ysjme?si=99f3d22c46564509" target="_blank"><Image className="iconImg" src={Spotify} alt="spotify" width={75}/></a>
                   </div>
 
                   <div className="icon">
@@ -245,11 +245,11 @@ const Contact = () => {
                   </div>
   
                   <div className="icon">
-                      <a href="https://www.instagram.com/sofalofi_rec/" target="_blank"><Image className="iconImg" src={Instagram} alt="instagram"/></a>
+                      <a href="https://www.instagram.com/sofalofi_rec/" target="_blank"><Image className="iconImg" src={Instagram} alt="instagram" width={90}/></a>
                   </div>
   
                   <div className="icon">
-                      <a href="https://www.facebook.com/sofalofirec/" target="_blank"><Image className="iconImg" src={Facebook} alt="facebook"/></a>
+                      <a href="https://www.facebook.com/sofalofirec/" target="_blank"><Image className="iconImg" src={Facebook} alt="facebook" width={75}/></a>
                   </div>
   
               </div>

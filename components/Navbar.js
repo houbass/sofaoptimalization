@@ -61,7 +61,7 @@ const Navbar = () => {
             setBurgerBackground("transparent");
 
             path1 = crossPath1;
-            setPath2("0");
+            setPath2("M0 0");
             path3 = crossPath3;
 
             const path1animation1 = anime({

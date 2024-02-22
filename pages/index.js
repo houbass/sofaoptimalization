@@ -8,9 +8,9 @@ import Image from 'next/image';
 import backgroundPic2 from "@/components/pic/background2.svg";
 import backgroundPic3 from "@/components/pic/background3_v3.webp";
 import Logo from "@/components/pic/newtrysvg.svg";
-import Instagram from "@/components/pic/icons/instagramWhite.png";
-import Spotify from "@/components/pic/icons/spotifyWhite.png";
-import Facebook from "@/components/pic/icons/facebookWhite.png";
+import Instagram from "@/components/pic/icons/instagramWhite.svg";
+import Spotify from "@/components/pic/icons/spotifyWhite.svg";
+import Facebook from "@/components/pic/icons/facebookWhite.svg";
 import Youtube from "@/components/pic/icons/youtube_white.svg";
 
 //mainpage components

@@ -57,19 +57,19 @@ const Footer = ({ Logo, Instagram, Spotify, Facebook, Youtube }) => {
                     marginLeft: "-12px"
                     }}>
                         <div className="icon">
-                            <a href="https://open.spotify.com/user/3172sefla554nzu4bpuk3o3ysjme?si=99f3d22c46564509" target="_blank"><Image className="iconImg" src={Spotify} alt="spotify"/></a>
+                            <a href="https://open.spotify.com/user/3172sefla554nzu4bpuk3o3ysjme?si=99f3d22c46564509" target="_blank"><Image className="iconImg" src={Spotify} alt="spotify" width={75}/></a>
                         </div>
 
                         <div className="icon">
-                            <a href="https://www.youtube.com/channel/UCVDaWGsukHQo677tAfySD6g" target="_blank"><Image width={90} className="iconImg" src={Youtube} alt="youtube"/></a>
+                            <a href="https://www.youtube.com/channel/UCVDaWGsukHQo677tAfySD6g" target="_blank"><Image className="iconImg" src={Youtube} alt="youtube" width={75}/></a>
                         </div>
     
                         <div className="icon">
-                            <a href="https://www.instagram.com/sofalofi_rec/" target="_blank"><Image className="iconImg" src={Instagram} alt="instagram"/></a>
+                            <a href="https://www.instagram.com/sofalofi_rec/" target="_blank"><Image className="iconImg" src={Instagram} alt="instagram" width={90}/></a>
                         </div>
         
                         <div className="icon">
-                            <a href="https://www.facebook.com/sofalofirec/" target="_blank"><Image className="iconImg" src={Facebook} alt="facebook"/></a>
+                            <a href="https://www.facebook.com/sofalofirec/" target="_blank"><Image className="iconImg" src={Facebook} alt="facebook" width={75}/></a>
                         </div>
   
                     </div>

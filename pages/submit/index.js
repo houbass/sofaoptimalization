@@ -109,6 +109,7 @@ const Submit = () => {
             maxWidth: "1000px",            
             border: "solid 20px transparent",
             borderImage: `url(${backgroundPic2.src}) 20 round`,
+            borderImageRepeat: "repeat",
             borderBottomStyle: "none",
             borderTopStyle: "none",
             zIndex: "1",

@@ -105,7 +105,7 @@ const ReleasesPage = ({ filteredData, filteredData2 }) => {
             alignItems: "center",
             width: "100%",
             height: "100vh",
-            minHeight: "1550px",
+            //minHeight: "1550px",
         }}>
 
         <div 
@@ -118,6 +118,9 @@ const ReleasesPage = ({ filteredData, filteredData2 }) => {
           zIndex: "0",
           
         }}>
+
+          {/*
+
           <Image 
           className='submitImg' 
           style={{
@@ -127,6 +130,8 @@ const ReleasesPage = ({ filteredData, filteredData2 }) => {
           alt="background"
           placeholder='blur'>
           </Image>
+
+          */}
 
         </div>
 
@@ -141,6 +146,7 @@ const ReleasesPage = ({ filteredData, filteredData2 }) => {
             maxWidth: "1000px",
             border: "solid 20px transparent",
             borderImage: `url(${backgroundPic2.src}) 20 round`,
+            borderImageRepeat: "repeat",
             borderBottomStyle: "none",
             borderTopStyle: "none",
             zIndex: "1",

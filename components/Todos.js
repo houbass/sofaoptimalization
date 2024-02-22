@@ -232,8 +232,14 @@ const Todos = () => {
                             <div key={item.text}>
                                 <p 
                                 className="brush"
-                                style={{color: "#04AA6D", fontWeight: "bold", textDecoration: "line-through", textDecorationColor: "rgba(255,255,255,0.7)"
-}}>{item}</p>
+                                style={{
+                                    color: "#04AA6D", 
+                                    fontWeight: "bold", 
+                                    textDecoration: "line-through", 
+                                    textDecorationColor: "rgba(255,255,255,0.7)"
+                                }}>
+                                    {item}
+                                </p>
                             </div>
                         ))}
                         

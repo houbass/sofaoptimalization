@@ -166,6 +166,7 @@ button {
 .iconImg {
   scale: 0.5;
   transition: 0.3s;
+  opacity: 0.9;
 }
 
 .iconImg:hover {

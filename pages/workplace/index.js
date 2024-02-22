@@ -105,11 +105,13 @@ const Workplace = () => {
             maxWidth: "1000px",            
             border: "solid 20px transparent",
             borderImage: `url(${backgroundPic2.src}) 20 round`,
+            borderImageRepeat: "repeat",
             borderBottomStyle: "none",
             borderTopStyle: "none",
             height: "100vh",
             minHeight: "1300px",
-            zIndex: "1"
+            zIndex: "1",
+            backgroundImage: `url(${backgroundPic6.src}) 20 round`,
         }}>
         <motion.div 
         animate={{
