@@ -82,43 +82,33 @@ const Releases = ({ filteredData }) => {
 
     return(
         <div className="releasepage">
-        <div className="releasesList">
-            <div 
-            className="releasesFlex"
-            style={{
-                color: "black"
-            }}>
-
-            
-            {filteredMyData?.map((data) => (
-
-                
-                <div key={data.releaseindex} className="frame"> 
-
+            <div className="releasesList">
+                <div 
+                className="releasesFlex"
+                style={{
+                    color: "black"
+                }}>
+                    {filteredMyData?.map((data) => (
+                        <div key={data.releaseindex} className="frame"> 
+                            <YouTubeVideo videoId={data.youtubelink} />
                     
-
-                    <YouTubeVideo videoId={data.youtubelink} />
-                
-                        <h5 style={{marginTop: "5px"}} className="courier">{data.trackname}</h5>
-                        <h6 style={{marginTop: "5px"}} className="courier">{data.artists}</h6>
-                        <div className="icons">
-                            <div className="icon">
-                                <a href={data.spotifylink} target="_blank"><Image alt="spotify" className="iconImg" src={Spotify} /></a>
+                            <h5 style={{marginTop: "5px"}} className="courier">{data.trackname}</h5>
+                            <h6 style={{marginTop: "5px"}} className="courier">{data.artists}</h6>
+                            <div className="icons">
+                                <div className="icon">
+                                    <a href={data.spotifylink} target="_blank"><Image alt="spotify" className="iconImg" src={Spotify} /></a>
+                                </div>
+                                <div className="icon">
+                                    <a href={data.ituneslink} target="_blank"><Image alt="apple" className="iconImg" src={Apple} /></a>
+                                </div>
+                                <div className="icon">
+                                    <a href={data.deezerlink} target="_blank"><Image alt="deezer" className="iconImg" src={Deezer} /></a>
+                                </div>
                             </div>
-                            <div className="icon">
-                                <a href={data.ituneslink} target="_blank"><Image alt="apple" className="iconImg" src={Apple} /></a>
-                            </div>
-                            <div className="icon">
-                                <a href={data.deezerlink} target="_blank"><Image alt="deezer" className="iconImg" src={Deezer} /></a>
-                            </div>
+                            <p>{data.releasedate}</p>
+                            <p>#{data.releaseindex}</p>
                         </div>
-                        <p>{data.releasedate}</p>
-                        <p>#{data.releaseindex}</p>
-                    </div>
-
-                ))}
-
-
+                    ))}
                 </div>
 
                 <div className="next">

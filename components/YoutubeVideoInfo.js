@@ -44,13 +44,13 @@ const YouTubeVideo = ({ videoId }) => {
                 <div 
                 style={{
                     width: "200px",
-                    height: "150px",
+                    //height: "150px",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center",
                 }}>
-                        <img width={200} height="auto" src={videoInfo.thumbnails.high.url} alt="Video Thumbnail" />
+                        <img width={200} height="auto" src={videoInfo.thumbnails.medium.url} alt="Video Thumbnail"/>
 
                         <div 
                         style={{
@@ -58,14 +58,12 @@ const YouTubeVideo = ({ videoId }) => {
                         }}
                         >
                             <Image 
-                                src={PlaySvg}
-                                alt='play on youtube'
-                                width={80} 
-                                style={{
-                                    opacity: "0.9"
-                                }}
-                                >
-                            </Image>
+                            src={PlaySvg}
+                            alt='play on youtube'
+                            width={80} 
+                            style={{
+                                opacity: "0.9"
+                            }}></Image>
                         </div>
                 </div>
             )}

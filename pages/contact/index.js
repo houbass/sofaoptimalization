@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
-import backgroundPic7 from "@/components/pic/background7_v3.webp";
+import backgroundPic7 from "@/components/pic/background7_v3.png";
 
 //components
 import Contact from '@/components/Contact';

@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
-import backgroundPic6 from "@/components/pic/background6_v2.webp";
+import backgroundPic6 from "@/components/pic/background6_v2.png";
 
 //COMPONENTS
 import Clocks from '@/components/Clocks';
@@ -152,7 +152,6 @@ const Workplace = () => {
             }}>
                 <Todos />
             </div>
-
         </main>
         </motion.div>
         </div>

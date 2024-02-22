@@ -14,7 +14,8 @@ import { getDocs, collection } from "firebase/firestore";
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
-import backgroundPic4 from "@/components/pic/background5_v3.webp";
+//import backgroundPic4 from "@/components/pic/background5_v3.webp";
+import backgroundPic4 from "@/components/pic/background5_v3.png";
 
 //components
 import Releases from '@/components/Releases';
@@ -179,7 +180,7 @@ const ReleasesPage = ({ filteredData, filteredData2 }) => {
                         background: "orange",
                         padding: "30px 15px",
                         borderRadius: "50px",
-                        background: "rgba(20,20,20,0.8)",
+                        background: "rgba(20,20,20,0.9)",
                         boxShadow: "0px 5px 40px rgba(0, 0, 0, 0.637)",
                         margin: "0px 10px"
                         

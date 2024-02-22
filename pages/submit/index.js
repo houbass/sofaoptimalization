@@ -9,7 +9,7 @@ import { motion } from 'framer-motion'
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
-import backgroundPic4 from "@/components/pic/background4_v3.webp";
+import backgroundPic4 from "@/components/pic/background4_v3.png";
 
 const inter = Inter({ subsets: ['latin'] })
 
