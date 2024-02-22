@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
-import backgroundPic7 from "@/components/pic/background7_v3.png";
+import backgroundPic7 from "@/components/pic/background7_v3.webp";
 
 //components
 import Contact from '@/components/Contact';

@@ -90,9 +90,8 @@ const Releases = ({ filteredData }) => {
                 }}>
                     {filteredMyData?.map((data) => (
                         <div key={data.releaseindex} className="frame"> 
-                            {/*
+                        
                             <YouTubeVideo videoId={data.youtubelink} />
-                            */}
                     
                             <h5 style={{marginTop: "5px"}} className="courier">{data.trackname}</h5>
                             <h6 style={{marginTop: "5px"}} className="courier">{data.artists}</h6>

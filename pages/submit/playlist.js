@@ -4,7 +4,7 @@ import Head from 'next/head'
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
-import backgroundPic4 from "@/components/pic/background4_v3.png";
+import backgroundPic4 from "@/components/pic/background4_v3.webp";
 
 //components
 import Playlistsubmit from '@/components/Playlistsubmit'

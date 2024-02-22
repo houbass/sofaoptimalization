@@ -10,7 +10,7 @@ import { getDocs, collection } from "firebase/firestore";
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
-import backgroundPic4 from "@/components/pic/background5_v3.png";
+import backgroundPic4 from "@/components/pic/background5_v3.webp";
 
 //components
 import Releases from '@/components/Releases';

@@ -4,7 +4,7 @@ import Head from 'next/head';
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
-import backgroundPic6 from "@/components/pic/background6_v2.png";
+import backgroundPic6 from "@/components/pic/background6_v2.webp";
 
 //COMPONENTS
 import Clocks from '@/components/Clocks';
