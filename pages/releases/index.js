@@ -3,10 +3,6 @@
 import { Inter } from 'next/font/google'
 import Image from 'next/image';
 import Head from 'next/head';
-import Script from 'next/script';
-
-//motion lib
-import { motion } from 'framer-motion'
 
 //firebase database
 import { db } from "config/firebase";
@@ -14,7 +10,6 @@ import { getDocs, collection } from "firebase/firestore";
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
-//import backgroundPic4 from "@/components/pic/background5_v3.webp";
 import backgroundPic4 from "@/components/pic/background5_v3.png";
 
 //components
@@ -95,9 +90,6 @@ const ReleasesPage = ({ filteredData, filteredData2 }) => {
             <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet"></link>
 
         </Head>
-
-
-
         <div
         style={{
             display: "flex",
@@ -105,7 +97,7 @@ const ReleasesPage = ({ filteredData, filteredData2 }) => {
             alignItems: "center",
             width: "100%",
             height: "100vh",
-            //minHeight: "1550px",
+            minHeight: "1550px",
         }}>
 
         <div 
@@ -118,9 +110,6 @@ const ReleasesPage = ({ filteredData, filteredData2 }) => {
           zIndex: "0",
           
         }}>
-
-          {/*
-
           <Image 
           className='submitImg' 
           style={{
@@ -130,9 +119,6 @@ const ReleasesPage = ({ filteredData, filteredData2 }) => {
           alt="background"
           placeholder='blur'>
           </Image>
-
-          */}
-
         </div>
 
         <div 
@@ -160,57 +146,48 @@ const ReleasesPage = ({ filteredData, filteredData2 }) => {
             width: "100%"
         }}
         >
+          <div 
+          style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+          }}>
+              <div 
+              className='brush'
+              style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  marginTop: "50px",
+                  alignItems: "center",
+                  textAlign: "center",
+                  background: "orange",
+                  padding: "30px 15px",
+                  borderRadius: "50px",
+                  background: "rgba(20,20,20,0.9)",
+                  boxShadow: "0px 5px 40px rgba(0, 0, 0, 0.637)",
+                  margin: "0px 10px"
+                  
 
-            <motion.div 
-                animate={{
-                    opacity: [0, 1]
-                }}
-                transition={{
-                    duration: 1,
-                    ease: "easeInOut",
-                }}
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                }}
-                >
-                    <div 
-                    className='brush'
-                    style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        marginTop: "50px",
-                        alignItems: "center",
-                        textAlign: "center",
-                        background: "orange",
-                        padding: "30px 15px",
-                        borderRadius: "50px",
-                        background: "rgba(20,20,20,0.9)",
-                        boxShadow: "0px 5px 40px rgba(0, 0, 0, 0.637)",
-                        margin: "0px 10px"
-                        
+              }}>
+                  <h1 
+                  style={{
+                      paddingBottom: "30px",
+                      
+                  }}>Latest Sofa Lofi releases</h1>
+                  <Releases filteredData={filteredData}/>
+                  <div className='brush center mt'>
+                      <h2>wanna hear more?</h2>
+                      <p>check out Sofa Lofi Releases playlist or our 24/7 Youtube live stream</p>
+                      <a href="https://open.spotify.com/playlist/6xYInAFbEiRecBuFYqXvK7?si=6ed439a031744eed" target="_blank">
+                          <button className="nicebutton mt" >playlist</button>
+                      </a>
+                      <a href={filteredData2[0].url} target="_blank">
+                          <button className="nicebutton mt" >live stream</button>
+                      </a>
+                  </div>
 
-                    }}>
-                        <h1 
-                        style={{
-                            paddingBottom: "30px",
-                            
-                        }}>Latest Sofa Lofi releases</h1>
-                        <Releases filteredData={filteredData}/>
-                        <div className='brush center mt'>
-                            <h2>wanna hear more?</h2>
-                            <p>check out Sofa Lofi Releases playlist or our 24/7 Youtube live stream</p>
-                            <a href="https://open.spotify.com/playlist/6xYInAFbEiRecBuFYqXvK7?si=6ed439a031744eed" target="_blank">
-                                <button className="nicebutton mt" >playlist</button>
-                            </a>
-                            <a href={filteredData2[0].url} target="_blank">
-                                <button className="nicebutton mt" >live stream</button>
-                            </a>
-                        </div>
-
-                    </div>
-            </motion.div>
+              </div>
+          </div>
         </main>
         </div>
         </div>

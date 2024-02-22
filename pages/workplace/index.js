@@ -2,9 +2,6 @@ import { Inter } from 'next/font/google';
 import Image from 'next/image';
 import Head from 'next/head';
 
-//motion lib
-import { motion } from 'framer-motion';
-
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
 import backgroundPic6 from "@/components/pic/background6_v2.png";
@@ -113,14 +110,7 @@ const Workplace = () => {
             zIndex: "1",
             backgroundImage: `url(${backgroundPic6.src}) 20 round`,
         }}>
-        <motion.div 
-        animate={{
-            opacity: [0, 1]
-        }}
-        transition={{
-            duration: 1,
-            ease: "easeInOut",
-        }}
+        <div 
         style={{
             display: "flex",
             flexDirection: "column",
@@ -155,7 +145,7 @@ const Workplace = () => {
                 <Todos />
             </div>
         </main>
-        </motion.div>
+        </div>
         </div>
         </div>
         </>

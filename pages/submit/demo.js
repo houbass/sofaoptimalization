@@ -2,9 +2,6 @@ import { Inter } from 'next/font/google'
 import Image from 'next/image'
 import Head from 'next/head'
 
-//motion lib
-import { motion } from 'framer-motion'
-
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
 import backgroundPic4 from "@/components/pic/background4_v3.png";
@@ -113,32 +110,24 @@ const Demo = () => {
             borderTopStyle: "none",
             zIndex: "1",
         }}>
-        <main 
-        style={{
-            color: "white",
-            paddingTop: "100px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center"
-        }} 
-        className={`${inter.className}`}
-        >
-            <motion.div 
-                animate={{
-                    opacity: [0, 1]
-                }}
-                transition={{
-                    duration: 1,
-                    ease: "easeInOut",
-                }}
+            <main 
+            style={{
+                color: "white",
+                paddingTop: "100px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center"
+            }} 
+            className={`${inter.className}`}
+            >
+                <div 
                 style={{
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
-                }}
-                >
-            <SubmitdemoV2 />
-            </motion.div>
+                }}>
+                    <SubmitdemoV2 />
+                </div>
             </main>
         </div>
         </div>

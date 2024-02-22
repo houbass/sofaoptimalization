@@ -1,29 +1,19 @@
 import { Inter } from 'next/font/google';
-import styles from '@/styles/Home.module.css';
 import Head from 'next/head';
 import Link from 'next/link';
-import { useCallback, useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
-//FIREBASE AUTH
-import { auth, googleProvider } from "config/firebase";
-import { signInWithEmailAndPassword, signOut } from "firebase/auth";
-
-//GLOBALSTATES
-import { GlobalStates } from '@/globalstates/GlobalStates'
-
 //firebase database
-import { db, storage } from "config/firebase";
-import { getDocs, collection, addDoc, deleteDoc, updateDoc, doc } from "firebase/firestore";
+import { db } from "config/firebase";
+import { getDocs, collection } from "firebase/firestore";
 
 //components
-//import AdminLogIn from '@/components/AdminLogIn';
 import AdminLogIn from '@/components/AdminLogIn';
 import AddNewRelease from '@/components/AddNewRelease';
 import AdminContent from '@/components/AdminContent';
 import EditStramingUrl from '@/components/EditStramingUrl';
-
 
 
 const Admin = () => {

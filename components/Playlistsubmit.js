@@ -5,6 +5,7 @@ import emailjs from '@emailjs/browser';
 //components
 import Thanksdemo from './Thanksdemo';
 import {subscribe} from "../config/CreateContactApi";
+import { apiKeys } from '@/config/apiKeys';
 
 const Playlistsubmit = () => {
 
@@ -82,7 +83,6 @@ const Playlistsubmit = () => {
           setErrMessage("");
         }
 
-        console.log("ERR")
         setErrText("PLEASE REVIEW YOUR SUBMISSION AND TRY IT AGAIN")
     }
     else{
@@ -90,7 +90,7 @@ const Playlistsubmit = () => {
       setBtnClass2("fa fa-spinner fa-spin");
       setBtnText("");
 
-      await emailjs.send("service_za1xlkr", "template_icltax6", formdata, "BpUJsAuZF7Y43-jj1")
+      await emailjs.send("service_za1xlkr", "template_icltax6", formdata, apiKeys.emailJs1)
       .then((result) => {
 
         if(newsletter === true) {
@@ -117,7 +117,6 @@ const Playlistsubmit = () => {
         setFormVisibility("hidden");
         setThanksVisibility("visible");
 
-          //console.log(result.text);
       }, (error) => {
           console.log(error);
           setErrArtist("");

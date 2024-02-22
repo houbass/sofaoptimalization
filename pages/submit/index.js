@@ -2,10 +2,6 @@ import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import Image from 'next/image';
 import Head from 'next/head';
-import Script from 'next/script';
-
-//motion lib
-import { motion } from 'framer-motion'
 
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
@@ -126,18 +122,10 @@ const Submit = () => {
         }} 
         className={`${inter.className}`}
         >
-            <motion.div 
-                animate={{
-                    opacity: [0, 1]
-                }}
-                transition={{
-                    duration: 1,
-                    ease: "easeInOut",
-                }}
-                style={{
-                    height: "300px"
-                }}
-                >
+            <div 
+            style={{
+                height: "300px"
+            }}>
             <div 
             className='submitFlex'
             >
@@ -196,7 +184,7 @@ const Submit = () => {
                     </div>
                 </Link>
             </div>
-            </motion.div>
+            </div>
         </main>
         </div>
         </div>

@@ -13,6 +13,7 @@ import Youtube from "./pic/icons/youtube.svg";
 //components
 import Thanksmsg from "./Thanksmsg";
 import {subscribe} from "../config/CreateContactApi";
+import { apiKeys } from "@/config/apiKeys";
 
 const Contact = () => {
 
@@ -81,7 +82,6 @@ const Contact = () => {
           setErrMessage("");
         }
 
-        console.log("ERR")
         setErrText("PLEASE REVIEW YOUR SUBMISSION AND TRY IT AGAIN")
     }
     else{
@@ -89,7 +89,7 @@ const Contact = () => {
       setBtnClass2("fa fa-spinner fa-spin");
       setBtnText("");
 
-      await emailjs.send("service_sw0l5ng", "template_myc9xzg", formdata, "B79QzheXw7xK4gIqG")
+      await emailjs.send("service_sw0l5ng", "template_myc9xzg", formdata, apiKeys.emailJs2)
       .then((result) => {
 
         if(newsletter === true) {
@@ -113,7 +113,6 @@ const Contact = () => {
         setFormVisibility("hidden");
         setThanksVisibility("visible");
 
-          //console.log(result.text);
       }, (error) => {
           console.log(error);
           setErrArtist("");

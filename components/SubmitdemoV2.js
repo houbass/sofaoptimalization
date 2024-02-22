@@ -5,6 +5,8 @@ import emailjs from '@emailjs/browser';
 //components
 import Thanksdemo from './Thanksdemo';
 import {subscribe} from "../config/CreateContactApi";
+import { apiKeys } from '@/config/apiKeys';
+
 
 const SubmitdemoV2 = () => {
 
@@ -34,7 +36,6 @@ const SubmitdemoV2 = () => {
     const emailcheck = mail.current.value.includes("@");
     const soundcloud = link.current.value.includes("soundcloud.com");
 
-    console.log(emailcheck);
     const formdata = {
       artistName: name.current.value,
       email: mail.current.value,
@@ -83,7 +84,6 @@ const SubmitdemoV2 = () => {
           setErrMessage("");
         }
 
-        console.log("ERR")
         setErrText("PLEASE REVIEW YOUR SUBMISSION AND TRY IT AGAIN")
     }
     else{
@@ -91,7 +91,7 @@ const SubmitdemoV2 = () => {
       setBtnClass2("fa fa-spinner fa-spin");
       setBtnText("");
 
-      await emailjs.send("service_za1xlkr", "template_mdryrxo", formdata, "BpUJsAuZF7Y43-jj1")
+      await emailjs.send("service_za1xlkr", "template_mdryrxo", formdata, apiKeys.emailJs1)
       .then((result) => {
         
         if(newsletter === true) {
@@ -117,7 +117,6 @@ const SubmitdemoV2 = () => {
         setFormVisibility("hidden");
         setThanksVisibility("visible");
 
-          //console.log(result.text);
       }, (error) => {
           console.log(error);
           setErrArtist("");

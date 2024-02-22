@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 //next
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
 import Head from 'next/head'
 
 //components

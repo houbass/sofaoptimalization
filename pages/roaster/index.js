@@ -1,9 +1,8 @@
 import Head from "next/head";
 
 //firebase database
-import { db, storage } from "config/firebase";
-import { getDocs, collection, addDoc, deleteDoc, updateDoc, doc } from "firebase/firestore";
-
+import { db } from "config/firebase";
+import { getDocs, collection } from "firebase/firestore";
 
 //components
 import Roaster from "@/components/Roaster";
@@ -33,7 +32,6 @@ export async function getServerSideProps() {
 
 export default function RoasterPage({ filteredData, filteredData2 }) {
 
-  console.log(filteredData2[0]?.url)
 
     return(
         <>

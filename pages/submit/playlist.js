@@ -2,9 +2,6 @@ import { Inter } from 'next/font/google'
 import Image from 'next/image'
 import Head from 'next/head'
 
-//motion lib
-import { motion } from 'framer-motion'
-
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
 import backgroundPic4 from "@/components/pic/background4_v3.png";
@@ -125,22 +122,14 @@ const Playlist = () => {
         }} 
         className={`${inter.className}`}
         >
-            <motion.div 
-                animate={{
-                    opacity: [0, 1]
-                }}
-                transition={{
-                    duration: 1,
-                    ease: "easeInOut",
-                }}
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                }}
-                >
-            <Playlistsubmit />
-            </motion.div>
+            <div 
+            style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+            }}>
+                <Playlistsubmit />
+            </div>
         </main>
         </div>
         </div>

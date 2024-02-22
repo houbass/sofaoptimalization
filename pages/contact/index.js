@@ -2,9 +2,6 @@ import { Inter } from 'next/font/google'
 import Head from 'next/head'
 import Image from 'next/image'
 
-//motion lib
-import { motion } from 'framer-motion';
-
 //pic 
 import backgroundPic2 from "@/components/pic/background2.svg";
 import backgroundPic7 from "@/components/pic/background7_v3.png";
@@ -112,24 +109,18 @@ const ContactPage = () => {
             borderTopStyle: "none",
             zIndex: "1",
         }}>
-        <motion.div 
-        animate={{
-            opacity: [0, 1]
-        }}
-        transition={{
-            duration: 1,
-            ease: "easeInOut",
-        }}
-        style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            width: "100%",
-            paddingTop: "100px",
-        }}
-        >      
-          <Contact />
-        </motion.div> 
+          <div 
+
+          style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              width: "100%",
+              paddingTop: "100px",
+          }}
+          >      
+            <Contact />
+          </div> 
 
         </div> 
         </div> 
