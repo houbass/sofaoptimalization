@@ -16,7 +16,6 @@
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.2",
     "firebase": "^9.22.0",
-    "framer-motion": "^10.12.12",
     "git": "^0.1.5",
     "html2canvas": "^1.4.1",
     "jspdf": "^2.5.1",
