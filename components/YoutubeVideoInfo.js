@@ -3,14 +3,7 @@ import Image from 'next/image';
 //pic
 import PlaySvg from "components/pic/icons/play.svg";
 
-const YouTubeVideo = ({ videoId, youtubeData }) => {
-
-
-//src={youtubeData[0].thumbnails.medium.url}
-//items[0].snippet.thumbnails.medium
-//youtubeData[0].items[0].snippet.thumbnails.medium.url
-//https://i.ytimg.com/vi/MnbliXIqIrc/mqdefault.jpg
-
+const YouTubeVideo = ({ videoId }) => {
 
     return (
 
@@ -33,7 +26,7 @@ const YouTubeVideo = ({ videoId, youtubeData }) => {
                     height: "130px"
                 }}>
                         {videoId
-                        ? <img src={`https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`} width={200} height="auto" alt="Video Thumbnail"/> 
+                        ? <img src={`https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`} width={200} height="auto" alt="Video Thumbnail" loading='lazy'/> 
                         : <div 
                             style={{
                                 width: "100%",

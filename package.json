@@ -12,7 +12,6 @@
     "@emailjs/browser": "^3.11.0",
     "@sendinblue/client": "^3.3.1",
     "animejs": "^3.2.1",
-    "axios": "^1.6.7",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.2",
     "firebase": "^9.22.0",

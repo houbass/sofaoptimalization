@@ -53,6 +53,10 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/logo192.png" />
+        <link rel="manifest" href="/manifest.json" />
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
       </Head>
 

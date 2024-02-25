@@ -8,7 +8,7 @@ import Spotify from "components/pic/icons/spotify.svg";
 import Apple from "components/pic/icons/apple.svg";
 import Deezer from "components/pic/icons/deezer.svg";
 
-const Releases = ({ filteredData, youtubeData }) => {
+const Releases = ({ filteredData }) => {
 
     //definice collekce databaze
     const [myData, setMyData] = useState([]);
@@ -90,18 +90,11 @@ const Releases = ({ filteredData, youtubeData }) => {
                 }}>
                     {filteredMyData?.map((data, index) => {
 
-                        /*
-                        const thisYoutubeData = youtubeData.filter((e,i) => {
-                            return e.items[0].id === data.youtubelink
-                        })
-                        */
-
                         return(
                             <div key={data.releaseindex} className="frame"> 
                             
                                 <YouTubeVideo 
                                 videoId={data.youtubelink} 
-                                //youtubeData={thisYoutubeData}
                                 />
                         
                                 <h5 style={{marginTop: "5px"}} className="courier">{data.trackname}</h5>

@@ -14,12 +14,8 @@ import backgroundPic4 from "@/components/pic/background5_v3.webp";
 
 //components
 import Releases from '@/components/Releases';
-import { useEffect } from 'react';
-import { apiKeys } from '@/config/apiKeys';
 
 const inter = Inter({ subsets: ['latin'] })
-
-
 
 
 
@@ -43,58 +39,15 @@ export async function getServerSideProps() {
     ...doc.data(), 
     id: doc.id, 
   }));
-
-  //GET YOUTUBE DATA
-  async function getYoutubeData(link) {
-    try {
-        const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${link}&key=${apiKeys.google}`);
-        // Check if the request was successful (status code 2xx)
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const data = await response.json();
-        return data;
-        
-    } catch (error) {
-        console.error(error);
-        throw error;
-    }
-  }
-
-  // FETCH YOUTUBE DATA TO ARRAY
-  const fetchYoutubeData = async () => {
-    const youtubeData = [];
-    try {
-      await Promise.all(
-        filteredData.map(async (e, i) => {
-          try {
-            const result = await getYoutubeData(e.youtubelink);
-            youtubeData.push(result);
-          } catch (error) {
-            console.error(`Error fetching data for link ${e.youtubelink}:`, error);
-          }
-        })
-      );
-      //console.log(youtubeData); // Now this should log the first element of youtubeData
-        return youtubeData
-    
-    } catch (error) {
-      console.error('Error fetching YouTube data:', error);
-    }
-  };
-
-  const youtubeData = await fetchYoutubeData();
-
  
   // Pass data to the page via props
-  return { props: { filteredData, filteredData2, youtubeData } }
+  return { props: { filteredData, filteredData2 } }
 }
 
 
 
 
-
-const ReleasesPage = ({ filteredData, filteredData2, youtubeData }) => {
+const ReleasesPage = ({ filteredData, filteredData2 }) => {
 
     return(
         <>
@@ -135,8 +88,6 @@ const ReleasesPage = ({ filteredData, filteredData2, youtubeData }) => {
 
             <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-
-            <link rel="icon" href="/favicon.ico" />
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />        
             <link rel="preconnect" href="https://fonts.googleapis.com"></link>
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
@@ -170,7 +121,8 @@ const ReleasesPage = ({ filteredData, filteredData2, youtubeData }) => {
           }}
           src={backgroundPic4} 
           alt="background"
-          placeholder='blur'
+          placeholder='blur' 
+          loading='eager'
           >
           </Image>
         </div>
@@ -230,7 +182,6 @@ const ReleasesPage = ({ filteredData, filteredData2, youtubeData }) => {
 
                   <Releases 
                   filteredData={filteredData} 
-                  youtubeData={youtubeData}
                   />
                   <div className='brush center mt'>
                       <h2>wanna hear more?</h2>

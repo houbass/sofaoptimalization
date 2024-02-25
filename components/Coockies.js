@@ -69,7 +69,7 @@ export default function Coockies({askedForCoockies, setAskedForCoockies, setCooc
                     }}>agree</button>
 
                     <button 
-                    className="nicebutton2"
+                    className="nicebutton5"
                     onClick={() => {
                         setAskedForCoockies(true);
                         setCoockiesAccepted(false);

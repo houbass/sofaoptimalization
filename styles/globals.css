@@ -354,15 +354,36 @@ label {
   font-size: 16px;
   font-weight: bold;
   border: none;
-  background: white;
+  background: rgb(255,255,255);
   color: black;
   transition: 0.2s ease-in-out;
+  opacity: 0.8;
+
 }
 
 .nicebutton4:hover {
-  background: rgba(58, 157, 58, 0.8);
-  color: rgb(255, 255, 255);
+  background: rgb(255, 255, 255);
+  opacity: 1;
 }
+
+.nicebutton5 {
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  transition: 0.2s ease-in-out;
+  opacity: 0.8;
+
+}
+
+.nicebutton5:hover {
+  opacity: 1;
+}
+
 
 .mt {
   margin-top: 20px;
