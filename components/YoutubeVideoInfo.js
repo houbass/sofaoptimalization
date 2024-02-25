@@ -1,32 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios'; 
 import Image from 'next/image';
-import { apiKeys } from '@/config/apiKeys';
 
 //pic
 import PlaySvg from "components/pic/icons/play.svg";
 
-const YouTubeVideo = ({ videoId }) => {
+const YouTubeVideo = ({ videoId, youtubeData }) => {
 
-    const [videoInfo, setVideoInfo] = useState(null);
 
-    useEffect(() => {
-        const fetchVideoInfo = async () => {
-        try {
-            const response = await axios.get(
-            `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKeys.google}`
-            );
+//src={youtubeData[0].thumbnails.medium.url}
+//items[0].snippet.thumbnails.medium
+//youtubeData[0].items[0].snippet.thumbnails.medium.url
+//https://i.ytimg.com/vi/MnbliXIqIrc/mqdefault.jpg
 
-            if (response.data.items.length > 0) {
-            setVideoInfo(response.data.items[0].snippet);
-            }
-        } catch (error) {
-            console.error('Error fetching video info:', error);
-        }
-        };
-
-        fetchVideoInfo();
-    }, [videoId]);
 
     return (
 
@@ -48,8 +32,8 @@ const YouTubeVideo = ({ videoId }) => {
                     justifyContent: "center",
                     height: "130px"
                 }}>
-                        {videoInfo 
-                        ? <img width={200} height="auto" src={videoInfo?.thumbnails.medium.url} alt="Video Thumbnail"/> 
+                        {videoId
+                        ? <img src={`https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`} width={200} height="auto" alt="Video Thumbnail"/> 
                         : <div 
                             style={{
                                 width: "100%",

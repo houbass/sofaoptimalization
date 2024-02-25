@@ -14,8 +14,14 @@ import backgroundPic4 from "@/components/pic/background5_v3.webp";
 
 //components
 import Releases from '@/components/Releases';
+import { useEffect } from 'react';
+import { apiKeys } from '@/config/apiKeys';
 
 const inter = Inter({ subsets: ['latin'] })
+
+
+
+
 
 //SERVER SIDER RENDER (firebase data)
 export async function getServerSideProps() {
@@ -26,22 +32,69 @@ export async function getServerSideProps() {
   const res = await getDocs(contentCollectionRef);
   const data2 = await getDocs(contentCollectionRef2);
 
+  // RELEASES
   const filteredData = res.docs.map((doc) => ({
       ...doc.data(), 
       id: doc.id, 
   }));
 
+  // LIVE STREAM LINK
   const filteredData2 = data2.docs.map((doc) => ({
     ...doc.data(), 
     id: doc.id, 
   }));
+
+  //GET YOUTUBE DATA
+  async function getYoutubeData(link) {
+    try {
+        const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${link}&key=${apiKeys.google}`);
+        // Check if the request was successful (status code 2xx)
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        return data;
+        
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+  }
+
+  // FETCH YOUTUBE DATA TO ARRAY
+  const fetchYoutubeData = async () => {
+    const youtubeData = [];
+    try {
+      await Promise.all(
+        filteredData.map(async (e, i) => {
+          try {
+            const result = await getYoutubeData(e.youtubelink);
+            youtubeData.push(result);
+          } catch (error) {
+            console.error(`Error fetching data for link ${e.youtubelink}:`, error);
+          }
+        })
+      );
+      //console.log(youtubeData); // Now this should log the first element of youtubeData
+        return youtubeData
+    
+    } catch (error) {
+      console.error('Error fetching YouTube data:', error);
+    }
+  };
+
+  const youtubeData = await fetchYoutubeData();
+
  
   // Pass data to the page via props
-  return { props: { filteredData, filteredData2 } }
+  return { props: { filteredData, filteredData2, youtubeData } }
 }
 
 
-const ReleasesPage = ({ filteredData, filteredData2 }) => {
+
+
+
+const ReleasesPage = ({ filteredData, filteredData2, youtubeData }) => {
 
     return(
         <>
@@ -117,7 +170,8 @@ const ReleasesPage = ({ filteredData, filteredData2 }) => {
           }}
           src={backgroundPic4} 
           alt="background"
-          placeholder='blur'>
+          placeholder='blur'
+          >
           </Image>
         </div>
 
@@ -172,9 +226,12 @@ const ReleasesPage = ({ filteredData, filteredData2 }) => {
                   <h1 
                   style={{
                       paddingBottom: "30px",
-                      
                   }}>Latest Sofa Lofi releases</h1>
-                  <Releases filteredData={filteredData}/>
+
+                  <Releases 
+                  filteredData={filteredData} 
+                  youtubeData={youtubeData}
+                  />
                   <div className='brush center mt'>
                       <h2>wanna hear more?</h2>
                       <p>check out Sofa Lofi Releases playlist or our 24/7 Youtube live stream</p>
